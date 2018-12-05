@@ -302,3 +302,7 @@ values(1,'users','http://localhost/monasabatna_web/public/svg/images/testipic.pn
 insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,created_by,updated_by)
 values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about2.png','user_image','png','v1@v.com','v1@v.com');
 
+
+#event orgainsers
+insert into event_organisers( vendor_id,name,no_of_themes,short_description,order_no,rating,fb_link,twitter_link,created_by,updated_by)
+values(1,'Kirit Bellubbi',8,'The Spring Trade Fair" (also labeled as just "Spring Trade Fair") is a major Spring Trade Fair. ', 1 , 4.2, 'https://www.facebook.com/Shake-It-Off-213865949349546/','https://twitter.com/ibonpereztv/status/1069178516028178433?','v1@v.com', 'v1@v.com');

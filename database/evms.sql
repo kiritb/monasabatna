@@ -156,11 +156,6 @@ create table evms.event_organisers(
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-insert into event_organisers( vendor_id,name,no_of_themes,short_description,order_no,rating,fb_link,twitter_link,created_by,updated_by)
-values(1,'Kirit Bellubbi',8,'The Spring Trade Fair" (also labeled as just "Spring Trade Fair") is a major Spring Trade Fair. ', 1 , 4.2, 'https://www.facebook.com/Shake-It-Off-213865949349546/','https://twitter.com/ibonpereztv/status/1069178516028178433?','v1@v.com', 'v1@v.com');
-
-
-
 DROP TABLE IF EXISTS evms.suppliers;
 create table evms.suppliers(
   id int(11) NOT NULL AUTO_INCREMENT,
