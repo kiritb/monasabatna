@@ -1,0 +1,486 @@
+DROP DATABASE IF EXISTS evms;
+
+CREATE DATABASE evms;
+
+DROP TABLE IF EXISTS evms.users;
+create table evms.users(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  first_name varchar(256) NOT NULL,
+  fathers_name varchar(256) NOT NULL,
+  family_name varchar(256) NOT NULL,
+  email varchar(256) NOT NULL,
+  password text NOT NULL,
+  account_verified_at datetime DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY email (email,status)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.vendors;
+CREATE TABLE evms.vendors
+(
+  id  int(11) NOT NULL AUTO_INCREMENT,
+  vendor_name varchar(256) NOT NULL,
+  fathers_name varchar(256) NOT NULL,
+  family_name varchar(256) DEFAULT NULL,
+  email varchar(30) NOT NULL,
+  accessToken varchar(32) DEFAULT NULL,
+  license_no varchar(256) NOT NULL,
+  expiry_date datetime DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY email (email,status)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.address;
+CREATE TABLE evms.address
+(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  address_line_1 text NOT NULL,
+  address_line_2 text DEFAULT NULL,
+  google_map_link text DEFAULT NULL,
+  city_id int(11) DEFAULT NULL,
+  country_id int(11) DEFAULT NULL,
+  is_default tinyint(1) NOT NULL DEFAULT 0,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.phones;
+CREATE TABLE evms.phones
+(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  country_code varchar(50) NOT NULL,
+  phone_number varchar(10) NOT NULL,
+  is_default tinyint(1) NOT NULL DEFAULT 0,
+  is_landline tinyint(1) NOT NULL DEFAULT 0,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY email (phone_number)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+  
+DROP TABLE IF EXISTS evms.vennues;
+CREATE TABLE evms.vennues
+(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  vendor_id int(11) NOT NULL,
+  name varchar(256) NOT NULL,
+  short_description text NOT NULL,
+  long_description text DEFAULT NULL,
+  points varchar(10) DEFAULT NULL,
+  min_guest_cap int(11) NOT NULL,
+  max_guest_cap int(11) NOT NULL,
+  start_time varchar(256) NOT NULL,
+  end_time varchar(256) NOT NULL,
+  transacton_count int(11) NOT NULL DEFAULT 0,
+  order_no int(11) DEFAULT NULL,
+  language_id int(11) NOT NULL,
+  home_page_display tinyint(1) NOT NULL DEFAULT 0,
+  is_express_deal tinyint(1) NOT NULL DEFAULT 0,
+  fb_link text DEFAULT NULL,
+  twitter_link text DEFAULT NULL,
+  rating decimal(10,1) NOT NULL DEFAULT 0,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (vendor_id) REFERENCES vennues(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.events;
+create table evms.events(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  vendor_id int(11) NOT NULL,
+  name varchar(256) NOT NULL,
+  event_type_id int(11) NOT NULL,
+  short_description text DEFAULT NULL,
+  start_date datetime NOT NULL,
+  end_date datetime NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  order_no int(11) DEFAULT NULL,
+  language_id int(11) NOT NULL,
+  is_express_deal tinyint(1) NOT NULL DEFAULT 0,
+  home_page_display tinyint(1) NOT NULL DEFAULT 0,
+  rating decimal(10,1) NOT NULL DEFAULT 0,
+  fb_link text DEFAULT NULL,
+  twitter_link text DEFAULT NULL,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (vendor_id) REFERENCES vennues(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.event_organisers;
+create table evms.event_organisers(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  vendor_id int(11) NOT NULL,
+  name varchar(256) NOT NULL,
+  no_of_themes int(11) NOT NULL,
+  short_description text DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  order_no int(11) DEFAULT NULL,
+  rating decimal(10,1) NOT NULL DEFAULT 0,
+  fb_link text DEFAULT NULL,
+  twitter_link text DEFAULT NULL,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (vendor_id) REFERENCES vennues(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+insert into event_organisers( vendor_id,name,no_of_themes,short_description,order_no,rating,fb_link,twitter_link,created_by,updated_by)
+values(1,'Kirit Bellubbi',8,'The Spring Trade Fair" (also labeled as just "Spring Trade Fair") is a major Spring Trade Fair. ', 1 , 4.2, 'https://www.facebook.com/Shake-It-Off-213865949349546/','https://twitter.com/ibonpereztv/status/1069178516028178433?','v1@v.com', 'v1@v.com');
+
+
+
+DROP TABLE IF EXISTS evms.suppliers;
+create table evms.suppliers(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  vendor_id int(11) NOT NULL,
+  name varchar(256) NOT NULL,
+  no_of_supplies int(11) NOT NULL,
+  short_description text DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  order_no int(11) DEFAULT NULL,
+  rating decimal(10,1) NOT NULL DEFAULT 0,
+  fb_link text DEFAULT NULL,
+  twitter_link text DEFAULT NULL,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (vendor_id) REFERENCES vennues(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.packages;
+create table evms.packages(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  vendor_id int(11) NOT NULL,
+  name varchar(256) NOT NULL, 
+  short_description text DEFAULT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  rating decimal(10,1) NOT NULL DEFAULT 0,
+  fb_link text DEFAULT NULL,
+  twitter_link text DEFAULT NULL,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (vendor_id) REFERENCES vennues(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.menu;
+create table evms.menu(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  name varchar(256) NOT NULL,
+  short_description text  DEFAULT NULL,
+  type varchar(256) NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  language_id int(11) NOT NULL,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.amenitie_types;
+create table evms.amenitie_types(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(256) NOT NULL,
+  short_description text  DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  language_id int(11) NOT NULL,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.amenities;
+create table evms.amenities(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  amenitie_type_id int(11) NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  language_id int(11) NOT NULL,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (amenitie_type_id) REFERENCES amenitie_types(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.services;
+create table evms.services(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  name varchar(256) NOT NULL,
+  short_description text DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  order_no int(11) DEFAULT NULL,
+  language_id int(11) NOT NULL,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.event_covers;
+create table evms.event_covers(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.event_types;
+create table evms.event_types(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(256) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.package_supplier_mapping;
+create table evms.package_supplier_mapping(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  package_id int(11) NOT NULL,
+  event_cover_id int(11) NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.files;
+create table evms.files(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  file_path varchar(256) NOT NULL,
+  file_type varchar(256) NOT NULL,
+  file_extension varchar(256) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  order_no int(11) DEFAULT NULL,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.contact_emails;
+create table evms.contact_emails(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  email varchar(256) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  order_no int(11) DEFAULT NULL,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.languages;
+create table evms.languages(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(64) NOT NULL,
+  code varchar(2) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.cities;
+create table evms.cities(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(64) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.pricings;
+create table evms.pricings(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  pricing_type_id int(11) NOT NULL,
+  price decimal(10,2) NOT NULL,
+  discount decimal(10,2) DEFAULT NULL,
+  actual_price decimal(10,2) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.pricing_type;
+create table evms.pricing_type(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(30) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.orders;
+create table evms.orders(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user_id int(11) NOT NULL,
+  order_no varchar(6) NOT NULL,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  voucher_id int(11) DEFAULT NULL,
+  voucher_amount decimal(10,2) DEFAULT NULL,
+  totalAmount decimal(10,2) NOT NULL,
+  discountedAmount decimal(10,2) NOT NULL,
+  netTotal decimal(10,2) NOT NULL,
+  taxAmount decimal(10,2) NOT NULL,
+  taxPercent decimal(10,2) NOT NULL,
+  serviceFee decimal(10,2) NOT NULL,
+  servicePercent decimal(10,2) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.client_creds;
+create table evms.client_creds(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(30) NOT NULL,
+  code varchar(4) NOT NULL,
+  secret_key  varchar(16) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.partners;
+create table evms.partners(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(30) NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  home_page_display tinyint(1) NOT NULL DEFAULT 0,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.reviews;
+create table evms.reviews(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user_id int(11) NOT NULL,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  review_comment text DEFAULT NULL,
+  rating int(11) DEFAULT NULL,
+  is_approved tinyint(1) NOT NULL DEFAULT 1,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.testimonials;
+create table evms.testimonials(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user_id int(11) NOT NULL,
+  testimonial text DEFAULT NULL,
+  is_approved tinyint(1) NOT NULL DEFAULT 1,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
