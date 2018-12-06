@@ -90,8 +90,11 @@ class VennueHelper
                 array_push($vennuesArr,$value);
 
             }
+            unset($venneDataArr['data']);
 
             $returnArr['vennueLists'] = $vennuesArr;
+            $returnArr['paginate']    = $venneDataArr;
+
             
             return $returnArr;
         }

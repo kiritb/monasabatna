@@ -123,5 +123,31 @@ class LoginController extends Controller
         }
         
     }
+
+    /**
+     * Logout
+     * Invalidate the token. User have to relogin to get a new token.
+     * @param Request $request 'header'
+    */
+    public function logout(Request $request) 
+    {
+        
+        $token = $request->header('Authorization');
+        
+        try {
+            
+            JWTAuth::invalidate($token);
+            
+            return response( ResponseUtil::buildSuccessResponse( ['message' => 'User successfully logged out.' ] ), HttpStatusCodesConsts::HTTP_OK );
+        } 
+        catch ( JWTException $e) 
+        {
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured ".print_r($e->getMessage(),true) );
+
+            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+                
+            return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
+        }
+    }
 }   
 

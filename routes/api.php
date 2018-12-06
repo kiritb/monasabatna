@@ -22,8 +22,14 @@ Route::group(['prefix' => 'v1'], function () {
   	Route::post('users', 'Auth\RegisterController@createUser');
   	Route::post('login', 'Auth\LoginController@login');
   	Route::get('home', 'Api\HomeController@index');
-  	Route::get('vennue', 'Api\VennueController@vennueListing');
+  	Route::get('vennues', 'Api\VennueController@vennueListing');
+  	Route::get('events', 'Api\EventController@eventListing');
     	
+});
+
+Route::middleware('jwt.auth')->group(function(){
+    
+    Route::get('logout', 'API\LoginController@logout');
 });
 
 // Route::get('/', function () {
