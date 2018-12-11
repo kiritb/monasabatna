@@ -16,6 +16,12 @@ use App\Models\Vendors;
 use App\Models\Amenities;
 use App\Models\AmenitieTypes;
 
+use App\Http\Helpers\AmmenitieHelper;
+use App\Http\Helpers\FileHelper;
+use App\Http\Helpers\ReviewsHelper;
+use App\Http\Helpers\PoliciesHelper;
+
+
 class VennueHelper
 {   
     /**
@@ -64,21 +70,16 @@ class VennueHelper
             
             $vennueIdArr  = array_column($venneDataArr['data'], 'vennueId');
  
-            $ammentiesData =    Amenities::select('amenities.linkable_id as vennueId', 'amenitie_types.name as amenitieName', 'amenities.order_no as amenitieDisplayOrder')
-                                            ->join('amenitie_types', 'amenitie_types.id', '=', 'amenities.amenitie_type_id')
-                                            ->where('amenities.linkable_type', 'vennues')
-                                            ->where('amenitie_types.status', 1)
-                                            ->where('amenities.status', 1)
-                                            ->whereIn('amenities.linkable_id', $vennueIdArr)
-                                            ->orderBy('amenities.order_no', 'asc')
-                                            ->get()
-                                            ->toArray();
+            $ammentiesData =    AmmenitieHelper::getAmmenties($vennueIdArr ,'vennues');
 
             $ammentiesDataArr = [];
 
-            foreach ($ammentiesData as $key => $value) 
+            if(!empty($ammentiesData))
             {
-                $ammentiesDataArr[$value['vennueId']][] = $value['amenitieName']; 
+                foreach ($ammentiesData as $key => $value) 
+                {
+                    $ammentiesDataArr[$value['vennueId']][] = $value['amenitieName']; 
+                }    
             }
             
             $vennuesArr = [];
@@ -97,6 +98,83 @@ class VennueHelper
 
             
             return $returnArr;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Vennue Listings ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured while Fetching Vennue Listings", 1);
+
+        }
+       
+    }
+
+    /**
+     *
+     * @return Array
+    */
+    public static function venueDetails( $vennueId )
+    {   
+        $returnArr = [];
+
+        try
+        {  
+
+            $vennueData = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName','vennues.short_description as vennueShortDescription',
+                                          'vennues.start_time as vennueStartTime',
+                                          'vennues.is_express_deal as isExpressDeal' , 'vennues.rating',
+                                          'address.address_line_1 as AddressLine_1','address.address_line_2 as AddressLine_2','address.google_map_link as googleMapLink','cities.name as cityName',
+                                          'pricings.actual_price as actualPrice','pricings.discount','pricing_type.name as pricingType')
+                            ->join('address', 'vennues.id', '=', 'address.linkable_id')
+                            ->join('pricings', 'vennues.id', '=', 'pricings.linkable_id')
+                            ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
+                            ->join('cities', 'address.city_id', '=', 'cities.id')
+                            ->where('address.linkable_type', 'vennues')
+                            ->where('pricings.linkable_type', 'vennues')
+                            ->where('address.status', 1)
+                            ->where('vennues.status', 1)
+                            ->where('pricings.status', 1)
+                            ->where('pricing_type.status', 1)
+                            ->where('cities.status', 1)
+                            ->where('vennues.id', $vennueId)
+                            ->get();
+
+            if( empty($vennueData) )
+            {
+                \Log::info(__CLASS__." ".__FUNCTION__." Vennue Data does not exists ");
+
+                return [];
+                
+            }
+
+            $venneDataArr           =   current( $vennueData->toArray() );
+            
+            /* fetch Ameneties for Vennue Id */
+
+            $ammentiesData                  =   AmmenitieHelper::getAmmenties([ $vennueId ] ,'vennues');
+                        
+            $venneDataArr['ammenties']       = empty($ammentiesData) ? [] : $ammentiesData;
+
+            /* fetch Files for Vennue Id */
+
+            $fileData = FileHelper::getFiles([$vennueId], 'vennues');
+
+            $venneDataArr['files']       = empty($fileData) ? [] : $fileData;
+
+            /* Fetch Reviews for user */
+
+            $reviewData = ReviewsHelper::getReviews($vennueId, 'vennues');
+
+            $venneDataArr['reviews']       = empty($reviewData) ? [] : $reviewData;
+
+            /* get policy temrs and conditions */
+
+            $policyData = PoliciesHelper::getPolicies($vennueId, 'vennues');
+
+            $venneDataArr['policies']       = empty($policyData) ? [] : $policyData;            
+            
+
+            return $venneDataArr;
         }
         catch( \Exception $e)
         {   

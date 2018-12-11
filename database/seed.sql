@@ -170,6 +170,83 @@ values (1,'Spring Trade Fair', 'The Spring Trade Fair" (also labeled as just "Sp
 	insert into amenities ( linkable_id,linkable_type,amenitie_type_id,order_no,language_id,created_by,updated_by)
 	values(6,'vennues',1,2,1,'v1@v.com','v1@v.com');
 
+
+	#policies
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(1,'vennues','Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.',1,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(1,'vennues','Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.',2,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(1,'vennues','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(2,'vennues','Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.',1,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(2,'vennues','Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.',2,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(2,'vennues','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
+
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(3,'vennues','Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.',1,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(3,'vennues','Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.',2,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(3,'vennues','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
+
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(4,'vennues','Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.',1,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(4,'vennues','Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.',2,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(4,'vennues','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(5,'vennues','Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.',1,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(5,'vennues','Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.',2,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(5,'vennues','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(6,'vennues','Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.',1,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(6,'vennues','Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.',2,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(6,'vennues','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
+
+	#reviews
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,1,'vennues','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,2,'vennues','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,3,'vennues','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,4,'vennues','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,4,'vennues','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,6,'vennues','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
 #Create Events with and without Express deals
 
 insert into events ( vendor_id, name ,event_type_id, short_description,start_date,end_date,order_no,language_id,is_express_deal,home_page_display,created_by,updated_by )
@@ -302,7 +379,6 @@ values(1,'users','http://localhost/monasabatna_web/public/svg/images/testipic.pn
 insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,created_by,updated_by)
 values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about2.png','user_image','png','v1@v.com','v1@v.com');
 
-
-#event orgainsers
+#event organisers
 insert into event_organisers( vendor_id,name,no_of_themes,short_description,order_no,rating,fb_link,twitter_link,created_by,updated_by)
 values(1,'Kirit Bellubbi',8,'The Spring Trade Fair" (also labeled as just "Spring Trade Fair") is a major Spring Trade Fair. ', 1 , 4.2, 'https://www.facebook.com/Shake-It-Off-213865949349546/','https://twitter.com/ibonpereztv/status/1069178516028178433?','v1@v.com', 'v1@v.com');

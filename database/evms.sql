@@ -155,6 +155,44 @@ create table evms.event_organisers(
   FOREIGN KEY (vendor_id) REFERENCES vennues(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS evms.event_covers;
+create table evms.event_covers(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.event_types;
+create table evms.event_types(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(256) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.theme_types;
+create table evms.theme_types(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(256) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 DROP TABLE IF EXISTS evms.suppliers;
 create table evms.suppliers(
@@ -263,31 +301,6 @@ create table evms.services(
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS evms.event_covers;
-create table evms.event_covers(
-  id int(11) NOT NULL AUTO_INCREMENT,
-  linkable_id int(11) NOT NULL,
-  linkable_type varchar(30) NOT NULL,
-  order_no int(11) DEFAULT NULL,
-  status int(1) NOT NULL DEFAULT 1,
-  created_at datetime DEFAULT NULL,
-  updated_at datetime DEFAULT NULL,
-  created_by varchar(256) NOT NULL,
-  updated_by varchar(256) NOT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-DROP TABLE IF EXISTS evms.event_types;
-create table evms.event_types(
-  id int(11) NOT NULL AUTO_INCREMENT,
-  name varchar(256) NOT NULL,
-  status int(1) NOT NULL DEFAULT 1,
-  created_at datetime DEFAULT NULL,
-  updated_at datetime DEFAULT NULL,
-  created_by varchar(256) NOT NULL,
-  updated_by varchar(256) NOT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS evms.package_supplier_mapping;
 create table evms.package_supplier_mapping(
@@ -463,6 +476,7 @@ create table evms.reviews(
   FOREIGN KEY (user_id) REFERENCES users(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 DROP TABLE IF EXISTS evms.testimonials;
 create table evms.testimonials(
   id int(11) NOT NULL AUTO_INCREMENT,
@@ -476,6 +490,23 @@ create table evms.testimonials(
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.policies;
+create table evms.policies(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  terms_header text NOT NULL,
+  terms text DEFAULT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 

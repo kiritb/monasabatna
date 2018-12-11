@@ -23,8 +23,8 @@ Route::group(['prefix' => 'v1'], function () {
   	Route::post('login', 'Auth\LoginController@login');
   	Route::get('home', 'Api\HomeController@index');
   	Route::get('vennues', 'Api\VennueController@vennueListing');
-  	Route::get('events', 'Api\EventController@eventListing');
-  	Route::get('venue/{id}', 'Api\VennueController@venueDetails');
+  	Route::get('events/upcoming', 'Api\EventController@eventListing');
+  	Route::get('vennues/{id}', 'Api\VennueController@venueDetails');
     	
 });
 

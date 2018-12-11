@@ -14,7 +14,7 @@ class VennueController extends Controller
 {
    
     /**
-     * generates a access Key in order to access Api
+     * generates a list of vennues 
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -30,6 +30,32 @@ class VennueController extends Controller
             $vennueListingData = VennueHelper::vennueListing();
 
             return response( ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_CREATED );
+        }
+        catch( \Exception $e)
+        {
+            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+                
+                return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
+        }
+        
+   }
+
+   /**
+     * detailed list of a vennue
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+    */
+   public function venueDetails( $vennueId )
+   {    
+        
+        \Log::info(__CLASS__." ".__FUNCTION__.' Vennue Id =>'. $vennueId );
+
+        try
+        {
+            $vennueDetails = VennueHelper::venueDetails( $vennueId );
+
+            return response( ResponseUtil::buildSuccessResponse($vennueDetails), HttpStatusCodesConsts::HTTP_CREATED );
         }
         catch( \Exception $e)
         {
