@@ -21,8 +21,6 @@ class ReviewsHelper
     public static function getReviews( $linkableId, $linkableType )
     {   
         
-        \DB::beginTransaction();
-
         try
         {   
             $reviewsDetails = Reviews::select('review_comment', 'rating','users.first_name', 'users.family_name')

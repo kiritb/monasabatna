@@ -15,6 +15,12 @@ use App\Models\Events;
 use App\Models\Vendors;
 use App\Models\Amenities;
 use App\Models\AmenitieTypes;
+use App\Models\EventOrganisers;
+
+
+use App\Http\Helpers\ThemeHelper;
+
+
 
 class EventHelper
 {   
@@ -61,42 +67,6 @@ class EventHelper
                 return [];
                 
             }
-
-            // $venneDataArr = $vennueData->toArray();
-            
-            // $vennueIdArr  = array_column($venneDataArr['data'], 'vennueId');
- 
-            // $ammentiesData =    Amenities::select('amenities.linkable_id as vennueId', 'amenitie_types.name as amenitieName', 'amenities.order_no as amenitieDisplayOrder')
-            //                                 ->join('amenitie_types', 'amenitie_types.id', '=', 'amenities.amenitie_type_id')
-            //                                 ->where('amenities.linkable_type', 'vennues')
-            //                                 ->where('amenitie_types.status', 1)
-            //                                 ->where('amenities.status', 1)
-            //                                 ->whereIn('amenities.linkable_id', $vennueIdArr)
-            //                                 ->orderBy('amenities.order_no', 'asc')
-            //                                 ->get()
-            //                                 ->toArray();
-
-            // $ammentiesDataArr = [];
-
-            // foreach ($ammentiesData as $key => $value) 
-            // {
-            //     $ammentiesDataArr[$value['vennueId']][] = $value['amenitieName']; 
-            // }
-            
-            // $vennuesArr = [];
-
-            // foreach ($venneDataArr['data'] as $key => $value) {
-                
-            //     $value['ammenties'] = isset( $ammentiesDataArr[$value['vennueId'] ] ) ? $ammentiesDataArr[$value['vennueId']] : [];
-                
-            //     array_push($vennuesArr,$value);
-
-            // }
-            // unset($venneDataArr['data']);
-
-            // $returnArr['vennueLists'] = $vennuesArr;
-            // $returnArr['paginate']    = $venneDataArr;
-
             
              $returnArr['upcomingEvents'] = $eventsData;
 
@@ -107,6 +77,103 @@ class EventHelper
             \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Vennue Listings ".print_r( $e->getMessage(), true) );
 
             throw new \Exception(" Exception Occured while Fetching Vennue Listings", 1);
+
+        }
+       
+    }
+
+    /**
+     *
+     * @return Array
+    */
+    public static function eventOrgainsersList()
+    {   
+        $returnArr = [];
+
+        try
+        {  
+
+             $eventOrganisersData = EventOrganisers::select( 'event_organisers.id as eventOrganisersId',
+                                                             'event_organisers.name as eventOrgainsersName',
+                                                             'event_organisers.short_description as eventShortDescription',
+                                                             'event_organisers.order_no as displayOrder',
+                                                             'event_organisers.rating',
+                                                             'address.address_line_1 as AddressLine_1',
+                                                             'address.address_line_2 as AddressLine_2',
+                                                             'address.google_map_link as googleMapLink',
+                                                             'cities.name as cityName',
+                                                             'files.file_path as filePath'
+                                                          )
+                            ->join('address', 'event_organisers.id', '=', 'address.linkable_id')
+                            ->join('cities', 'address.city_id', '=', 'cities.id')
+                            ->join('files', 'event_organisers.id', '=', 'files.linkable_id')
+                            ->where('address.linkable_type', 'event_organisers')
+                            ->where('files.linkable_type', 'event_organisers')
+                            ->where('files.file_type', 'home_page_display')
+                            ->where('address.status', 1)
+                            ->where('event_organisers.status', 1)
+                            ->where('files.status', 1)
+                            ->where('cities.status', 1)
+                            ->where('address.status', 1)
+                            ->where('cities.status', 1)
+                            ->orderBy('event_organisers.order_no', 'asc')
+                            ->paginate(2);
+
+            if( empty($eventOrganisersData) )
+            {
+                \Log::info(__CLASS__." ".__FUNCTION__." Event Organisers Data does not exists ");
+
+                return [];
+                
+            }
+
+            $eventOrganisersArr     = $eventOrganisersData->toArray();
+            
+            $eventOrganisersIdArr   = array_column($eventOrganisersArr['data'], 'eventOrganisersId');
+ 
+            $eventCoversData        = ThemeHelper::getEventCovers($eventOrganisersIdArr, 'event_organisers');
+
+            $eventCoversArr = [];
+            $priceArr       = [];
+
+            foreach ($eventCoversData as $key => $value) 
+            {   
+                 
+                usort($value['price'], function($a, $b) {
+                        return $a['actualPrice'] <=> $b['actualPrice'];
+                });
+                
+                $eventCoversArr[$key]   = array_values ( array_unique( $value['event_covers'] ) );
+                
+                $priceArr[$key]   = $value['price'][0];
+            }
+
+            $eventArr = [];
+
+            foreach ($eventOrganisersArr['data'] as $key => $value) {
+                
+                $value['event_covers'] = isset( $eventCoversArr[$value['eventOrganisersId'] ] ) ? $eventCoversArr[$value['eventOrganisersId']] : [];
+                
+                $value['price'] = isset( $priceArr[$value['eventOrganisersId'] ] ) ? $priceArr[$value['eventOrganisersId']] : [];
+
+                array_push($eventArr,$value);
+
+            }
+
+            unset($eventOrganisersArr['data']);
+
+            $returnArr['eventOrganiserslist']   = $eventArr;
+            
+            $returnArr['paginate']              = $eventOrganisersArr;
+            
+
+            return $returnArr;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Event Organisers Listings ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured while Fetching Event Organisers Listings", 1);
 
         }
        

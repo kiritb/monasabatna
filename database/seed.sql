@@ -13,6 +13,21 @@
 	insert into event_types (name, created_by, updated_by)
 	values('Fair', 'v1@v.com','v1@v.com');
 
+	insert into event_types (name, created_by, updated_by)
+	values('Birthday', 'v1@v.com','v1@v.com');
+
+	insert into event_types (name, created_by, updated_by)
+	values('Weddings', 'v1@v.com','v1@v.com');
+
+	insert into event_types (name, created_by, updated_by)
+	values('Business Meetings', 'v1@v.com','v1@v.com');
+
+	insert into event_types (name, created_by, updated_by)
+	values('Baby Shower', 'v1@v.com','v1@v.com');
+
+	insert into event_types (name, created_by, updated_by)
+	values('Engagements', 'v1@v.com','v1@v.com');
+
 
 	#cities
 	insert into cities (name,created_by,updated_by)
@@ -42,6 +57,56 @@
 
 	insert into pricing_type (name,created_by,updated_by)
 	values('per day', 'v1@v.com', 'v1@v.com');
+
+
+	#services types
+	insert into services_types ( name,created_by,updated_by)
+	values('Food','v1@v.com','v1@v.com');
+
+	insert into services_types ( name,created_by,updated_by)
+	values('Music','v1@v.com','v1@v.com');
+
+	insert into services_types ( name,created_by,updated_by)
+	values('Speakers','v1@v.com','v1@v.com');
+
+	#theme types
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Mickey Mouse', 5,'v1@v.com', 'v1@v.com');
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Donald Duck', 5,'v1@v.com', 'v1@v.com');
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Avengers', 5,'v1@v.com', 'v1@v.com');
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Tradational Wedding', 6,'v1@v.com', 'v1@v.com');
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Western Wedding', 6,'v1@v.com', 'v1@v.com');
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Destination Wedding', 6,'v1@v.com', 'v1@v.com');
+
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Bussiness Meeting 1', 7,'v1@v.com', 'v1@v.com');
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Bussiness Meeting 2', 7,'v1@v.com', 'v1@v.com');
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Bussiness Meeting 3', 7,'v1@v.com', 'v1@v.com');
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Baby Theme 1', 8,'v1@v.com', 'v1@v.com');
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Baby Theme 2', 8,'v1@v.com', 'v1@v.com');
+
+	insert into theme_types ( name, event_type_id,created_by, updated_by)
+	values ('Baby Theme 3', 8,'v1@v.com', 'v1@v.com');
+
 
 # Create Vendors
 insert into vendors ( vendor_name,fathers_name, family_name, email,license_no,created_by,updated_by)
@@ -247,6 +312,136 @@ values (1,'Spring Trade Fair', 'The Spring Trade Fair" (also labeled as just "Sp
 	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
 	values(1,6,'vennues','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
 
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,1,'vennues','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,2,'vennues','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,3,'vennues','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,4,'vennues','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,4,'vennues','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,6,'vennues','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+
+	#services
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(1,1,'vennues',1,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(2,1,'vennues',2,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(3,1,'vennues',3,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(1,2,'vennues',1,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(2,2,'vennues',2,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(3,2,'vennues',3,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(1,3,'vennues',1,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(2,3,'vennues',2,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(3,3,'vennues',3,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(1,4,'vennues',1,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(2,4,'vennues',2,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(3,4,'vennues',3,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(1,5,'vennues',1,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(2,5,'vennues',2,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(3,5,'vennues',3,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(1,6,'vennues',1,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(2,6,'vennues',2,1,'v1@v.com','v1@v.com');
+
+	insert into services (service_type_id,linkable_id,linkable_type,order_no,language_id,created_by,updated_by)
+	values(3,6,'vennues',3,1,'v1@v.com','v1@v.com');
+
+	#service pricings
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (1,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (2,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (3,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (4,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (5,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (6,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (7,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (8,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (9,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (10,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (11,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (12,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (13,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (14,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (15,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (16,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (17,'services',1,100,100,'v1@v.com','v1@v.com');
+	
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (18,'services',1,100,100,'v1@v.com','v1@v.com');
+
+
 #Create Events with and without Express deals
 
 insert into events ( vendor_id, name ,event_type_id, short_description,start_date,end_date,order_no,language_id,is_express_deal,home_page_display,created_by,updated_by )
@@ -380,5 +575,278 @@ insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,c
 values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about2.png','user_image','png','v1@v.com','v1@v.com');
 
 #event organisers
-insert into event_organisers( vendor_id,name,no_of_themes,short_description,order_no,rating,fb_link,twitter_link,created_by,updated_by)
-values(1,'Kirit Bellubbi',8,'The Spring Trade Fair" (also labeled as just "Spring Trade Fair") is a major Spring Trade Fair. ', 1 , 4.2, 'https://www.facebook.com/Shake-It-Off-213865949349546/','https://twitter.com/ibonpereztv/status/1069178516028178433?','v1@v.com', 'v1@v.com');
+	insert into event_organisers( vendor_id,name,short_description,order_no,rating,fb_link,twitter_link,created_by,updated_by)
+	values(1,'Kirit Bellubbi','The Spring Trade Fair" (also labeled as just "Spring Trade Fair") is a major Spring Trade Fair. ', 1 , 4.2, 'https://www.facebook.com/Shake-It-Off-213865949349546/','https://twitter.com/ibonpereztv/status/1069178516028178433?','v1@v.com', 'v1@v.com');
+
+	insert into event_organisers( vendor_id,name,short_description,order_no,rating,fb_link,twitter_link,created_by,updated_by)
+	values(1,'ABC','The Autmn Trade Fair" (also labeled as just "Spring Trade Fair") is a major Spring Trade Fair. ', 2 , 2.2, 'https://www.facebook.com/Shake-It-Off-213865949349546/','https://twitter.com/ibonpereztv/status/1069178516028178433?','v1@v.com', 'v1@v.com');
+
+	insert into event_organisers( vendor_id,name,short_description,order_no,rating,fb_link,twitter_link,created_by,updated_by)
+	values(1,'EFG','The Summer Trade Fair" (also labeled as just "Spring Trade Fair") is a major Spring Trade Fair. ', 3 , 2.2, 'https://www.facebook.com/Shake-It-Off-213865949349546/','https://twitter.com/ibonpereztv/status/1069178516028178433?','v1@v.com', 'v1@v.com');
+
+	insert into event_organisers( vendor_id,name,short_description,order_no,rating,fb_link,twitter_link,created_by,updated_by)
+	values(1,'HIJ','The Winter Trade Fair" (also labeled as just "Spring Trade Fair") is a major Spring Trade Fair. ', 4 , 2.2, 'https://www.facebook.com/Shake-It-Off-213865949349546/','https://twitter.com/ibonpereztv/status/1069178516028178433?','v1@v.com', 'v1@v.com');
+
+	#Create Address
+	insert into address (linkable_id, linkable_type,address_line_1,google_map_link,city_id,created_by,updated_by)
+	values (1,'event_organisers','123 XYZ Street','https://goo.gl/maps/XNv83vgHXyw', 1,'v1@v.com','v1@v.com');
+
+	insert into address (linkable_id, linkable_type,address_line_1,google_map_link,city_id,created_by,updated_by)
+	values (2,'event_organisers','456 XYZ Street','https://goo.gl/maps/XNv83vgHXyw', 1,'v1@v.com','v1@v.com');
+
+	insert into address (linkable_id, linkable_type,address_line_1,google_map_link,city_id,created_by,updated_by)
+	values (3,'event_organisers','789 XYZ Street','https://goo.gl/maps/XNv83vgHXyw', 1,'v1@v.com','v1@v.com');
+
+	insert into address (linkable_id, linkable_type,address_line_1,google_map_link,city_id,created_by,updated_by)
+	values (4,'event_organisers','111 XYZ Street','https://goo.gl/maps/XNv83vgHXyw', 1,'v1@v.com','v1@v.com');
+	
+
+	#images
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(1,'event_organisers','http://localhost/monasabatna_web/public/svg/images/event-portfolio-one.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(2,'event_organisers','http://localhost/monasabatna_web/public/svg/images/event-portfolio-five.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(3,'event_organisers','http://localhost/monasabatna_web/public/svg/images/event-portfolio-nine.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(4,'event_organisers','http://localhost/monasabatna_web/public/svg/images/event-portfolio-seven.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	#event covers
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 5,1,'event_organisers',1,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 6,1,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 7,1,'event_organisers',3,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 8,2,'event_organisers',4,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 5,2,'event_organisers',1,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 6,2,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 7,2,'event_organisers',3,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 8,2,'event_organisers',4,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 5,3,'event_organisers',1,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 6,3,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 7,3,'event_organisers',3,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 8,3,'event_organisers',4,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 5,4,'event_organisers',1,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 6,4,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 7,4,'event_organisers',3,'v1@v.com','v1@v.com');
+
+	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
+	values ( 8,4,'event_organisers',4,'v1@v.com','v1@v.com');
+
+	#themes
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (1,1,'event_organisers',1,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (2,1,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (3,1,'event_organisers',3,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (4,1,'event_organisers',4,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (5,1,'event_organisers',5,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (6,1,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (7,1,'event_organisers',7,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (8,1,'event_organisers',8,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (9,1,'event_organisers',9,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (10,1,'event_organisers',10,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (11,1,'event_organisers',11,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (12,1,'event_organisers',12,'v1@v.com','v1@v.com');
+
+	----
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (1,2,'event_organisers',1,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (2,2,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (3,2,'event_organisers',3,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (4,2,'event_organisers',4,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (5,2,'event_organisers',5,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (6,2,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (7,2,'event_organisers',7,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (8,2,'event_organisers',8,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (9,2,'event_organisers',9,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (10,2,'event_organisers',10,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (11,2,'event_organisers',11,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (12,2,'event_organisers',12,'v1@v.com','v1@v.com');
+
+
+	----
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (1,3,'event_organisers',1,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (2,3,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (3,3,'event_organisers',3,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (4,3,'event_organisers',4,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (5,3,'event_organisers',5,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (6,3,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (7,3,'event_organisers',7,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (8,3,'event_organisers',8,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (9,3,'event_organisers',9,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (10,3,'event_organisers',10,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (11,3,'event_organisers',11,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (12,3,'event_organisers',12,'v1@v.com','v1@v.com');
+
+	--
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (1,4,'event_organisers',1,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (2,4,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (3,4,'event_organisers',3,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (4,4,'event_organisers',4,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (5,4,'event_organisers',5,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (6,4,'event_organisers',2,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (7,4,'event_organisers',7,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (8,4,'event_organisers',8,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (9,4,'event_organisers',9,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (10,4,'event_organisers',10,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (11,4,'event_organisers',11,'v1@v.com','v1@v.com');
+
+	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
+	values (12,4,'event_organisers',12,'v1@v.com','v1@v.com');
+
+	#create price
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (1,'themes',1,100,100,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (2,'themes',2,1000,1000,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (3,'themes',2,800,800,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (4,'themes',1,80,80,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (5,'themes',1,70,70,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (6,'themes',2,1200,1200,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (7,'themes',1,100,100,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (8,'themes',2,1000,1000,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (9,'themes',2,800,800,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (10,'themes',1,80,80,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (11,'themes',1,70,70,'v1@v.com','v1@v.com');
+
+	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
+	values (12,'themes',2,1200,1200,'v1@v.com','v1@v.com');

@@ -21,8 +21,6 @@ class FileHelper
     public static function getFiles( $linkableIdArr, $linkableType )
     {   
         
-        \DB::beginTransaction();
-
         try
         {   
             $fileDetails = Files::select('linkable_id','linkable_type','file_type as fileType', 'files.file_path as filePath', 'file_extension as fileExtenstion','order_no as fileDisplayOrder')

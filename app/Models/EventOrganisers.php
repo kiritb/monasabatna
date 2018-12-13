@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $id
  * @property integer $vendor_id
  * @property string $name
- * @property integer $no_of_themes
  * @property string $short_description
  * @property integer $order_no
  * @property float $rating
@@ -28,11 +27,11 @@ class EventOrganisers extends Model
      * 
      * @var string
      */
-    protected $table = 'events';
+    protected $table = 'event_organisers';
 
     /**
      * @var array
      */
-    protected $fillable = ['vendor_id', 'name', 'no_of_themes', 'short_description', 'order_no', 'home_page_display', 'rating', 'fb_link', 'twitter_link',  'status','created_by', 'updated_by' ];
+    protected $fillable = ['vendor_id', 'name', 'short_description', 'order_no', 'home_page_display', 'rating', 'fb_link', 'twitter_link',  'status','created_by', 'updated_by' ];
 
 }

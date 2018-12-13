@@ -20,6 +20,8 @@ use App\Http\Helpers\AmmenitieHelper;
 use App\Http\Helpers\FileHelper;
 use App\Http\Helpers\ReviewsHelper;
 use App\Http\Helpers\PoliciesHelper;
+use App\Http\Helpers\ServicesHelper;
+
 
 
 class VennueHelper
@@ -173,6 +175,9 @@ class VennueHelper
 
             $venneDataArr['policies']       = empty($policyData) ? [] : $policyData;            
             
+            $serviceData =  ServicesHelper::getServices($vennueId, 'vennues')
+
+            $venneDataArr['services']       = empty($serviceData) ? [] : $serviceData;            
 
             return $venneDataArr;
         }
