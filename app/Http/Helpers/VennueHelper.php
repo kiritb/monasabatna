@@ -175,7 +175,7 @@ class VennueHelper
 
             $venneDataArr['policies']       = empty($policyData) ? [] : $policyData;            
             
-            $serviceData =  ServicesHelper::getServices($vennueId, 'vennues')
+            $serviceData =  ServicesHelper::getServices($vennueId, 'vennues');
 
             $venneDataArr['services']       = empty($serviceData) ? [] : $serviceData;            
 

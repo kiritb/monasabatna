@@ -614,55 +614,6 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
 	values(4,'event_organisers','http://localhost/monasabatna_web/public/svg/images/event-portfolio-seven.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
 
-	#event covers
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 5,1,'event_organisers',1,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 6,1,'event_organisers',2,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 7,1,'event_organisers',3,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 8,2,'event_organisers',4,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 5,2,'event_organisers',1,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 6,2,'event_organisers',2,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 7,2,'event_organisers',3,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 8,2,'event_organisers',4,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 5,3,'event_organisers',1,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 6,3,'event_organisers',2,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 7,3,'event_organisers',3,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 8,3,'event_organisers',4,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 5,4,'event_organisers',1,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 6,4,'event_organisers',2,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 7,4,'event_organisers',3,'v1@v.com','v1@v.com');
-
-	insert into event_covers (event_type_id,linkable_id,linkable_type,order_no,created_by,updated_by)
-	values ( 8,4,'event_organisers',4,'v1@v.com','v1@v.com');
-
 	#themes
 	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
 	values (1,1,'event_organisers',1,'v1@v.com','v1@v.com');
