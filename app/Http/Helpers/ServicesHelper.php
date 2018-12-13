@@ -24,18 +24,22 @@ class ServicesHelper
         try
         {   
             $serviceDetails = Services::select( 'services_types.name as serviceName', 
-                                                'services.order_no as displayOrder'
+                                                'services.order_no as displayOrder',
+                                                'pricings.actual_price as actualPrice',
+                                                'pricings.discount',
+                                                'pricing_type.name as pricingType'
                                               )
                                     ->join('services_types', 'services_types.id', '=', 'services.service_type_id')
-                                    ->join('pricings', 'services_types.linkable_id', '=', 'pricings.linkable_id')
+                                    ->join('pricings', 'services.linkable_id', '=', 'pricings.linkable_id')
                                     ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
-                                    ->where('pricings.linkable_type', $linkableType)
                                     ->where('services.status', 1)
                                     ->where('services_types.status', 1)
                                     ->where('pricings.status', 1)
                                     ->where('pricing_type.status', 1)
+                                    ->where('pricings.linkable_type', $linkableType)
                                     ->where('services.linkable_id', $linkableId)
                                     ->where('services.linkable_type', $linkableType)
+                                    ->orderBy('services.order_no', 'asc')
                                     ->get()
                                     ->toArray();
 
