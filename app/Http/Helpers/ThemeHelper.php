@@ -33,18 +33,23 @@ class ThemeHelper
                                                                 'theme_types.name',
                                                                 'pricings.actual_price as actualPrice',
                                                                 'pricings.discount',
-                                                                'pricing_type.name as pricingType'
+                                                                'pricing_type.name as pricingType',
+                                                                'files.file_path as filePath'
                                                              )
                                             ->join('theme_types', 'theme_types.id', '=', 'event_theme_mappings.theme_id')
                                             ->join('event_types', 'event_types.id', '=', 'theme_types.event_type_id')
                                             ->join('pricings', 'pricings.linkable_id', '=', 'theme_types.id')
+                                            ->join('files', 'files.linkable_id', '=', 'theme_types.id')
                                             ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
                                             ->whereIn('event_theme_mappings.linkable_id', $linkableIdArr)
                                             ->where('event_theme_mappings.linkable_type', $linkableType)
+                                            ->where('files.linkable_type', 'themes')
+                                            ->where('files.file_type', 'home_page_display')
                                             ->where('pricings.linkable_type', 'themes')
                                             ->where('event_theme_mappings.status', 1)
                                             ->where('event_types.status', 1)
                                             ->where('theme_types.status', 1)
+                                            ->where('files.status', 1)
                                             ->orderBy('event_theme_mappings.order_no', 'asc')
                                             ->get()
                                             ->toArray();

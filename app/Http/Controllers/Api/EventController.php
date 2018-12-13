@@ -14,7 +14,7 @@ class EventController extends Controller
 {
    
     /**
-     * generates a access Key in order to access Api
+     * 
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -41,7 +41,7 @@ class EventController extends Controller
    }
 
    /**
-     * generates a access Key in order to access Api
+     * 
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -67,5 +67,31 @@ class EventController extends Controller
         
    }
 
+   /**
+     * generates a access Key in order to access Api
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+    */
+   public function getEventOrgainserDetails( $id , Request $request)
+   {    
+        $requestParams = $request->all();
+        
+        \Log::info(__CLASS__." ".__FUNCTION__.' Request Params =>'. print_r($requestParams , true ) );
+
+        try
+        {
+            $eventOrgainserData = EventHelper::getEventOrgainserDetails( $id );
+
+            return response( ResponseUtil::buildSuccessResponse($eventOrgainserData), HttpStatusCodesConsts::HTTP_CREATED );
+        }
+        catch( \Exception $e)
+        {
+            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+                
+                return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
+        }
+        
+   }
    
 }

@@ -651,7 +651,6 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
 	values (12,1,'event_organisers',12,'v1@v.com','v1@v.com');
 
-	----
 	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
 	values (1,2,'event_organisers',1,'v1@v.com','v1@v.com');
 
@@ -687,9 +686,6 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 
 	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
 	values (12,2,'event_organisers',12,'v1@v.com','v1@v.com');
-
-
-	----
 
 	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
 	values (1,3,'event_organisers',1,'v1@v.com','v1@v.com');
@@ -765,7 +761,7 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
 	values (12,4,'event_organisers',12,'v1@v.com','v1@v.com');
 
-	#create price
+	#create theme price
 	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
 	values (1,'themes',1,100,100,'v1@v.com','v1@v.com');
 
@@ -801,3 +797,113 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 
 	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
 	values (12,'themes',2,1200,1200,'v1@v.com','v1@v.com');
+
+	#theme files
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(1,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(1,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(1,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(2,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(2,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(2,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(3,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(3,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(3,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(4,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(4,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(4,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(5,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(5,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(5,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(6,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(6,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(6,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(7,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(7,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(7,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(8,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(8,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(8,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(9,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(9,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(9,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(10,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(10,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(10,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(11,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(11,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(11,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(12,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','home_page_display','png',1,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(12,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',2,'v1@v.com','v1@v.com');
+
+	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+	values(12,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');

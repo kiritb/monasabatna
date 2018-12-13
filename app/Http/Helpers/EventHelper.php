@@ -98,6 +98,8 @@ class EventHelper
                                                              'event_organisers.short_description as eventShortDescription',
                                                              'event_organisers.order_no as displayOrder',
                                                              'event_organisers.rating',
+                                                             'event_organisers.twitter_link as twitterLink',
+                                                             'event_organisers.fb_link as fbLink',
                                                              'address.address_line_1 as AddressLine_1',
                                                              'address.address_line_2 as AddressLine_2',
                                                              'address.google_map_link as googleMapLink',
@@ -179,5 +181,101 @@ class EventHelper
        
     }
 
+
+    /**
+     *
+     * @return Array
+    */
+    public static function getEventOrgainserDetails( $id )
+    {   
+        $returnArr = [];
+
+        try
+        {  
+
+             $eventOrganisersArr = current(EventOrganisers::select( 'event_organisers.id as eventOrganisersId',
+                                                             'event_organisers.name as eventOrgainsersName',
+                                                             'event_organisers.short_description as eventShortDescription',
+                                                             'event_organisers.order_no as displayOrder',
+                                                             'event_organisers.rating',
+                                                             'event_organisers.twitter_link as twitterLink',
+                                                             'event_organisers.fb_link as fbLink',
+                                                             'address.address_line_1 as AddressLine_1',
+                                                             'address.address_line_2 as AddressLine_2',
+                                                             'address.google_map_link as googleMapLink',
+                                                             'cities.name as cityName',
+                                                             'vendors.vendor_name as vendorName',
+                                                             'vendors.license_no as licenseNo'
+                                                          )
+                            ->join('address', 'event_organisers.id', '=', 'address.linkable_id')
+                            ->join('cities', 'address.city_id', '=', 'cities.id')
+                            ->join('vendors', 'vendors.id', '=', 'event_organisers.vendor_id')
+                            ->where('address.linkable_type', 'event_organisers')
+                            ->where('address.status', 1)
+                            ->where('event_organisers.status', 1)
+                            ->where('cities.status', 1)
+                            ->where('address.status', 1)
+                            ->where('cities.status', 1)
+                            ->where('event_organisers.id', $id)
+                            ->orderBy('event_organisers.order_no', 'asc')
+                            ->get()
+                            ->toArray() );
+
+            if( empty($eventOrganisersArr) )
+            {
+                \Log::info(__CLASS__." ".__FUNCTION__." Event Organisers Data does not exists ");
+
+                return [];
+                
+            }
+            
+            /* fetch files */
+
+            $fileData                           = FileHelper::getFiles( [ $id ], 'event_organisers');
+
+            $eventOrganisersArr['files']        = empty($fileData) ? [] : $fileData;
+
+            /* fetch themes */ 
+
+            $themesData                         = ThemeHelper::getEventCovers([ $id ], 'event_organisers');
+            
+
+            $themesData                         = $themesData[$id]['themes'];
+            
+            $themesArr                          = [];
+            
+            foreach ($themesData as $key => $value) 
+            {   
+                 $themesArr['all'][]                   = [  
+                                                        'themeName'     => $value['name'], 
+                                                        'actualPrice'   => $value['actualPrice'], 
+                                                        'filePath'      => $value['filePath'],
+                                                        'pricingType'   => $value['pricingType'] 
+                                                      ];
+                                                      
+                $themesArr[$value['eventTypes']][] = [  
+                                                        'themeName'     => $value['name'], 
+                                                        'actualPrice'   => $value['actualPrice'], 
+                                                        'filePath'      => $value['filePath'],
+                                                        'pricingType'   => $value['pricingType'] 
+                                                     ];
+
+               
+            }
+            
+            $eventOrganisersArr['themes']       = $themesArr;
+            
+
+            return $eventOrganisersArr;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Event Organisers Listings ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured while Fetching Event Organisers Listings", 1);
+
+        }
+       
+    }
     
 }

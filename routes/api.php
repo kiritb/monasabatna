@@ -26,6 +26,7 @@ Route::group(['prefix' => 'v1'], function () {
   	Route::get('events/upcoming', 'Api\EventController@eventListing');
   	Route::get('vennues/{id}', 'Api\VennueController@venueDetails');
   	Route::get('events/organisers', 'Api\EventController@getEventOrgainsersList');
+    Route::get('events/organisers/{id}', 'Api\EventController@getEventOrgainserDetails');
     	
 });
 
