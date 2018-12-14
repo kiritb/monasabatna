@@ -9,17 +9,11 @@
 namespace App\Http\Helpers;
 
 
-use App\Models\Files;
-use App\Models\Pricings;
 use App\Models\Events;
-use App\Models\Vendors;
-use App\Models\Amenities;
-use App\Models\AmenitieTypes;
 use App\Models\EventOrganisers;
 
-
 use App\Http\Helpers\ThemeHelper;
-
+use App\Http\Helpers\PoliciesHelper;
 
 
 class EventHelper
@@ -263,8 +257,15 @@ class EventHelper
                
             }
             
+
             $eventOrganisersArr['themes']       = $themesArr;
             
+            
+            /* get policy temrs and conditions */
+
+            $policyData                             = PoliciesHelper::getPolicies($id, 'event_organisers');
+
+            $eventOrganisersArr['policies']         = empty($policyData) ? [] : $policyData; 
 
             return $eventOrganisersArr;
         }

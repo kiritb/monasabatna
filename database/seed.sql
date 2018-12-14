@@ -723,8 +723,6 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
 	values (12,3,'event_organisers',12,'v1@v.com','v1@v.com');
 
-	--
-
 	insert into event_theme_mappings ( theme_id,linkable_id, linkable_type, order_no,created_by,updated_by)
 	values (1,4,'event_organisers',1,'v1@v.com','v1@v.com');
 
@@ -907,3 +905,43 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 
 	insert into files(linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
 	values(12,'themes','http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg','inner_page_display','png',3,'v1@v.com','v1@v.com');
+
+
+	#policies
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(1,'event_organisers','Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.',1,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(1,'event_organisers','Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.',2,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(1,'event_organisers','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(2,'event_organisers','Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.',1,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(2,'event_organisers','Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.',2,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(2,'event_organisers','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
+
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(3,'event_organisers','Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.',1,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(3,'event_organisers','Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.',2,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(3,'event_organisers','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
+
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(4,'event_organisers','Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.',1,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(4,'event_organisers','Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.',2,'v1@v.com','v1@v.com');
+
+	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+	values(4,'event_organisers','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
