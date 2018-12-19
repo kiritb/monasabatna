@@ -70,42 +70,42 @@
 	values('Speakers','v1@v.com','v1@v.com');
 
 	#theme types
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Mickey Mouse', 5,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name, short_description, set_up_time, note,event_type_id,created_by, updated_by)
+	values ('Mickey Mouse', 'A very small description about theme' ,'2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms',5,'v1@v.com', 'v1@v.com');
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Donald Duck', 5,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name,  short_description, set_up_time, note, event_type_id,created_by, updated_by)
+	values ('Donald Duck',  'A very small description about theme' ,'2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms',5,'v1@v.com', 'v1@v.com');
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Avengers', 5,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name,  short_description, set_up_time, note, event_type_id,created_by, updated_by)
+	values ('Avengers',  'A very small description about theme' , '2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms',5,'v1@v.com', 'v1@v.com');
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Tradational Wedding', 6,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name, short_description,  set_up_time, note, event_type_id,created_by, updated_by)
+	values ('Tradational Wedding', 'A very small description about theme' , '2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms',6,'v1@v.com', 'v1@v.com');
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Western Wedding', 6,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name, short_description,  set_up_time, note,event_type_id,created_by, updated_by)
+	values ('Western Wedding',  'A very small description about theme' , '2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms',6,'v1@v.com', 'v1@v.com');
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Destination Wedding', 6,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name,  short_description, set_up_time, note,event_type_id,created_by, updated_by)
+	values ('Destination Wedding',  'A very small description about theme' , '2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms',6,'v1@v.com', 'v1@v.com');
 
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Bussiness Meeting 1', 7,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name, short_description,  set_up_time, note, event_type_id,created_by, updated_by)
+	values ('Bussiness Meeting 1',  'A very small description about theme' , '2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms',7,'v1@v.com', 'v1@v.com');
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Bussiness Meeting 2', 7,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name, short_description, set_up_time, note, event_type_id,created_by, updated_by)
+	values ('Bussiness Meeting 2', 'A very small description about theme' , '2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms', 7,'v1@v.com', 'v1@v.com');
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Bussiness Meeting 3', 7,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name,  short_description, set_up_time, note, event_type_id,created_by, updated_by)
+	values ('Bussiness Meeting 3',  'A very small description about theme' ,'2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms', 7,'v1@v.com', 'v1@v.com');
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Baby Theme 1', 8,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name,  short_description, set_up_time, note, event_type_id,created_by, updated_by)
+	values ('Baby Theme 1', 'A very small description about theme' ,'2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms', 8,'v1@v.com', 'v1@v.com');
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Baby Theme 2', 8,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name,  short_description, set_up_time, note, event_type_id,created_by, updated_by)
+	values ('Baby Theme 2', 'A very small description about theme' , '2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms',  8,'v1@v.com', 'v1@v.com');
 
-	insert into theme_types ( name, event_type_id,created_by, updated_by)
-	values ('Baby Theme 3', 8,'v1@v.com', 'v1@v.com');
+	insert into theme_types ( name,  short_description, set_up_time, note, event_type_id,created_by, updated_by)
+	values ('Baby Theme 3', 'A very small description about theme' , '2 hours', 'Travel Free upto 10kms.SAR 50 to 11kms to 25kms',  8,'v1@v.com', 'v1@v.com');
 
 
 # Create Vendors
@@ -945,3 +945,291 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 
 	insert into policies (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
 	values(4,'event_organisers','Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.',3,'v1@v.com','v1@v.com');
+
+	#theme providers
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(1,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(1,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(1,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(2,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(2,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(2,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(3,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(3,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(3,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(4,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(4,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(4,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(5,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(5,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(5,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(6,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(6,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(6,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(7,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(7,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(7,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(8,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(8,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(8,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(9,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(9,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(9,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(10,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(10,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(10,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(11,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(11,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(11,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(12,'Provider 1',1,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(12,'Provider 1',2,'v1@v.com','v1@v.com'); 
+
+	insert into theme_providers(theme_id, provider_desc, order_no,created_by,updated_by)
+	values(12,'Provider 1',3,'v1@v.com','v1@v.com'); 
+
+
+	#pre-requisites
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(1, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(1, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(1, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(2, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(2, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(2, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(3, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(3, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(3, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(4, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(4, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(4, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(5, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(5, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(5, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(6, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(6, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(6, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(7, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(7, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(7, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(8, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(8, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(8, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(9, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(9, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(9, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(10, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(11, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(11, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(12, 'themes','Pre Requisistes 1',1, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(12, 'themes','Pre Requisistes 1',2, 'v1@v.com', 'v1@v.com');
+
+	insert into prerequisites(linkable_id,linkable_type,prerequisite_text,order_no,created_by,updated_by)
+	values(12, 'themes','Pre Requisistes 1',3, 'v1@v.com', 'v1@v.com');
+
+	#theme reviews
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,1,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,2,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,3,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,4,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,5,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,6,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,7,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,8,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,9,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,10,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,11,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(1,12,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,1,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,2,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,3,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,4,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,5,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,6,'themes','A very good venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,7,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,8,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,9,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,10,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,11,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+	values(2,12,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');

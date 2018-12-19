@@ -5,7 +5,7 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+   <link href="css/assets/css/bootstrap-4.1.3/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  <!------ <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> ---->
 <!------ <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css"> ----->
  <!---- <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> ---->
@@ -17,8 +17,8 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <link rel="stylesheet" type="text/css" href="css/bootstrap3.3.7.min.css">
 
- 	<link rel="stylesheet" type="text/css" href="css/font4.7.0-awesome.min.css">
-  	<link rel="stylesheet" type="text/css" href="css/bootstrap3.3.7.min.css">
+ 	<link rel="stylesheet" type="text/css" href="css/assets/css/font4.7.0-awesome.min.css">
+  	<link rel="stylesheet" type="text/css" href="css/assets/css/bootstrap3.3.7.min.css">
 	  
   	<script src="js/jquery3.3.1.min.js"></script>
     <script src="js/bootstrap3.3.7.min.js"></script>
@@ -26,8 +26,9 @@
    
    	<script src="js/jquery3.3.1.min.js"></script>
    	<script src="js/bootstrap3.3.7.min.js"></script>
-
-   <link rel="stylesheet" type="text/css" href="css/main.css"
+	 
+   <link rel="stylesheet" type="text/css" href="css/assets/css/main.css">
+   <link rel="stylesheet" type="text/css" href="fonts.css">
 
 </head>
 <body>
@@ -47,7 +48,7 @@
       </nav>
 	  <header>
 <nav class="navbar bg-white">
-	<a class="navbar-brand" href="#"> <img src="images/munasabatna_new.png" height="50"></a>
+	<a class="navbar-brand" href="#"> <img src="svg/images/monasabatna_final_logo.png" height="50"></a>
 
 							<navbar>
 								<ul> 

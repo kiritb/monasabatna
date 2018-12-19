@@ -9,6 +9,7 @@
 namespace App\Http\Helpers;
 
 use App\Models\EventThemeMappings;
+use App\Models\ThemeTypes;
 
 class ThemeHelper
 {   
@@ -31,6 +32,7 @@ class ThemeHelper
                                                                 'event_types.name as eventTypes',
                                                                 'event_types.id as eventTypeId',
                                                                 'theme_types.name',
+                                                                'theme_types.short_description as aboutTheme',
                                                                 'pricings.actual_price as actualPrice',
                                                                 'pricings.discount',
                                                                 'pricing_type.name as pricingType',
@@ -54,7 +56,6 @@ class ThemeHelper
                                             ->get()
                                             ->toArray();
 
-
             foreach ($eventCoversDetails as $key => $values) 
             {
                 $returnArr[$values['eventOrganiserId']]['themes'][]         = $values;
@@ -72,6 +73,50 @@ class ThemeHelper
             \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching event Covers Details ".print_r( $e->getMessage(), true) );
 
             throw new \Exception(" Error while fetching event Covers Details", 1);
+
+        }
+       
+    }
+
+     /**
+     * @param Array  $data
+     *
+     * @return Object
+    */
+    public static function getThemeDetails( $themeId )
+    {   
+        $returnArr      = [];
+        
+        try
+        {   
+            $themeDetail = ThemeTypes::select(   'event_types.name as eventName',
+                                                        'theme_types.name as themeName',
+                                                        'theme_types.short_description as aboutTheme',
+                                                        'theme_types.set_up_time as setUpTime',
+                                                        'theme_types.note',
+                                                        'pricings.actual_price as actualPrice',
+                                                        'pricings.discount',
+                                                        'pricing_type.name as pricingType'
+                                                   )
+                                            
+                                            ->join('event_types', 'event_types.id', '=', 'theme_types.event_type_id')
+                                            ->join('pricings', 'pricings.linkable_id', '=', 'theme_types.id')
+                                            ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
+                                            ->where('pricings.linkable_type', 'themes')
+                                            ->where('theme_types.id', $themeId)
+                                            ->where('event_types.status', 1)
+                                            ->where('theme_types.status', 1)
+                                            ->get()
+                                            ->toArray();
+
+            
+            return $themeDetail;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Theme  Details ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Error while fetching Theme Details", 1);
 
         }
        

@@ -68,7 +68,7 @@ class EventController extends Controller
    }
 
    /**
-     * generates a access Key in order to access Api
+     *
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -93,5 +93,34 @@ class EventController extends Controller
         }
         
    }
+
+   /**
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+    */
+   public function getThemeDetails( $id , Request $request)
+   {    
+        $requestParams = $request->all();
+        
+        \Log::info(__CLASS__." ".__FUNCTION__.' Request Params =>'. print_r($requestParams , true ) );
+
+        try
+        {
+            $themeData = EventHelper::getThemeDetails( $id );
+
+            return response( ResponseUtil::buildSuccessResponse($themeData), HttpStatusCodesConsts::HTTP_CREATED );
+        }
+        catch( \Exception $e)
+        {
+            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+                
+                return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
+        }
+        
+   }
+
+   
    
 }

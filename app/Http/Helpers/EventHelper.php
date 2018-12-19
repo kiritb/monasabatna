@@ -14,6 +14,9 @@ use App\Models\EventOrganisers;
 
 use App\Http\Helpers\ThemeHelper;
 use App\Http\Helpers\PoliciesHelper;
+use App\Http\Helpers\PrerequisitesHelper;
+use App\Http\Helpers\ThemeProvidersHelper;
+use App\Http\Helpers\ReviewsHelper;
 
 
 class EventHelper
@@ -278,5 +281,66 @@ class EventHelper
         }
        
     }
+
+    /**
+     *
+     * @return Array
+    */
+    public static function getThemeDetails( $id )
+    {   
+        $returnArr = [];
+
+        try
+        {  
+            $themeDetails = current( ThemeHelper::getThemeDetails($id) );
+             
+            
+            /* fetch files */
+
+            $fileData                           = FileHelper::getFiles( [ $id ], 'event_organisers');
+
+            $themeDetails['files']        = empty($fileData) ? [] : $fileData;
+
+            
+            /* get prerequisites */
+
+            $prerequisites                          = PrerequisitesHelper::getPrerequisites($id, 'themes');
+
+
+            $themeDetails['prerequisites']    = empty($prerequisites) ? [] : array_column($prerequisites, 'prerequisites'); 
+
+            /* get prerequisites */
+            $providers                              = ThemeProvidersHelper::getThemeProviders( $id );
+
+
+            $themeDetails['providers']    = empty($providers) ? [] : array_column($providers, 'provider_desc'); 
+
+            /* get policy temrs and conditions */
+
+            $policyData                             = PoliciesHelper::getPolicies($id, 'event_organisers');
+
+            $themeDetails['policies']         = empty($policyData) ? [] : $policyData; 
+
+
+            /* Fetch Reviews for themese */
+
+            $reviewData = ReviewsHelper::getReviews($id, 'themes');
+
+            $themeDetails['reviews']       = empty($reviewData) ? [] : $reviewData;
+
+
+            return $themeDetails;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching theme Details ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured while Fetching theme Details", 1);
+
+        }
+       
+    }
+
+    
     
 }

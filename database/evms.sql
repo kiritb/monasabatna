@@ -172,6 +172,9 @@ create table evms.theme_types(
   id int(11) NOT NULL AUTO_INCREMENT,
   event_type_id int(11) NOT NULL,
   name varchar(256) NOT NULL,
+  short_description text NOT NULL,
+  set_up_time varchar(256) NOT NULL,
+  note text DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
@@ -181,12 +184,27 @@ create table evms.theme_types(
   FOREIGN KEY (event_type_id) REFERENCES event_types(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS evms.event_theme_mappings;
-create table evms.event_theme_mappings(
+
+DROP TABLE IF EXISTS evms.theme_providers;
+create table evms.theme_providers(
   id int(11) NOT NULL AUTO_INCREMENT,
-  theme_id varchar(256) NOT NULL,
+  theme_id int(11) NOT NULL,
+  provider_desc text NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.prerequisites;
+create table evms.prerequisites(
+  id int(11) NOT NULL AUTO_INCREMENT,
   linkable_id int(11) NOT NULL,
   linkable_type varchar(30) NOT NULL,
+  prerequisite_text text NOT NULL,
   order_no int(11) DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
@@ -197,13 +215,28 @@ create table evms.event_theme_mappings(
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+DROP TABLE IF EXISTS evms.event_theme_mappings;
+create table evms.event_theme_mappings(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  theme_id int(11) NOT NULL,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (theme_id) REFERENCES theme_types(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 DROP TABLE IF EXISTS evms.suppliers;
 create table evms.suppliers(
   id int(11) NOT NULL AUTO_INCREMENT,
   vendor_id int(11) NOT NULL,
   name varchar(256) NOT NULL,
-  no_of_supplies int(11) NOT NULL,
   short_description text DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
   order_no int(11) DEFAULT NULL,
@@ -218,23 +251,22 @@ create table evms.suppliers(
   FOREIGN KEY (vendor_id) REFERENCES vennues(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 DROP TABLE IF EXISTS evms.packages;
 create table evms.packages(
   id int(11) NOT NULL AUTO_INCREMENT,
-  vendor_id int(11) NOT NULL,
+  supplier_id int(11) NOT NULL,
   name varchar(256) NOT NULL, 
   short_description text DEFAULT NULL,
   order_no int(11) DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
   rating decimal(10,1) NOT NULL DEFAULT 0,
-  fb_link text DEFAULT NULL,
-  twitter_link text DEFAULT NULL,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (vendor_id) REFERENCES vennues(id)
+  FOREIGN KEY (supplier_id) REFERENCES suppliers(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS evms.menu;
@@ -500,6 +532,24 @@ create table evms.testimonials(
   user_id int(11) NOT NULL,
   testimonial text DEFAULT NULL,
   is_approved tinyint(1) NOT NULL DEFAULT 1,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.sms_otp;
+create table evms.sms_otp(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user_id int(11) NOT NULL,
+  otp int(4) NOT NULL,
+  sms_text text NOT NULL,
+  sms_sent tinyint(1) NOT NULL DEFAULT 0,
+  expiry_date datetime NOT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,

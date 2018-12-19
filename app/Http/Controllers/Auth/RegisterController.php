@@ -82,4 +82,55 @@ class RegisterController extends Controller
         }
         
     }
+
+    public function verifyotp(Request $request)
+    {
+        $requestParams = $request->all();
+
+        \Log::info(__CLASS__." ".__FUNCTION__.' Request Params =>'. print_r($requestParams , true ) );
+
+        $rules       = [  'otp'             => 'required|integer', 
+                          'user_id'         => 'required|integer'
+                       ];
+
+        $validator   = Validator::make( $requestParams, $rules );
+
+        if ($validator->fails())
+        {
+            $errorMessages = current( $validator->messages() );
+            foreach ($errorMessages as $key => $value)
+            {
+                \Log::info(__CLASS__." ".__FUNCTION__." Error Message ".current($value)." Response Code ". HttpStatusCodesConsts::HTTP_BAD_REQUEST );
+
+                $responseArr = ResponseUtil::buildErrorResponse( [ 'errors' => [ current($value) ] ], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
+                
+                return response( $responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST );
+            }
+        }
+
+        try
+        {
+            if ( UserHelper::verifyotp( $requestParams['otp'], $requestParams['user_id'] ) )
+            {
+              return response([],HttpStatusCodesConsts::HTTP_OK );  
+            }
+            else
+            {
+              $responseArr = ResponseUtil::buildErrorResponse( ['errors' => ['Invalid Otp'] ], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+
+              return response( $responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST );
+            }
+
+            
+        }
+        catch( \Exception $e)
+        {
+            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+                
+                return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
+        }
+        
+    }
+
+    
 }
