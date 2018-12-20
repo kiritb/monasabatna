@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $id
  * @property integer $user_id
  * @property integer otp
+ * @property integer otp_type
  * @property string $sms_text
  * @property string $sms_sent
  * @property string $terms
@@ -34,6 +35,6 @@ class SmsOtp extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'otp', 'sms_text', 'sms_sent', 'expiry_date' , 'status', 'created_by', 'updated_by' ];
+    protected $fillable = ['user_id', 'otp', 'otp_type' ,'sms_text', 'sms_sent', 'expiry_date' , 'status', 'created_by', 'updated_by' ];
 
 }

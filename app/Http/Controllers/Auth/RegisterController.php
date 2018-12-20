@@ -132,5 +132,54 @@ class RegisterController extends Controller
         
     }
 
+    public function resendotp(Request $request)
+    {
+        $requestParams = $request->all();
+
+        \Log::info(__CLASS__." ".__FUNCTION__.' Request Params =>'. print_r($requestParams , true ) );
+
+        $rules       = [  
+                         'user_id'         => 'required|integer'
+                       ];
+
+        $validator   = Validator::make( $requestParams, $rules );
+
+        if ($validator->fails())
+        {
+            $errorMessages = current( $validator->messages() );
+            foreach ($errorMessages as $key => $value)
+            {
+                \Log::info(__CLASS__." ".__FUNCTION__." Error Message ".current($value)." Response Code ". HttpStatusCodesConsts::HTTP_BAD_REQUEST );
+
+                $responseArr = ResponseUtil::buildErrorResponse( [ 'errors' => [ current($value) ] ], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
+                
+                return response( $responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST );
+            }
+        }
+
+        try
+        {
+            $optData = UserHelper::resendotp( $requestParams['user_id']  );
+            
+            if( empty( $optData) )
+            {
+                \Log::info(__CLASS__." ".__FUNCTION__." user does not exists". HttpStatusCodesConsts::HTTP_NOT_FOUND );
+
+                $responseArr = ResponseUtil::buildErrorResponse( [ 'errors' => [ 'user does not exists' ] ], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'user does not exists' );   
+                
+                return response( $responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND );
+            }
+
+            return response( ResponseUtil::buildSuccessResponse($optData), HttpStatusCodesConsts::HTTP_CREATED );
+            
+        }
+        catch( \Exception $e)
+        {
+            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+                
+            return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
+        }
+        
+    }
     
 }

@@ -1,7 +1,6 @@
 
-   <body>
- 
-      <!------- body start--------> 
+   @include('header')
+      <!------- body start-------->
       <div class="container">
          <!------- collapse navbar start-------->
                   <div class="row">
@@ -9,10 +8,10 @@
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                <div class="collapse navbar-collapse" id="myNavbar">
-     
+
                   <ul class="second-nav">
 				  <li class="venue-one"><a class="signtwo" href="#"><b>My Bookings</b></a></li>
-                     <li class="venue-one"><a class="active-one" href="#signin"> <b>Booking History</b></a></li>					
+                     <li class="venue-one"><a class="active-one" href="#signin"> <b>Booking History</b></a></li>
                   </ul>
                </div>
             </div>
@@ -21,9 +20,9 @@
          <!------- collapse navbar end-------->
          <label> </label>
          <!--------- tab container begin ------------------------->
-         
+
          <!----------------------- tab container end -------------------->
-		        
+
    <!------------------------------ Add to express ----------------------------------->
             <div class="modal fade" id="myalert">
                <div class="modal-dialog">
@@ -47,7 +46,7 @@
                </div>
             </div>
             <!------------------------------ Add to Express ----------------------------------->
-			
+
 
         		 <div class="container">
 
@@ -59,7 +58,7 @@
         <li role="presentation"><a href="#provided" aria-controls="provided" role="tab" data-toggle="tab"><b>Suppliers</b></a></li>
         <li role="presentation"><a href="#pre" aria-controls="pre" role="tab" data-toggle="tab"><b>Event Organisers</b>&nbsp; &nbsp;<span class="badge">  2</span></a></li>
         <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab"><b>Event</b></a></li>
-		
+
     </ul>
 	<div class="customerlinegreen"></div>
     <!-- Tab panes -->
@@ -68,7 +67,7 @@
 		<div class="container" id="customer-profile-bg">
                   <div class="row fullvenue">
                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <img src="<?php echo base_url();?>assets/munasabatna_template/images/customer-profile11.jpg" alt="Mountains" style="width:300px; height:400px margin-left:10px">
+                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" style="width:300px; height:400px margin-left:10px">
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 cust-prof-text">
                         <div class="row">
@@ -86,10 +85,10 @@
                         <br>
                         <div> <span class="color-change"><b>Total Price :</span> SAR.756</b></div>
                         <br>
-                        
-                       
+
+
                            <button style="float:right" type="submit" class="btn btn-default btncutomer" >Write a Review</button>
-                        
+
                         </div>
                      </div>
                   </div>
@@ -104,7 +103,7 @@
 				<ol> Write the review for all the facilities </ol>
 			</ul>
 				</div>
-		
+
 		</div>
         <div role="tabpanel" class="tab-pane" id="pre">
 							  <div class="tab-pane active" id="1b">
@@ -121,6 +120,32 @@
 		</div>
         <div role="tabpanel" class="tab-pane" id="reviews">
 
+<div>
+
+ <section class="mySlicker slicker" data-sizes="50vw">
+    <div>
+      <img data-lazy="http://placehold.it/350x300?text=1-350w" data-srcset="http://placehold.it/650x300?text=1-650w 650w, http://placehold.it/960x300?text=1-960w 960w" data-sizes="100vw">
+    </div>
+    <div>
+      <img data-lazy="http://placehold.it/350x300?text=2-350w" data-srcset="http://placehold.it/650x300?text=2-650w 650w, http://placehold.it/960x300?text=2-960w 960w" data-sizes="100vw">
+    </div>
+    <div>
+      <img data-lazy="http://placehold.it/350x300?text=3-350w"  data-srcset="http://placehold.it/650x300?text=3-650w 650w, http://placehold.it/960x300?text=3-960w 960w" data-sizes="100vw">
+    </div>
+    <div>
+      <img data-lazy="http://placehold.it/350x300?text=4-350w"  data-srcset="http://placehold.it/650x300?text=4-650w 650w, http://placehold.it/960x300?text=4-960w 960w" data-sizes="100vw">
+    </div>
+    <div>
+      <img data-lazy="http://placehold.it/350x300?text=5-350w"  data-srcset="http://placehold.it/650x300?text=5-650w 650w, http://placehold.it/960x300?text=5-960w 960w" data-sizes="100vw">
+    </div>
+    <div>
+      <!-- this slide should inherit the sizes attr from the parent slider -->
+      <img data-lazy="http://placehold.it/350x300?text=6-350w"  data-srcset="http://placehold.it/650x300?text=6-650w 650w, http://placehold.it/960x300?text=6-960w 960w">
+    </div>
+  </section>
+
+</div>
+
   <div class='container-fluid'>
     <div class='col-md-12 col-sm-12'>
       <div class="carousel slide" data-ride="carousel" id="quote-carousel">
@@ -128,18 +153,18 @@
 
         <!-- Carousel Slides / Quotes -->
         <div class="carousel-inner">
-        
+
           <!-- Quote 1 -->
           <div class="item active">
- 
+
               <div class="row">
                 <div class="col-sm-3 text-center">
-                  <img src="<?php echo base_url();?>assets/munasabatna_template/images/testi-themedetails.png">
-          
+                  <img src="svg/images/testi-themedetails.png">
+
                 </div>
                 <div class="col-sm-9">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
 aliqua. Ut enim ad minim veniam</p>
                   <span class="namechange">Allan carls</span>
                 </div>
@@ -151,11 +176,11 @@ aliqua. Ut enim ad minim veniam</p>
 
               <div class="row">
                 <div class="col-sm-3 text-center">
-                  <img src="<?php echo base_url();?>assets/munasabatna_template/images/testi-about1.png">
+                  <img src="svg/images/testi-about1.png">
                 </div>
                 <div class="col-sm-9">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
 aliqua. Ut enim ad minim veniam</p>
                   <span class="namechange">Allan carls</span>
                 </div>
@@ -164,42 +189,42 @@ aliqua. Ut enim ad minim veniam</p>
           </div>
           <!-- Quote 3 -->
           <div class="item">
-  
+
               <div class="row">
                 <div class="col-sm-3 text-center">
-                  <img src="<?php echo base_url();?>assets/munasabatna_template/images/testi-about2.png">
+                  <img src="svg/images/testi-about2.png">
                 </div>
                 <div class="col-sm-9">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
 aliqua. Ut enim ad minim veniam</p>
 			<span class="namechange">Allan carls</span>
                 </div>
               </div>
-  
+
           </div>
         </div>
-        
+
         <!-- Carousel Buttons Next/Prev -->
-        <a data-slide="prev" href="#quote-carousel" class="resize-theme"><img src="<?php echo base_url();?>assets/munasabatna_template/images/testi-arrow-left.png" style="width:22px; height:32px; margin-top:-313px; margin-left:-36px;"></a>
-        <a data-slide="next" href="#quote-carousel" class="resize-theme"><img src="<?php echo base_url();?>assets/munasabatna_template/images/testi-arrow-right.png" style="width:20px; height:32px; float:right; margin-top:-156px; margin-right:-39px;"></a>
-      </div>                          
+        <a data-slide="prev" href="#quote-carousel" class="resize-theme"><img src="svg/images/testi-arrow-left.png" style="width:22px; height:32px; margin-top:-313px; margin-left:-36px;"></a>
+        <a data-slide="next" href="#quote-carousel" class="resize-theme"><img src="svg/images/testi-arrow-right.png" style="width:20px; height:32px; float:right; margin-top:-156px; margin-right:-39px;"></a>
+      </div>
     </div>
   </div>
 		</div>
 		<div role="tabpanel" class="tab-pane" id="terms">
 		 <div role="tabpanel" class="tab-pane active" id="about">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur
-		adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+		adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 		exercitation ullamco laboris nisi ut aliquip</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur
-		adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+		adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 		exercitation ullamco laboris nisi ut aliquip</p>
-		
+
 		</div>
-		
+
 		</div>
     </div>
 </div>
@@ -208,16 +233,17 @@ aliqua. Ut enim ad minim veniam</p>
 </div>
 <div class="row"></div>
 <div class="row"></div>
+@include('footer')
       <!------------------------------------ login page end------------------------------------------>
       <!------- body end-------->
 
       <!------- Footer end-------->
 	        <script><!------inner page-Tabs-------->
          $(document).ready(function(){
-         
+
          $("#myalertsend").click(function(){
          $("#myalert").modal();
-         
+
          });
           $(".nav-tabs a").click(function(){
            $(this).tab('show');
@@ -248,15 +274,15 @@ aliqua. Ut enim ad minim veniam</p>
          (function(){
            $('.carousel-showmanymoveone .item').each(function(){
              var itemToClone = $(this);
-         
+
              for (var i=1;i<6;i++) {
                itemToClone = itemToClone.next();
-         
+
                // wrap around if at end of item collection
                if (!itemToClone.length) {
                  itemToClone = $(this).siblings(':first');
                }
-         
+
                // grab item, clone, add marker class, add to collection
                itemToClone.children(':first-child').clone()
                  .addClass("cloneditem-"+(i))
@@ -264,7 +290,7 @@ aliqua. Ut enim ad minim veniam</p>
              }
            });
          }());
-               
+
       </script>
    </body>
 </html>

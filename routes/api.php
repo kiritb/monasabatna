@@ -21,6 +21,7 @@ Route::group(['prefix' => 'v1'], function () {
   	
   	Route::post('users', 'Auth\RegisterController@createUser');
     Route::post('verifyotp', 'Auth\RegisterController@verifyotp');
+    Route::post('resendotp', 'Auth\RegisterController@resendotp');
   	Route::post('login', 'Auth\LoginController@login');
   	Route::get('home', 'Api\HomeController@index');
   	Route::get('vennues', 'Api\VennueController@vennueListing');
@@ -30,6 +31,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('events/organisers/{id}', 'Api\EventController@getEventOrgainserDetails');
     Route::get('themes/{id}', 'Api\EventController@getThemeDetails');
     Route::get('expressdeals', 'Api\VennueController@getExpressDeals');
+    Route::get('order', 'Api\OrderController@createOrder');
 
     	
 });

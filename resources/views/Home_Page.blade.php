@@ -1,9 +1,9 @@
 @include('header')
 <div id="home_page">
 </div>
-<!------- banner start--------> 
+<!------- banner start-------->
 
-<!------- banner start--------> 
+<!------- banner start-------->
 
    <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -35,7 +35,7 @@
                <div class="carousel-caption" id="cap-banner">
                   <h1 class="bannerfont"><center><b>Big Career</b><center><h1>
                </div>
-			   
+
                <form class="col-sm-12" id="search-form">
                   <div class="form-group col-sm-4 col-sm-offset-4">
                      <div class="input-group input-group-lg center-block">
@@ -75,7 +75,7 @@
    </div>
 </div>
 <!-- carousel -->
-<!------- banner end --------> 	
+<!------- banner end -------->
 <!-----middlelayer star---------------->
 <div class="container-fluid" id="middlelayer">
    <div class="middlehead_exp">
@@ -96,18 +96,16 @@
 		 <div class="spacer_box"></div>
 		 <div class="spacer_box"></div>
             <div class="head1">
-               Music Nights
+               <p>Music Nights</p>
             </div>
-            <br>
-			<br>
             <div class="head_twoone">
                <i class="far fa-calendar-alt" style="color:#6cc0b9"></i>
-               15 July 
+               15 July
             </div>
             <div class="head_twotwo">
                <span style="color: #5cb9b1">SAR</span> 200
             </div>
-            
+
 			<br>
 			<div class="spacer_box"></div>
             <div class="head3">
@@ -148,12 +146,12 @@
 			<br>
             <div class="head_twoone">
                <i class="far fa-calendar-alt" style="color:#6cc0b9"></i>
-               15 July 
+               15 July
             </div>
             <div class="head_twotwo">
                <span style="color: #5cb9b1">SAR</span> 200
             </div>
-            
+
 			<br>
 			<div class="spacer_box"></div>
             <div class="head3">
@@ -194,12 +192,12 @@
 			<br>
             <div class="head_twoone">
                <i class="far fa-calendar-alt" style="color:#6cc0b9"></i>
-               15 July 
+               15 July
             </div>
             <div class="head_twotwo">
                <span style="color: #5cb9b1">SAR</span> 200
             </div>
-            
+
 			<br>
 			<div class="spacer_box"></div>
             <div class="head3">
@@ -239,12 +237,12 @@
 			<br>
             <div class="head_twoone">
                <i class="far fa-calendar-alt" style="color:#6cc0b9"></i>
-               15 July 
+               15 July
             </div>
             <div class="head_twotwo">
                <span style="color: #5cb9b1">SAR</span> 200
             </div>
-            
+
 			<br>
 			<div class="spacer_box"></div>
             <div class="head3">
@@ -284,7 +282,7 @@
          <center>
       </div>
       <div class="container col-md-12 col-sm-6">
-        
+
             <div class="advertisepic">
                <img class="img-responsive" src="svg/images/adv1.png">
             </div>
@@ -331,12 +329,12 @@
 			<br>
             <div class="head_twoone">
                <i class="far fa-calendar-alt" style="color:#6cc0b9"></i>
-               15 July 
+               15 July
             </div>
             <div class="head_twotwo">
                <span style="color: #5cb9b1">SAR</span> 200
             </div>
-            
+
 			<br>
 			<div class="spacer_box"></div>
             <div class="head3">
@@ -377,12 +375,12 @@
 			<br>
             <div class="head_twoone">
                <i class="far fa-calendar-alt" style="color:#6cc0b9"></i>
-               15 July 
+               15 July
             </div>
             <div class="head_twotwo">
                <span style="color: #5cb9b1">SAR</span> 200
             </div>
-            
+
 			<br>
 			<div class="spacer_box"></div>
             <div class="head3">
@@ -406,7 +404,7 @@
       <!---- end of col-sm-3---->
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
          <div class="container" id="plus_three">
-		 
+
             <img src="svg/images/boxhover6.jpg" alt="Avatar" class="image">
             <div class="middle">
                <a href="#">
@@ -424,12 +422,12 @@
 			<br>
             <div class="head_twoone">
                <i class="far fa-calendar-alt" style="color:#6cc0b9"></i>
-               15 July 
+               15 July
             </div>
             <div class="head_twotwo">
                <span style="color: #5cb9b1">SAR</span> 200
             </div>
-            
+
 			<br>
 			<div class="spacer_box"></div>
             <div class="head3">
@@ -470,12 +468,12 @@
 			<br>
             <div class="head_twoone">
                <i class="far fa-calendar-alt" style="color:#6cc0b9"></i>
-               15 July 
+               15 July
             </div>
             <div class="head_twotwo">
                <span style="color: #5cb9b1">SAR</span> 200
             </div>
-            
+
 			<br>
 			<div class="spacer_box"></div>
             <div class="head3">
@@ -546,12 +544,12 @@
 	  <div class="row why-collap">
 	  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
          <p class="why_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type  specimen book. It has survived not only five centuries, but also the leap into  
+            when an unknown printer took a galley of type and scrambled it to make a type  specimen book. It has survived not only five centuries, but also the leap into
             electronic typesetting, remaining essentially unchanged. It was popularised in  the 1960s with the release of
             Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
          </p>
          <p class="why_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type  specimen book. It has survived not only five centuries, but also the leap into 
+            when an unknown printer took a galley of type and scrambled it to make a type  specimen book. It has survived not only five centuries, but also the leap into
             electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
             Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
          </p>
@@ -563,7 +561,7 @@
 	  <div class="row">
          <a href="#">
    <center><button type="button" class="btn btn-info btn-lg" id="show_record_why"><b>BOOK NOW</b></button> <center>
-   </a>	
+   </a>
       </div>
 
    </div>
@@ -571,7 +569,7 @@
 <!-------------- meeting layer end --------------->
 <!-------------- testimonial start --------------->
 
-   <!-------testihead---------->				
+   <!-------testihead---------->
    <div class="slideshow-container">
    <h4 class="testimonial-head">See what our Customers are Saying</h4>
       <div class="mySlides">
@@ -624,24 +622,24 @@
       <center><b>Facilitate Customer Service</b></center>
    </h2>
    <br>
-   <p class="form_hometext"> 
+   <p class="form_hometext">
    <center> We will allow you to book the best party services based on your preferences with best deals</center>
-   </p> 
+   </p>
    <div class="row" id="form-home">
       <form class="form-horizontal" action="/action_page.php">
          <div class="text-center">
 			<div class="flex-container">
-				<div class="col-md-6 col-sm-6 col-xs-6 form-group"> 			
-				   <input type="text" class="form-control customhomeone" placeholder="Name" name="contact">  
+				<div class="col-md-6 col-sm-6 col-xs-6 form-group">
+				   <input type="text" class="form-control customhomeone" placeholder="Name" name="contact">
 				</div>
-				<div class="col-md-6 col-sm-6 col-xs-6 form-group"> 
-				   <input type="text" class="form-control customhome"  placeholder="Phone Number" name="venue"> 
+				<div class="col-md-6 col-sm-6 col-xs-6 form-group">
+				   <input type="text" class="form-control customhome"  placeholder="Phone Number" name="venue">
 				</div>
-			</div>	
-            <div class="col-md-6 col-sm-6 col-xs-6 form-group"> 
-               <input type="text" class="form-control customhomeone" placeholder="Email Address" name="contact"> 
+			</div>
+            <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+               <input type="text" class="form-control customhomeone" placeholder="Email Address" name="contact">
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-6 form-group"> 
+            <div class="col-md-6 col-sm-6 col-xs-6 form-group">
                <input style="position:relative" type="date" class="form-control customhome" placeholder="Event Date" name="contact">
  <i id="date-element-span" class="fas fa-calendar-alt"></i>
             </div>
@@ -654,8 +652,8 @@
                   <option>Tradition Ceremonies</option>
                </select>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-6 form-group"> 
-               <input type="date_default_timezone_set" class="form-control customhome" placeholder="Number of Guests" name="contact"> 
+            <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+               <input type="date_default_timezone_set" class="form-control customhome" placeholder="Number of Guests" name="contact">
             </div>
 				<div class="col-md-6 col-sm-6 col-xs-6 form-group">
                <select class="selectpicker customhomeone" data-live-search="false" data-title="Food">
@@ -688,7 +686,7 @@
                <textarea class = "form-control customtext" placeholder="Note" rows = "4"></textarea>
             </div>
 			<div class="row"></div>
-            <div class="col-md-12 col-sm-12 col-xs-12 form-group"> 
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                <button type="button" class="btn btn-info btn-lg center-block" id="show_record">SUBMIT</button>
             </div>
          </div>
@@ -700,28 +698,28 @@
 <script><!------- Testimonial-------->
    var slideIndex = 1;
    showSlides(slideIndex);
-   
+
    function plusSlides(n) {
      showSlides(slideIndex += n);
    }
-   
+
    function currentSlide(n) {
      showSlides(slideIndex = n);
    }
-   
+
    function showSlides(n) {
      var i;
      var slides = document.getElementsByClassName("mySlides");
      var dots = document.getElementsByClassName("dot");
-     if (n > slides.length) {slideIndex = 1}    
+     if (n > slides.length) {slideIndex = 1}
      if (n < 1) {slideIndex = slides.length}
      for (i = 0; i < slides.length; i++) {
-         slides[i].style.display = "none";  
+         slides[i].style.display = "none";
      }
      for (i = 0; i < dots.length; i++) {
          dots[i].className = dots[i].className.replace(" active", "");
      }
-     slides[slideIndex-1].style.display = "block";  
+     slides[slideIndex-1].style.display = "block";
      dots[slideIndex-1].className += " active";
    }
 </script>

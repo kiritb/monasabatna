@@ -350,7 +350,6 @@ create table evms.services(
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-
 DROP TABLE IF EXISTS evms.package_supplier_mapping;
 create table evms.package_supplier_mapping(
   id int(11) NOT NULL AUTO_INCREMENT,
@@ -422,24 +421,6 @@ create table evms.cities(
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS evms.pricings;
-create table evms.pricings(
-  id int(11) NOT NULL AUTO_INCREMENT,
-  linkable_id int(11) NOT NULL,
-  linkable_type varchar(30) NOT NULL,
-  pricing_type_id int(11) NOT NULL,
-  price decimal(10,2) NOT NULL,
-  discount decimal(10,2) DEFAULT NULL,
-  actual_price decimal(10,2) NOT NULL,
-  status int(1) NOT NULL DEFAULT 1,
-  created_at datetime DEFAULT NULL,
-  updated_at datetime DEFAULT NULL,
-  created_by varchar(256) NOT NULL,
-  updated_by varchar(256) NOT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
 DROP TABLE IF EXISTS evms.pricing_type;
 create table evms.pricing_type(
   id int(11) NOT NULL AUTO_INCREMENT,
@@ -452,6 +433,38 @@ create table evms.pricing_type(
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS evms.payment_type;
+create table evms.payment_type(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(30) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.pricings;
+create table evms.pricings(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
+  pricing_type_id int(11) NOT NULL,
+  payment_type_id int(11) DEFAULT NULL,
+  price decimal(10,2) NOT NULL,
+  discount decimal(10,2) DEFAULT NULL,
+  actual_price decimal(10,2) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (pricing_type_id) REFERENCES pricing_type(id),
+  FOREIGN KEY (payment_type_id) REFERENCES payment_type(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 DROP TABLE IF EXISTS evms.orders;
 create table evms.orders(
   id int(11) NOT NULL AUTO_INCREMENT,
@@ -460,6 +473,8 @@ create table evms.orders(
   linkable_id int(11) NOT NULL,
   linkable_type varchar(30) NOT NULL,
   voucher_id int(11) DEFAULT NULL,
+  pricing_type_id int(11) NOT NULL,
+  payment_type_id int(11) DEFAULT NULL,
   voucher_amount decimal(10,2) DEFAULT NULL,
   totalAmount decimal(10,2) NOT NULL,
   discountedAmount decimal(10,2) NOT NULL,
@@ -468,12 +483,18 @@ create table evms.orders(
   taxPercent decimal(10,2) NOT NULL,
   serviceFee decimal(10,2) NOT NULL,
   servicePercent decimal(10,2) NOT NULL,
+  booking_from_date datetime NOT NULL,
+  booking_to_date datetime NOT NULL,
+  is_payment_done tinyint NOT NULL DEFAULT 0,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
   updated_by varchar(256) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (pricing_type_id) REFERENCES pricing_type(id),
+  FOREIGN KEY (payment_type_id) REFERENCES payment_type(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -547,6 +568,7 @@ create table evms.sms_otp(
   id int(11) NOT NULL AUTO_INCREMENT,
   user_id int(11) NOT NULL,
   otp int(4) NOT NULL,
+  otp_type int(11) NOT NULL,
   sms_text text NOT NULL,
   sms_sent tinyint(1) NOT NULL DEFAULT 0,
   expiry_date datetime NOT NULL,

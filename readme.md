@@ -72,4 +72,3 @@ for ubuntu/mac/red hat users
 ## http://localhost/monasabatna_web/public/
 
 
-

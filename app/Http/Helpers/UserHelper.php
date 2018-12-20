@@ -12,9 +12,14 @@ use App\Models\Users;
 use App\Models\Phones;
 use App\Models\SmsOtp;
 
+
 use Illuminate\Support\Facades\Hash;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+
+use App\Http\Helpers\SmsOtpHelper;
+use App\Http\Constants\SmsTypeConst;
+
 
 class UserHelper
 {   
@@ -57,6 +62,8 @@ class UserHelper
             
             $otp            = rand( pow(10, $digits-1), pow(10, $digits)-1 );
 
+            $otpType        = SmsTypeConst::SMS_TYPE_ACCOUNT_VERIFICATION;
+            
             $validityMins   = env('SMS_OTP_NO_DIGITS', 20);
 
             $otpValidity    = date("Y-m-d H:i:s", strtotime("+$validityMins minutes") );
@@ -65,17 +72,9 @@ class UserHelper
             $smsText        = 'please use the otp to authenticate and approve your account '.$otp.' and would be valid for next '.$validityMins;
 
 
-            SmsOtp::create([
-                    'user_id'       => $userObj->id, 
-                    'otp'           => $otp, 
-                    'sms_text'      => $smsText, 
-                    'sms_sent'      => 0, 
-                    'expiry_date'   => $otpValidity,
-                    'created_by'    => $data['email'],
-                    'updated_by'    => $data['email']
-             ]);
+            SmsOtpHelper::createOtp($userObj->id, $otp, $otpType, $smsText, $otpValidity, $data['email']);
 
-             \DB::commit();
+            \DB::commit();
 
 
             $userObj->otp           = $otp;
@@ -150,20 +149,23 @@ class UserHelper
         try
         {   
 
-             $currentDate   = date('Y-m-d h:i:s');
+             $currentDate   = date("Y-m-d H:i:s");
 
-             $otpData       = SmsOtp::select('sms_otp.id')
-                                    ->join('users', 'users.id', '=', 'sms_otp.user_id')
-                                    ->where('sms_otp.user_id', $userId )
-                                    ->where('sms_otp.otp', $otp )
-                                    ->whereNull('users.account_verified_at')
-                                    ->where('sms_otp.expiry_date', '<=',$currentDate )
-                                    ->where('sms_otp.status', 1 )
-                                    ->where('users.status', 1 )
-                                    ->get()
-                                    ->toArray();
+             \Log::info(__CLASS__." ".__FUNCTION__." currentDate ".$currentDate);
+
+             $otpData       = current( SmsOtp::select('sms_otp.id')
+                                        ->join('users', 'users.id', '=', 'sms_otp.user_id')
+                                        ->where('sms_otp.user_id', $userId )
+                                        ->where('sms_otp.otp', $otp )
+                                        ->whereNull('users.account_verified_at')
+                                        ->where('sms_otp.expiry_date', '>=',$currentDate )
+                                        ->where('sms_otp.status', 1 )
+                                        ->where('users.status', 1 )
+                                        ->get()
+                                        ->toArray()
+                               );
                                         
-
+            
             if( empty($otpData) )
             {
 
@@ -173,12 +175,66 @@ class UserHelper
                 
             }
 
+            \Log::info(__CLASS__." ".__FUNCTION__." Verifying account ");
+
             Users::where('id', $userId)->update( ['account_verified_at' =>$currentDate ] );
+
+            return true;
             
         }
         catch( \Exception $e)
         {   
             \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured fetching  a user ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured fetching  a user ", 1);
+        }
+       
+    }
+
+    /**
+     * @param integer  $userId
+     *
+     * @return Array
+     *
+     * @throws Exception
+    */
+    public static function resendotp( $userId )
+    {   
+
+        try
+        {   
+            $userDetails = current (Users::select('email')
+                                      ->where('id',$userId)
+                                      ->where('status', 1)
+                                      ->get()
+                                      ->toArray()
+                            );
+
+            if( empty($userDetails) )
+            {
+                return [];
+            }
+
+            $digits         = env('SMS_OTP_NO_DIGITS', 4);
+            
+            $otp            = rand( pow(10, $digits-1), pow(10, $digits)-1 );
+
+            $otpType        = SmsTypeConst::SMS_TYPE_ACCOUNT_VERIFICATION;
+
+            $validityMins   = env('SMS_OTP_NO_DIGITS', 20);
+
+            $otpValidity    = date("Y-m-d H:i:s", strtotime("+$validityMins minutes") );
+
+            $smsText        = 'please use the otp to authenticate and approve your account '.$otp.' and would be valid for next '.$validityMins;
+
+            $otpData = SmsOtpHelper::createOtp($userId, $otp, $otpType, $smsText, $otpValidity,$userDetails['email'], true );
+
+            return $otpData->toArray();
+            
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while re-sending Otp ".print_r( $e->getMessage(), true) );
 
             throw new \Exception(" Exception Occured fetching  a user ", 1);
         }
