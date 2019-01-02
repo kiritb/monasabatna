@@ -96,13 +96,52 @@ class VennueHelper
 
             }
 
+            
+            if( isset( $filterArr['ammenties_types'] ) && !empty( $filterArr['ammenties_types'] ) )
+            {  
+               $vennueSql->join('amenities', 'amenities.linkable_id', '=', 'vennues.id') 
+                         ->join('amenitie_types', 'amenitie_types.id', '=', 'amenities.amenitie_type_id') 
+                         ->whereIn('amenitie_types.name', $filterArr['ammenties_types'] ); 
+               
+            }
+
+            if( isset( $filterArr['vennue_types'] ) && !empty( $filterArr['vennue_types'] ) )
+            {  
+               $vennueSql->join('vennue_type_mapping', 'vennue_type_mapping.vennue_id', '=', 'vennues.id') 
+                         ->join('vennue_types', 'vennue_types.id', '=', 'vennue_type_mapping.venue_type_id') 
+                         ->whereIn('vennue_types.name', $filterArr['vennue_types'] ); 
+               
+            }
+
+            if( isset( $filterArr['event_types'] ) && !empty( $filterArr['event_types'] ) )
+            {  
+               $vennueSql->join('vennue_event_mapping', 'vennue_event_mapping.vennue_id', '=', 'vennues.id') 
+                         ->join('event_types', 'event_types.id', '=', 'vennue_event_mapping.event_type_id') 
+                         ->whereIn('event_types.name', $filterArr['event_types'] ); 
+               
+            }
+
+            if( isset( $filterArr['event_types'] ) && !empty( $filterArr['event_types'] ) )
+            {  
+               $vennueSql->join('vennue_event_mapping', 'vennue_event_mapping.vennue_id', '=', 'vennues.id') 
+                         ->join('event_types', 'event_types.id', '=', 'vennue_event_mapping.event_type_id') 
+                         ->whereIn('event_types.name', $filterArr['event_types'] ); 
+               
+            }
+
+            if( isset( $filterArr['room_types'] ) && !empty( $filterArr['room_types'] ) )
+            {  
+               $vennueSql->join('vennue_room_mapping', 'vennue_room_mapping.vennue_id', '=', 'vennues.id') 
+                         ->join('room_types', 'room_types.id', '=', 'vennue_room_mapping.room_type_id') 
+                         ->whereIn('room_types.name', $filterArr['room_types'] ); 
+               
+            }
 
             $vennueData =  $vennueSql->orderBy('vennues.order_no', 'asc')
                             ->paginate(2);
-            
 
             $venneDataArr = $vennueData->toArray();
-            
+
             if( $venneDataArr['total'] == 0 )
             {
                 \Log::info(__CLASS__." ".__FUNCTION__." Vennue Data does not exists ");
@@ -110,9 +149,9 @@ class VennueHelper
                 return [];
                 
             }
-            
+
             $vennueIdArr  = array_column($venneDataArr['data'], 'vennueId');
- 
+
             $ammentiesData =    AmmenitieHelper::getAmmenties($vennueIdArr ,'vennues');
 
             $ammentiesDataArr = [];
