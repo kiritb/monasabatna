@@ -1,0 +1,36 @@
+.notifyjs-vish-master-base {
+    display: flex;
+    background: #ffffffe0;
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #fff;
+    box-shadow: 3px 3px 10px #312008;
+    max-width: 300px;
+}
+
+.notifyjs-vish-master-base div:first-child {
+    padding: 5px;
+    vertical-align: middle;
+    position: absolute;
+    right: 5%;
+    top: 25%;
+}
+
+.notify-content {
+    width: 90%;
+    padding: 0 10px;
+}
+
+.master-ct {
+    font-size: 12px;
+}
+
+.notify-content h5 {
+    font-size: 18px;
+    padding: 0px;
+    margin-bottom: 5px;
+}
+
+.notify-content {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

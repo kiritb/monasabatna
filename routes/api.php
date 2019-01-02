@@ -24,6 +24,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('resendotp', 'Auth\RegisterController@resendotp');
   	Route::post('login', 'Auth\LoginController@login');
   	Route::get('home', 'Api\HomeController@index');
+    Route::get('vennues/filters', 'Api\VennueController@getFilters');
   	Route::get('vennues', 'Api\VennueController@vennueListing');
   	Route::get('events/upcoming', 'Api\EventController@eventListing');
   	Route::get('vennues/{id}', 'Api\VennueController@venueDetails');

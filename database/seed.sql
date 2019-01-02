@@ -51,6 +51,35 @@
 	values('Kids Play Area',1, 'v1@v.com', 'v1@v.com');
 
 
+	#vennue Types
+	insert into vennue_types(name,order_no,created_by,updated_by)
+	values ('Open space',1,'v1@v.com','v1@.com');
+
+	insert into vennue_types(name,order_no,created_by,updated_by)
+	values ('Closed space',2,'v1@v.com','v1@.com');
+
+	insert into vennue_types(name,order_no,created_by,updated_by)
+	values ('Meeting Room',3,'v1@v.com','v1@.com');
+
+	insert into vennue_types(name,order_no,created_by,updated_by)
+	values ('Auditorium',4,'v1@v.com','v1@.com');
+
+	insert into vennue_types(name,order_no,created_by,updated_by)
+	values ('Restaurant',5,'v1@v.com','v1@.com');
+
+	insert into vennue_types(name,order_no,created_by,updated_by)
+	values ('Resort',6,'v1@v.com','v1@.com');
+
+	insert into vennue_types(name,order_no,created_by,updated_by)
+	values ('Lounge',7,'v1@v.com','v1@.com');
+
+	insert into vennue_types(name,order_no,created_by,updated_by)
+	values ('Celebration Hall',8,'v1@v.com','v1@.com');
+
+	insert into vennue_types(name,order_no,created_by,updated_by)
+	values ('Hotels Hall',9,'v1@v.com','v1@.com');
+
+
 	#pricing types
 	insert into pricing_type (name,created_by,updated_by)
 	values('per person', 'v1@v.com', 'v1@v.com');
@@ -68,6 +97,14 @@
 
 	insert into services_types ( name,created_by,updated_by)
 	values('Speakers','v1@v.com','v1@v.com');
+
+
+	#vennue room Types
+	insert into room_types(name,order_no,created_by,updated_by)
+	values ('Air Conditioning',1,'v1@v.com','v1@v.com');
+
+	insert into room_types(name,order_no,created_by,updated_by)
+	values ('Non Air Conditioning',1,'v1@v.com','v1@v.com');
 
 	#theme types
 	insert into theme_types ( name, short_description, set_up_time, note,event_type_id,created_by, updated_by)
@@ -153,7 +190,110 @@ values (1,'Spring Trade Fair', 'The Spring Trade Fair" (also labeled as just "Sp
 	insert into address (linkable_id, linkable_type,address_line_1,google_map_link,city_id,created_by,updated_by)
 	values (6,'vennues','333 XYZ Street','https://goo.gl/maps/XNv83vgHXyw', 1,'v1@v.com','v1@v.com');
 
+	#vennue Type Mappings
+	insert into vennue_type_mapping(venue_type_id, vennue_id,created_by,updated_by)
+	values (1,1,'v1@v.com','v1@v.com');
+
+	insert into vennue_type_mapping(venue_type_id, vennue_id,created_by,updated_by)
+	values (2,1,'v1@v.com','v1@v.com');
+
+	insert into vennue_type_mapping(venue_type_id, vennue_id,created_by,updated_by)
+	values (3,1,'v1@v.com','v1@v.com');
+
+	insert into vennue_type_mapping(venue_type_id, vennue_id,created_by,updated_by)
+	values (4,2,'v1@v.com','v1@v.com');
+
+	insert into vennue_type_mapping(venue_type_id, vennue_id,created_by,updated_by)
+	values (5,3,'v1@v.com','v1@v.com');
+
+	insert into vennue_type_mapping(venue_type_id, vennue_id,created_by,updated_by)
+	values (6,4,'v1@v.com','v1@v.com');
+
+	insert into vennue_type_mapping(venue_type_id, vennue_id,created_by,updated_by)
+	values (7,5,'v1@v.com','v1@v.com');
+
+	insert into vennue_type_mapping(venue_type_id, vennue_id,created_by,updated_by)
+	values (7,5,'v1@v.com','v1@v.com');
+
+	insert into vennue_type_mapping(venue_type_id, vennue_id,created_by,updated_by)
+	values (8,6,'v1@v.com','v1@v.com');
+
+	insert into vennue_type_mapping(venue_type_id, vennue_id,created_by,updated_by)
+	values (9,6,'v1@v.com','v1@v.com');
 	
+	# vennue room mapping
+	insert into vennue_room_mapping(room_type_id,vennue_id,created_by,updated_by)
+	values (1,1,'v1@v.com','v1@v.com');
+
+	insert into vennue_room_mapping(room_type_id,vennue_id,created_by,updated_by)
+	values (1,2,'v1@v.com','v1@v.com');
+
+	insert into vennue_room_mapping(room_type_id,vennue_id,created_by,updated_by)
+	values (1,3,'v1@v.com','v1@v.com');
+
+	insert into vennue_room_mapping(room_type_id,vennue_id,created_by,updated_by)
+	values (2,4,'v1@v.com','v1@v.com');
+
+	insert into vennue_room_mapping(room_type_id,vennue_id,created_by,updated_by)
+	values (2,5,'v1@v.com','v1@v.com');
+
+	insert into vennue_room_mapping(room_type_id,vennue_id,created_by,updated_by)
+	values (2,6,'v1@v.com','v1@v.com');
+	
+	#vennue event mapping
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(5,1,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(6,1,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(7,1,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(5,2,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(6,2,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(7,2,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(5,3,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(6,3,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(7,3,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(5,4,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(6,4,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(7,4,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(5,5,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(6,5,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(7,5,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(5,6,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(6,6,'v1@v.com','v1@v.com');
+
+	insert into vennue_event_mapping ( event_type_id,vennue_id,created_by,updated_by)
+	values(7,6,'v1@v.com','v1@v.com');
 
 	#create pricings
 	insert into pricings (linkable_id,linkable_type,pricing_type_id,price,actual_price,created_by,updated_by)
@@ -1233,3 +1373,25 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 
 	insert into reviews (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
 	values(2,12,'themes','Amazing venue for party. all the servies provided were just perfect',4,1,'v1@v.com','v1@v.com');
+
+
+
+
+	#filtes
+	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
+	values ('vennues', 'price_range','80-101',1,'v1@v.com','v1@v.com');
+
+	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
+	values ('vennues', 'price_range','151-200',2,'v1@v.com','v1@v.com');
+
+	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
+	values ('vennues', 'price_range','201-500',3,'v1@v.com','v1@v.com');
+
+	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
+	values ('vennues', 'seating_capacity','1-50',1,'v1@v.com','v1@v.com');
+
+	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
+	values ('vennues', 'seating_capacity','51-200',2,'v1@v.com','v1@v.com');
+
+	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
+	values ('vennues', 'seating_capacity','201-500',3,'v1@v.com','v1@v.com');

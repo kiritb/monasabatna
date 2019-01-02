@@ -63,7 +63,7 @@
                         <div class="col-sm-12">
                             <label class="control-label signup-link" for="personname">
                                 <span class="small-cust">New User?
-                                    <a href="http://18.218.133.17/customer_signup"> Sign Up</a>
+                                    <a href="{{ url('/') }}/register"> Sign Up</a>
                                 </span>
                             </label>
                         </div>

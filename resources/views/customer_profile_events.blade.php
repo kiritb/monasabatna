@@ -45,13 +45,15 @@
                   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                             
                   <div class="customerlinegreen"></div>
+         
                   <div class="container-fluid" id="customer-profile-bg">
-                  <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="row custprofeven">
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-62px; margin-top:0px">
+                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" class="img-fluid img-thumbnail" style="width:300px; height:300px; margin-left:-47px; margin-top:0px">
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 cust-prof-onlinepy">
-                        <div class="row custprofhead">
+                        <div class="bg clearfix">
+                        
                            <h3 class="cust-head"><b>La Fontaine La Plage Resort</b></h3>
                            <h4 class="go-right" style="float:right">Booking Number : MTNA0789456<br><div class="spacer_box"></div>
                               Booking Date : July 8, 2018
@@ -79,7 +81,7 @@
                         </div>
                      </div>
                   </div>
-                  
+              
                   
                   </div>
                   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -100,9 +102,9 @@
                   <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
                   <div class="customerlinegreen"></div>
                   <div class="container-fluid" id="customer-profile-bg"><!----- star of event page --------->
-                  <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="row custprofeven">
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-62px; margin-top:0px">
+                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-47px; margin-top:0px">
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 cust-prof-onlinepy">
                         <div class="row custprofhead">
@@ -160,7 +162,7 @@
                      <div class="container-fluid" id="booking-history-bg">
                   <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-62px; margin-top:0px">
+                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-47px; margin-top:0px">
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 cust-prof-onlinepy">
                         <div class="row custprofhead">
@@ -194,7 +196,7 @@
                      <div class="container-fluid" id="booking-history-bg">
                   <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <img src="svg/images/custprof-supplier.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-62px; margin-top:0px">
+                        <img src="svg/images/custprof-supplier.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-47px; margin-top:0px">
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 cust-prof-onlinepy">
                         <div class="row custprofhead">
@@ -226,7 +228,7 @@
                   <div class="container-fluid" id="customer-profile-bg">
                   <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-62px; margin-top:0px">
+                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-47px; margin-top:0px">
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 cust-prof-onlinepy">
                         <div class="row custprofhead">
@@ -258,7 +260,7 @@
                      <div class="container-fluid" id="booking-history-bg">
                   <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <img src="svg/images/custprof-supplier.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-62px; margin-top:0px">
+                        <img src="svg/images/custprof-supplier.jpg" alt="Mountains" style="width:300px; height:300px; margin-left:-47px; margin-top:0px">
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 cust-prof-onlinepy">
                         <div class="row custprofhead">

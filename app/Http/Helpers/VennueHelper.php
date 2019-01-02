@@ -8,20 +8,24 @@
 
 namespace App\Http\Helpers;
 
-
-use App\Models\Files;
-use App\Models\Pricings;
 use App\Models\Vennues;
-use App\Models\Vendors;
-use App\Models\Amenities;
-use App\Models\AmenitieTypes;
 use App\Models\Events;
+use App\Models\VennueTypes;
+use App\Models\EventTypes;
+use App\Models\ServicesTypes;
+use App\Models\AmenitieTypes;
+use App\Models\RoomTypes;
+
+
+
 
 use App\Http\Helpers\AmmenitieHelper;
 use App\Http\Helpers\FileHelper;
 use App\Http\Helpers\ReviewsHelper;
 use App\Http\Helpers\PoliciesHelper;
 use App\Http\Helpers\ServicesHelper;
+use App\Http\Helpers\FilterHelper;
+use App\Http\Helpers\MiscHelper;
 
 
 
@@ -31,14 +35,16 @@ class VennueHelper
      *
      * @return Array
     */
-    public static function vennueListing()
+    public static function vennueListing( $filterArr = [] )
     {   
         $returnArr = [];
+
+
 
         try
         {  
 
-            $vennueData = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName','vennues.short_description as vennueShortDescription',
+            $vennueSql = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName','vennues.short_description as vennueShortDescription',
                                           'vennues.start_time as vennueStartTime','vennues.order_no as displayOrder',
                                           'vennues.is_express_deal as isExpressDeal' , 'vennues.rating',
                                           'address.address_line_1 as AddressLine_1','address.address_line_2 as AddressLine_2','address.google_map_link as googleMapLink','cities.name as cityName',
@@ -57,19 +63,53 @@ class VennueHelper
                             ->where('files.status', 1)
                             ->where('pricings.status', 1)
                             ->where('pricing_type.status', 1)
-                            ->where('cities.status', 1)
-                            ->orderBy('vennues.order_no', 'asc')
-                            ->paginate(2);
+                            ->where('cities.status', 1);
 
-            if( empty($vennueData) )
+            if(isset($filterArr['price_range']) && !empty($filterArr['price_range']))
+            {
+                $priceRange = $filterArr['price_range'];
+                
+                $priceArr   = MiscHelper::getPriceFilter($priceRange);
+                
+                $minPrice   = reset($priceArr);
+                
+                $maxPrice   = end($priceArr);
+
+                $vennueSql  = $vennueSql->whereBetween('pricings.actual_price',[$minPrice, $maxPrice] );
+
+            }
+            
+             if(isset($filterArr['seating_capacity']) && !empty($filterArr['seating_capacity']))
+            {
+                $seatingCapacity    = $filterArr['seating_capacity'];
+                
+                $capacityArr        = MiscHelper::getPriceFilter($seatingCapacity);
+                
+                $minCap             = reset( $capacityArr );
+
+
+                $maxCap             = end( $capacityArr );
+
+
+                $vennueSql          = $vennueSql->where('vennues.min_guest_cap', '>=' , $minCap)
+                                      ->where('vennues.max_guest_cap', '<=' , $maxCap);
+
+            }
+
+
+            $vennueData =  $vennueSql->orderBy('vennues.order_no', 'asc')
+                            ->paginate(2);
+            
+
+            $venneDataArr = $vennueData->toArray();
+            
+            if( $venneDataArr['total'] == 0 )
             {
                 \Log::info(__CLASS__." ".__FUNCTION__." Vennue Data does not exists ");
 
                 return [];
                 
             }
-
-            $venneDataArr = $vennueData->toArray();
             
             $vennueIdArr  = array_column($venneDataArr['data'], 'vennueId');
  
@@ -322,5 +362,101 @@ class VennueHelper
        
     }
 
+    /**
+     *
+     * @return Array
+    */
+    public static function vennueFilters()
+    {   
+        $returnArr = [];
+
+        try
+        {  
+
+            $filterData = FilterHelper::getFilters('vennues');
+                            
+
+            if( empty($filterData) )
+            {
+                \Log::info(__CLASS__." ".__FUNCTION__." Filter Data does not exists ");
+
+                return [];
+                
+            }
+            
+
+            foreach ($filterData as $key => $value) {
+                
+                $returnArr[$value['filter_type']][] = $value['filter'];
+                
+
+            }
+            
+            $vennueTypes = VennueTypes::select('vennue_types.name')
+                                        ->join('vennue_type_mapping', 'vennue_type_mapping.venue_type_id', '=', 'vennue_types.id')
+                                        ->where('vennue_types.status', 1)
+                                        ->where('vennue_type_mapping.status', 1)
+                                        ->distinct('vennue_types.name')
+                                        ->get()
+                                        ->toArray();
+
+
+            $returnArr['vennue_types'] = empty($vennueTypes) ? [] : array_column($vennueTypes, 'name');
+
+            $eventTypes = EventTypes::select('event_types.name')
+                                     ->join('vennue_event_mapping', 'vennue_event_mapping.event_type_id', '=', 'event_types.id')
+                                     ->where('vennue_event_mapping.status', 1)
+                                     ->where('event_types.status', 1)
+                                     ->distinct('event_types.name')
+                                     ->get()
+                                     ->toArray();
+
+
+            $returnArr['event_types'] = empty($eventTypes) ? [] : array_column($eventTypes, 'name');
+
+
+            $servicesTypes = ServicesTypes::select('services_types.name')
+                                    ->join('services', 'services.service_type_id', '=', 'services_types.id')
+                                    ->where('services.linkable_type','vennues')
+                                    ->where('services_types.status', 1)
+                                    ->where('services.status', 1)
+                                    ->distinct('services_types.name')
+                                    ->get()
+                                    ->toArray();
+
+            $returnArr['services_types'] = empty($servicesTypes) ? [] : array_column($servicesTypes, 'name');
+
+            $ammentiesTypes = AmenitieTypes::select('amenitie_types.name')
+                                    ->join('amenities', 'amenities.amenitie_type_id', '=', 'amenitie_types.id')
+                                    ->where('amenities.linkable_type','vennues')
+                                    ->where('amenitie_types.status', 1)
+                                    ->where('amenities.status', 1)
+                                    ->distinct('amenitie_types.name')
+                                    ->get()
+                                    ->toArray();
+            
+            $returnArr['ammenties_types'] = empty($ammentiesTypes) ? [] : array_column($ammentiesTypes, 'name');
+
+            $roomTypes = RoomTypes::select('room_types.name')
+                                    ->join('vennue_room_mapping', 'vennue_room_mapping.vennue_id', '=', 'room_types.id')
+                                    ->where('vennue_room_mapping.status', 1)
+                                    ->where('room_types.status', 1)
+                                    ->distinct('room_types.name')
+                                    ->get()
+                                    ->toArray();
+
+            $returnArr['room_types'] = empty($roomTypes) ? [] : array_column($roomTypes, 'name');
+
+            return $returnArr;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Filter Data ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured while Fetching Filter Data", 1);
+
+        }
+       
+    }
     
 }

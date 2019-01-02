@@ -79,6 +79,17 @@ CREATE TABLE evms.phones
   UNIQUE KEY email (phone_number)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS evms.event_types;
+create table evms.event_types(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(256) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   
 DROP TABLE IF EXISTS evms.vennues;
 CREATE TABLE evms.vennues
@@ -109,6 +120,90 @@ CREATE TABLE evms.vennues
   PRIMARY KEY (id),
   FOREIGN KEY (vendor_id) REFERENCES vennues(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.vennue_types;
+CREATE TABLE evms.vennue_types
+(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(256) NOT NULL,
+  short_description text DEFAULT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.room_types;
+CREATE TABLE evms.room_types
+(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(256) NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.vennue_room_mapping;
+CREATE TABLE evms.vennue_room_mapping
+(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  room_type_id int(11) NOT NULL,
+  vennue_id int(11) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (room_type_id) REFERENCES room_types(id),
+  FOREIGN KEY (vennue_id) REFERENCES vennues(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+DROP TABLE IF EXISTS evms.vennue_type_mapping;
+CREATE TABLE evms.vennue_type_mapping
+(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  venue_type_id int(11) NOT NULL,
+  vennue_id int(11) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (venue_type_id) REFERENCES vennue_types(id),
+  FOREIGN KEY (vennue_id) REFERENCES vennues(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.vennue_event_mapping;
+CREATE TABLE evms.vennue_event_mapping
+(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  event_type_id int(11) NOT NULL,
+  vennue_id int(11) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (event_type_id) REFERENCES event_types(id),
+  FOREIGN KEY (vennue_id) REFERENCES vennues(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 DROP TABLE IF EXISTS evms.events;
 create table evms.events(
@@ -155,17 +250,7 @@ create table evms.event_organisers(
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-DROP TABLE IF EXISTS evms.event_types;
-create table evms.event_types(
-  id int(11) NOT NULL AUTO_INCREMENT,
-  name varchar(256) NOT NULL,
-  status int(1) NOT NULL DEFAULT 1,
-  created_at datetime DEFAULT NULL,
-  updated_at datetime DEFAULT NULL,
-  created_by varchar(256) NOT NULL,
-  updated_by varchar(256) NOT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 DROP TABLE IF EXISTS evms.theme_types;
 create table evms.theme_types(
@@ -599,3 +684,17 @@ create table evms.policies(
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+DROP TABLE IF EXISTS evms.filters;
+create table evms.filters(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_type varchar(30) NOT NULL,
+  filter_type varchar(30) NOT NULL,
+  filter text NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

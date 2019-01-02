@@ -81,7 +81,7 @@
         </div>
     </div>
     <div class="container-fluid" id="eventrows">
-        <div class="fbrow">
+        <div class="row">
             <a class="fb-button" href="#"><i id="fbevent" class="fab fa-facebook-f"></i>Facebook</a>
             <a class="twit-button" href="#"><i id="fbevent" class="fab fa-twitter"></i>Twitter</a>
             <a class="eventterms" href="#"> Terms & Policies</a>
@@ -284,7 +284,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                
+                             
                                     <button class="btn active" id="btn-port" onclick="filterSelection('all')"> Book Now</button>
                                     
                                 </div>

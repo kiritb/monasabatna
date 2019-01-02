@@ -27,9 +27,44 @@ class VennueController extends Controller
 
         try
         {
-            $vennueListingData = VennueHelper::vennueListing();
+            $vennueListingData = VennueHelper::vennueListing( $requestParams );
+
+            if(empty($vennueListingData) )
+            {
+                $responseArr = ResponseUtil::buildErrorResponse( ['errors' => ['No Data Found'] ], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
+                
+                return response( $responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND );
+            }
+
 
             return response( ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_CREATED );
+        }
+        catch( \Exception $e)
+        {
+            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+                
+                return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
+        }
+        
+   }
+
+     /**
+     * generates getFilters for vennues 
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+    */
+   public function getFilters( Request $request )
+   {    
+        $requestParams = $request->all();
+        
+        \Log::info(__CLASS__." ".__FUNCTION__.' Request Params =>'. print_r($requestParams , true ) );
+
+        try
+        {
+            $vennueFiltersData = VennueHelper::vennueFilters();
+
+            return response( ResponseUtil::buildSuccessResponse($vennueFiltersData), HttpStatusCodesConsts::HTTP_CREATED );
         }
         catch( \Exception $e)
         {

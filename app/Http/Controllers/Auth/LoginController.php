@@ -11,7 +11,6 @@ use App\Http\Helpers\UserHelper;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
-
 class LoginController extends Controller
 {
     /*
@@ -24,7 +23,6 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    
 
     /**
      * Where to redirect users after login.
@@ -35,119 +33,99 @@ class LoginController extends Controller
 
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
-        
     }
 
     public function login(Request $request)
     {
         $requestParams = $request->all();
-        
-        $rules       = [   
-                            'phone'           => 'required', 
-                            'password'        => 'required',
-                       ];
 
-        $validator   = Validator::make( $requestParams, $rules );
+        $rules = [
+                    'phone' => 'required',
+                    'password' => 'required',
+                ];
 
-        if ($validator->fails())
-        {
-            $errorMessages = current( $validator->messages() );
-            foreach ($errorMessages as $key => $value)
-            {
-                \Log::info(__CLASS__." ".__FUNCTION__." Error Message ".current($value)." Response Code ". HttpStatusCodesConsts::HTTP_BAD_REQUEST );
+        $validator = Validator::make($requestParams, $rules);
 
-                $responseArr = ResponseUtil::buildErrorResponse( [ 'errors' => [ current($value) ] ], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
-                
-                return response( $responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST );
+        if ($validator->fails()) {
+            $errorMessages = current($validator->messages());
+            foreach ($errorMessages as $key => $value) {
+                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message '.current($value).' Response Code '.HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => [current($value)]], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
             }
         }
 
-        try
-        {   
-            $phoneData = UserHelper::getUserByDefaultPhone( $requestParams['phone'] );
+        try {
+            $phoneData = UserHelper::getUserByDefaultPhone($requestParams['phone']);
 
-            $userData  =  DB::table('users')
+            $userData = DB::table('users')
                          ->where('id', $phoneData[0]['linkable_id'])
                          ->get()
                          ->toArray();
-                                        
 
-            if(empty( $userData ) )
-            {
-                \Log::info(__CLASS__." ".__FUNCTION__." Error Message Customer does not exists ");
-                
-                $responseArr = ResponseUtil::buildErrorResponse( [ 'errors' => [ 'user not found' ] ], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'UserNotFoundException');
-                
-                return response( $responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST );
+            if (empty($userData)) {
+                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message Customer does not exists ');
+
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['user not found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'UserNotFoundException');
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
             }
 
-            if( ! $userData[0]->status )
-            {
-                \Log::info(__CLASS__." ".__FUNCTION__." Error Message Customer is inactive ");
-                
-                $responseArr = ResponseUtil::buildErrorResponse( [ 'errors' => [ 'Customer is inactive' ] ], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'UserInactiveException');
-                
-                return response( $responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST );
+            if (!$userData[0]->status) {
+                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message Customer is inactive ');
+
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['Customer is inactive']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'UserInactiveException');
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
             }
 
-            if( empty( $userData[0]->account_verified_at ) )
-            {
-                \Log::info(__CLASS__." ".__FUNCTION__." Error Message Account not verified ");
-                
-                $responseArr = ResponseUtil::buildErrorResponse( [ 'errors' => [ 'account not verified' ] ], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'UserAccountActivationException');
-                
-                return response( $responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST );
+            if (empty($userData[0]->account_verified_at)) {
+                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message Account not verified ');
+
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['account not verified']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'UserAccountActivationException');
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
             }
 
+            $credentials = ['email' => $userData[0]->email, 'password' => $requestParams['password']];
 
-            $credentials = [ 'email' => $userData[0]->email, 'password'=>$requestParams['password'] ];
-            
-            if (! $token = JWTAuth::attempt($credentials)) 
-            {
-                $responseArr = ResponseUtil::buildErrorResponse( [ 'errors' => [ 'wrong password' ] ], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'noUserFoundException');
+            if (!$token = JWTAuth::attempt($credentials)) {
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['wrong password']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'noUserFoundException');
             }
 
-            return response( ResponseUtil::buildSuccessResponse( ['authtoken' => $token ] ), HttpStatusCodesConsts::HTTP_OK );
+            return response(ResponseUtil::buildSuccessResponse(['authtoken' => $token]), HttpStatusCodesConsts::HTTP_OK);
+        } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
-        catch( \Exception $e)
-        {
-            
-            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
-                
-            return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
-        }
-        
     }
 
     /**
      * Logout
      * Invalidate the token. User have to relogin to get a new token.
+     *
      * @param Request $request 'header'
-    */
-    public function logout(Request $request) 
+     */
+    public function logout(Request $request)
     {
-        
         $token = $request->header('Authorization');
-        
-        try {
-            
-            JWTAuth::invalidate($token);
-            
-            return response( ResponseUtil::buildSuccessResponse( ['message' => 'User successfully logged out.' ] ), HttpStatusCodesConsts::HTTP_OK );
-        } 
-        catch ( JWTException $e) 
-        {
-            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured ".print_r($e->getMessage(),true) );
 
-            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
-                
-            return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
+        try {
+            JWTAuth::invalidate($token);
+
+            return response(ResponseUtil::buildSuccessResponse(['message' => 'User successfully logged out.']), HttpStatusCodesConsts::HTTP_OK);
+        } catch (JWTException $e) {
+            \Log::info(__CLASS__.' '.__FUNCTION__.' Exception Occured '.print_r($e->getMessage(), true));
+
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-}   
-
+}

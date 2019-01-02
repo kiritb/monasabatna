@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Constants\HttpStatusCodesConsts;
+use App\Http\Helpers\ResponseUtil;
+use App\Http\Helpers\HomeHelper;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -21,8 +22,24 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        //send data from api
+        $requestParams = $request->all();
+
+        \Log::info(__CLASS__.' '.__FUNCTION__.' Request Params =>'.print_r($requestParams, true));
+
+        try {
+            $homePageData = HomeHelper::buildHomePageData();
+
+            $response = $homePageData;
+        } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            $response = $responseArr;
+        }
+
+        //return \View::make('home', compact('response'));
+        return view('home')->with('data', $response);
     }
 }
