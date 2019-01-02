@@ -15,31 +15,58 @@ Route::get('aboutus', function () {
     return view('004_6_about_us');
 });
 Route::get('blogs', function () {
-    return view('006_01_01_blogs');
+    return view('blogs');
 });
 Route::get('customer_signup', function () {
-    return view('005_1_customer_signup');
+    return view('auth/customer_signup');
 });
 Route::get('customer_signin', function () {
-    return view('005_2_customer_signin');
+    return view('auth/customer_signin');
 });
-Route::get('customer_profile_venueold', function () {
-    return view('005_4_3_1_customer_profile_venueold');
+Route::get('customer_profile_flex', function () {
+    return view('customer_profile_flex');
+});
+Route::get('customer_profile_cancelbooking_confirmation', function () {
+    return view('customer_profile_cancelbooking_confirmation');
+});
+Route::get('customer_profile_venue_update', function () {
+    return view('customer_profile_venue_update');
+});
+Route::get('customer_profile_paying_cash', function () {
+    return view('customer_profile_paying_cash');
+});
+Route::get('customer_profile_online_payment', function () {
+    return view('customer_profile_online_payment');
+});
+Route::get('customer_profile_events', function () {
+    return view('customer_profile_events');
+});
+Route::get('customer_profile_eventorganisers', function () {
+    return view('customer_profile_eventorganisers');
+});
+Route::get('customer_profile_suppliers', function () {
+    return view('customer_profile_suppliers');
+});
+Route::get('customer_profile_venues_bookinghistory', function () {
+    return view('customer_profile_venues_bookinghistory');
 });
 Route::get('customer_profile', function () {
     return view('005_4_3_1_customer_profile');
 });
 Route::get('customer_profile_cancel_booking', function () {
-    return view('005_4_3_1_customer_profile_cancel_booking');
+    return view('customer_profile_cancel_booking');
 });
 Route::get('faqs', function () {
-    return view('006_01_02_faqs');
+    return view('faqs');
 });
 Route::get('vendorsignup', function () {
     return view('vendor_signup');
 });
 Route::get('venue_dashboard_filter', function () {
     return view('008_06_venue_dashboard_filter');
+});
+Route::get('eventorganisers', function () {
+    return view('eventorganisers');
 });
 Route::get('package_event_organisers', function () {
     return view('004_4_4_package_event_organisers');
@@ -71,19 +98,26 @@ Route::get('suppliers_package', function () {
 Route::get('suppliers_package_detail', function () {
     return view('004_3_Suppliers_package_detail');
 });
-Route::get('theme_detail', function () {
-    return view('003_3_5_Theme_Detail');
+Route::get('packagedetailsfive', function () {
+    return view('package_detailsfive');
 });
+
 Route::get('wishlist', function () {
     return view('newwishlist');
 });
-Route::get('indexpage', function () {
-    return view('home');
-});
-Route::get('/', function () {
-    return view('home');
-});
 
-Auth::routes();
+Route::get('reset', array('as' => 'password.request', function () {
+    return view('auth.passwords.reset');
+}));
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('login', array('as' => 'login', function () {
+    return view('auth.customer_signin');
+}));
+
+Route::post('login', 'Auth\LoginController@login');
+
+Route::get('register', array('as' => 'register', function () {
+    return view('auth.customer_signup');
+}));
