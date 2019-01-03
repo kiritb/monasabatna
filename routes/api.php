@@ -37,9 +37,12 @@ Route::group(['prefix' => 'v1'], function () {
     	
 });
 
-Route::middleware('jwt.auth')->group(function(){
+
+Route::group([ 'middleware' => [ 'jwt.verify'], 'prefix' => 'v1' ], function ()
+{
+    Route::get('logout', 'Auth\LoginController@logout');
+    Route::post('test', 'Api\VennueController@test');
     
-    Route::get('logout', 'API\LoginController@logout');
 });
 
 // Route::get('/', function () {

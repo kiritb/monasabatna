@@ -128,4 +128,9 @@ class VennueController extends Controller
         }
         
    }
+
+   public function test(Request $request)
+   {
+        dd(Auth::check());
+   }
 }
