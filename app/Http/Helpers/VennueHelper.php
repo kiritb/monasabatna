@@ -147,6 +147,12 @@ class VennueHelper
                
             }
 
+            if( isset( $filterArr['is_express_deal'] ) && ( $filterArr['is_express_deal'] ) )
+            {  
+                
+                $vennueSql->orderBy('vennues.is_express_deal', 1);
+               
+            }
 
             if( isset( $filterArr['sort'] ) && !empty( $filterArr['sort'] ) )
             {  
