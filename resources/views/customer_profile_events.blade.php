@@ -52,7 +52,7 @@
                         <img src="svg/images/customer-profile11.jpg" alt="Mountains" class="img-fluid img-thumbnail" style="width:300px; height:300px; margin-left:-47px; margin-top:0px">
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 cust-prof-onlinepy">
-                        <div class="bg clearfix">
+                        <div class="fullrow">
                         
                            <h3 class="cust-head"><b>La Fontaine La Plage Resort</b></h3>
                            <h4 class="go-right" style="float:right">Booking Number : MTNA0789456<br><div class="spacer_box"></div>

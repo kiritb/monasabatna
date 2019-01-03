@@ -5,13 +5,22 @@
     <!-- Home Carousal for Banners -->
     @include("slider")
 
+    <?php
+
+        if (Auth::check()) {
+            // The user is logged in...
+            echo '<h1>Logged In</h1>';
+        }
+
+    ?>
+
     <!-----middlelayer star---------------->
     <div class="container-fluid" id="middlelayer">
         <div class="middlehead_exptop">
             <b>Express Deals </b>
         </div>
         <div class="row four_box">
-
+            @if (count($data["expressDeals"]) > 0)
             @foreach ($data["expressDeals"] as $eDeals)
             <!---- start of col-sm-3---->
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
@@ -60,6 +69,9 @@
             </div>
             <!---- end of col-sm-3---->
             @endforeach
+            @else
+            <div>No data!!</div>
+            @endif
         </div>
         <!----- end of row col-sm-12 ----->
 
@@ -80,13 +92,15 @@
                     <center>
             </div>
             <div class="container col-md-12 col-sm-6">
-
+                @if (count($data["partners"]) > 0)
                 @foreach ($data["partners"] as $partners)
                 <div class="advertisepic">
                     <img class="img-responsive" src={{ $partners->filePath }}>
                 </div>
                 @endforeach
-
+                @else
+                <div>No data!!</div>
+                @endif
             </div>
         </div>
         <!------------ end of col ------------->
@@ -100,6 +114,7 @@
         </div>
         <br>
         <div class="row four_box">
+            @if (count($data["upcomingEvents"]) > 0)
             @foreach ($data["upcomingEvents"] as $upcomingEvents)
             <!---- start of col-sm-3---->
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
@@ -147,6 +162,10 @@
             </div>
             <!---- end of col-sm-3---->
             @endforeach
+            @else
+            <div>No data!!</div>
+            @endif
+
         </div>
         <!----- end of row col-sm-12 ----->
 
@@ -245,7 +264,7 @@
     <!-------------- testimonial start --------------->
     <div class="slideshow-container">
         <h4 class="testimonial-head">See what our Customers are Saying</h4>
-
+        @if (count($data["testimonials"]) > 0)
         @foreach ($data["testimonials"] as $testimonials)
         <div class="mySlides">
             <div class="row">
@@ -260,6 +279,10 @@
 
         </div>
         @endforeach
+
+        @else
+        <div>No data!!</div>
+        @endif
 
         <a class="prev" onclick="plusSlides(-1)"><i class="fas fa-angle-left" style="font-size:45px"></i></a>
         <a class="next" onclick="plusSlides(1)"><i class="fas fa-angle-right" style="font-size:45px"></i></a>

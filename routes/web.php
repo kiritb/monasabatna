@@ -72,13 +72,13 @@ Route::get('package_event_organisers', function () {
     return view('004_4_4_package_event_organisers');
 });
 Route::get('package_venues', function () {
-    return view('004_4_5_package_venues');
+    return view('package_venues');
 });
 Route::get('vendorregistration', function () {
     return view('venue_registration_done');
 });
-Route::get('venuedetails', function () {
-    return view('001_05_venue_details');
+Route::get('venuedetailstwo', function () {
+    return view('venue_details_two');
 });
 Route::get('venuedetails_two', function () {
     return view('001_05_venue_details_2');
@@ -101,7 +101,9 @@ Route::get('suppliers_package_detail', function () {
 Route::get('packagedetailsfive', function () {
     return view('package_detailsfive');
 });
-
+Route::get('venuelist', function () {
+    return view('venue_list');
+});
 Route::get('wishlist', function () {
     return view('newwishlist');
 });

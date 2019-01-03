@@ -4,9 +4,9 @@
 <head>
     <title>Monasabatna</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="vendors/bootstrap/bootstrap.min.css" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="vendors/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="vendors/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="vendors/slick/slick-theme.css">

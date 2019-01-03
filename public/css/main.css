@@ -2324,18 +2324,19 @@ a.eventterms {
     margin-top: -3%;
     font-size: 14px;
     text-decoration: underline;
-    margin-left: 87%;
+    margin-left: 90%;
 }
 
 a.fb-button {
     width: 150px;
     height: 40px;
-    margin-left: 0%;
+    margin-left: 3px;
     background-color: #6cc0b9;
     border-radius: 8px;
     color: #fff;
     text-align: center;
-    padding-top: 9px;
+    padding:12px;
+
     line-height: 14px;
 }
 
@@ -2352,8 +2353,11 @@ a.twit-button {
     border-radius: 8px;
     color: #fff;
     text-align: center;
-    padding-top: 9px;
+    padding:12px;
     line-height: 14px;
+}
+.fbrow {
+    padding-top: 34px;
 }
 
 board.liner {
@@ -2917,11 +2921,23 @@ div#customerprofile {
 }
 
 .cust-prof-onlinepy {
-    width: 100%;
-    margin-top: -35px;
-    margin-left: -123px;
+    width:100%;
+    margin-top: -6px;
+    margin-left: -7rem!important;
 }
-
+.img-thumbnail{
+    padding:0px;
+}
+@media only screen and (min-width: 768px) {
+    .cust-prof-onlinepy {
+        margin-left: -4rem!important;
+    }
+} 
+@media only screen and (min-width: 1200px) {
+    .cust-prof-onlinepy {
+        margin-left: -7rem!important;
+    }
+} 
 .col-lg-4.col-md-4.col-sm-12.col-xs-12.picheight {
     height: 261px;
 }
@@ -2953,10 +2969,16 @@ div#customerprofile {
     font-size: 18px !important;
     height: 0px;
     color: #4b485b;
+    margin-top:-28px;
+    width:834px;
+}
+.fullrow {
+    padding: 0px;
+    margin: 0px;
+    width: 1478px;
     margin-left: 633px;
     width: 50%;
 }
-
 .go-rightevents {
     margin: 18px 0px 0px 521px;
 }
@@ -3008,6 +3030,17 @@ a.venuepy-cash {
 /***************** customer _profile_booking history **************/
 
 /* Medium devices (landscape tablets, 768px and up) */
+
+@media (min-width: 1200px){
+    a#nav-events-tab {
+        width: 24.80%;
+    }
+    }
+@media only screen and (min-width: 768px){
+    a#nav-events-tab {
+        width: 23%;
+    }
+}
 @media (min-width: 1024px) {
     a#nav-events-tab {
         width: 23.50% !important;
@@ -3207,8 +3240,220 @@ select#bg-orange {
 }
 
 /********* end of 008_03_venue_dashboard_cancel_booking*****************/
-/********* start of 004_4_5_package_venues*****************/
 
+/********************** Venue List **********************************************/
+@media only screen and (max-width: 1024px) {
+    .row.color-bg-venuelist {
+   
+        margin-left: 108px!important;
+     
+        width: 87%!important;
+   
+    }
+    }
+    @media only screen and (max-width: 1200px) {
+        .row.color-bg-venuelist {
+       
+            margin-left: 77px!important;
+         
+            width: 97%!important;
+       
+        }
+        }
+@media only screen and (max-width: 1024px) {
+select.form-control.sortvenues {
+   
+    margin-left: 591px;
+}
+}
+@media screen and (max-width: 1280px) {
+    select.form-control.sortvenues {
+    
+        margin-left: 881px;
+    }
+    }
+@media only screen and (min-width: 1024px) {
+    a#nav-home-tab {
+        width: 24.20%;
+    }
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.20%;
+    }
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.20%;
+    }
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 24.10%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    a#nav-home-tab {
+        width: 23.70%;
+    }
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    a#nav-home-tab {
+        width: 24.40%;
+    }
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+}
+h3.venuehead {
+    margin-top: 30px;  
+    font-size: 24px;
+    color: #4b485b;
+    font-family: Myraid pro;
+    font-weight: bold;
+}
+a.showmapbtn {
+    width: 150px;
+    float: right;
+    height: 40px;
+    text-align: center;
+    margin-top: -41px;
+    margin-right: 52px;
+    background-color: #6cc0b9;
+    border-radius: 8px;
+    color: #fff;
+    padding: 7px 10px 10px 10px;
+}
+/*** panel **************/
+.panel-heading {
+    padding: 10px 10px 10px 10px;
+    width: 240px;
+    color:#4b485b;
+    font-size:20px;
+    font-weight:bold;
+    font-family: Myriad pro light;
+    margin-left: -49px;
+    background-color: #dbdadb;
+    color: #;
+}
+.panel-body {
+    padding: 10px 10px 10px 10px;
+    width: 240px;
+    font-size:13px;
+    font-weight:bold;
+    color:#4b485b;
+    margin-left: -49px;
+    background-color: #ebebed;
+    color: #;
+}
+/** checkbox ******/
+input[type=checkbox], input[type=radio] {
+    line-height: normal;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    border: 1px solid #000;
+}
+/****** checkbox *********/
+/*********** panel ************/
+.row.venueslist {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#venue-list-bg {
+    width: 100%;
+    background-color: #fff;
+    margin: 25px 0px 0px 0px;
+    padding-left:0px;
+    padding-right:0px;
+}
+.filtersidevenue {
+    width: 10%;
+    height: auto;
+    float: left;
+    margin-left:50px;
+}
+.resetvenue {
+    padding-top: -13px;
+    float: right;
+}
+.wishlistfive {
+   
+    height: auto;
+}
+.panel{
+    width:300px;
+    float:left;
+}
+h4.venuecliphead {
+    font-family: Myriad pro;
+    color: #4b485b;
+    font-size: 20px;
+    padding-top: 17px;
+}
+select.form-control.sortvenues {
+    width: 207px;
+    margin-left: 881px;
+}
+.row.color-bg-venuelist {
+    margin-top: 10px;
+    margin-left: 77px;
+    margin-right:-33px;
+    width:1092px;
+    background-color: #f8f8f8;
+    height: auto;
+    padding: 21px;
+}
+.row.col-lg-10.col-md-10.col-sm-10.col-xs-10 {
+    padding: 0px;
+}
+.row.color-bg-venuelistone {
+    margin-top:15px;
+    margin-left: 77px;
+    margin-right:-33px;
+    background-color: #f8f8f8;
+    height: auto;
+    padding: 21px;
+}
+.venuespagin {
+    margin-left: 50%;
+}
+/****************************** Venue List **************************************/
+/********* start of 004_4_5_package_venues*****************/
+.blogvenue {
+    width:96%;
+    color: #727272;
+    font-size: 14px;
+}
+#bn-venuelist {
+    width: 120px;
+    height: 40px;
+    margin-top: -31px;
+    margin-right: 14px;
+    background-color: #6cc0b9;
+    border-color: #6cc0b9;
+    color: #fff;
+    font-size: 12px;
+    float: right;
+}
 .sign-commit {
     width: 150px;
     height: 35px;
@@ -3837,20 +4082,68 @@ ul ol::before {
 /****************************** end of tabs venue details ****************************/
 /****************************** start of event organisers details ****************************/
 /* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 1200px) {
+    #btn-port {
+
+        width:125px;
+    }
+} 
+@media only screen and (min-width: 1024px) {
+    #btn-port {
+
+        width:114px;
+    }
+} 
+@media only screen and (min-width: 768px) {
+    a.eventterms {
+
+        margin-left: 81%;
+    }
+} 
+@media only screen and (min-width: 1024px) {
+    a.eventterms {
+
+        margin-left: 86%;
+    }
+} 
+@media only screen and (min-width: 1280px) {
+    a.eventterms {
+   
+        margin-left: 90%;
+    }
+} 
 @media only screen and (min-width: 768px) {
     #btn-port {
         margin-left: -2%;
     }
-}
+@media only screen and (min-width: 1280px) {
+    #btn-port{
+        margin-left:8%;
+    }
+} 
+@media only screen and (min-width: 1366px) {
+    #btn-port{
+        margin-left:12%;
+    }
+} 
+@media only screen and (min-width: 1200px) {
+    .content-option{
+        margin-top: -11%;
+        width: 210px;
+        float: left;
+        font-size: 16px;
+        margin-left: -19px;
+    }
+    #btn-port{
+        width:125px;
+        margin-left:11%;
+        margin-top:-3%;
+    }
+} 
 
-.row.evenparty {
-    padding-right: 0px;
-    padding-left: 0px;
-    width: 100%;
-}
 
 .bg-info {
-
 
     color: #fff !important;
 }
@@ -4107,7 +4400,39 @@ p.get-right {
 }
 
 /************ customer profile supplier start ******************/
-
+@mixin for-phone-only {
+    @media (max-width: 599px) { @content; }
+  }
+  @mixin for-tablet-portrait-up {
+    @media (min-width: 768px) { @content; }
+  }
+  @mixin for-tablet-landscape-up {
+    @media (min-width: 1024px) { @content; }
+  }
+  @mixin for-desktop-up {
+    @media (min-width: 1200px) { @content; }
+  }
+  @mixin for-ipad-pro {
+    @media (min-width: 1366px) { @content; }
+  }
+  @mixin for-big-desktop-up {
+    @media (min-width: 1800px) { @content; }
+  }
+ /* .cust-prof-onlinepy{
+    margin-left:-7rem;
+    
+    @include for-tablet-landscape-up {
+      margin-left:-4rem;
+    }
+  }
+  */
+  @media only screen 
+  and (min-height: 768px) 
+  and (max-width: 1024px) 
+  and (orientation: landscape) 
+.cust-prof-onlinepy{
+ margin-left:-4rem!important;
+}
 .mt-10 {
     margin-top: 20px;
 }

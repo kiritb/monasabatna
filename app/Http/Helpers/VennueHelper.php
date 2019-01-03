@@ -137,6 +137,26 @@ class VennueHelper
                
             }
 
+            if( isset( $filterArr['from_date'] ) && isset( $filterArr['to_date'] ) )
+            {  
+
+               $vennueSql->join('orders', 'orders.linkable_id', '=', 'vennues.id') 
+                         ->where('orders.linkable_type', 'vennues' )
+                         ->whereNotBetween('orders.booking_from_date', [ $filterArr['from_date'], $filterArr['to_date'] ])
+                         ->whereNotBetween('orders.booking_to_date',  [$filterArr['to_date'], $filterArr['from_date'] ] ); 
+               
+            }
+
+
+            if( isset( $filterArr['sort'] ) && !empty( $filterArr['sort'] ) )
+            {  
+                if( $filterArr['sort'] == 'asc' || $filterArr['sort'] == 'desc' )
+                {
+                    $vennueSql->orderBy('pricings.actual_price', $filterArr['sort']);
+                }
+               
+            }
+
             $vennueData =  $vennueSql->orderBy('vennues.order_no', 'asc')
                             ->paginate(2);
 
