@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="vendors/slick/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="vendors/notify/notify.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/upcoming_event_userclick.css">
     <link rel="stylesheet" type="text/css" href="css/fonts.css">
 
 </head>

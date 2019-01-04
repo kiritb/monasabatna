@@ -31,6 +31,18 @@ body {
     }
 }
 
+@media only screen and (max-width: 1024px) {
+    .row.color-bg-upclist {
+        width: 73%;
+        margin-left: 27%;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .row.color-bg-upclist {
+        width: 80%;
+        margin-left: 20%;
+    }
+}
 a.profilehead {
     width: 20px;
     height: 40px;
@@ -3270,7 +3282,22 @@ select#bg-orange {
 }
 
 /********* end of 008_03_venue_dashboard_cancel_booking*****************/
-
+/*******************upcoming events user click ******************/
+.row.color-bg-upclist {
+    width: 80%;
+    margin-left: 20%;
+    padding: 15px;
+    background-color: #f8f8f8;
+}
+div#upcuser-search {
+    margin-top: 3%;
+    margin-left: -4%;
+}
+div#upcoming-contentright {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+/********************upcoming events user click ******************/
 /********************** Venue List **********************************************/
 
 
@@ -4666,10 +4693,11 @@ p.get-right {
     }
 }
 
-@media only screen and (min-height: 768px) and (max-width: 1024px) and (orientation: landscape) .cust-prof-onlinepy {
+@media only screen and (min-height: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .cust-prof-onlinepy {
     margin-left: -4rem !important;
 }
-
+}
 .mt-10 {
     margin-top: 20px;
 }

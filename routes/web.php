@@ -101,7 +101,9 @@ Route::get('suppliers_package_detail', function () {
 Route::get('packagedetailsfive', function () {
     return view('package_detailsfive');
 });
-
+Route::get('upcominguserclick', function () {
+    return view('upcoming_userclick');
+});
 Route::get('wishlist', function () {
     return view('newwishlist');
 });

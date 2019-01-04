@@ -1,0 +1,523 @@
+/* css for font ends*/
+body {
+    overflow-x: hidden;
+}
+
+/* colors with names */
+.orange {
+    color: orange;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1300px;
+    }
+
+    .maindivider {
+        border: 1px solid #dbdadf;
+    }
+
+}
+
+@media(max-width:1024px) and (max-height:768) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media(max-width:768px) and (max-height:1024) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .row.color-bg-upclist {
+        width: 73%;
+        margin-left: 27%;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .row.color-bg-upclist {
+        width: 80%;
+        margin-left: 20%;
+    }
+}
+
+
+
+
+
+
+
+/*******************upcoming events user click ******************/
+div#upcheading {
+    text-align: center;
+    font-family: Myriad pro;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+div#upc-userclick-content {
+    height: 1028px;
+    width: 100%;
+}
+.upcpagin {
+    margin-top: 2%;
+    margin-left: 50%;
+}
+.row.color-bg-upclist {
+    width: 80%;
+    margin-left: 20%;
+    padding: 15px;
+    background-color: #f8f8f8;
+}
+div#upcuser-search {
+    margin-top: 3%;
+    margin-left: -4%;
+}
+div#upcoming-contentright {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.go-greencap{
+    color:#6cc0b9;
+    font-weight: bold;
+}
+span.upctext {
+    margin-left: 10px;
+    padding-top: -5px;
+}
+.upcbox-head {
+    color: #4b485b;
+    font-size: 17px;
+    margin-top: -6px;
+}
+/********************upcoming events user click ******************/
+/********************** Venue List **********************************************/
+
+
+@media only screen and (max-width: 1024px) {
+    .row.color-bg-venuelist {
+
+        margin-left: 108px;
+
+        width: 87%;
+
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .row.color-bg-venuelist {
+
+        margin-left: 77px;
+
+        width: 97%;
+
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    select.form-control.sortvenues {
+
+        margin-left: 151%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    select.form-control.sortvenues {
+
+        margin-left: 169%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    a#nav-home-tab {
+        width: 24.20%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.20%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.20%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 24.10%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    a#nav-home-tab {
+        width: 23.70%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    a#nav-home-tab {
+        width: 24.40%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+}
+
+h3.venuehead {
+    margin-top: 30px;
+    font-size: 24px;
+    color: #4b485b;
+    font-family: Myraid pro;
+    font-weight: bold;
+}
+
+a.showmapbtn {
+    width: 150px;
+    float: right;
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: -41px;
+    margin-right: 52px;
+    background-color: #6cc0b9;
+    border-radius: 8px;
+    color: #fff;
+    padding: 7px 10px 10px 10px;
+}
+
+/*** panel **************/
+.panel-heading {
+    padding: 10px 10px 10px 10px;
+    width: 240px;
+    color: #4b485b;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Myriad pro light;
+    margin-left: -49px;
+    background-color: #dbdadb;
+    color: #;
+}
+
+.panel-body {
+    padding: 10px 10px 10px 10px;
+    width: 240px;
+    height:auto;
+    font-size: 13px;
+    font-weight: bold;
+    color: #4b485b;
+    margin-left: -49px;
+    background-color: #ebebed;
+    color: #;
+}
+
+/** checkbox ******/
+input[type=checkbox],
+input[type=radio] {
+    line-height: normal;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    border: 1px solid #000;
+}
+
+/****** checkbox *********/
+/**** form *********/
+.venuelab {
+    color: #fff;
+    margin-left: 10px;
+}
+
+.venuelabone {
+    color: #fff;
+    margin-left: -1%;
+}
+
+.venuelabtwo {
+    color: #fff;
+    margin-left: -4%;
+}
+
+.searchvenue {
+    width: 150px;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+    background-color: #ff5252;
+    padding: 10px 35px 10px 35px;
+    border-radius: 8px;
+
+}
+
+div#labpackone {
+    /* float: left; */
+    margin: 3% 0px 0px -5.5%;
+}
+
+/*********** panel ************/
+.row.venueslist {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#venue-list-bg {
+    width: 100%;
+    background-color: #fff;
+    margin: 25px 0px 0px 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.filtersidevenue {
+    width: 10%;
+    height: auto;
+    float: left;
+    margin-left: 50px;
+}
+
+.resetvenue {
+    text-decoration: underline;
+    font-size: 12px;
+    margin-top: 0px;
+    margin-right: 0px;
+    float: right;
+}
+
+.filterext {
+    height: 48px;
+}
+
+.venulistsortleft {
+    width: 90%;
+}
+
+.wishlistfive {
+
+    height: auto;
+}
+
+.panel {
+    width: 300px;
+    float: left;
+}
+
+h4.venuecliphead {
+    font-family: Myriad pro;
+    color: #4b485b;
+    font-size: 20px;
+    padding-top: 17px;
+}
+
+select.form-control.sortvenues {
+    width: 207px;
+    margin-top: -5%;
+    margin-left: 169%;
+}
+
+.row.color-bg-venuelist {
+    margin-top: -12px;
+    margin-left: 77px;
+    margin-right: -33px;
+    width: 1092px;
+    background-color: #f8f8f8;
+    height: auto;
+    padding: 21px;
+}
+
+.row.col-lg-10.col-md-10.col-sm-10.col-xs-10 {
+    padding: 0px;
+}
+
+.row.color-bg-venuelistone {
+    margin-top: 15px;
+    margin-left: 77px;
+    margin-right: -33px;
+    background-color: #f8f8f8;
+    height: auto;
+    padding: 21px;
+}
+
+.venuespagin {
+    margin-left: 50%;
+}
+
+/****************************** Venue List **************************************/
+/********* start of 004_4_5_package_venues*****************/
+div#venuelist {
+    margin-top: 32px;
+    padding-left: 43px;
+    padding-right: 43px;
+    /* padding-left: 47px; */
+}
+
+input.form-control.venuemainfrm {
+    width: 80%;
+    height: 40px;
+    margin-left: 7px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+input.form-control.venuemainone {
+    width: 80%;
+    height: 40px;
+    margin-left: -3%;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+input.form-control.venuedatefr {
+    width: 80%;
+    height: 40px;
+    margin-left: -5%;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+input.form-control.venuedateto {
+    width: 80%;
+    margin-left: -6%;
+    height: 40px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+input.form-control.themevenue {
+    width: 80%;
+    height: 40px;
+    margin-left: -51px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+span.date-element-venuedtpick {
+    position: absolute;
+    color: #9e9e9e;
+    width: 75px;
+    margin-left: 60%;
+    margin-top: -28px;
+    font-size: 15px;
+}
+
+input.mintextvenue {
+    width: 50px;
+}
+
+label.venuemax {
+    margin-left: -2px;
+}
+
+.text-num input[type="text"] {
+    width: 30%;
+    height: 40%;
+}
+
+input.venuetxt {
+    width: 288px;
+    margin-left: 20px;
+    border: 2px solid #a2a0aa;
+    border-radius: 4px;
+}
+
+label.venuemin {
+    width: 85px;
+    margin-left: 43px;
+}
+
+i#fasvenue {
+    margin-left: 53px;
+}
+
+i#fasvenueone {
+    margin-left: 53px;
+}
+
+i#fasvenuetwo {
+    margin-left: 53px;
+}
+
+i#fasvenuethr {
+    margin-left: 53px;
+}
+
+i#fasvenuefour {
+    margin-left: 53px;
+}
+
+.blogvenue {
+    width: 96%;
+    color: #727272;
+    font-size: 14px;
+}
+
+#bn-venuelist {
+    width: 120px;
+    height: 40px;
+    margin-top: -31px;
+    margin-right: 14px;
+    background-color: #6cc0b9;
+    border-color: #6cc0b9;
+    color: #fff;
+    font-size: 12px;
+    float: right;
+}
+
+.sign-commit {
+    width: 150px;
+    height: 35px;
+    background-color: #6cc0b9;
+}
+
+/* Content */
+button {
+    background-color: #6cc0b9;
+}
+
+.content-whole-col {
+    background-color: #ffffff;
+    margin: -27px 0px 0px -29px;
+}
+
+.content-eve-top {
+    width: 50%;
+    float: right;
+}
+
+.content-eve {
+
+
+    float: left;
+}
+
