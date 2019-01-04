@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Web\Auth;
 
 use App\Http\Controllers\Controller;
 use JWTAuth;
@@ -45,7 +45,7 @@ class LoginController extends Controller
         $rules = [
                     'phone' => 'required',
                     'password' => 'required',
-                 ];
+                ];
 
         $validator = Validator::make($requestParams, $rules);
 
@@ -56,7 +56,7 @@ class LoginController extends Controller
 
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => [current($value)]], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
 
-                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+                return view('auth\customer_signin')->with('data', $responseArr);
             }
         }
 
@@ -73,7 +73,7 @@ class LoginController extends Controller
 
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['user not found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'UserNotFoundException');
 
-                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+                return view('auth\customer_signin')->with('data', $responseArr);
             }
 
             if (!$userData[0]->status) {
@@ -81,7 +81,7 @@ class LoginController extends Controller
 
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['Customer is inactive']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'UserInactiveException');
 
-                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+                return view('auth\customer_signin')->with('data', $responseArr);
             }
 
             if (empty($userData[0]->account_verified_at)) {
@@ -89,20 +89,22 @@ class LoginController extends Controller
 
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['account not verified']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'UserAccountActivationException');
 
-                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+                return view('auth\customer_signin')->with('data', $responseArr);
             }
 
             $credentials = ['email' => $userData[0]->email, 'password' => $requestParams['password']];
 
             if (!$token = JWTAuth::attempt($credentials)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['wrong password']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'noUserFoundException');
+
+                return view('auth\customer_signin')->with('data', $responseArr);
             }
 
-            return response(ResponseUtil::buildSuccessResponse(['authtoken' => $token]), HttpStatusCodesConsts::HTTP_OK);
+            return redirect()->action('Web\HomeController@index');
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            return view('auth\customer_signin')->with('data', $responseArr);
         }
     }
 

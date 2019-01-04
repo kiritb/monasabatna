@@ -1395,3 +1395,12 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 
 	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
 	values ('vennues', 'seating_capacity','201-500',3,'v1@v.com','v1@v.com');
+
+	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
+	values ('events', 'price_range','80-150',1,'v1@v.com','v1@v.com');
+
+	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
+	values ('events', 'price_range','151-200',2,'v1@v.com','v1@v.com');
+
+	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
+	values ('events', 'price_range','201-500',3,'v1@v.com','v1@v.com');

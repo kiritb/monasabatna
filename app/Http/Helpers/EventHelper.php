@@ -11,12 +11,15 @@ namespace App\Http\Helpers;
 
 use App\Models\Events;
 use App\Models\EventOrganisers;
+use App\Models\EventTypes;
 
 use App\Http\Helpers\ThemeHelper;
 use App\Http\Helpers\PoliciesHelper;
 use App\Http\Helpers\PrerequisitesHelper;
 use App\Http\Helpers\ThemeProvidersHelper;
 use App\Http\Helpers\ReviewsHelper;
+use App\Http\Helpers\FilterHelper;
+use App\Http\Helpers\MiscHelper;
 
 
 class EventHelper
@@ -25,14 +28,14 @@ class EventHelper
      *
      * @return Array
     */
-    public static function eventListing()
+    public static function eventListing( $filterArr )
     {   
         $returnArr = [];
 
         try
         {  
 
-             $eventsData = Events::select('events.name as eventName','events.short_description as eventShortDescription','events.start_date as vennueStartTime', 
+             $eventsSql = Events::select('events.name as eventName','events.short_description as eventShortDescription','events.start_date as vennueStartTime', 
                                           'events.end_date as eventEndTime','events.order_no as displayOrder','event_types.name as eventType',
                                           'address.address_line_1 as AddressLine_1','address.address_line_2 as AddressLine_2','address.google_map_link as googleMapLink','cities.name as cityName',
                                           'pricings.actual_price as actualPrice','pricings.discount','pricing_type.name as pricingType','files.file_path as filePath')
@@ -53,13 +56,67 @@ class EventHelper
                             ->where('files.status', 1)
                             ->where('pricings.status', 1)
                             ->where('pricing_type.status', 1)
-                            ->where('cities.status', 1)
-                            ->orderBy('events.order_no', 'asc')
-                            ->paginate(2);
+                            ->where('cities.status', 1);
 
-            if( empty($eventsData) )
+            if(isset($filterArr['price_range']) && !empty($filterArr['price_range']))
             {
-                \Log::info(__CLASS__." ".__FUNCTION__." Vennue Data does not exists ");
+                $priceRange = $filterArr['price_range'];
+                
+                $priceArr   = MiscHelper::getPriceFilter($priceRange);
+                
+                $minPrice   = reset($priceArr);
+                
+                $maxPrice   = end($priceArr);
+
+                $eventsSql->whereBetween('pricings.actual_price',[$minPrice, $maxPrice] );
+
+            }
+            
+            if( isset( $filterArr['city'] ) && !empty( $filterArr['city'] ) )
+            {  
+               $eventsSql->whereIn('cities.name', $filterArr['city'] ); 
+               
+            }
+
+            if( isset( $filterArr['event_types'] ) && !empty( $filterArr['event_types'] ) )
+            {  
+               $eventsSql->whereIn('event_types.name', $filterArr['event_types'] ); 
+               
+            }
+
+            if( isset( $filterArr['from_date'] ) && isset( $filterArr['to_date'] ) )
+            {  
+
+               $eventsSql->join('orders', 'orders.linkable_id', '=', 'events.id') 
+                         ->where('orders.linkable_type', 'events' )
+                         ->whereNotBetween('orders.booking_from_date', [ $filterArr['from_date'], $filterArr['to_date'] ])
+                         ->whereNotBetween('orders.booking_to_date',  [$filterArr['to_date'], $filterArr['from_date'] ] ); 
+               
+            }
+
+            if( isset( $filterArr['is_express_deal'] ) && ( $filterArr['is_express_deal'] ) )
+            {  
+                
+                $eventsSql->where('events.is_express_deal', 1);
+            }
+
+            if( isset( $filterArr['sort'] ) && !empty( $filterArr['sort'] ) )
+            {  
+                if( $filterArr['sort'] == 'asc' || $filterArr['sort'] == 'desc' )
+                {
+                    $eventsSql->orderBy('pricings.actual_price', $filterArr['sort']);
+                }
+               
+            }
+
+            $eventsData  =  $eventsSql->orderBy('events.order_no', 'asc')
+                            ->paginate(2)
+                            ->toArray();
+
+            
+            if( empty($eventsData['data']) )
+            {
+                \Log::info(__CLASS__." ".__FUNCTION__." Events Data does not exists ");
 
                 return [];
                 
@@ -341,6 +398,55 @@ class EventHelper
        
     }
 
-    
+    /**
+     *
+     * @return Array
+    */
+    public static function getEventFilters(  )
+    {
+        $returnArr = [];
+
+        try
+        {  
+
+            $filterData = FilterHelper::getFilters('events');
+                            
+
+            if( empty($filterData) )
+            {
+                \Log::info(__CLASS__." ".__FUNCTION__." Filter Data does not exists ");
+
+                return [];
+                
+            }
+            
+            foreach ($filterData as $key => $value) 
+            {
+                
+                $returnArr[$value['filter_type']][] = $value['filter'];
+                
+            }
+
+            $eventTypes = EventTypes::select('event_types.name')
+                                     ->join('events', 'events.event_type_id', '=', 'event_types.id')
+                                     ->where('event_types.status', 1)
+                                     ->where('events.status', 1)
+                                     ->distinct('event_types.name')
+                                     ->get()
+                                     ->toArray();
+
+
+            $returnArr['event_types'] = empty($eventTypes) ? [] : array_column($eventTypes, 'name');
+
+            return $returnArr;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Filter Data ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured while Fetching Filter Data", 1);
+
+        }
+    }
     
 }

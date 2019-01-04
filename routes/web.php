@@ -101,9 +101,7 @@ Route::get('suppliers_package_detail', function () {
 Route::get('packagedetailsfive', function () {
     return view('package_detailsfive');
 });
-Route::get('venuelist', function () {
-    return view('venue_list');
-});
+
 Route::get('wishlist', function () {
     return view('newwishlist');
 });
@@ -112,13 +110,15 @@ Route::get('reset', array('as' => 'password.request', function () {
     return view('auth.passwords.reset');
 }));
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'Web\HomeController@index')->name('home');
+
+Route::get('/venuelist', 'Web\VennueController@vennueListing')->name('venuelist');
 
 Route::get('login', array('as' => 'login', function () {
     return view('auth.customer_signin');
 }));
 
-Route::post('login', 'Auth\LoginController@login');
+Route::post('login', 'Web\Auth\LoginController@login');
 
 Route::get('register', array('as' => 'register', function () {
     return view('auth.customer_signup');

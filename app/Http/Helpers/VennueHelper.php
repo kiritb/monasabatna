@@ -150,7 +150,7 @@ class VennueHelper
             if( isset( $filterArr['is_express_deal'] ) && ( $filterArr['is_express_deal'] ) )
             {  
                 
-                $vennueSql->orderBy('vennues.is_express_deal', 1);
+                $vennueSql->where('vennues.is_express_deal', 1);
                
             }
 
@@ -168,7 +168,7 @@ class VennueHelper
 
             $venneDataArr = $vennueData->toArray();
 
-            if( $venneDataArr['total'] == 0 )
+            if( $venneDataArr['data'] == 0 )
             {
                 \Log::info(__CLASS__." ".__FUNCTION__." Vennue Data does not exists ");
 

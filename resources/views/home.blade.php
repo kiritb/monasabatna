@@ -5,15 +5,6 @@
     <!-- Home Carousal for Banners -->
     @include("slider")
 
-    <?php
-
-        if (Auth::check()) {
-            // The user is logged in...
-            echo '<h1>Logged In</h1>';
-        }
-
-    ?>
-
     <!-----middlelayer star---------------->
     <div class="container-fluid" id="middlelayer">
         <div class="middlehead_exptop">

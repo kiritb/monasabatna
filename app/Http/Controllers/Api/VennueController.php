@@ -37,7 +37,7 @@ class VennueController extends Controller
             }
 
 
-            return response( ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_CREATED );
+            return response( ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_OK );
         }
         catch( \Exception $e)
         {
@@ -64,7 +64,7 @@ class VennueController extends Controller
         {
             $vennueFiltersData = VennueHelper::vennueFilters();
 
-            return response( ResponseUtil::buildSuccessResponse($vennueFiltersData), HttpStatusCodesConsts::HTTP_CREATED );
+            return response( ResponseUtil::buildSuccessResponse($vennueFiltersData), HttpStatusCodesConsts::HTTP_OK );
         }
         catch( \Exception $e)
         {
@@ -90,7 +90,7 @@ class VennueController extends Controller
         {
             $vennueDetails = VennueHelper::venueDetails( $vennueId );
 
-            return response( ResponseUtil::buildSuccessResponse($vennueDetails), HttpStatusCodesConsts::HTTP_CREATED );
+            return response( ResponseUtil::buildSuccessResponse($vennueDetails), HttpStatusCodesConsts::HTTP_OK );
         }
         catch( \Exception $e)
         {
@@ -118,7 +118,7 @@ class VennueController extends Controller
         {
             $vennueListingData = VennueHelper::getExpressDeals();
 
-            return response( ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_CREATED );
+            return response( ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_OK );
         }
         catch( \Exception $e)
         {
