@@ -93,6 +93,7 @@
 
 <script src="vendors/jquery/jquery3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="vendors/bootstrap/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="vendors/js-cookie/js-cookie.js" type="text/javascript" charset="utf-8"></script>
 <script src="vendors/popper/popper1.14.3.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="vendors/slick/slick.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="vendors/validation/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>

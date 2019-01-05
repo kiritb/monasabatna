@@ -77,7 +77,7 @@
   </div>
 </div><!---- formgroup ------->
 
-<h4 class="venuecliphead"> Event Type</h4>
+<h4 class="venueclipheadone"> Event Type</h4>
 <div class="form-group">
   <div class="form-check">
     <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
@@ -147,9 +147,9 @@
                               <div class="spacer_boxtwo"></div>
 							  <div class="upcbox-head"><b>Event Name </b></div>
                               <div class="spacer_boxtwo"></div>
-                                <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:25px;color:#6cc0b9'></i><span class="upctext">123 <b>XYZ Road, Saudi Arabia</b></span></div>
+                                <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:23px;color:#6cc0b9'></i><span class="upctext">Address : 123 <b>XYZ Road, Saudi Arabia</b></span><a class="highlight_line" href="#">show in map </a></div>
                                 <div class="spacer_boxtwo"></div>
-                                <div class="wish-text"> <i class="far fa-clock" style='font-size:25px;color:#6cc0b9'></i><span class="upctext">Start Time : <b>09:00 AM</b></span> <span class="upctext">End Time : <b>09:00 PM</b></span></div>
+                                <div class="wish-text"> <i class="far fa-clock" style='font-size:23px;color:#6cc0b9'></i><span class="upctext">Start Time : <b>09:00 AM</b></span> <span class="upctext">End Time : <b>09:00 PM</b></span></div>
                                 <div class="spacer_boxtwo"></div>
                                 <div class="wish-text"><b><span class="go-greencap">Event Type : </span>Food</b></div>
                                 <div class="spacer_boxtwo"></div>
@@ -161,14 +161,14 @@
 
 
                                  </p>
-                                 <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / SetUp</b></div>
+                                 <div class="wish-text"><b><span class="col-green">SAR :</span> 100 / SetUp</b></div>
   
                                  <button class="btn active" id="bn-venuelist" onclick="filterSelection('all')"><b> Book Now</b></button>
                                  
                               </div>
                            </div>
                         </div><!-----------color-bg-upclist ------------>
-                        <div class="row color-bg-upclist">
+                        <div class="row color-bg-upclistone">
                            <div class="content-eve">
                               <img src="svg/images/upcomingclick-two.jpg" alt="Mountains" style="width:300px; height:273px">
                            </div>
@@ -179,9 +179,9 @@
                               <div class="spacer_boxtwo"></div>
 							  <div class="upcbox-head"><b>Event Name </b></div>
                               <div class="spacer_boxtwo"></div>
-                                <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:25px;color:#6cc0b9'></i><span class="upctext">123 <b>XYZ Road, Saudi Arabia</b></span></div>
+                                <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:23px;color:#6cc0b9'></i><span class="upctext">Address : 123 <b>XYZ Road, Saudi Arabia</b></span><a class="highlight_line" href="#">show in map </a></div>
                                 <div class="spacer_boxtwo"></div>
-                                <div class="wish-text"> <i class="far fa-clock" style='font-size:25px;color:#6cc0b9'></i><span class="upctext">Start Time : <b>09:00 AM</b></span> <span class="upctext">End Time : <b>09:00 PM</b></span></div>
+                                <div class="wish-text"> <i class="far fa-clock" style='font-size:23px;color:#6cc0b9'></i><span class="upctext">Start Time : <b>09:00 AM</b></span> <span class="upctext">End Time : <b>09:00 PM</b></span></div>
                                 <div class="spacer_boxtwo"></div>
                                 <div class="wish-text"><b><span class="go-greencap">Event Type : </span>Food</b></div>
                                 <div class="spacer_boxtwo"></div>
@@ -193,14 +193,14 @@
 
 
                                  </p>
-                                 <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / SetUp</b></div>
+                                 <div class="wish-text"><b><span class="col-green">SAR :</span> 100 / SetUp</b></div>
                                  
                                  <button class="btn active" id="bn-venuelist" onclick="filterSelection('all')"><b> Book Now</b></button>
                                  
                               </div>
                            </div>
                         </div><!-----------color-bg-upclist ------------>
-                        <div class="row color-bg-upclist">
+                        <div class="row color-bg-upclistone">
                            <div class="content-eve">
                               <img src="svg/images/upcomingclick-three.jpg" alt="Mountains" style="width:300px; height:273px">
                            </div>
@@ -211,9 +211,9 @@
                               <div class="spacer_boxtwo"></div>
 							  <div class="upcbox-head"><b>Event Name </b></div>
                               <div class="spacer_boxtwo"></div>
-                                <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:25px;color:#6cc0b9'></i><span class="upctext">123 <b>XYZ Road, Saudi Arabia</b></span></div>
+                                <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:23px;color:#6cc0b9'></i><span class="upctext">Address : 123 <b>XYZ Road, Saudi Arabia</b><a class="highlight_line" href="#">show in map </a></span></div>
                                 <div class="spacer_boxtwo"></div>
-                                <div class="wish-text"> <i class="far fa-clock" style='font-size:25px;color:#6cc0b9'></i><span class="upctext">Start Time : <b>09:00 AM</b></span> <span class="upctext">End Time : <b>09:00 PM</b></span></div>
+                                <div class="wish-text"> <i class="far fa-clock" style='font-size:23px;color:#6cc0b9'></i><span class="upctext">Start Time : <b>09:00 AM</b></span> <span class="upctext">End Time : <b>09:00 PM</b></span></div>
                                 <div class="spacer_boxtwo"></div>
                                 <div class="wish-text"><b><span class="go-greencap">Event Type : </span>Food</b></div>
                                 <div class="spacer_boxtwo"></div>
@@ -225,7 +225,7 @@
 
 
                                  </p>
-                                 <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / SetUp</b></div>
+                                 <div class="wish-text"><b><span class="col-green">SAR :</span> 100 / SetUp</b></div>
                                  
                                  <button class="btn active" id="bn-venuelist" onclick="filterSelection('all')"><b> Book Now</b></button>
                                  

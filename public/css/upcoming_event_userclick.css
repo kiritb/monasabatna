@@ -44,13 +44,25 @@ body {
     }
 }
 
+/*********upcoming events ******************/
+h3.nameupc {
+    font-size: 18px;
+}
 
 
 
-
-
-
+/********************upcoming events **********************/
 /*******************upcoming events user click ******************/
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 1.75rem;
+}
+a.highlight_line {
+    color: #457aff;
+    text-decoration: underline;
+    margin-left: 6px;
+}
 div#upcheading {
     text-align: center;
     font-family: Myriad pro;
@@ -70,6 +82,13 @@ div#upc-userclick-content {
 .row.color-bg-upclist {
     width: 80%;
     margin-left: 20%;
+    padding: 15px;
+    background-color: #f8f8f8;
+}
+.row.color-bg-upclistone {
+    width: 80%;
+    margin-left: 20%;
+    margin-top:10px;
     padding: 15px;
     background-color: #f8f8f8;
 }
@@ -202,7 +221,22 @@ h3.venuehead {
     font-family: Myraid pro;
     font-weight: bold;
 }
-
+h4.venuecliphead {
+    font-family: Myriad pro;
+    color: #4b485b;
+    font-size: 20px;
+    padding-top: 17px;
+    margin-bottom:2px;
+    padding-left: 8px;
+}
+h4.venueclipheadone {
+    font-family: Myriad pro;
+    color: #4b485b;
+    font-size: 20px;
+    padding-top: 8px;
+    margin-bottom:-3px;
+    padding-left: 8px;
+}
 a.showmapbtn {
     width: 150px;
     float: right;
@@ -233,13 +267,13 @@ a.showmapbtn {
 .panel-body {
     padding: 10px 10px 10px 10px;
     width: 240px;
-    height:auto;
+    height:454px;
     font-size: 13px;
     font-weight: bold;
     color: #4b485b;
     margin-left: -49px;
     background-color: #ebebed;
-    color: #;
+    
 }
 
 /** checkbox ******/
@@ -331,13 +365,6 @@ div#labpackone {
 .panel {
     width: 300px;
     float: left;
-}
-
-h4.venuecliphead {
-    font-family: Myriad pro;
-    color: #4b485b;
-    font-size: 20px;
-    padding-top: 17px;
 }
 
 select.form-control.sortvenues {

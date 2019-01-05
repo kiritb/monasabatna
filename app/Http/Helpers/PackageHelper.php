@@ -8,10 +8,9 @@
 
 namespace App\Http\Helpers;
 
-use App\Models\EventThemeMappings;
-use App\Models\PackageTypes;
+use App\Models\Packages;
 
-class ThemeHelper
+class PackageHelper
 {   
     /**
      * @param Array  $data
@@ -26,39 +25,30 @@ class ThemeHelper
 
         try
         {   
-            $eventCoversDetails = EventThemeMappings::select(   'event_theme_mappings.linkable_id as eventOrganiserId', 
-                                                                'event_theme_mappings.id as mappinId',
-                                                                'event_theme_mappings.order_no as displayOrder',
-                                                                'event_types.name as eventTypes',
-                                                                'event_types.id as eventTypeId',
-                                                                'package_types.name',
-                                                                'package_types.short_description as aboutTheme',
-                                                                'pricings.actual_price as actualPrice',
-                                                                'pricings.discount',
-                                                                'pricing_type.name as pricingType',
-                                                                'files.file_path as filePath'
-                                                             )
-                                            ->join('package_types', 'package_types.id', '=', 'event_theme_mappings.theme_id')
-                                            ->join('event_types', 'event_types.id', '=', 'package_types.event_type_id')
-                                            ->join('pricings', 'pricings.linkable_id', '=', 'package_types.id')
-                                            ->join('files', 'files.linkable_id', '=', 'package_types.id')
+            $eventCoversDetails = Packages::select(     
+                                                        'packages.linkable_id as eventOrganiserId', 
+                                                        'event_types.name as eventTypes',
+                                                        'event_types.id as eventTypeId',
+                                                        'packages.name',
+                                                        'packages.short_description as aboutPackage',
+                                                        'pricings.actual_price as actualPrice',
+                                                        'pricings.discount',
+                                                        'pricing_type.name as pricingType'
+                                            )
+                                            ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
+                                            ->join('pricings', 'pricings.linkable_id', '=', 'packages.id')
                                             ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
-                                            ->whereIn('event_theme_mappings.linkable_id', $linkableIdArr)
-                                            ->where('event_theme_mappings.linkable_type', $linkableType)
-                                            ->where('files.linkable_type', 'themes')
-                                            ->where('files.file_type', 'home_page_display')
-                                            ->where('pricings.linkable_type', 'themes')
-                                            ->where('event_theme_mappings.status', 1)
+                                            ->whereIn('packages.linkable_id', $linkableIdArr)
+                                            ->where('packages.linkable_type', $linkableType)
+                                            ->where('pricings.linkable_type', 'packages')
+                                            ->where('pricings.status', 1)
                                             ->where('event_types.status', 1)
-                                            ->where('package_types.status', 1)
-                                            ->where('files.status', 1)
-                                            ->orderBy('event_theme_mappings.order_no', 'asc')
+                                            ->orderBy('packages.order_no', 'asc')
                                             ->get()
                                             ->toArray();
 
             foreach ($eventCoversDetails as $key => $values) 
             {
-                $returnArr[$values['eventOrganiserId']]['themes'][]         = $values;
 
                 $returnArr[$values['eventOrganiserId']]['event_covers'][]   = $values['eventTypes'];
 

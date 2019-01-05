@@ -104,6 +104,9 @@ Route::get('packagedetailsfive', function () {
 Route::get('upcominguserclick', function () {
     return view('upcoming_userclick');
 });
+Route::get('upcomingevents', function () {
+    return view('upcomingevents');
+});
 Route::get('wishlist', function () {
     return view('newwishlist');
 });
@@ -116,11 +119,13 @@ Route::get('/', 'Web\HomeController@index')->name('home');
 
 Route::get('/venuelist', 'Web\VennueController@vennueListing')->name('venuelist');
 
+Route::get('/events/upcoming', 'Web\EventController@eventListing')->name('eventlist');
+
 Route::get('login', array('as' => 'login', function () {
     return view('auth.customer_signin');
 }));
 
-Route::post('login', 'Web\Auth\LoginController@login');
+Route::post('login', 'Auth\LoginController@login');
 
 Route::get('register', array('as' => 'register', function () {
     return view('auth.customer_signup');

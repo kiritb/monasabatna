@@ -8,7 +8,7 @@
         <div class="main_custsignin">
 
             <div class="col-md-4 col-sm-4 col-xs-4 form_custsignin">
-                <form class="form-horizontal" id="sign_in_form" enctype="multipart/form-data" method="POST" action="{{ route('login') }}">
+                <form class="form-horizontal" id="sign_in_form" enctype="multipart/form-data" method="POST">
                     @csrf
                     <div class="form-group">
                         <div class="col-sm-12">
@@ -20,14 +20,7 @@
                             <label class="control-label" for="phone">{{ __('Phone
                                 Number') }}</label>
 
-                            <input type="text" id="phone" class="form-control csignin{{ $errors->has('phone') ? ' is-invalid' : '' }}"
-                                placeholder="" name="phone" value="{{ old('phone') }}" required autofocus>
-
-                            @if ($errors->has('phone'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('phone') }}</strong>
-                            </span>
-                            @endif
+                            <input type="text" id="phone" class="form-control csignin" name="phone" required autofocus>
                         </div>
                     </div>
                     <div class="form-group mb-0">
@@ -35,14 +28,7 @@
                             <label for="password" class="control-label">{{ __('Password')
                                 }}</label>
 
-                            <input id="password" type="password" class="form-control csignin{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                name="password" required>
-
-                            @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                            @endif
+                            <input id="password" type="password" class="form-control csignin" name="password" required>
                         </div>
                     </div>
                     <div class="form-group mb-0">
@@ -84,3 +70,5 @@
 
 <!------- body end-------->
 @include('footer')
+
+<script type="text/javascript" src="js/signin.js" charset="utf-8"></script>
