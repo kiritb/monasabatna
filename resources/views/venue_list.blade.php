@@ -70,9 +70,9 @@
                     <div class="filtersidevenue">
 
 
-                        <div class="panel">
-                            <div class="panel-heading">Filter</div>
-                            <div class="panel-body">
+                        <div class="list">
+                            <div class="list-heading">Filter</div>
+                            <div class="list-body">
                                 <div class="form-group">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"

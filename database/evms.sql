@@ -698,3 +698,41 @@ create table evms.filters(
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+DROP TABLE IF EXISTS evms.faq;
+create table evms.faq(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  linkable_id int(11) DEFAULT NULL,
+  linkable_type varchar(30) DEFAULT NULL,
+  question text NOT NULL,
+  answer text NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.customer_query;
+create table evms.customer_query(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  first_name varchar(256) NOT NULL,
+  fathers_name varchar(256) DEFAULT NULL,
+  family_name varchar(256) DEFAULT NULL,
+  country_code varchar(50) DEFAULT NULL,
+  phone_number varchar(10) DEFAULT NULL,
+  email varchar(256) NOT NULL,
+  message text NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+

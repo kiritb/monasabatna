@@ -3421,7 +3421,7 @@ a.showmapbtn {
 }
 
 /*** panel **************/
-.panel-heading {
+.list-heading {
     padding: 10px 10px 10px 10px;
     width: 240px;
     color: #4b485b;
@@ -3430,10 +3430,9 @@ a.showmapbtn {
     font-family: Myriad pro light;
     margin-left: -49px;
     background-color: #dbdadb;
-    color: #;
 }
 
-.panel-body {
+.list-body {
     padding: 10px 10px 10px 10px;
     width: 240px;
     font-size: 13px;
@@ -3441,7 +3440,6 @@ a.showmapbtn {
     color: #4b485b;
     margin-left: -49px;
     background-color: #ebebed;
-    color: #;
 }
 
 /** checkbox ******/
@@ -3500,6 +3498,7 @@ div#labpackone {
     margin: 25px 0px 0px 0px;
     padding-left: 0px;
     padding-right: 0px;
+    display:inline-block;
 }
 
 .filtersidevenue {
@@ -3530,7 +3529,7 @@ div#labpackone {
     height: auto;
 }
 
-.panel {
+.list {
     width: 300px;
     float: left;
 }
@@ -4657,41 +4656,6 @@ p.get-right {
 }
 
 /************ customer profile supplier start ******************/
-@mixin for-phone-only {
-    @media (max-width: 599px) {
-        @content;
-    }
-}
-
-@mixin for-tablet-portrait-up {
-    @media (min-width: 768px) {
-        @content;
-    }
-}
-
-@mixin for-tablet-landscape-up {
-    @media (min-width: 1024px) {
-        @content;
-    }
-}
-
-@mixin for-desktop-up {
-    @media (min-width: 1200px) {
-        @content;
-    }
-}
-
-@mixin for-ipad-pro {
-    @media (min-width: 1366px) {
-        @content;
-    }
-}
-
-@mixin for-big-desktop-up {
-    @media (min-width: 1800px) {
-        @content;
-    }
-}
 
 @media only screen and (min-height: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .cust-prof-onlinepy {

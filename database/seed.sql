@@ -31,14 +31,83 @@
 
 	#cities
 	insert into cities (name,created_by,updated_by)
-	values ('Abha','v1@v.com','v1@v.com');
+	values('Abha', 'v1@v.com', 'v1@v.com');
 
 	insert into cities (name,created_by,updated_by)
-	values ('Ad-Dilam','v1@v.com','v1@v.com');
+	values('Abqaiq','v1@v.com','v1@.v.com');
 
 	insert into cities (name,created_by,updated_by)
-	values ('Badr','v1@v.com','v1@v.com');
+	values('Al-Baḥah','v1@v.com','v1@.v.com');
 
+	insert into cities (name,created_by,updated_by)
+	values('Al-Dammām','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Al-Hufuf','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Al-Jawf','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Al-Kharj (oasis)','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Al-Khubar','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Al-Qatif','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Al-Ṭaif','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Arar','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Buraydah','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Dhahran','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Ḥail','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Jiddah','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Jizan','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Khamis Mushayt','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('King Khalid Military City','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Mecca','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Medina','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Najran','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Ras Tanura','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Riyadh','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Sakaka','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Tabuk','v1@v.com','v1@.v.com');
+
+	insert into cities (name,created_by,updated_by)
+	values('Yanbuʿ','v1@v.com','v1@.v.com');
+	
 
 	#amenitie_types
 	insert into amenitie_types(name,language_id,created_by,updated_by)
@@ -1404,3 +1473,17 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 
 	insert into filters (linkable_type,filter_type,filter,order_no,created_by,updated_by)
 	values ('events', 'price_range','201-500',3,'v1@v.com','v1@v.com');
+
+
+  --faqs
+  	insert into faq(question,answer,order_no,created_by,updated_by)
+	values ('What is Monasabatna?', 'Monasabatna is an online venue booking portal with the widest range of venues available in Saudi. At Monasabatna, we connect our customers with the best venues in their city based on their unique requirements so that they can get the ideal deal for their event.',1,'v1@v.com','v1@v.com');
+
+	insert into faq(question,answer,order_no,created_by,updated_by)
+	values ('How can I get in touch with you?', 'You can click here to submit your event details or call us on 971-777-9251. You can also write to us at hello@monasabatna.com for any event-related queries and our event experts will contact you within 24 hours.',2,'v1@v.com','v1@v.com');
+
+	insert into faq(question,answer,order_no,created_by,updated_by)
+	values ('Are you an event planner?', 'No, we do not plan events. Instead, we empower you to plan your event hassle-free through the use of technology, comprehensive and current information of venues and vendors.',3,'v1@v.com','v1@v.com');
+
+	insert into faq(question,answer,order_no,created_by,updated_by)
+	values ('How much do you charge from customers for your service?', 'Our service is free of costs. We do not charge our customers. We get paid by the venue owners for listing and marketing their business.',4,'v1@v.com','v1@v.com');

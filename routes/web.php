@@ -117,7 +117,7 @@ Route::get('reset', array('as' => 'password.request', function () {
 
 Route::get('/', 'Web\HomeController@index')->name('home');
 
-Route::get('/venuelist', 'Web\VennueController@vennueListing')->name('venuelist');
+//Route::get('/venuelist', 'Web\VennueController@vennueListing')->name('venuelist');
 
 Route::get('/events/upcoming', 'Web\EventController@eventListing')->name('eventlist');
 
@@ -130,3 +130,12 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('register', array('as' => 'register', function () {
     return view('auth.customer_signup');
 }));
+
+Route::group([ 'middleware' => [ 'auth'] ], function ()
+{
+    Route::get('gg', function () {
+        return view('newwishlist');
+    });
+    
+});
+

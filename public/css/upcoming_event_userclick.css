@@ -46,11 +46,70 @@ body {
 
 /*********upcoming events ******************/
 h3.nameupc {
-    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    width: 74%;
+    font-size: 20px;
+    margin-left: 0.70%;
 }
-
-
-
+span.upcspanline {
+    margin-left: 1%;
+    font-size: 15px;
+}
+.spacer_boxupc {
+    height: 40px;
+}
+#upcomingtabs{
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 30px;
+}
+#upcomingtabs #nav-tabContent {
+    margin-top: 1px;
+}
+#upcomingtabs #venue-list-bg {
+    width: 100%;
+    background-color: #f4f4f5;
+    margin: 25px 0px 0px 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+span.evenspanline {
+    width:74%;
+    font-size:18px;
+    margin-left: 0.70%;
+}
+span.evenspanlineone {
+    width:73%;
+    font-size:18px;
+    margin-left: 1%;
+}
+#bn-upclistone {
+    width: 120px;
+    height: 40px;
+    margin-top: -8px;
+    margin-right: 14px;
+    background-color:#6cc0b9;
+    border:2px solid #6cc0b9;
+    color: #fff;
+    font-size: 12px;
+    float: right;
+}
+.eventstar {
+    font-size: 20px;
+}
+#bn-upclist {
+    width: 120px;
+    height: 40px;
+    margin-top: -8px;
+    margin-right: 14px;
+    background-color:#fff;
+    border:2px solid #6cc0b9;
+    color: #6cc0b9;
+    font-size: 12px;
+    float: right;
+}
 /********************upcoming events **********************/
 /*******************upcoming events user click ******************/
 .form-check {
@@ -113,106 +172,6 @@ span.upctext {
     font-size: 17px;
     margin-top: -6px;
 }
-/********************upcoming events user click ******************/
-/********************** Venue List **********************************************/
-
-
-@media only screen and (max-width: 1024px) {
-    .row.color-bg-venuelist {
-
-        margin-left: 108px;
-
-        width: 87%;
-
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .row.color-bg-venuelist {
-
-        margin-left: 77px;
-
-        width: 97%;
-
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    select.form-control.sortvenues {
-
-        margin-left: 151%;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    select.form-control.sortvenues {
-
-        margin-left: 169%;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    a#nav-home-tab {
-        width: 24.20%;
-    }
-
-    a#nav-profile-tab {
-        margin-left: 10px;
-        width: 24.20%;
-    }
-
-    a#nav-contact-tab {
-        margin-left: 10px;
-        width: 24.20%;
-    }
-
-    a#nav-event-tab {
-        margin-left: 10px;
-        width: 24.10%;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    a#nav-home-tab {
-        width: 23.70%;
-    }
-
-    a#nav-profile-tab {
-        margin-left: 10px;
-        width: 23.70%;
-    }
-
-    a#nav-contact-tab {
-        margin-left: 10px;
-        width: 23.70%;
-    }
-
-    a#nav-event-tab {
-        margin-left: 10px;
-        width: 23.70%;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    a#nav-home-tab {
-        width: 24.40%;
-    }
-
-    a#nav-profile-tab {
-        margin-left: 10px;
-        width: 24.40%;
-    }
-
-    a#nav-contact-tab {
-        margin-left: 10px;
-        width: 24.40%;
-    }
-
-    a#nav-event-tab {
-        margin-left: 10px;
-        width: 24.40%;
-    }
-}
 
 h3.venuehead {
     margin-top: 30px;
@@ -261,7 +220,6 @@ a.showmapbtn {
     font-family: Myriad pro light;
     margin-left: -49px;
     background-color: #dbdadb;
-    color: #;
 }
 
 .panel-body {
@@ -548,3 +506,299 @@ button {
     float: left;
 }
 
+/********************upcoming events user click ******************/
+/********************** Venue List **********************************************/
+
+
+@media only screen and (max-width: 1024px) {
+    .row.color-bg-venuelist {
+
+        margin-left: 108px;
+
+        width: 87%;
+
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .row.color-bg-venuelist {
+        width: 88%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    select.form-control.sortvenues {
+
+        margin-left: 151%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    select.form-control.sortvenues {
+
+        margin-left: 169%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    a#nav-home-tab {
+        width: 24.20%;
+    }/********************upcoming events user click ******************/
+/********************** Venue List **********************************************/
+
+
+@media only screen and (max-width: 1024px) {
+    .row.color-bg-venuelist {
+
+        margin-left: 108px;
+
+        width: 87%;
+
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .row.color-bg-venuelist {
+
+        margin-left: 77px;
+
+        width: 97%;
+
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    select.form-control.sortvenues {
+
+        margin-left: 151%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    select.form-control.sortvenues {
+
+        margin-left: 169%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    a#nav-home-tab {
+        width: 24.20%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.20%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.20%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 24.10%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    a#nav-home-tab {
+        width: 23.70%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    a#nav-home-tab {
+        width: 24.40%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+}
+/********************upcoming events user click ******************/
+/********************** Venue List **********************************************/
+
+
+@media only screen and (max-width: 1024px) {
+    .row.color-bg-venuelist {
+
+        margin-left: 108px;
+
+        width: 87%;
+
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .row.color-bg-venuelist {
+
+        margin-left: 77px;
+
+        width: 97%;
+
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    select.form-control.sortvenues {
+
+        margin-left: 151%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    select.form-control.sortvenues {
+
+        margin-left: 169%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    a#nav-home-tab {
+        width: 24.20%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.20%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.20%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 24.10%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    a#nav-home-tab {
+        width: 23.70%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    a#nav-home-tab {
+        width: 24.40%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+}
+
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.20%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.20%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 24.10%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    a#nav-home-tab {
+        width: 23.70%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 23.70%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    a#nav-home-tab {
+        width: 24.40%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+
+    a#nav-event-tab {
+        margin-left: 10px;
+        width: 24.40%;
+    }
+}

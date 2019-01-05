@@ -8,6 +8,23 @@ $(document).ready(function () {
         autospeed: 2000
     });
 
+ $('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  fade: true,
+  autoplay:true,
+  asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+  slidesToShow: 11,
+  slidesToScroll: 1,
+  asNavFor: '.slider-for',
+  dots: false,
+  autoplay:true,
+  focusOnSelect: true,
+});
+
     // pop up
     $("#myCancel").click(function () {
         $("#myCancelbooking").modal();

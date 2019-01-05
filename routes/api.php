@@ -34,6 +34,12 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('themes/{id}', 'Api\EventController@getThemeDetails');
     Route::get('expressdeals', 'Api\VennueController@getExpressDeals');
     Route::get('order', 'Api\OrderController@createOrder');
+    Route::get('cities', 'Api\CityController@getCities');
+    Route::get('home/image', 'Api\HomeController@getImage');
+    Route::get('faqs', 'Api\FaqController@getFaqs');
+    Route::get('aboutus', 'Api\HomeController@aboutUs');
+    Route::get('whyus', 'Api\HomeController@whyUs');
+    Route::post('contactus', 'Api\HomeController@contactUs');
 
     	
 });

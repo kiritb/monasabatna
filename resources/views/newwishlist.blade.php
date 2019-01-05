@@ -1,5 +1,5 @@
 @include('header')
-   
+   <h1>{{{ isset(Auth::user()->email) ? Auth::user()->email : 'not logged in' }}}</h1>
 	<div class="line_hr"> </div>
       <!------- body start--------> 
 	  		

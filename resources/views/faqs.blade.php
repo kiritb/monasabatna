@@ -194,7 +194,7 @@
                        
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-faq">
                            <textarea class="form-control box-faq" placeholder="Your question here..."></textarea>
-						   <center><button type="submit" class="btn btn-lg-12 click-faq">Post Question</button><center>
+						   <center><button type="submit" class="btn btn-lg-12 click-faq">Post Question</button></center>
                      </div>
                         </div>
                         
