@@ -106,7 +106,7 @@
 	values('Tabuk','v1@v.com','v1@.v.com');
 
 	insert into cities (name,created_by,updated_by)
-	values('Yanbuʿ','v1@v.com','v1@.v.com');
+	values('Yanbu','v1@v.com','v1@.v.com');
 	
 
 	#amenitie_types

@@ -94,11 +94,26 @@ class LoginController extends Controller
 
             $credentials = ['email' => $userData[0]->email, 'password' => $requestParams['password']];
 
-            if (!$token = JWTAuth::attempt($credentials)) {
-                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['wrong password']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'noUserFoundException');
+            if( isset($requestParams['isWeb']) && ($requestParams['isWeb']) )
+            {
+                if(! \Auth::attempt($credentials) )
+                {
+                    $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['wrong password']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'noUserFoundException');
+                }
+                
+                return response(ResponseUtil::buildSuccessResponse(['message' => 'successfully Logged in']), HttpStatusCodesConsts::HTTP_OK);
+            }
+            else
+            {
+                if (!$token = JWTAuth::attempt($credentials)) 
+                {
+                    $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['wrong password']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'noUserFoundException');
+                }
+
+                return response(ResponseUtil::buildSuccessResponse(['authtoken' => $token]), HttpStatusCodesConsts::HTTP_OK);
             }
 
-            return response(ResponseUtil::buildSuccessResponse(['authtoken' => $token]), HttpStatusCodesConsts::HTTP_OK);
+            
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
