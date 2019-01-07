@@ -9,6 +9,7 @@ use App\Http\Constants\HttpStatusCodesConsts;
 use App\Http\Helpers\ResponseUtil;
 use App\Http\Helpers\UserHelper;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -29,7 +30,13 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    public function redirectTo()
+    {
+        // User role
+        $user = Auth::user();
+
+        return '/';
+    }
 
     /**
      * Create a new controller instance.
@@ -94,26 +101,20 @@ class LoginController extends Controller
 
             $credentials = ['email' => $userData[0]->email, 'password' => $requestParams['password']];
 
-            if( isset($requestParams['isWeb']) && ($requestParams['isWeb']) )
-            {
-                if(! \Auth::attempt($credentials) )
-                {
+            if (isset($requestParams['isWeb']) && ($requestParams['isWeb'])) {
+                if (!\Auth::attempt($credentials)) {
                     $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['wrong password']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'noUserFoundException');
                 }
-                
-                return response(ResponseUtil::buildSuccessResponse(['message' => 'successfully Logged in']), HttpStatusCodesConsts::HTTP_OK);
-            }
-            else
-            {
-                if (!$token = JWTAuth::attempt($credentials)) 
-                {
+
+                return response(ResponseUtil::buildSuccessResponse(['message' => 'Successfully Logged-in!!']),
+HttpStatusCodesConsts::HTTP_OK);
+            } else {
+                if (!$token = JWTAuth::attempt($credentials)) {
                     $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['wrong password']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'noUserFoundException');
                 }
 
                 return response(ResponseUtil::buildSuccessResponse(['authtoken' => $token]), HttpStatusCodesConsts::HTTP_OK);
             }
-
-            
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
@@ -129,12 +130,22 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $token = $request->header('Authorization');
-
         try {
-            JWTAuth::invalidate($token);
+            $requestParams = $request->all();
 
-            return response(ResponseUtil::buildSuccessResponse(['message' => 'User successfully logged out.']), HttpStatusCodesConsts::HTTP_OK);
+            if (isset($requestParams['isWeb']) && ($requestParams['isWeb'])) {
+                \Auth::logout();
+
+                return response(ResponseUtil::buildSuccessResponse(['message' => 'Successfully Logged-out!!']),
+                HttpStatusCodesConsts::HTTP_OK);
+            } else {
+                $token = $request->header('Authorization');
+
+                JWTAuth::invalidate($token);
+
+                return response(ResponseUtil::buildSuccessResponse(['message' => 'User successfully logged out.']),
+HttpStatusCodesConsts::HTTP_OK);
+            }
         } catch (JWTException $e) {
             \Log::info(__CLASS__.' '.__FUNCTION__.' Exception Occured '.print_r($e->getMessage(), true));
 

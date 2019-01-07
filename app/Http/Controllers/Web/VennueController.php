@@ -114,9 +114,4 @@ HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-
-    public function test(Request $request)
-    {
-        dd(\Auth::check());
-    }
 }

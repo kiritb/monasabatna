@@ -3,134 +3,110 @@
 namespace app\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use App\Http\Constants\HttpStatusCodesConsts;
 use App\Http\Helpers\ResponseUtil;
 use App\Http\Helpers\VennueHelper;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class VennueController extends Controller
 {
-   
     /**
-     * generates a list of vennues 
+     * generates a list of vennues.
+     *
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
-    */
-   public function vennueListing( Request $request )
-   {    
+     */
+    public function vennueListing(Request $request)
+    {
         $requestParams = $request->all();
-        
-        \Log::info(__CLASS__." ".__FUNCTION__.' Request Params =>'. print_r($requestParams , true ) );
 
-        try
-        {
-            $vennueListingData = VennueHelper::vennueListing( $requestParams );
+        \Log::info(__CLASS__.' '.__FUNCTION__.' Request Params =>'.print_r($requestParams, true));
 
-            if(empty($vennueListingData) )
-            {
-                $responseArr = ResponseUtil::buildErrorResponse( ['errors' => ['No Data Found'] ], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
-                
-                return response( $responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND );
+        try {
+            $vennueListingData = VennueHelper::vennueListing($requestParams);
+
+            if (empty($vennueListingData)) {
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
             }
 
+            return response(ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_OK);
+        } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return response( ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_OK );
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
-        catch( \Exception $e)
-        {
-            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
-                
-                return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
-        }
-        
-   }
+    }
 
-     /**
-     * generates getFilters for vennues 
+    /**
+     * generates getFilters for vennues.
+     *
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
-    */
-   public function getFilters( Request $request )
-   {    
+     */
+    public function getFilters(Request $request)
+    {
         $requestParams = $request->all();
-        
-        \Log::info(__CLASS__." ".__FUNCTION__.' Request Params =>'. print_r($requestParams , true ) );
 
-        try
-        {
+        \Log::info(__CLASS__.' '.__FUNCTION__.' Request Params =>'.print_r($requestParams, true));
+
+        try {
             $vennueFiltersData = VennueHelper::vennueFilters();
 
-            return response( ResponseUtil::buildSuccessResponse($vennueFiltersData), HttpStatusCodesConsts::HTTP_OK );
-        }
-        catch( \Exception $e)
-        {
-            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
-                
-                return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
-        }
-        
-   }
+            return response(ResponseUtil::buildSuccessResponse($vennueFiltersData), HttpStatusCodesConsts::HTTP_OK);
+        } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-   /**
-     * detailed list of a vennue
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    /**
+     * detailed list of a vennue.
+     *
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
-    */
-   public function venueDetails( $vennueId )
-   {    
-        
-        \Log::info(__CLASS__." ".__FUNCTION__.' Vennue Id =>'. $vennueId );
+     */
+    public function venueDetails($vennueId)
+    {
+        \Log::info(__CLASS__.' '.__FUNCTION__.' Vennue Id =>'.$vennueId);
 
-        try
-        {
-            $vennueDetails = VennueHelper::venueDetails( $vennueId );
+        try {
+            $vennueDetails = VennueHelper::venueDetails($vennueId);
 
-            return response( ResponseUtil::buildSuccessResponse($vennueDetails), HttpStatusCodesConsts::HTTP_OK );
+            return response(ResponseUtil::buildSuccessResponse($vennueDetails), HttpStatusCodesConsts::HTTP_OK);
+        } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
-        catch( \Exception $e)
-        {
-            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
-                
-                return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
-        }
-        
-   }
+    }
 
-
-   /**
-     * generates a list of Express Deals 
+    /**
+     * generates a list of Express Deals.
+     *
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
-    */
-   public function getExpressDeals( Request $request )
-   {    
+     */
+    public function getExpressDeals(Request $request)
+    {
         $requestParams = $request->all();
-        
-        \Log::info(__CLASS__." ".__FUNCTION__.' Request Params =>'. print_r($requestParams , true ) );
 
-        try
-        {
+        \Log::info(__CLASS__.' '.__FUNCTION__.' Request Params =>'.print_r($requestParams, true));
+
+        try {
             $vennueListingData = VennueHelper::getExpressDeals();
 
-            return response( ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_OK );
-        }
-        catch( \Exception $e)
-        {
-            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
-                
-                return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
-        }
-        
-   }
+            return response(ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_OK);
+        } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-   public function test(Request $request)
-   {
-        dd(\Auth::check());
-   }
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
 }

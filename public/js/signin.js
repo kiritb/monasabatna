@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $("#sign_in_form").validate({
         rules: {
             phone: {
@@ -10,62 +10,58 @@ $(document).ready(function() {
                 minlength: 5
             }
         },
-        errorPlacement: function(error, element) {
+        errorPlacement: function (error, element) {
             return true;
         },
-        highlight: function(element, errorClass, validClass) {
+        highlight: function (element, errorClass, validClass) {
             $(element)
                 .addClass("is-invalid")
                 .removeClass("is-valid");
         },
-        unhighlight: function(element, errorClass, validClass) {
+        unhighlight: function (element, errorClass, validClass) {
             $(element)
                 .addClass("is-valid")
                 .removeClass("is-invalid");
         },
-        submitHandler: function(event) {
+        submitHandler: function (event) {
             signinFn(event);
         }
     });
 });
 
 function signinFn(event) {
-    debugger;
-    var formData = $("form").serialize();
+    var formData = $("form").serialize() + "&isWeb=" + true;
     var request = $.ajax({
         url: "login",
         type: "POST",
         data: formData,
         dataType: "json",
         contentType: "application/x-www-form-urlencoded",
-        beforeSend: function() {
+        beforeSend: function () {
             console.log("inside beforeSend!!");
         },
-        success: function(data) {
+        success: function (response) {
             var params;
-            if (data.data.authtoken) {
-                Cookies.set("authtoken", data.data.authtoken);
+            if (response.data.message) {
                 params = {
                     title: "Login Success!",
-                    message: "Successfully logged in!!",
+                    message: response.data.message,
                     type: "notification",
                     autoHide: true,
                     delay: 10000
                 };
-                notifier(params);
-                alert(Cookies.get("authtoken"));
             } else {
                 params = {
                     title: "Login Error!",
-                    message: "No Authtoken!! Please try again.",
+                    message: "Couldn't Login!! Please try again.",
                     type: "notification",
                     autoHide: true,
                     delay: 10000
                 };
-                notifier(params);
             }
+            notifier(params);
         },
-        error: function(xhr) {
+        error: function (xhr) {
             // if error occured
             var params = {
                 msg: xhr.statusText,
@@ -75,8 +71,8 @@ function signinFn(event) {
             $(".bg-custsignin").prepend('<div class="error-holder"></div>');
             $(".error-holder").html(errorIs);
         },
-        complete: function() {
-            $("form").each(function() {
+        complete: function () {
+            $("form").each(function () {
                 this.reset();
             });
         }

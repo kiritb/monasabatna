@@ -1475,7 +1475,7 @@ values(2,'users','http://localhost/monasabatna_web/public/svg/images/testi-about
 	values ('events', 'price_range','201-500',3,'v1@v.com','v1@v.com');
 
 
-  --faqs
+	#faqs
   	insert into faq(question,answer,order_no,created_by,updated_by)
 	values ('What is Monasabatna?', 'Monasabatna is an online venue booking portal with the widest range of venues available in Saudi. At Monasabatna, we connect our customers with the best venues in their city based on their unique requirements so that they can get the ideal deal for their event.',1,'v1@v.com','v1@v.com');
 

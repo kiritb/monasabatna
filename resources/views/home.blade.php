@@ -5,6 +5,10 @@
     <!-- Home Carousal for Banners -->
     @include("slider")
 
+    @auth
+    <h1>Logged in!!</h1>
+    @endauth
+
     <!-----middlelayer star---------------->
     <div class="container-fluid" id="middlelayer">
         <div class="middlehead_exptop">

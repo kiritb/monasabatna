@@ -110,21 +110,27 @@ class EventHelper
             }
 
             $eventsData  =  $eventsSql->orderBy('events.order_no', 'asc')
-                            ->paginate(2)
-                            ->toArray();
+                            ->paginate(2);
 
-            
-            if( empty($eventsData['data']) )
+            $eventsDataArr = $eventsData->toArray();
+
+            if( $eventsDataArr['data'] == 0 )
             {
-                \Log::info(__CLASS__." ".__FUNCTION__." Events Data does not exists ");
+                \Log::info(__CLASS__." ".__FUNCTION__." Vennue Data does not exists ");
 
                 return [];
                 
             }
             
-             $returnArr['upcomingEvents'] = $eventsData;
+            $eventsArr                  = $eventsDataArr['data'];
+            
+            unset($eventsDataArr['data']);
 
-             return $returnArr;
+            $returnArr['upcomingEvents']    = $eventsArr;
+            
+            $returnArr['paginate']          = $eventsDataArr;
+
+            return $returnArr;
         }
         catch( \Exception $e)
         {   

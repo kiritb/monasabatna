@@ -74,9 +74,10 @@ $(document).ready(function () {
 });
 
 function signupFn(event) {
+    debugger;
     var formData = $('form').serialize();
     var request = $.ajax({
-        url: "api/v1/users",
+        url: "users",
         type: "POST",
         data: formData,
         dataType: "json",
@@ -121,7 +122,7 @@ function signupFn(event) {
 function verifyOtp(event) {
     var formData = $('form').serialize();
     var request = $.ajax({
-        url: "api/v1/verifyotp",
+        url: "verifyotp",
         type: "POST",
         data: formData,
         dataType: "json",

@@ -506,24 +506,15 @@
                     </div>
                 </div>
                 <!------- venue-list-bg --------->
-
-
             </div>
             <!------- tab close ------->
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
                 Updating ....
-
-
-
-
             </div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                 <!--------------Event Organisers ------------------>
                 Coding in process...
                 <!------------end of events content ---------------------->
-
-
             </div>
             <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
                 <div class="customerlinegreen"></div>
@@ -547,8 +538,6 @@
                                 <div class="margincst">Address:<b> 123 XYZRoad, Saudi Arabia </b><a href="#"> Show in
                                         map</a></div>
                             </address>
-
-
                             <div class="custpack"> <span class="color-change"><b>Date and Time :</span> 20 May 2018,
                                 2:30 PM</b></div>
                             <div class="spacer_boxthree"></div>
@@ -575,15 +564,24 @@
     </div>
 </div>
 <!------- tabs end-------->
+
 <div class="venuespagin">
     <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        <li class="page-item"><a class="page-link" href="{{ $data['paginate']['prev_page_url'] }}">Previous</a></li>
+        @php $totalpages = $data["paginate"]["last_page"]; @endphp
+
+        @foreach(range(1,$totalpages) as $i)
+        @if($totalpages >0)
+        <li class="page-item {{ ($data['paginate']['current_page']==$i)?'active':'' }}"><a class="page-link" href="{{ $data['paginate']['path'] }}?page={{ $i }}">{{
+                $i }}</a></li>
+        @endif
+        @php $totalpages--; @endphp
+        @endforeach
+        <li class="page-item"><a class="page-link" href="{{ $data['paginate']['next_page_url'] }}">Next</a></li>
+
     </ul>
 </div>
+
 
 <!---------- end of container ------------->
 

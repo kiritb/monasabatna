@@ -101,11 +101,11 @@ Route::get('suppliers_package_detail', function () {
 Route::get('packagedetailsfive', function () {
     return view('package_detailsfive');
 });
-Route::get('upcominguserclick', function () {
-    return view('upcoming_userclick');
-});
 Route::get('upcomingevents', function () {
     return view('upcomingevents');
+});
+Route::get('upcominguserclick', function () {
+    return view('upcominguserclick');
 });
 Route::get('wishlist', function () {
     return view('newwishlist');
@@ -117,7 +117,7 @@ Route::get('reset', array('as' => 'password.request', function () {
 
 Route::get('/', 'Web\HomeController@index')->name('home');
 
-//Route::get('/venuelist', 'Web\VennueController@vennueListing')->name('venuelist');
+Route::get('/venuelist', 'Web\VennueController@vennueListing')->name('venuelist');
 
 Route::get('/events/upcoming', 'Web\EventController@eventListing')->name('eventlist');
 
@@ -125,17 +125,17 @@ Route::get('login', array('as' => 'login', function () {
     return view('auth.customer_signin');
 }));
 
-Route::post('login', 'Auth\LoginController@login');
-
 Route::get('register', array('as' => 'register', function () {
     return view('auth.customer_signup');
 }));
 
-Route::group([ 'middleware' => [ 'auth'] ], function ()
-{
-    Route::get('gg', function () {
-        return view('newwishlist');
-    });
-    
-});
+Route::get('faqs', 'Web\FaqController@getFaqs')->name('faqs');
 
+Route::post('login', 'Auth\LoginController@login');
+Route::post('users', 'Auth\RegisterController@createUser');
+Route::post('verifyotp', 'Auth\RegisterController@verifyotp');
+Route::post('resendotp', 'Auth\RegisterController@resendotp');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('logout', 'Auth\LoginController@logout');
+});

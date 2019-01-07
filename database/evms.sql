@@ -10,6 +10,7 @@ create table evms.users(
   family_name varchar(256) NOT NULL,
   email varchar(256) NOT NULL,
   password text NOT NULL,
+  remember_token varchar(100) DEFAULT NULL,
   account_verified_at datetime DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,

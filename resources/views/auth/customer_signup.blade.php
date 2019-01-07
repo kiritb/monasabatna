@@ -7,6 +7,7 @@
         <div class="main_custsignup">
             <div class="col-md-4 col-sm-4 col-xs-4 form_custsignup">
                 <form class="form-horizontal" method="post" id="sign_up_form">
+                    @csrf
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label class="control-label formcust-head"><b>User Registration</b></label>

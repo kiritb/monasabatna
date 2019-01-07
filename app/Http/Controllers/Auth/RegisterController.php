@@ -7,6 +7,7 @@ use App\Http\Constants\HttpStatusCodesConsts;
 use App\Http\Helpers\ResponseUtil;
 use App\Http\Helpers\UserHelper;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -27,7 +28,13 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    public function redirectTo()
+    {
+        // User role
+        $user = Auth::user();
+
+        return '/';
+    }
 
     /**
      * Create a new controller instance.

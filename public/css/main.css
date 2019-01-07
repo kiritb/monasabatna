@@ -37,12 +37,14 @@ body {
         margin-left: 27%;
     }
 }
+
 @media only screen and (max-width: 1200px) {
     .row.color-bg-upclist {
         width: 80%;
         margin-left: 20%;
     }
 }
+
 a.profilehead {
     width: 20px;
     height: 40px;
@@ -3289,14 +3291,17 @@ select#bg-orange {
     padding: 15px;
     background-color: #f8f8f8;
 }
+
 div#upcuser-search {
     margin-top: 3%;
     margin-left: -4%;
 }
+
 div#upcoming-contentright {
     padding-left: 0px;
     padding-right: 0px;
 }
+
 /********************upcoming events user click ******************/
 /********************** Venue List **********************************************/
 
@@ -3498,7 +3503,7 @@ div#labpackone {
     margin: 25px 0px 0px 0px;
     padding-left: 0px;
     padding-right: 0px;
-    display:inline-block;
+    display: inline-block;
 }
 
 .filtersidevenue {
@@ -4659,9 +4664,10 @@ p.get-right {
 
 @media only screen and (min-height: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .cust-prof-onlinepy {
-    margin-left: -4rem !important;
+        margin-left: -4rem !important;
+    }
 }
-}
+
 .mt-10 {
     margin-top: 20px;
 }
@@ -4778,147 +4784,6 @@ div#slider-thumbs {
     margin-top: 15px;
 }
 
-/************ FAQs start ******************/
-div#faq-align {
-    padding-left: 34px;
-    padding-right: 34px;
-}
-
-div#faq-textarea {
-    padding-left: 49px;
-    padding-right: 49px;
-}
-
-.bg-faq {
-    background-color: #f7f7f8;
-    height: 180px;
-}
-
-.box-faq {
-    height: 100px !important;
-    margin-top: 20px;
-    color: #676868 !important;
-    border: 2px solid #9e9e9e !important;
-}
-
-.form-group.blogforms {
-    background-color: #f7f7f8;
-    width: 1270px;
-    padding-right: 25px;
-    padding-left: 25px;
-}
-
-.click-faq {
-    width: 200px;
-    height: 40px;
-    margin-top: 15px;
-    background-color: #6cc0b9;
-    color: #fff;
-}
-
-#accordion .panel {
-    border: none;
-    border-radius: 3px;
-    box-shadow: none;
-    margin-bottom: 15px;
-    margin-top: -19px;
-}
-
-#accordion .panel-heading {
-    padding: 0;
-    border: none;
-    border-radius: 3px;
-
-}
-
-.col-md-12.globe-panel {
-    padding-top: 17px;
-}
-
-#accordion .panel-title a {
-    display: block;
-    padding: 12px 15px;
-    background: #e6e5e8;
-    font-size: 18px;
-    text-align: left;
-    font-weight: 400;
-    color: #737373;
-    text-decoration: none;
-    /*border: 1px solid #ececec;*/
-    box-shadow: 0 0 10px rgba(0, 0, 0, .05);
-    position: relative;
-    transition: all 0.5s ease 0s;
-    box-shadow: 0 1px 2px rgba(43, 59, 93, 0.30);
-}
-
-#accordion .panel-title a.collapsed {
-    box-shadow: none;
-    color: #676767;
-    box-shadow: 0 1px 2px rgba(43, 59, 93, 0.30);
-}
-
-#accordion .panel-title a:before,
-#accordion .panel-title a.collapsed:before {
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    width: 25px;
-    height: 25px;
-    line-height: 28px;
-    font-size: 15px;
-    font-weight: 900;
-
-    text-align: left;
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    padding-left: 8px;
-    transform: rotate(179deg);
-    transition: all 0.3s ease 0s;
-}
-
-#accordion .panel-title a.collapsed:before {
-    color: #676767;
-    transform: rotate(0);
-}
-
-#accordion .panel-title a:after {
-    content: "";
-    width: 1px;
-    height: 100%;
-    background: #ececec;
-    position: absolute;
-    top: 0;
-    right: 55px;
-}
-
-a.acc_read {
-    float: right;
-    color: #467bff;
-    font-size: 17px;
-    margin-top: -12px;
-    font-family: Myraid;
-}
-
-#accordion .panel-body {
-    padding: 0px 15px;
-    border: none;
-    font-family: Myraid bold;
-    font-variant: light;
-    margin-top: -16px;
-    height: 215px;
-    text-align: justify;
-    font-size: 16px;
-    color: #737373;
-    background-color: #f4f4f5;
-    line-height: 27px;
-}
-
-a {
-    color: #457aff;
-
-}
-
-/************ faqs end ******************/
 /************ even organiser tab part start******************/
 h4 {
     font-weight: 700;
