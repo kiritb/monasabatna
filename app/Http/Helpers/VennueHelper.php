@@ -229,14 +229,16 @@ class VennueHelper
         {  
 
             $vennueData = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName','vennues.short_description as vennueShortDescription',
-                                          'vennues.start_time as vennueStartTime',
+                                          'vennues.start_time as vennueStartTime','vennues.end_time as vennueEndTime','vennues.min_guest_cap as MinGuestCap','vennues.max_guest_cap as MaxGuestCap',
                                           'vennues.is_express_deal as isExpressDeal' , 'vennues.rating',
                                           'address.address_line_1 as AddressLine_1','address.address_line_2 as AddressLine_2','address.google_map_link as googleMapLink','cities.name as cityName',
-                                          'pricings.actual_price as actualPrice','pricings.discount','pricing_type.name as pricingType')
+                                          'pricings.actual_price as actualPrice','pricings.discount','pricing_type.name as pricingType', 'vendors.vendor_name as vendorName',
+                                          'vendors.license_no as licenseNo' )
                             ->join('address', 'vennues.id', '=', 'address.linkable_id')
                             ->join('pricings', 'vennues.id', '=', 'pricings.linkable_id')
                             ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
-                            ->join('cities', 'address.city_id', '=', 'cities.id')
+			    ->join('cities', 'address.city_id', '=', 'cities.id')
+			    ->join('vendors', 'vendors.id', '=', 'vennues.vendor_id')
                             ->where('address.linkable_type', 'vennues')
                             ->where('pricings.linkable_type', 'vennues')
                             ->where('address.status', 1)
