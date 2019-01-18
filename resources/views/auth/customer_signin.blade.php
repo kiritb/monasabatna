@@ -1,4 +1,4 @@
-@include('header')
+@include('shared/header')
 
 <!------- body start-------->
 
@@ -69,6 +69,6 @@
 <!---------- row bg-custsignin ------------>
 
 <!------- body end-------->
-@include('footer')
+@include('shared/footer')
 
 <script type="text/javascript" src="js/signin.js" charset="utf-8"></script>

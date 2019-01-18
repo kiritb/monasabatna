@@ -8,42 +8,6 @@ body {
     color: orange;
 }
 
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1300px;
-    }
-
-    .maindivider {
-        border: 1px solid #dbdadf;
-    }
-
-}
-
-@media(max-width:1024px) and (max-height:768) {
-    body {
-        overflow-x: hidden;
-    }
-}
-
-@media(max-width:768px) and (max-height:1024) {
-    body {
-        overflow-x: hidden;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    .row.color-bg-upclist {
-        width: 73%;
-        margin-left: 27%;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .row.color-bg-upclist {
-        width: 80%;
-        margin-left: 20%;
-    }
-}
 
 a.profilehead {
     width: 20px;
@@ -345,6 +309,7 @@ a.btn.btn-default.booknow-header {
 }
 
 h1.bannerfont {
+    margin-bottom: 250px;
     font-family: KittenBold;
     font-size: 60px;
 }
@@ -420,7 +385,7 @@ h1.bannerfont {
 }
 
 .head_twotwo {
-    width: 55px;
+
     float: right;
     margin-top: 6px;
     margin-right: 20px;
@@ -525,12 +490,13 @@ span.spaceone {
 }
 
 button#show_record_why {
+    margin-bottom: 42px;
     margin-top: -72px;
     margin-left: 183%;
     width: 150px;
     font-size: 14px;
     float: center;
-    border: 2px solid 6cc0b9;
+    border: 2px solid 6cc0b9 !important;
     border-radius: 50px;
     background-color: #fff;
     color: #6cc0b9;
@@ -820,12 +786,7 @@ p.count-text {
     margin-left: -199px;
 }
 
-@media (min-width: 1280px) {
 
-    .col-lg-6.col-md-6.col-xs-6.star {
-        margin-top: 19px;
-    }
-}
 
 .detail-party {
     padding-top: 20px;
@@ -1054,13 +1015,6 @@ li.venue-one a:hover:not(.active) {
 div#myNavbar {
     padding-left: -15px;
     margin-left: -259px;
-}
-
-@media (min-width: 768px) {
-    div#myNavbar {
-        padding-left: -15px;
-        margin-left: -259px;
-    }
 }
 
 label {
@@ -1386,11 +1340,6 @@ button.btn.btn-default.customer-review {
 /*****************************end of newwishlist ***************************/
 
 /*****************************start for 003_3_5_theme_detail ***************************/
-@media (min-width: 200px) {
-    .col-md-3.col-sm-3.col-xs-2 {
-        margin: 0px 3px 0px 4px;
-    }
-}
 
 /* multi gallery start for 003_3_5_theme_detail */
 
@@ -1683,46 +1632,61 @@ div#nav-packContent {
     font-size: 14px;
 }
 
-a#nav-about-tab {
+#packagedetails a#nav-about-tab.active {   
+    color: #fff;
+}
+#packagedetails a#nav-provided-tab.active {
+    color:#fff;
+}
+#packagedetails  a#nav-requisites-tab.active {
+    color:#fff;
+}
+#packagedetails a#nav-testi-tab.active {
+    color:#fff;
+}
+#packagedetails a#nav-terms-tab.active {
+    color:#fff;
+}
+#packagedetails a#nav-about-tab {
     width: 19.5%;
     font-weight: bold;
-    color: #fff;
+    color: #9d9ca4;
     font-family: Myraid pro;
     font-size: 18px;
 }
 
-a#nav-provided-tab {
+#packagedetails a#nav-provided-tab {
     width: 19.5%;
     margin-left: 0.60%;
     font-weight: bold;
-    color: #4b485b;
+    color: #9d9ca4;
     font-family: Myriad pro;
     font-size: 18px;
 }
 
-a#nav-requisites-tab {
+#packagedetails  a#nav-requisites-tab {
     width: 19.5%;
     margin-left: 0.60%;
     font-weight: bold;
-    color: #4b485b;
+    color: #9d9ca4;
     font-family: Myriad pro;
     font-size: 18px;
 }
 
-a#nav-testi-tab {
+#packagedetails a#nav-testi-tab {
     width: 19.5%;
     margin-left: 0.60%;
     font-weight: bold;
-    color: #4b485b;
+    color: #9d9ca4;
     font-family: Myriad pro;
     font-size: 18px;
 }
 
-a#nav-terms-tab {
+#packagedetails a#nav-terms-tab {
     width: 19.5%;
     margin-left: 0.60%;
     font-weight: bold;
-    color: #4b485b;
+    color: #9d9ca4;
     font-family: Myriad pro;
     font-size: 18px;
 }
@@ -1759,12 +1723,12 @@ div#subpack {
 }
 
 i#ban-inner-arrowleft {
-    margin-top: -13px;
+    margin-top: 54px;
     margin-left: -54%;
 }
 
 i#ban-inner-arrowright {
-    margin-top: 0px;
+    margin-top:45px;
     margin-left: 54%;
 }
 
@@ -2090,7 +2054,7 @@ input.form-control.themehome {
 
 .col-sar {
     color: #6cc0b9;
-    margin-left: 155px;
+
 }
 
 .thumbnail {
@@ -2937,7 +2901,7 @@ div#customerprofile {
 }
 
 .row.custprofhead {
-    width: 100%;
+    width: 960px;
 }
 
 .cust-prof-onlinepy {
@@ -2948,18 +2912,6 @@ div#customerprofile {
 
 .img-thumbnail {
     padding: 0px;
-}
-
-@media only screen and (min-width: 768px) {
-    .cust-prof-onlinepy {
-        margin-left: -4rem !important;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .cust-prof-onlinepy {
-        margin-left: -7rem !important;
-    }
 }
 
 .col-lg-4.col-md-4.col-sm-12.col-xs-12.picheight {
@@ -2993,14 +2945,15 @@ div#customerprofile {
     font-size: 18px !important;
     height: 0px;
     color: #4b485b;
-    margin-top: -28px;
-    width: 834px;
+    margin-left: 632px;
+    margin-top: -39px;
+    width: 100%;
 }
 
 .fullrow {
     padding: 0px;
     margin: 0px;
-    width: 1478px;
+    width: 1000px !important;
     margin-left: 633px;
     width: 50%;
 }
@@ -3057,42 +3010,6 @@ a.venuepy-cash {
 
 /* Medium devices (landscape tablets, 768px and up) */
 
-@media (min-width: 1200px) {
-    a#nav-events-tab {
-        width: 24.80%;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    a#nav-events-tab {
-        width: 23%;
-    }
-}
-
-@media (min-width: 1024px) {
-    a#nav-events-tab {
-        width: 23.50%;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    a#nav-events-tab {
-        width: 23%;
-    }
-
-    a#nav-home-tab {
-        width: 23%;
-    }
-
-    a#nav-profile-tab {
-        width: 23%;
-    }
-
-    a#nav-home-tab {
-        width: 23%;
-    }
-}
-
 .row.custprofeven {
     width: 100%;
     padding: 0px;
@@ -3112,9 +3029,25 @@ a.venuepy-cash {
     font-size: 14px;
 }
 
+a#nav-home-tab.active {
+    color: #fff;
+}
+
+a#nav-profile-tab.active {
+    color: #fff;
+}
+
+a#nav-contact-tab.active {
+    color: #fff;
+}
+
+a#nav-events-tab.active {
+    color: #fff;
+}
+
 a#nav-home-tab {
     font-size: 20px;
-    color: #fff;
+    color: #9d9ca4;
     font-weight: bold;
     font-family: Myriad pro;
     width: 24.40%;
@@ -3144,7 +3077,7 @@ a#nav-events-tab {
     font-weight: bold;
     font-family: Myriad pro;
     margin-left: 10px;
-    width: 24.40%;
+    width: 24.35%;
 }
 
 a.btnreview {
@@ -3221,12 +3154,12 @@ button.cancel-confirm {
 }
 
 .cust-head {
-    width: 50%;
+    width: 100%;
     color: #4b485b;
     float: left;
     font-size: 20px;
     margin-top: 15px;
-    margin-left: -9px;
+    margin-left: -64%;
 }
 
 .tab-content.cust-detail {
@@ -3292,6 +3225,13 @@ select#bg-orange {
     background-color: #f8f8f8;
 }
 
+.eventwish {
+    height: 111px;
+    width: 94%;
+    color: #727272;
+    font-size: 14px;
+}
+
 div#upcuser-search {
     margin-top: 3%;
     margin-left: -4%;
@@ -3303,104 +3243,181 @@ div#upcoming-contentright {
 }
 
 /********************upcoming events user click ******************/
+/*********************************EventOrganiserslist ***********************/
+div#eventlist-contentright {
+    margin-top: -15px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.row.color-bg-eventlistnext {
+    /* padding-left: 15px; */
+    margin-top: 10px;
+    margin-left: 77px;
+    width: 92.50%;
+    background-color: #f8f8f8;
+    height: auto;
+    padding: 12px;
+}
+
+.row.color-bg-eventlist {
+    /* padding-left: 15px; */
+    margin-top: -13px;
+    margin-left: 77px;
+    width: 92.50%;
+    background-color: #f8f8f8;
+    height: auto;
+    padding: 12px;
+}
+
+.row.rightevent {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.row.evenorglist {
+    width: 97%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#btn-eventlist {
+    width: 120px;
+    height: 40px;
+    margin-top: -31px;
+    margin-right: 16px;
+    background-color: #6cc0b9;
+    border-color: #6cc0b9;
+    color: #fff;
+    line-height:23px;
+    font-size: 12px;
+    float: right;
+}
+
+/***********************************end of Eventorganiserslist *****************/
+/*************************************supplier details *************************/
+a.booksupp {
+    position:relative;
+    width: 200px;
+    height: 40px;
+    background-color:#6cc0b9;
+    border: 2px solid #6cc0b9;
+    border-radius: 8px;
+    text-align: center;
+    padding-top: 8px;
+    color: #fff;
+    margin-left:15px;
+}
+a.shtsupp {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 2px solid #6cc0b9;
+    border-radius: 8px;
+    text-align: center;
+    padding-top: 8px;
+    color: #6cc0b9;
+}
+.row.buttonsupp {
+    float: right;
+    margin-right: -115px;
+    padding-top: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+a.booksupp.active{
+
+}
+a.shtsupp.active {
+color:#fff;
+background-color:#6cc0b9;
+}
+#supplierpacksect{
+    background-color: #f4f4f5;
+    font-family: Myriad pro;
+    padding-left: 10px;
+    padding-right: 0px;
+    margin-left: 49px;
+    width: 92.70%;
+    margin-right: 49px;
+    height: 135px;
+    margin-top: 25px;
+}
+.row.sartravel {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-right:-5px;
+    float: right;
+}
+.row.suppoffered{
+    color:#676868;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top:5px;
+    padding-bottom:2px;
+}
+.row.supptravel{
+    font-size: 14px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+div#supplierdetails {
+    margin-top: 10px;
+}
+div#supppackdet {
+    margin-left: -30px;
+    float: left;
+}
+#supplierdetails a#nav-about-tab.active {
+color:#fff;
+}
+#supplierdetails a#nav-provided-tab.active {
+    color:#fff;
+}
+#supplierdetails a#nav-testi-tab.active {
+        color:#fff;
+}
+#supplierdetails a#nav-terms-tab.active {
+            color:#fff;
+}
+#supplierdetails a#nav-about-tab {
+    width: 24.55%;
+    font-weight: bold;
+    color: #9d9ca4;
+    font-family: Myraid pro;
+    font-size: 18px;
+}
+#supplierdetails a#nav-provided-tab {
+    width: 24.55%;
+    margin-left: 0.60%;
+    font-weight: bold;
+    color: #9d9ca4;
+    font-family: Myriad pro;
+    font-size: 18px;
+}
+#supplierdetails a#nav-testi-tab {
+    width: 24.55%;
+    margin-left: 0.60%;
+    font-weight: bold;
+    color: #9d9ca4;
+    font-family: Myriad pro;
+    font-size: 18px;
+}
+#supplierdetails a#nav-terms-tab {
+    width: 24.55%;
+    margin-left: 0.60%;
+    font-weight: bold;
+    color: #9d9ca4;
+    font-family: Myriad pro;
+    font-size: 18px;
+}
+/*************************************supplier details ***************************/
 /********************** Venue List **********************************************/
 
-
-@media only screen and (max-width: 1024px) {
-    .row.color-bg-venuelist {
-
-        margin-left: 108px;
-
-        width: 87%;
-
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .row.color-bg-venuelist {
-
-        margin-left: 77px;
-
-        width: 97%;
-
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    select.form-control.sortvenues {
-
-        margin-left: 151%;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    select.form-control.sortvenues {
-
-        margin-left: 169%;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    a#nav-home-tab {
-        width: 24.20%;
-    }
-
-    a#nav-profile-tab {
-        margin-left: 10px;
-        width: 24.20%;
-    }
-
-    a#nav-contact-tab {
-        margin-left: 10px;
-        width: 24.20%;
-    }
-
-    a#nav-event-tab {
-        margin-left: 10px;
-        width: 24.10%;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    a#nav-home-tab {
-        width: 23.70%;
-    }
-
-    a#nav-profile-tab {
-        margin-left: 10px;
-        width: 23.70%;
-    }
-
-    a#nav-contact-tab {
-        margin-left: 10px;
-        width: 23.70%;
-    }
-
-    a#nav-event-tab {
-        margin-left: 10px;
-        width: 23.70%;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    a#nav-home-tab {
-        width: 24.40%;
-    }
-
-    a#nav-profile-tab {
-        margin-left: 10px;
-        width: 24.40%;
-    }
-
-    a#nav-contact-tab {
-        margin-left: 10px;
-        width: 24.40%;
-    }
-
-    a#nav-event-tab {
-        margin-left: 10px;
-        width: 24.40%;
-    }
+.eventspagin {
+    margin-top: 32px;
+    margin-left: 45%;
 }
 
 h3.venuehead {
@@ -3442,7 +3459,7 @@ a.showmapbtn {
     width: 240px;
     font-size: 13px;
     font-weight: bold;
-    color: #4b485b;
+    color: #a4a4a5;
     margin-left: -49px;
     background-color: #ebebed;
 }
@@ -3535,7 +3552,7 @@ div#labpackone {
 }
 
 .list {
-    width: 300px;
+
     float: left;
 }
 
@@ -3578,6 +3595,127 @@ select.form-control.sortvenues {
 .venuespagin {
     margin-left: 50%;
 }
+
+/*************************** venue details **************************************/
+.col-lg-2.col-md-2.col-sm-6.col-xs-6.alicon {
+    float: left;
+}
+
+.amencontent {
+    padding-top: 25px;
+    height: 200px;
+}
+
+.venuestar {
+    float: right;
+    margin-left: 114px;
+    font-size: 20px;
+}
+
+span.clockrow {
+    margin-left: 84px;
+}
+
+div#venuedetails {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 30px;
+}
+
+.nav-tabs {
+    color: #9d9ca4;
+}
+
+#packagecontent .btn.btn-link.collapsed {
+    color: #000;
+    text-decoration: none;
+}
+
+#packagecontent .btn.btn-link.collapsed:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+#packagecontent .card-header {
+    position: relative;
+}
+
+#packagecontent .card-header[data-toggle="collapse"]:after {
+    font-family: 'fontawesome';
+    content: "\f106";
+    /* "play" icon */
+    position: absolute;
+    color: #b0c5d8;
+    font-size: 18px;
+    line-height: 22px;
+    right: 20px;
+    top: calc(50% - 10px);
+
+    /* rotate "play" icon from > (right arrow) to down arrow */
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+#packagecontent .card-header[data-toggle="collapse"].collapsed:after {
+    /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+i#venuetestil {
+    color: #000;
+    font-size: 27px;
+    margin-left: -119px;
+}
+
+i#venuetestir {
+    color: #000;
+    font-size: 27px;
+    margin-right: -130px;
+}
+
+img#testivenueone {
+    width: 76px;
+    height: 176px;
+    width: 171px !important;
+    margin-left: 5%;
+}
+
+img#testivenuetwo {
+    width: 76px;
+    height: 176px;
+    width: 171px !important;
+    margin-left: 5%;
+}
+
+img#testivenuethree {
+    width: 76px;
+    height: 176px;
+    width: 171px !important;
+    margin-left: 5%;
+}
+
+p.venuepara {
+    font-size: 14px;
+    color: #727272;
+    margin-left: 15%;
+}
+
+h5.venuetestiname {
+    color: #727272;
+    font-size: 19px;
+    font-family: Myriad pro;
+    float: left;
+    margin-left: 55%;
+}
+
+/****************************** venue details ***********************************/
 
 /****************************** Venue List **************************************/
 /********* start of 004_4_5_package_venues*****************/
@@ -3869,44 +4007,43 @@ a.right.carousel-control.aboutusone {
 }
 
 /********* start of Blogs *****************/
-@media only screen and (width:1024) {
-    #btn-blogone {
-        margin-left: 789px;
-    }
+
+#btn-blogone {
+    margin-left: 789px;
+}
 
 
-    .blog-icon {
-        margin-top: -14px;
-    }
+.blog-icon {
+    margin-top: -14px;
+}
 
-    span.blog-icon-text {
-        margin-left: 4px;
-    }
+span.blog-icon-text {
+    margin-left: 4px;
+}
 
-    .blogsteam {
-        width: 901px;
-        color: #727272;
-        font-size: 12px;
-    }
+.blogsteam {
+    width: 901px;
+    color: #727272;
+    font-size: 12px;
+}
 
-    .blogsteamone {
-        color: #727272;
-        font-size: 12px;
-        float: left;
-        width: 1200px;
-        height: 119px;
-        text-align: justify;
-        margin-top: 5px;
-        margin-left: 13px;
-    }
+.blogsteamone {
+    color: #727272;
+    font-size: 12px;
+    float: left;
+    width: 1200px;
+    height: 119px;
+    text-align: justify;
+    margin-top: 5px;
+    margin-left: 13px;
+}
 
-    .pagination {
-        display: -ms-flexbox;
-        display: flex;
-        padding-left: 434px;
-        list-style: none;
-        border-radius: .25rem;
-    }
+.pagination {
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 434px;
+    list-style: none;
+    border-radius: .25rem;
 }
 
 .justify-content-end {
@@ -4052,15 +4189,7 @@ button.btn.btn-default.btncutomer:hover {
     text-align: justify;
 }
 
-@media(min-width:768) and (min-height:1024) {
-    .content-optionblog {
-        width: 100%;
-        float: left;
-        font-size: 12px;
-        margin-left: 2px;
-        text-align: justify;
-    }
-}
+
 
 /********* start of customer profile *****************/
 css for Tab menu in form starts .navbar-nav>li>a {
@@ -5304,25 +5433,182 @@ input.form-control.csignin-venue {
 }
 
 /*************** package venues tab start *********/
-
-.venues_add {
-    width: 240px;
+a#nav-express-tab.active {
+    color: #fff;
 }
 
-#venues_add_one {
-    width: 250px;
+a#nav-eveorg-tab.active {
+    color: #fff;
 }
 
-#venues_add_two {
-    width: 250px;
+a#nav-supp-tab.active {
+    color: #fff;
 }
 
-#venues_add_three {
-    width: 250px;
+a#nav-express-tab {
+    font-size: 20px;
+    color: #9d9ca4;
+    font-weight: bold;
+    font-family: Myriad pro;
+    width: 32.79%;
 }
 
-#venues_add_four {
-    width: 250px;
+a#nav-eveorg-tab {
+    font-size: 20px;
+    color: #9d9ca4;
+    font-weight: bold;
+    font-family: Myriad pro;
+    margin-left: 10px;
+    width: 32.79%;
+}
+
+a#nav-supp-tab {
+    font-size: 20px;
+    color: #9d9ca4;
+    font-weight: bold;
+    font-family: Myriad pro;
+    margin-left: 10px;
+    width: 32.79%;
+}
+/**************package list bottom underline tab ***************/
+.row.packsortlist {
+    width: 97%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+select.form-control.sortpackagelist {
+    width: 207px;
+    display:inline;
+    float:right;
+
+}
+.row.expsortlist {
+    padding-top: 1px;
+    margin-left: 50px;
+    width: 97%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+div#innertwotab {
+    margin-top: 69px;
+    padding-left: 33px;
+}
+div#underlinetab {
+    margin-top: -7px;
+    position: relative;
+    margin-left: 26px;
+}
+.row.color-bg-expcontent, .row.color-bg-expcontentnext  {
+    position: relative;
+    /* padding-left: 15px; */
+    margin-top: 2px;
+    margin-left: 143px;
+    width: 1000px;
+    background-color: #f8f8f8;
+    height: auto;
+    padding: 12px;
+}
+.row.color-bg-expcontentnext{
+    margin-top:10px;
+}
+#underlinetab #pills-tab {
+    margin-left: 143px;
+    position: relative;
+    border-top: 2px solid #dbdade;
+    border-bottom: 2px solid #dbdade;
+    width: 998px;
+}
+#underlinetab .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #4b485b;
+    margin-left:0px;
+    background-color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    width: 170px;
+    height: 50px;
+    border-bottom: 7px solid #6cc0b9;
+    border-radius: 0px;
+}
+
+#underlinetab .nav-pills .nav-link {
+    /* border-radius: .25rem; */
+    width: 170px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    color: #4b485b;
+    border: none;
+    border-radius: none;
+}
+#underlinetab.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: none;
+}
+#underlinetab.nav-pills .nav-link {
+    border-radius: 0rem;
+}
+/******************package list content start **************************/
+.content-optionpacklist {
+    width: 665px;
+    margin-left: 0px;
+}
+div#packagelist-contentright {
+    width: 1239px;
+    margin-top: -15px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.content-expsort-top {
+    width: 74%;
+    float: right;
+    margin-left: 710px;
+}
+.leftfilter{
+    padding-left: 0px;
+    margin-top: -112px;
+    margin-left: -108px;
+}
+.rightcontentpack{
+    margin-top:108px;
+    position: relative;
+}
+.supppagin {
+    margin-top: 8px;
+    margin-left: 17%;
+}
+.packpagin {
+    margin-top: 32px;
+    margin-left: 0%;
+}
+div#packagelistwhole {
+    margin-top: 32px;
+}
+div#packageprofile {
+    margin-top: 7px;
+}
+.row.color-bg-packcontent {
+    /* padding-left: 15px; */
+    margin-top: 2px;
+    margin-left: 0px;
+    width: 999px;
+    background-color: #f8f8f8;
+    height: auto;
+    padding:12px;
+}
+
+.row.color-bg-packcontentnxt {
+    /* padding-left: 15px; */
+    margin-top: 10px;
+    margin-left: 0px;
+    width: 999px;
+    background-color: #f8f8f8;
+    height: auto;
+    padding:12px;
+}
+div#packlist-contentright {
+    margin-top: -15px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: absolute;
 }
 
 /*************** event oorganiser tab start *********/
@@ -6259,4 +6545,299 @@ input[type=checkbox].is-invalid+span {
 .otpholder {
     color: green;
     font-size: 10px;
+}
+
+/**********************media Queries for evenorganiserslist *************************/
+@media screen and (max-width: 768px) {
+    .row.evenorglist {
+        margin-top: -17px;
+        margin-left: -104px;
+    }
+
+    .row.color-bg-eventlistnext {
+        margin-left: 130px;
+        width: 76.5%;
+    }
+
+    .row.color-bg-eventlist {
+        margin-left: 130px;
+        width: 76.5%;
+    }
+
+    .eventwish {
+        width: 363px;
+    }
+
+    .wish-head {
+        margin-top: 3px;
+    }
+
+    .content-optionblog {
+        margin-left: -12px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .row.evenorglist {
+        margin-left: -8%;
+    }
+
+    .row.color-bg-eventlist {
+        margin-left: 14%;
+        width: 86%;
+    }
+
+    .row.color-bg-eventlistnext {
+        margin-left: 14%;
+        width: 86%;
+    }
+
+    .wish-head {
+        margin-top: 2px;
+    }
+
+    .content-optionblog {
+        width: 647px;
+        margin-left: -15px;
+    }
+}
+
+/********************media queries for evenorganiserlist ***********************/
+/************************media queries for package List ***********************/
+@media only screen and (max-width: 1200px) {
+    div#packagelist-contentright{
+        width:1334px;
+    }
+    .row.evenorglist {
+        width: 97%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    a#nav-express-tab {
+        width:32.60%;
+    }
+    a#nav-eveorg-tab{
+        width:32.60%;
+    }
+    a#nav-supp-tab{
+        width:32.60%;
+    }
+    #underlinetab #pills-tab{
+        width:54%;
+    }
+    .content-optionpacklist {
+        width: 649px;
+    }
+    select.form-control.sortvenues {
+        margin-left: 638px;
+    }
+    .row.color-bg-expcontent, .row.color-bg-expcontentnext{
+        width:54%;
+    }
+    .content-expsort-top{
+        width:22%;
+    }
+    .packpagin {
+        margin-left: -6%;
+    }
+ 
+select.form-control.sortvenues {
+    margin-left: 640px;
+}
+    
+}
+@media only screen and (max-width: 768px) {
+    a#nav-express-tab {
+        width:32.32%;
+    }
+    a#nav-eveorg-tab{
+        width:32.33%;
+    }
+    a#nav-supp-tab{
+        width:32.33%;
+    }
+    .content-optionpacklist {
+        width: 395px;
+    }
+    .content-expsort-top{
+        width:2.30%;
+    }
+    .packpagin {
+        margin-top: 32px;
+        margin-left: -17%;
+    }
+    #underlinetab #pills-tab, .row.color-bg-expcontent, .row.color-bg-expcontentnext{
+        width:36.50%;
+    }
+    .row.color-bg-eventlist, .row.color-bg-eventlistnext {
+        margin-left: 24%;
+        width: 76%;
+    }
+    select.form-control.sortvenues {
+        margin-left: 389px;
+    }
+}
+
+@media only screen and not all (max-width: 1280px) {
+    a#nav-express-tab {
+        width:32.75%;
+    }
+    a#nav-eveorg-tab{
+        width:32.75%;
+    }
+    a#nav-supp-tab{
+        width:32.75%;
+    }
+    .row.evenorglist {
+        width: 90.50%;
+    }
+    #underlinetab #pills-tab{
+        width:80%;
+    }
+    .row.color-bg-expcontent, .row.color-bg-expcontentnext{
+        margin-left: 143px;
+        width: 924px;
+    }
+    .content-optionpacklist {
+        width: 600px;
+    }
+    .row.color-bg-eventlist, .row.color-bg-eventlistnext{
+    margin-left: 81px;
+    width: 924px;
+    }
+    .content-eve-top {
+        width: 53%;
+    }
+}
+/***********************media queries for supplier details ********************/
+
+@media only screen and (max-width: 1024px) {
+    #supplierpacksect{
+    width: 90.30%;
+    }
+    }
+    @media only screen and (max-width: 768px) {
+        #supplierpacksect{
+        width: 87.30%;
+        }
+        }
+/************************media queries for package List ***********************/
+@media only screen and (max-width: 1024px) {
+    .row.color-bg-venuelist {
+
+        margin-left: 108px;
+
+        width: 87%;
+
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .row.color-bg-venuelist {
+
+        margin-left: 77px;
+
+        width: 97%;
+
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    select.form-control.sortvenues {
+
+        margin-left: 151%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    select.form-control.sortvenues {
+
+        margin-left: 882px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    a#nav-home-tab {
+        width: 24.15%;
+    }
+
+    a#nav-profile-tab {
+        margin-left: 10px;
+        width: 24.15%;
+    }
+
+    a#nav-contact-tab {
+        margin-left: 10px;
+        width: 24.15%;
+    }
+
+    a#nav-events-tab {
+        margin-left: 10px;
+        width: 24.15%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1300px;
+    }
+
+    .maindivider {
+        border: 1px solid #dbdadf;
+    }
+
+}
+
+@media(max-width:1024px) and (max-height:768) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media(max-width:768px) and (max-height:1024) {
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .row.color-bg-upclist {
+        width: 73%;
+        margin-left: 27%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .row.color-bg-upclist {
+        width: 80%;
+        margin-left: 20%;
+    }
+}
+
+@media (min-width: 1280px) {
+
+    .col-lg-6.col-md-6.col-xs-6.star {
+        margin-top: 19px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .cust-prof-onlinepy {
+        margin-left: -4rem !important;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .cust-prof-onlinepy {
+        margin-left: -7rem !important;
+    }
+}
+
+/* CSS for more less links */
+.morecontent span {
+    display: none;
+}
+
+.morelink {
+    display: block;
 }

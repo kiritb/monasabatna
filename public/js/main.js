@@ -8,22 +8,22 @@ $(document).ready(function () {
         autospeed: 2000
     });
 
- $('.slider-for').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,
-  fade: true,
-  autoplay:true,
-  asNavFor: '.slider-nav'
-});
-$('.slider-nav').slick({
-  slidesToShow: 11,
-  slidesToScroll: 1,
-  asNavFor: '.slider-for',
-  dots: false,
-  autoplay:true,
-  focusOnSelect: true,
-});
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+        autoplay: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        slidesToShow: 11,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: false,
+        autoplay: true,
+        focusOnSelect: true,
+    });
 
     // pop up
     $("#myCancel").click(function () {
@@ -40,8 +40,13 @@ $('.slider-nav').slick({
         $(this).tab('show');
     });
 
-});
+    $(".more").shorten({
+        "showChars": 200,
+        "moreText": "More",
+        "lessText": "Less",
+    });
 
+});
 
 function errorAlert(params) {
     var message = '<div class="alert alert-warning alert-dismissible fade show" role="alert"><strong>' +
@@ -89,5 +94,49 @@ function notifier(parameters) {
         hideAnimation: 'slideUp',
         // hide animation duration
         hideDuration: 200
+    });
+}
+
+function logout() {
+    $.ajax({
+        url: "logout",
+        type: "GET",
+        dataType: "json",
+        contentType: "application/x-www-form-urlencoded",
+        beforeSend: function () {
+            console.log("inside beforeSend!!");
+        },
+        success: function (response) {
+            var params;
+            if (response.data.message) {
+                params = {
+                    title: "Logout Success!",
+                    message: response.data.message,
+                    type: "notification",
+                    autoHide: true,
+                    delay: 10000
+                };
+                location.reload();
+            } else {
+                params = {
+                    title: "Logout",
+                    message: "Couldn't Logged!!.",
+                    type: "notification",
+                    autoHide: true,
+                    delay: 10000
+                };
+            }
+            notifier(params);
+        },
+        error: function (xhr) {
+            // if error occured
+            var params = {
+                msg: xhr.statusText,
+                closable: true
+            };
+            var errorIs = errorAlert(params);
+            $("body").prepend('<div class="error-holder"></div>');
+            $(".error-holder").html(errorIs);
+        }
     });
 }
