@@ -74,7 +74,6 @@ $(document).ready(function () {
 });
 
 function signupFn(event) {
-    debugger;
     var formData = $('form').serialize();
     var request = $.ajax({
         url: "users",

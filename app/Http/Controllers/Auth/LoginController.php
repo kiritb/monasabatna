@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use JWTAuth;
-use DB;
 use App\Http\Constants\HttpStatusCodesConsts;
+use App\Http\Controllers\Controller;
 use App\Http\Helpers\ResponseUtil;
 use App\Http\Helpers\UserHelper;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use JWTAuth;
 
 class LoginController extends Controller
 {
@@ -23,7 +23,7 @@ class LoginController extends Controller
     | redirecting them to your home screen. The controller uses a trait
     | to conveniently provide its functionality to your applications.
     |
-    */
+     */
 
     /**
      * Where to redirect users after login.
@@ -50,9 +50,9 @@ class LoginController extends Controller
         $requestParams = $request->all();
 
         $rules = [
-                    'phone' => 'required',
-                    'password' => 'required',
-                 ];
+            'phone' => 'required',
+            'password' => 'required',
+        ];
 
         $validator = Validator::make($requestParams, $rules);
 
@@ -71,9 +71,9 @@ class LoginController extends Controller
             $phoneData = UserHelper::getUserByDefaultPhone($requestParams['phone']);
 
             $userData = DB::table('users')
-                         ->where('id', $phoneData[0]['linkable_id'])
-                         ->get()
-                         ->toArray();
+                ->where('id', $phoneData[0]['linkable_id'])
+                ->get()
+                ->toArray();
 
             if (empty($userData)) {
                 \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message Customer does not exists ');
@@ -107,7 +107,7 @@ class LoginController extends Controller
                 }
 
                 return response(ResponseUtil::buildSuccessResponse(['message' => 'Successfully Logged-in!!']),
-HttpStatusCodesConsts::HTTP_OK);
+                    HttpStatusCodesConsts::HTTP_OK);
             } else {
                 if (!$token = JWTAuth::attempt($credentials)) {
                     $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['wrong password']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'noUserFoundException');
@@ -133,19 +133,34 @@ HttpStatusCodesConsts::HTTP_OK);
         try {
             $requestParams = $request->all();
 
-            if (isset($requestParams['isWeb']) && ($requestParams['isWeb'])) {
-                \Auth::logout();
+            $token = $request->header('Authorization');
 
-                return response(ResponseUtil::buildSuccessResponse(['message' => 'Successfully Logged-out!!']),
+            JWTAuth::invalidate($token);
+
+            return response(ResponseUtil::buildSuccessResponse(['message' => 'User successfully logged out.']),
                 HttpStatusCodesConsts::HTTP_OK);
-            } else {
-                $token = $request->header('Authorization');
+        } catch (JWTException $e) {
+            \Log::info(__CLASS__.' '.__FUNCTION__.' Exception Occured '.print_r($e->getMessage(), true));
 
-                JWTAuth::invalidate($token);
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-                return response(ResponseUtil::buildSuccessResponse(['message' => 'User successfully logged out.']),
-HttpStatusCodesConsts::HTTP_OK);
-            }
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    /**
+     * Logout
+     * Invalidate the token. User have to relogin to get a new token.
+     *
+     * @param Request $request 'header'
+     */
+    public function webLogout()
+    {
+        try {
+            \Auth::logout();
+
+            return response(ResponseUtil::buildSuccessResponse(['message' => 'User successfully logged out.']),
+                HttpStatusCodesConsts::HTTP_OK);
         } catch (JWTException $e) {
             \Log::info(__CLASS__.' '.__FUNCTION__.' Exception Occured '.print_r($e->getMessage(), true));
 

@@ -27,18 +27,20 @@ class VennueController extends Controller
             $vennueListingData = VennueHelper::vennueListing($requestParams);
 
             if (empty($vennueListingData)) {
-                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']],
-HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                return view('venue_list')->with('error', $responseArr);
+                return view('dynamicpages/venue_list')->with('data', $responseArr);
             }
 
-            return view('venue_list')->with('data', $vennueListingData);
+            return view('dynamicpages/venue_list')->with('data', $vennueListingData);
         } catch (\Exception $e) {
-            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
-HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+            $responseArr = ResponseUtil::buildErrorResponse(
+                ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]],
+                HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
+HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
+            );
 
-            return view('venue_list')->with('error', $responseArr);
+            return view('dynamicpages/venue_list')->with('data', $responseArr);
         }
     }
 
@@ -60,8 +62,11 @@ HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
             return response(ResponseUtil::buildSuccessResponse($vennueFiltersData), HttpStatusCodesConsts::HTTP_CREATED);
         } catch (\Exception $e) {
-            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
-HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+            $responseArr = ResponseUtil::buildErrorResponse(
+                ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]],
+                HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
+HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
+            );
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
@@ -81,12 +86,15 @@ HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
         try {
             $vennueDetails = VennueHelper::venueDetails($vennueId);
 
-            return response(ResponseUtil::buildSuccessResponse($vennueDetails), HttpStatusCodesConsts::HTTP_CREATED);
+            return view('dynamicpages/venuedetails')->with('data', $vennueDetails);
         } catch (\Exception $e) {
-            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
-HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+            $responseArr = ResponseUtil::buildErrorResponse(
+                ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]],
+                HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
+HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
+            );
 
-            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            return view('dynamicpages/venuedetails')->with('data', $responseArr);
         }
     }
 
@@ -108,8 +116,11 @@ HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
             return response(ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_CREATED);
         } catch (\Exception $e) {
-            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
-HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+            $responseArr = ResponseUtil::buildErrorResponse(
+                ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]],
+                HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
+HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
+            );
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }

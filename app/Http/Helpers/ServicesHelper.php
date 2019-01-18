@@ -9,7 +9,7 @@
 namespace App\Http\Helpers;
 
 use App\Models\Services;
-
+use App\Models\ServiceMenu;
 
 class ServicesHelper
 {   
@@ -27,7 +27,8 @@ class ServicesHelper
                                                 'services.order_no as displayOrder',
                                                 'pricings.actual_price as actualPrice',
                                                 'pricings.discount',
-                                                'pricing_type.name as pricingType'
+                                                'pricing_type.name as pricingType',
+                                                'services.id as serviceId'
                                               )
                                     ->join('services_types', 'services_types.id', '=', 'services.service_type_id')
                                     ->join('pricings', 'services.linkable_id', '=', 'pricings.linkable_id')
@@ -55,5 +56,37 @@ class ServicesHelper
        
     }
 
+    /**
+     * @param Array  $data
+     *
+     * @return Array
+     *
+     * @throws Exception
+    */
+    public static function getServiceMenu( $serviceIdArr )
+    {   
+        
+        try
+        {   
+            $serviceMenuDetails = ServiceMenu::select( 'service_id as serviceId','name as serviceMenuName')
+                                    ->where('status', 1)
+                                    ->whereIn('service_id', $serviceIdArr)
+                                    ->orderBy('order_no', 'asc')
+                                    ->get()
+                                    ->toArray();
+
+            return $serviceMenuDetails;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Service Menu Details ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Error while Fetching Service Menu Details", 1);
+
+        }
+       
+    }
+
+    
     
 }

@@ -59,15 +59,22 @@ Route::get('customer_profile_cancel_booking', function () {
 Route::get('faqs', function () {
     return view('faqs');
 });
+Route::get('eventorganiserslist', function () {
+    return view('dynamicpages/eventorganiserslist');
+});
+Route::get('packagelist', function () {
+    return view('dynamicpages/packagelist');
+});
+Route::get('supplierdetails', function () {
+    return view('dynamicpages/supplierdetails');
+});
 Route::get('vendorsignup', function () {
     return view('vendor_signup');
 });
 Route::get('venue_dashboard_filter', function () {
     return view('008_06_venue_dashboard_filter');
 });
-Route::get('eventorganisers', function () {
-    return view('eventorganisers');
-});
+
 Route::get('package_event_organisers', function () {
     return view('004_4_4_package_event_organisers');
 });
@@ -80,35 +87,19 @@ Route::get('vendorregistration', function () {
 Route::get('venuedetailstwo', function () {
     return view('venue_details_two');
 });
-Route::get('venuedetails_two', function () {
-    return view('001_05_venue_details_2');
+Route::get('packagedetails', function () {
+    return view('packagedetails');
 });
-Route::get('upcomingevents', function () {
-    return view('001_05-upcoming-events');
+
+Route::get('packagedetails', function () {
+    return view('dynamicpages/packagedetails');
 });
-Route::get('event_organisers_details', function () {
-    return view('003_2_event_organisers_details');
-});
-Route::get('event_organiser_booking_details', function () {
-    return view('003_3_7_Event_organiser_booking_details');
-});
-Route::get('suppliers_package', function () {
-    return view('004_2_Suppliers_package');
-});
-Route::get('suppliers_package_detail', function () {
-    return view('004_3_Suppliers_package_detail');
-});
-Route::get('packagedetailsfive', function () {
-    return view('package_detailsfive');
-});
-Route::get('upcomingevents', function () {
-    return view('upcomingevents');
-});
-Route::get('upcominguserclick', function () {
-    return view('upcominguserclick');
+
+Route::get('venuedetails', function () {
+    return view('dynamicpages/venuedetails');
 });
 Route::get('wishlist', function () {
-    return view('newwishlist');
+    return view('dynamicpages/newwishlist');
 });
 
 Route::get('reset', array('as' => 'password.request', function () {
@@ -117,9 +108,17 @@ Route::get('reset', array('as' => 'password.request', function () {
 
 Route::get('/', 'Web\HomeController@index')->name('home');
 
-Route::get('/venuelist', 'Web\VennueController@vennueListing')->name('venuelist');
+Route::get('vennues', 'Web\VennueController@vennueListing')->name('venuelist');
 
-Route::get('/events/upcoming', 'Web\EventController@eventListing')->name('eventlist');
+Route::get('vennues/{id}', 'Web\VennueController@venueDetails')->name('venuedetails');
+
+Route::get('events/upcoming', 'Web\EventController@eventListing')->name('eventlist');
+
+Route::get('events/upcoming/{id}', 'Web\EventController@upComingeventDetails')->name('upcomingeventdetails');
+
+Route::get('events/organisers', 'Web\EventController@getEventOrgainsersList')->name('eventorganisers');
+
+Route::get('events/organisers/{id}', 'Web\EventController@getEventOrgainserDetails')->name('organiserdetails');
 
 Route::get('login', array('as' => 'login', function () {
     return view('auth.customer_signin');
@@ -130,6 +129,7 @@ Route::get('register', array('as' => 'register', function () {
 }));
 
 Route::get('faqs', 'Web\FaqController@getFaqs')->name('faqs');
+Route::get('upcomingevents', 'Web\EventController@eventListing')->name('upcomingevents');
 
 Route::post('login', 'Auth\LoginController@login');
 Route::post('users', 'Auth\RegisterController@createUser');
@@ -137,5 +137,5 @@ Route::post('verifyotp', 'Auth\RegisterController@verifyotp');
 Route::post('resendotp', 'Auth\RegisterController@resendotp');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('logout', 'Auth\LoginController@logout');
+    Route::get('logout', 'Auth\LoginController@webLogout');
 });

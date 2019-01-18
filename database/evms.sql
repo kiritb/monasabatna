@@ -107,7 +107,6 @@ CREATE TABLE evms.vennues
   end_time varchar(256) NOT NULL,
   transacton_count int(11) NOT NULL DEFAULT 0,
   order_no int(11) DEFAULT NULL,
-  language_id int(11) NOT NULL,
   home_page_display tinyint(1) NOT NULL DEFAULT 0,
   is_express_deal tinyint(1) NOT NULL DEFAULT 0,
   fb_link text DEFAULT NULL,
@@ -170,8 +169,6 @@ CREATE TABLE evms.vennue_room_mapping
   FOREIGN KEY (vennue_id) REFERENCES vennues(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-
 DROP TABLE IF EXISTS evms.vennue_type_mapping;
 CREATE TABLE evms.vennue_type_mapping
 (
@@ -215,14 +212,14 @@ create table evms.events(
   short_description text DEFAULT NULL,
   start_date datetime NOT NULL,
   end_date datetime NOT NULL,
-  status int(1) NOT NULL DEFAULT 1,
   order_no int(11) DEFAULT NULL,
-  language_id int(11) NOT NULL,
   is_express_deal tinyint(1) NOT NULL DEFAULT 0,
   home_page_display tinyint(1) NOT NULL DEFAULT 0,
   rating decimal(10,1) NOT NULL DEFAULT 0,
   fb_link text DEFAULT NULL,
   twitter_link text DEFAULT NULL,
+  booking_last_date datetime NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
@@ -237,11 +234,13 @@ create table evms.event_organisers(
   vendor_id int(11) NOT NULL,
   name varchar(256) NOT NULL,
   short_description text DEFAULT NULL,
-  status int(1) NOT NULL DEFAULT 1,
   order_no int(11) DEFAULT NULL,
+  prior_intimation_days int(5) NOT NULL,
+  is_express_deal tinyint(1) NOT NULL DEFAULT 0,
   rating decimal(10,1) NOT NULL DEFAULT 0,
   fb_link text DEFAULT NULL,
   twitter_link text DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
@@ -250,17 +249,17 @@ create table evms.event_organisers(
   FOREIGN KEY (vendor_id) REFERENCES vennues(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-
-
-DROP TABLE IF EXISTS evms.theme_types;
-create table evms.theme_types(
+DROP TABLE IF EXISTS evms.packages;
+create table evms.packages(
   id int(11) NOT NULL AUTO_INCREMENT,
   event_type_id int(11) NOT NULL,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(256) NOT NULL,
   name varchar(256) NOT NULL,
-  short_description text NOT NULL,
+  short_description text DEFAULT NULL,
   set_up_time varchar(256) NOT NULL,
   note text DEFAULT NULL,
+  order_no int(11) DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
@@ -270,11 +269,11 @@ create table evms.theme_types(
   FOREIGN KEY (event_type_id) REFERENCES event_types(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-DROP TABLE IF EXISTS evms.theme_providers;
-create table evms.theme_providers(
+DROP TABLE IF EXISTS evms.providers;
+create table evms.providers(
   id int(11) NOT NULL AUTO_INCREMENT,
-  theme_id int(11) NOT NULL,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(30) NOT NULL,
   provider_desc text NOT NULL,
   order_no int(11) DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
@@ -300,72 +299,11 @@ create table evms.prerequisites(
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-DROP TABLE IF EXISTS evms.event_theme_mappings;
-create table evms.event_theme_mappings(
+DROP TABLE IF EXISTS evms.supplier_product_types;
+create table evms.supplier_product_types(
   id int(11) NOT NULL AUTO_INCREMENT,
-  theme_id int(11) NOT NULL,
-  linkable_id int(11) NOT NULL,
-  linkable_type varchar(30) NOT NULL,
-  order_no int(11) DEFAULT NULL,
-  status int(1) NOT NULL DEFAULT 1,
-  created_at datetime DEFAULT NULL,
-  updated_at datetime DEFAULT NULL,
-  created_by varchar(256) NOT NULL,
-  updated_by varchar(256) NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (theme_id) REFERENCES theme_types(id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-DROP TABLE IF EXISTS evms.suppliers;
-create table evms.suppliers(
-  id int(11) NOT NULL AUTO_INCREMENT,
-  vendor_id int(11) NOT NULL,
   name varchar(256) NOT NULL,
-  short_description text DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
-  order_no int(11) DEFAULT NULL,
-  rating decimal(10,1) NOT NULL DEFAULT 0,
-  fb_link text DEFAULT NULL,
-  twitter_link text DEFAULT NULL,
-  created_at datetime DEFAULT NULL,
-  updated_at datetime DEFAULT NULL,
-  created_by varchar(256) NOT NULL,
-  updated_by varchar(256) NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (vendor_id) REFERENCES vennues(id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-DROP TABLE IF EXISTS evms.packages;
-create table evms.packages(
-  id int(11) NOT NULL AUTO_INCREMENT,
-  supplier_id int(11) NOT NULL,
-  name varchar(256) NOT NULL, 
-  short_description text DEFAULT NULL,
-  order_no int(11) DEFAULT NULL,
-  status int(1) NOT NULL DEFAULT 1,
-  rating decimal(10,1) NOT NULL DEFAULT 0,
-  created_at datetime DEFAULT NULL,
-  updated_at datetime DEFAULT NULL,
-  created_by varchar(256) NOT NULL,
-  updated_by varchar(256) NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (supplier_id) REFERENCES suppliers(id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-DROP TABLE IF EXISTS evms.menu;
-create table evms.menu(
-  id int(11) NOT NULL AUTO_INCREMENT,
-  linkable_id int(11) NOT NULL,
-  linkable_type varchar(30) NOT NULL,
-  name varchar(256) NOT NULL,
-  short_description text  DEFAULT NULL,
-  type varchar(256) NOT NULL,
-  order_no int(11) DEFAULT NULL,
-  status int(1) NOT NULL DEFAULT 1,
-  language_id int(11) NOT NULL,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
@@ -373,13 +311,67 @@ create table evms.menu(
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+DROP TABLE IF EXISTS evms.supplier_types;
+create table evms.supplier_types(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(256) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.suppliers;
+create table evms.suppliers(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  vendor_id int(11) NOT NULL,
+  supplier_type_id int(11) NOT NULL,
+  name varchar(256) NOT NULL,
+  short_description text DEFAULT NULL,
+  long_description text DEFAULT NULL,
+  order_no int(11) DEFAULT NULL,
+  rating decimal(10,1) NOT NULL DEFAULT 0,
+  fb_link text DEFAULT NULL,
+  twitter_link text DEFAULT NULL,
+  is_express_deal tinyint(1) NOT NULL DEFAULT 0,
+  prior_intimation_days int(5) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (vendor_id) REFERENCES vennues(id),
+  FOREIGN KEY (supplier_type_id) REFERENCES supplier_types(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.supplier_product_mapping;
+CREATE TABLE evms.supplier_product_mapping
+(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  package_id int(11) NOT NULL,
+  supplier_product_id int(11) NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (package_id) REFERENCES packages(id),
+  FOREIGN KEY (supplier_product_id) REFERENCES supplier_product_types(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 DROP TABLE IF EXISTS evms.amenitie_types;
 create table evms.amenitie_types(
   id int(11) NOT NULL AUTO_INCREMENT,
   name varchar(256) NOT NULL,
   short_description text  DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
-  language_id int(11) NOT NULL,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
@@ -396,7 +388,6 @@ create table evms.amenities(
   amenitie_type_id int(11) NOT NULL,
   order_no int(11) DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
-  language_id int(11) NOT NULL,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
@@ -426,7 +417,6 @@ create table evms.services(
   linkable_type varchar(30) NOT NULL,
   status int(1) NOT NULL DEFAULT 1,
   order_no int(11) DEFAULT NULL,
-  language_id int(11) NOT NULL,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
@@ -435,20 +425,21 @@ create table evms.services(
   FOREIGN KEY (service_type_id) REFERENCES services_types(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-DROP TABLE IF EXISTS evms.package_supplier_mapping;
-create table evms.package_supplier_mapping(
+DROP TABLE IF EXISTS evms.services_menu;
+create table evms.services_menu(
   id int(11) NOT NULL AUTO_INCREMENT,
-  package_id int(11) NOT NULL,
-  event_cover_id int(11) NOT NULL,
+  service_id int(11) NOT NULL,
+  name varchar(256) NOT NULL,
   order_no int(11) DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
   updated_by varchar(256) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (service_id) REFERENCES services(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 DROP TABLE IF EXISTS evms.files;
 create table evms.files(
@@ -475,19 +466,6 @@ create table evms.contact_emails(
   email varchar(256) NOT NULL,
   status int(1) NOT NULL DEFAULT 1,
   order_no int(11) DEFAULT NULL,
-  created_at datetime DEFAULT NULL,
-  updated_at datetime DEFAULT NULL,
-  created_by varchar(256) NOT NULL,
-  updated_by varchar(256) NOT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-DROP TABLE IF EXISTS evms.languages;
-create table evms.languages(
-  id int(11) NOT NULL AUTO_INCREMENT,
-  name varchar(64) NOT NULL,
-  code varchar(2) NOT NULL,
-  status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,

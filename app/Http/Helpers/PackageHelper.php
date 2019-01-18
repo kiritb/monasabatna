@@ -24,24 +24,33 @@ class PackageHelper
         $coversArr      = [];
 
         try
-        {   
+        {  
+
             $eventCoversDetails = Packages::select(     
                                                         'packages.linkable_id as eventOrganiserId', 
+                                                        'packages.id as packageId', 
                                                         'event_types.name as eventTypes',
                                                         'event_types.id as eventTypeId',
                                                         'packages.name',
                                                         'packages.short_description as aboutPackage',
                                                         'pricings.actual_price as actualPrice',
                                                         'pricings.discount',
-                                                        'pricing_type.name as pricingType'
+                                                        'pricing_type.name as pricingType',
+                                                        'files.file_path as filePath',
+                                                        'packages.set_up_time as setUpTime',
+                                                        'packages.note as travelNote'
                                             )
                                             ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
                                             ->join('pricings', 'pricings.linkable_id', '=', 'packages.id')
                                             ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
+                                            ->join('files', 'files.linkable_id', '=', 'packages.id')
                                             ->whereIn('packages.linkable_id', $linkableIdArr)
                                             ->where('packages.linkable_type', $linkableType)
                                             ->where('pricings.linkable_type', 'packages')
+                                            ->where('files.linkable_type','packages')
+                                            ->where('files.file_type', 'home_page_display')
                                             ->where('pricings.status', 1)
+                                            ->where('files.status',1)
                                             ->where('event_types.status', 1)
                                             ->orderBy('packages.order_no', 'asc')
                                             ->get()
@@ -53,6 +62,8 @@ class PackageHelper
                 $returnArr[$values['eventOrganiserId']]['event_covers'][]   = $values['eventTypes'];
 
                 $returnArr[$values['eventOrganiserId']]['price'][]          = ['pricingType' => $values['pricingType'], 'actualPrice' => $values['actualPrice'] ];
+
+                $returnArr[$values['eventOrganiserId']]['packages'][]       = $values;
 
             }
             
@@ -73,40 +84,39 @@ class PackageHelper
      *
      * @return Object
     */
-    public static function getThemeDetails( $themeId )
+    public static function getPackageDetails( $packageId, $linkableType )
     {   
-        $returnArr      = [];
         
         try
         {   
-            $themeDetail = PackageTypes::select(   'event_types.name as eventName',
-                                                        'package_types.name as themeName',
-                                                        'package_types.short_description as aboutTheme',
-                                                        'package_types.set_up_time as setUpTime',
-                                                        'package_types.note',
-                                                        'pricings.actual_price as actualPrice',
-                                                        'pricings.discount',
-                                                        'pricing_type.name as pricingType'
-                                                   )
-                                            
-                                            ->join('event_types', 'event_types.id', '=', 'package_types.event_type_id')
-                                            ->join('pricings', 'pricings.linkable_id', '=', 'package_types.id')
+            $packageDetals = Packages::select(  'event_types.name as eventName',
+                                                'packages.short_description as aboutPackage',
+                                                'pricings.actual_price as actualPrice',
+                                                'pricings.discount',
+                                                'pricing_type.name as pricingType',
+                                                'packages.name as packageName',
+                                                'packages.set_up_time as setUpTime',
+                                                'packages.note'
+                                            )
+                                            ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
+                                            ->join('pricings', 'pricings.linkable_id', '=', 'packages.id')
                                             ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
-                                            ->where('pricings.linkable_type', 'themes')
-                                            ->where('package_types.id', $themeId)
+                                            ->where('pricings.linkable_type', 'packages')
+                                            ->where('packages.id', $packageId)
+                                            ->where('packages.linkable_type', $linkableType)
                                             ->where('event_types.status', 1)
-                                            ->where('package_types.status', 1)
+                                            ->where('packages.status', 1)
                                             ->get()
                                             ->toArray();
 
             
-            return $themeDetail;
+            return $packageDetals;
         }
         catch( \Exception $e)
         {   
-            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Theme  Details ".print_r( $e->getMessage(), true) );
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Package  Details ".print_r( $e->getMessage(), true) );
 
-            throw new \Exception(" Error while fetching Theme Details", 1);
+            throw new \Exception(" Error while fetching Package Details", 1);
 
         }
        

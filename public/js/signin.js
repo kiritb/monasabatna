@@ -31,7 +31,7 @@ $(document).ready(function () {
 
 function signinFn(event) {
     var formData = $("form").serialize() + "&isWeb=" + true;
-    var request = $.ajax({
+    $.ajax({
         url: "login",
         type: "POST",
         data: formData,
@@ -50,6 +50,7 @@ function signinFn(event) {
                     autoHide: true,
                     delay: 10000
                 };
+                location.reload();
             } else {
                 params = {
                     title: "Login Error!",

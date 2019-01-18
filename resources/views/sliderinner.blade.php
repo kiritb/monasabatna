@@ -1,33 +1,26 @@
 <div id="myCarouselIndicators" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-        <img class="d-block w-100" src="svg/images/theme-banner2.jpg" alt="First slide">
-        <div class="carousel-caption d-none d-md-block">
-   
+    <div class="carousel-inner">
+        @if (count($slides) > 0)
+        @foreach ($slides as $key=>$slide)
+        <div class="carousel-item {{ ($key==0)?'active':'' }}">
+            <img class="d-block w-100" src={{ $slide['filePath'] }} alt={{ $slide['linkable_type'] }}>
+            <div class="carousel-caption d-none d-md-block">
+            </div>
         </div>
+        @endforeach
+        @else
+        <div>No Slides!!</div>
+        @endif
     </div>
-    <div class="carousel-item">
-        <img class="d-block w-100" src="svg/images/theme-banner3.jpg" alt="Second slide">
-        <div class="carousel-caption d-none d-md-block">
+    <a class="carousel-control-prev" href="#myCarouselIndicators" role="button" data-slide="prev">
 
-        </div>
-    </div>
-    <div class="carousel-item">
-        <img class="d-block w-100" src="svg/images/theme-banner4.jpg" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-           
-        </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#myCarouselIndicators" role="button" data-slide="prev">
-    
-    <i class="fas fa-chevron-circle-left" id="ban-inner-arrowleft"style="font-size:30px; color:#000000"></i>
-  </a>
-  <a class="carousel-control-next" href="#myCarouselIndicators" role="button" data-slide="next">
-  <i class="fas fa-chevron-circle-right" id="ban-inner-arrowright"style="font-size:30px; color:#000000"></i>
-  </a>
-  
-   <!------- <form class="col-sm-12" id="search-form">
+        <i class="fas fa-chevron-circle-left" id="ban-inner-arrowleft" style="font-size:30px; color:#000000"></i>
+    </a>
+    <a class="carousel-control-next" href="#myCarouselIndicators" role="button" data-slide="next">
+        <i class="fas fa-chevron-circle-right" id="ban-inner-arrowright" style="font-size:30px; color:#000000"></i>
+    </a>
+
+    <!------- <form class="col-sm-12" id="search-form">
         <div class="form-group col-sm-6 align-items-center m-auto">
             <div class="input-group input-group-lg center-block">
                 <i class="fa fa-search icon-for-search" aria-hidden="true"></i>
@@ -35,7 +28,7 @@
             </div>
         </div>
     </form> ----->
- <!---   <ol class="carousel-indicators">
+    <!---   <ol class="carousel-indicators">
         <li data-target="#myCarouselIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#myCarouselIndicators" data-slide-to="1"></li>
         <li data-target="#myCarouselIndicators" data-slide-to="2"></li>

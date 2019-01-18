@@ -1,4 +1,4 @@
-@include('header')
+@include('shared/header')
 
 <!------- body start-------->
 
@@ -112,16 +112,13 @@
                 <img src="svg/images/custsignup-img.jpg" class="img-responsive">
             </div>
             <!------------------------------ Booking code----------------------------------->
-            <div class="modal fade" id="myBookingOTP">
+            <div class="modal fade" id="myBookingOTP" data-keyboard="false" data-backdrop="static">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form class="form-horizontal text-center" method="post" id="otp_verify_form">
                             <!-- Modal Header -->
-                            <div class="modal-header">
-                                <center>
-                                    <h3 class="modal-title">OTP</h3>
-                                    <center>
-                                        <button type="button" class="close cross" data-dismiss="modal">&times;</button>
+                            <div class="modal-header text-center">
+                                <h3 class="modal-title">OTP</h3>
                             </div>
                             <!-- Modal body -->
                             <div class="modal-body">
@@ -149,6 +146,6 @@
     <!----------- row -------------->
 </div>
 
-@include('footer')
+@include('shared/footer')
 <!------- body end-------->
 <script type="text/javascript" src="js/signup.js" charset="utf-8"></script>

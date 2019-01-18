@@ -15,7 +15,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
     }
 
     /**
@@ -40,6 +39,6 @@ class HomeController extends Controller
             $response = $responseArr;
         }
 
-        return view('home')->with('data', $response);
+        return view('dynamicpages/home')->with('data', $response);
     }
 }
