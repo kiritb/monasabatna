@@ -39,7 +39,7 @@ class EventHelper
         try
         {
 
-            $eventsSql = Events::select('events.name as eventName', 'events.short_description as eventShortDescription', 'events.start_date as vennueStartTime',
+            $eventsSql = Events::select('events.id as eventId','events.name as eventName', 'events.short_description as eventShortDescription', 'events.start_date as vennueStartTime',
                 'events.end_date as eventEndTime', 'events.order_no as displayOrder', 'event_types.name as eventType',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')

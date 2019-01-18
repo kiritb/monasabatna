@@ -198,8 +198,9 @@ class VennueHelper
         $returnArr = [];
 
         try
-        {  
+        {
 
+            $vennueData = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName', 'vennues.short_description as vennueShortDescription',
                 'vennues.start_time as vennueStartTime', 'vennues.end_time as vennueEndTime', 'vennues.min_guest_cap as MinGuestCap', 'vennues.max_guest_cap as MaxGuestCap',
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
@@ -223,6 +224,7 @@ class VennueHelper
 
             if (empty($vennueData)) {
                 \Log::info(__CLASS__ . " " . __FUNCTION__ . " Vennue Data does not exists ");
+
                 return [];
 
             }
