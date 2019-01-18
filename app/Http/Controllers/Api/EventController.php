@@ -251,14 +251,14 @@ class EventController extends Controller
         {
             $suppliersFilters = EventHelper::getSuppliersFilters();
 
-            if(empty($getSuppliersList) )
+            if(empty($suppliersFilters) )
             {
                 $responseArr = ResponseUtil::buildErrorResponse( ['errors' => ['No Data Found'] ], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
                 
                 return response( $responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND );
             }
 
-            return response( ResponseUtil::buildSuccessResponse($getSuppliersList), HttpStatusCodesConsts::HTTP_OK );
+            return response( ResponseUtil::buildSuccessResponse($suppliersFilters), HttpStatusCodesConsts::HTTP_OK );
         }
         catch( \Exception $e)
         {
