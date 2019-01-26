@@ -62,6 +62,18 @@ Route::get('faqs', function () {
 Route::get('eventorganiserslist', function () {
     return view('dynamicpages/eventorganiserslist');
 });
+Route::get('paymentconfirmation', function () {
+    return view('dynamicpages/paymentconfirmation');
+});
+Route::get('contactus', function () {
+    return view('dynamicpages/contactus');
+});
+Route::get('infoguestlogin', function () {
+    return view('dynamicpages/infoguestlogin');
+});
+Route::get('aboutus', function () {
+    return view('dynamicpages/aboutus');
+});
 Route::get('packagelist', function () {
     return view('dynamicpages/packagelist');
 });
@@ -120,6 +132,10 @@ Route::get('events/organisers', 'Web\EventController@getEventOrgainsersList')->n
 
 Route::get('events/organisers/{id}', 'Web\EventController@getEventOrgainserDetails')->name('organiserdetails');
 
+Route::get('whyus', array('as' => 'whyus', function () {
+    return view('static/whyus');
+}));
+
 Route::get('login', array('as' => 'login', function () {
     return view('auth.customer_signin');
 }));
@@ -128,7 +144,7 @@ Route::get('register', array('as' => 'register', function () {
     return view('auth.customer_signup');
 }));
 
-Route::get('faqs', 'Web\FaqController@getFaqs')->name('faqs');
+Route::get('static/faqs', 'Web\FaqController@getFaqs')->name('faqs');
 Route::get('upcomingevents', 'Web\EventController@eventListing')->name('upcomingevents');
 
 Route::post('login', 'Auth\LoginController@login');

@@ -772,7 +772,6 @@ class EventHelper
 
             $eventCoversData = PackageHelper::getEventCovers($suppliersIdArr, 'suppliers');
 
-
             $eventCoversArr = [];
 
             $priceArr = [];

@@ -1,40 +1,9 @@
 @include('shared/header')
 <!------- body start-------->
 <!------- form start-------->
-<form class="form-vertical">
-    <div class="container-fluid" id="commonpack-bg">
-        <div class="row" id="set-bg">
-            <div class="col-md-12 col-sm-12 themeform-top">
+]
+@include('shared/city-date')
 
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="citypack">
-                    <label class="themelab">City</label>
-                    <input type="text" name='datepicker' class="form-control themehome" placeholder="Jeddah">
-
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="datapack">
-                    <label class="themelab">Date From</label>
-                    <input type="text" class="form-control themehome" placeholder="16 May, 2018">
-                    <span class="far fa-calendar-alt date-element-theme"></span>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="labpack">
-                    <label class="themelab">Date To</label>
-                    <input type="text" class="form-control themehome" placeholder="20 May,2018" name="contact">
-                    <span class="far fa-calendar-alt date-element-theme"></span>
-                </div>
-                <br>
-                <br>
-                <div class="form-group">
-                    <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="subpack">
-                        <button type="submit" class="btn btn-danger sub_theme">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</form>
 <!------- form start-------->
 <!------- Banner start-------->
 
@@ -206,10 +175,11 @@
     <!------- Information end-------->
 
     <div class="eventgreyline"></div>
-    <!-------------- Gallery start ----------------------->
+
     <!---------------------------- Thumbnail carousel start --------------------------------->
 
     @include('slickslider', ['slides' => $data['files']])
     <div class="row"></div>
 </div>
 @include('shared/footer')
+<script src="{{ url('js/city-date.js') }}" type="text/javascript" charset="utf-8"></script>

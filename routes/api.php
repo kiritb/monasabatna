@@ -38,8 +38,12 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('events/organisers/filters', 'Api\EventController@getEventOrganinsersFilters');
   	Route::get('events/organisers', 'Api\EventController@getEventOrgainsersList');
     Route::get('events/organisers/{id}', 'Api\EventController@getEventOrgainserDetails');
+
     Route::get('events/organisers/packages/{id}', 'Api\EventController@getPackageDetails');
     
+
+    Route::get('events/organisers/packages', 'Api\EventController@getAllEventOrgainserPackages');
+
 
     Route::get('suppliers/filters', 'Api\EventController@getSuppliersFilters');
     Route::get('suppliers', 'Api\EventController@getSuppliersList');
@@ -60,8 +64,16 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('whyus', 'Api\HomeController@whyUs');
     
     Route::post('contactus', 'Api\HomeController@contactUs');
+
+    Route::post('facilitate', 'Api\HomeController@facilitateService');
+
+    Route::get('blogs', 'Api\BlogController@getBlogs');
+
 });
+
+
 
 Route::group(['middleware' => ['jwt.verify'], 'prefix' => 'v1'], function () {
     Route::get('logout', 'Auth\LoginController@logout');
+    Route::post('blogs', 'Api\BlogController@postBlog');
 });

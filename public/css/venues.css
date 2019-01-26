@@ -1,0 +1,91 @@
+/*********** panel ************/
+.row.venueslist {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#venue-list-bg {
+    width: 100%;
+    background-color: #fff;
+    margin: 25px 0px 0px 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: inline-block;
+}
+
+.filtersidevenue {
+    width: 10%;
+    height: auto;
+    float: left;
+    margin-left: 50px;
+}
+
+.resetvenue {
+    text-decoration: underline;
+    font-size: 12px;
+    margin-top: 0px;
+    margin-right: 0px;
+    float: right;
+}
+
+.filterext {
+    height: 48px;
+}
+
+.venulistsortleft {
+    width: 90%;
+}
+
+.wishlistfive {
+
+    height: auto;
+}
+
+.list {
+
+    float: left;
+}
+
+h4.venuecliphead {
+    font-family: Myriad pro;
+    color: #4b485b;
+    font-size: 20px;
+}
+
+select.form-control.sortvenues {
+    width: 207px;
+    margin-top: -5%;
+    margin-left: 169%;
+}
+
+.row.color-bg-venuelist {
+    margin-top: -12px;
+    margin-left: 77px;
+    margin-right: -33px;
+    width: 1092px;
+    background-color: #f8f8f8;
+    height: auto;
+    padding: 21px;
+}
+
+.row.col-lg-10.col-md-10.col-sm-10.col-xs-10 {
+    padding: 0px;
+}
+
+.row.color-bg-venuelistone {
+    margin-top: 15px;
+    margin-left: 77px;
+    margin-right: -33px;
+    background-color: #f8f8f8;
+    height: auto;
+    padding: 21px;
+}
+
+.venuespagin {
+    margin-left: 50%;
+}
+
+.venue_filters {
+    padding-bottom: 10px;
+}

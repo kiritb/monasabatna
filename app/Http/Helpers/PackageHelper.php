@@ -55,7 +55,7 @@ class PackageHelper
                                             ->orderBy('packages.order_no', 'asc')
                                             ->get()
                                             ->toArray();
-
+                                            
             foreach ($eventCoversDetails as $key => $values) 
             {
 

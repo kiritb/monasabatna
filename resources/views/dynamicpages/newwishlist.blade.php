@@ -1,5 +1,4 @@
 @include('shared/header')
-<h1>{{{ isset(Auth::user()->email) ? Auth::user()->email : 'not logged in' }}}</h1>
 <div class="line_hr"> </div>
 <!------- body start-------->
 
@@ -11,8 +10,6 @@
                 <li role="presentation" class="active"><a href="#about" aria-controls="about" role="tab" data-toggle="tab"><b>Venue</b></a></li>
                 <li role="presentation"><a href="#provided" aria-controls="provided" role="tab" data-toggle="tab"><b>Suppliers</b></a></li>
                 <li role="presentation"><a href="#pre" aria-controls="pre" role="tab" data-toggle="tab"><b>Events</b></a></li>
-
-
             </ul>
             <div class="customlinewish"></div>
             <!-- Tab panes -->

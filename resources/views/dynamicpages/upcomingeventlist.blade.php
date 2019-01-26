@@ -1,43 +1,10 @@
 @include('shared/header')
 <!------- body start-------->
 <!------- form start-------->
-<link rel="stylesheet" type="text/css" href="css/upcoming_event_userclick.css">
-<form class="form-vertical">
-    <div class="container-fluid" id="commonpack-bg">
-        <div class="row" id="set-bg">
-            <div class="col-md-12 col-sm-12 themeform-top">
+<link rel="stylesheet" type="text/css" href={{ url('css/upcoming_events.css') }}>
 
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="citypack">
-                    <label class="themelab">City</label>
-                    <input type="text" name='datepicker' class="form-control themehome" placeholder="Jeddah">
+@include('shared/city-date')
 
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="datapack">
-                    <label class="themelab">Date From</label>
-                    <input type="text" class="form-control themehome" placeholder="16 May, 2018">
-                    <span class="far fa-calendar-alt date-element-theme"></span>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="labpack">
-                    <label class="themelab">Date To</label>
-                    <input type="text" class="form-control themehome" placeholder="20 May,2018" name="contact">
-                    <span class="far fa-calendar-alt date-element-theme"></span>
-                </div>
-
-                <div class="col-md-2 col-sm-3 col-xs-3 form-group packform" id="upcuser-search">
-                    <a href="#" class="searchvenue">Search</a>
-                </div>
-                <!---<div class="form-group">
-                    <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="subpack">
-                        <button type="submit" class="btn btn-danger sub_theme">Submit</button>
-                    </div>
-                </div> --->
-            </div>
-        </div>
-    </div>
-
-</form>
 <!------- form start-------->
 <!------- Banner start-------->
 <div class="container-fluid" id="upcheading">
@@ -51,90 +18,30 @@
             <div class="panel-heading">Filter</div>
             <div class="panel-body">
 
+                <!---- Price - formgroup ------->
 
-                <h4 class="venuecliphead"> Price</h4>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            SAR 80 - 150
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            SAR 151 - 200
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            SAR 201 - 250
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
+                @if (isset($data["filters"]["price_range"]) && count($data["filters"]["price_range"]) >
+                0)
+                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["price_range"],
+                'type_title'
+                => 'Price'], ['prefix' => 'SAR'])
+                @else
+                <div>No data!!</div>
+                @endif
 
-                <h4 class="venueclipheadone"> Event Type</h4>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Birthday
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Wedding
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Business Meeting
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Conference
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Corporate Event
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Other
-                        </label>
-                    </div>
-                </div>
+                <!---- Event Type - formgroup ------->
+
+                @if (isset($data["filters"]["event_types"]) && count($data["filters"]["event_types"])
+                >
+                0)
+                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["event_types"],
+                'type_title'
+                => 'Event Type'])
+                @else
+                <div>No data!!</div>
+                @endif
+
+
                 <!---- formgroup ------->
                 <a class="resetvenue" href id="Reset">Reset Filters</a>
                 <div class="filterext"></div>
@@ -218,3 +125,4 @@
 </div>
 <div class="row"></div>
 @include('shared/footer')
+<script src="{{ url('js/city-date.js') }}" type="text/javascript" charset="utf-8"></script>

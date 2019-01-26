@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Constants\HttpStatusCodesConsts;
 use App\Http\Helpers\ResponseUtil;
 use App\Http\Helpers\EventHelper;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class EventController extends Controller

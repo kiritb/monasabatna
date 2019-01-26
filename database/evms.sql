@@ -715,3 +715,41 @@ create table evms.customer_query(
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+DROP TABLE IF EXISTS evms.blogs;
+create table evms.blogs(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user_id int(11) DEFAULT NULL,
+  heading text NOT NULL,
+  blog text NOT NULL,
+  order_no int(11) DEFAULT NULL,
+  is_approved tinyint(1) NOT NULL DEFAULT 1,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.facilitate_customer_service;
+create table evms.facilitate_customer_service(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  country_code varchar(5) NOT NULL,
+  phone_number varchar(10) NOT NULL,
+  email varchar(256) NOT NULL,
+  event_date datetime NOT NULL,
+  event_type varchar(256) NOT NULL,
+  no_of_guests int(11) DEFAULT NULL,
+  food_type varchar(256) DEFAULT NULL,
+  decoration_type varchar(256) DEFAULT NULL,
+  budget varchar(256) DEFAULT NULL,
+  note text DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

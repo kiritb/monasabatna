@@ -1,4 +1,4 @@
-<form class="form-horizontal text-center" action="/action_page.php" id="contact-us-form">
+<form class="form-horizontal text-center" id="contact-us-form">
     <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-6 form-group">
             <input type="text" class="form-control customhomeone" placeholder="Name" name="name">

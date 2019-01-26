@@ -1,6 +1,8 @@
 /* css for font ends*/
 body {
     overflow-x: hidden;
+    font-family: Verdana, sans-serif;
+    margin: 0
 }
 
 /* colors with names */
@@ -171,12 +173,17 @@ header nav.navbar ul li:hover ul {
 }
 
 header nav.navbar ul li.submenu:before {
-    content: '\f0d7';
+    content: "\f107";
     font-family: fontAwesome;
     position: absolute;
     line-height: 50px;
     color: #6cc0b9;
     right: 5px;
+}
+
+header nav.navbar ul li a.active {
+    font-weight: bolder;
+    color: #757373;
 }
 
 header nav.navbar ul li.active.submenu:before {
@@ -309,9 +316,12 @@ a.btn.btn-default.booknow-header {
 }
 
 h1.bannerfont {
-    margin-bottom: 250px;
     font-family: KittenBold;
     font-size: 60px;
+}
+
+.home-banner-captions {
+    top: 45%;
 }
 
 /************** effects **************/
@@ -1053,15 +1063,6 @@ label {
     color: white;
 }
 
-/*** vertical navbar end ***/
-td {
-    color: #4b485b;
-}
-
-th {
-    color: white;
-}
-
 /************ top nav start ******************/
 .head-dropzone {
     margin-top: -7px;
@@ -1078,18 +1079,6 @@ th {
 
 .row {
     padding: 21px;
-}
-
-/********* start of top head for inner page *****************/
-
-.about-headicon {
-    margin-left: 100px;
-}
-
-.about-headzone {
-    width: 500px;
-    text-align: left;
-    overflow: hidden
 }
 
 /********* start of top head for inner page *****************/
@@ -1632,21 +1621,26 @@ div#nav-packContent {
     font-size: 14px;
 }
 
-#packagedetails a#nav-about-tab.active {   
+#packagedetails a#nav-about-tab.active {
     color: #fff;
 }
+
 #packagedetails a#nav-provided-tab.active {
-    color:#fff;
+    color: #fff;
 }
-#packagedetails  a#nav-requisites-tab.active {
-    color:#fff;
+
+#packagedetails a#nav-requisites-tab.active {
+    color: #fff;
 }
+
 #packagedetails a#nav-testi-tab.active {
-    color:#fff;
+    color: #fff;
 }
+
 #packagedetails a#nav-terms-tab.active {
-    color:#fff;
+    color: #fff;
 }
+
 #packagedetails a#nav-about-tab {
     width: 19.5%;
     font-weight: bold;
@@ -1664,7 +1658,7 @@ div#nav-packContent {
     font-size: 18px;
 }
 
-#packagedetails  a#nav-requisites-tab {
+#packagedetails a#nav-requisites-tab {
     width: 19.5%;
     margin-left: 0.60%;
     font-weight: bold;
@@ -1695,31 +1689,10 @@ div#nav-packContent {
     float: left;
 }
 
-div#citypack {
-    margin-left: -3%;
-    float: left;
-}
-
-div#datapack {
-    margin-left: -4%;
-    float: left;
-}
-
-div#labpack {
-    margin-left: -4%;
-    float: left;
-}
-
 div#commonpack-bg {
     width: 100%;
     padding-left: 0px;
     padding-right: 0px;
-}
-
-div#subpack {
-    margin-left: -4%;
-    margin-top: -2px;
-    float: left;
 }
 
 i#ban-inner-arrowleft {
@@ -1728,7 +1701,7 @@ i#ban-inner-arrowleft {
 }
 
 i#ban-inner-arrowright {
-    margin-top:45px;
+    margin-top: 45px;
     margin-left: 54%;
 }
 
@@ -1777,11 +1750,6 @@ i#ban-inner-arrowright {
     text-shadow: none;
     margin-top: 30px;
     margin-right: -126px;
-}
-
-ul {
-    list-style-type: circle;
-    color: 6cc0b9;
 }
 
 div#themedetail-inner {
@@ -1913,8 +1881,6 @@ span.namechange {
     *background-color: #bd362f;
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
     margin-top: 5px;
-    margin-left: -307px;
-    width: 112px;
 }
 
 span.theme-travel {
@@ -1961,42 +1927,6 @@ label.control-label.label-set {
 
 label.control-label.label-setone {
     margin-left: -185px;
-}
-
-span.date-element-theme {
-    position: absolute;
-    color: #9e9e9e;
-    width: 75px;
-    margin-left: 62%;
-    margin-top: -28px;
-    font-size: 15px;
-}
-
-control-form.themehome {
-    border-radius: 8px;
-    border: 2px solid #9e9e9e;
-    width: 75px;
-}
-
-.btn.btn-danger.sub_theme {
-    margin: -15px 0px 0px 0px;
-    width: 150px;
-    height: 40px;
-}
-
-.col-md-12.col-sm-12.themeform-top {
-    margin: 2% 5% 0px 5%;
-}
-
-input.form-control.themehome {
-    width: 85%;
-    height: 40px;
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-}
-
-.themelab {
-    color: #fff;
 }
 
 .row.sar-setting {
@@ -2207,7 +2137,666 @@ a#arrow-detail-right {
     background-color: #6cc0b9;
 }
 
+
 /*****************************end for 003_3_5_theme_detail ***************************/
+/*************************************Contact Us *************************************/
+.facebtn {
+    width: 140px;
+    height: 40px;
+    margin-left: 16px;
+    text-align: center;
+    font-size: 18px;
+    font-family: Myriad pro;
+    color: #fff;
+    padding-top: 6px;
+    background-color: #6cc0b9;
+    border-radius: 8px;
+}
+
+.facebtn:hover {
+    width: 140px;
+    height: 40px;
+    margin-left: 16px;
+    text-align: center;
+    font-size: 18px;
+    font-family: Myriad pro;
+    color: #6cc0b9;
+    padding-top: 6px;
+    background-color: #fff;
+    border: 2px solid #6cc0b9;
+    border-radius: 8px;
+}
+
+div#contactworld {
+    width: 100%;
+    padding-left: 49px;
+    padding-right: 49px;
+    margin-top: 25px;
+    height: 612px;
+}
+
+.leftcontact {
+    width: 39.5%;
+    height: 190px;
+    padding: 0px;
+    font-weight: bold;
+    float: left;
+    background-color: #f4f4f5;
+}
+
+.leftsocial {
+    width: 39.5%;
+    height: 150px;
+    padding: 0px;
+    margin-top: 18px;
+    font-weight: bold;
+    float: left;
+    background-color: #f4f4f5;
+}
+
+.rightcontact {
+    width: 59.5%;
+    float: right;
+    padding: 10px 0px 0px 21px;
+    height: 612px;
+    background-color: #f4f4f5;
+}
+
+.row.cnthead,
+.row.cntheadem {
+    color: #000000;
+    font-family: Myriad pro;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.row.cnttxt {
+    color: #888889;
+    font-size: 12px;
+}
+
+.row.cnthead {
+    padding: 10px 0px 0px 29px;
+}
+
+.row.cntheadem {
+    padding: 10px 0px 0px 12px;
+}
+
+.cntaddress,
+.cntaddressz,
+    {
+    color: #717171;
+    font-family: Myriad pro;
+    font-size: 16px;
+}
+
+.cntaddressz {
+    margin-left: 4%;
+}
+
+.cntaddress {
+    margin-left: 6%;
+}
+
+.cntdesc,
+.cntdescone,
+.cntdesctwo {
+    font-size: 14px;
+    color: #9f9f9f;
+    font-style: normal;
+    width: 65%;
+    margin-left: 3%;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.cntdescone {
+    margin-left: 5%;
+}
+
+.cntdesc {
+    margin-left: 3%;
+}
+
+.cntdesctwo {
+    margin-left: 7%;
+}
+
+.row.cntmap {
+    padding: 15px 0px 0px 41px;
+}
+
+input#exampleInputfname,
+input#exampleInputsname,
+input#exampleInputfamname {
+    height: 40px;
+    width: 50%;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+}
+
+textarea#exampleInputmsgadd {
+    height: 114px;
+    width: 97%;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+}
+
+::placeholder {
+    color: #f6f6f6;
+    font-size: 14px;
+}
+
+a.ctusbtn {
+    width: 96%;
+    height: 40px;
+    background-color: #6cc0b9;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 12px 328px 12px 328px;
+}
+
+input#exampleInputphone {
+    height: 40px;
+    width: 50%;
+    width: 266px;
+    margin-left: -114px;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+}
+
+.row.cntinput {
+    padding: 0px 0px 16px 16px;
+}
+
+input#exampleInputext {
+    height: 40px;
+    width: 40%;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+}
+
+input#exampleInputemailadd {
+    height: 40px;
+    width: 50%;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+}
+
+#rightcontact input::placeholder {
+    color: #c6c6c6;
+    font-size: 1.5em;
+}
+
+/*********************************infoguestlogin ***************************************/
+/********************************** Payment Info ***************************************/
+div#greydivider {
+    /* padding: 0px; */
+    border: 2px solid #f4f4f5;
+}
+
+.infopytxt {
+    width: 815px;
+    padding: -7px 0px 0px 0px;
+    padding: 0px -23px 0px 0px;
+}
+
+a#btnpyt {
+    width: 150px;
+    height: 50px;
+    margin-left: -15px;
+    background-color: #6cc0b9;
+    border: 2px solid #6cc0b9;
+    color: #fff;
+    border-radius: 6px;
+    line-height: 29px;
+}
+
+#pyttabs ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #b6b6b7;
+    opacity: 3;
+    /* Firefox */
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #b6b6b7;
+    opacity: 3;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #b6b6b7;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #b6b6b7;
+}
+
+.infopyt {
+    margin-top: -22px;
+    padding: 0px 0px 0px 4px;
+}
+
+span.pytslash {
+    margin: 0px 0px 0px -22px;
+}
+
+#pyttabs input[type=text],
+ {
+    width: 70%;
+    height: 70%;
+    padding: 12px;
+    color: #727272;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+    resize: vertical;
+}
+
+.row.pyttext {
+    padding: 5px 0px 0px 2px;
+}
+
+.row.carddetails {
+    padding: 5px 0px 0px 20px;
+}
+
+div#pytinfo {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.leftpyt {
+    width: 49.5%;
+    height: 126px;
+    padding: 40px;
+    font-weight: bold;
+    float: left;
+    background-color: #f4f4f5;
+}
+
+.rightpyt {
+    width: 49.5%;
+    float: right;
+    padding: 10px 0px 0px 21px;
+    height: 126px;
+    background-color: #f4f4f5;
+}
+
+div#pyttabs {
+    width: 100%;
+    height: auto;
+    margin-top: 138px;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #f4f4f5;
+}
+
+#pyttabs .nav.nav-pills {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+
+
+#pyttabs #pills-tab {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    width: 100%;
+}
+
+#pyttabs .nav-item.nav-link {
+    background-color: #f4f4f5;
+    border: 2px solid #6cc0b9;
+}
+
+#pyttabs .nav-item.nav-link.active {
+    background-color: #6cc0b9;
+    color: #fff !important;
+}
+
+#pyttabs #nav-debit-tab, #pyttabs #nav-netbank-tab, #pyttabs #nav-credit-tab, #pyttabs #nav-sadad-tab{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #9d9ca4;
+    font-weight: bold;
+    font-family: Myriad pro;
+    width: 17%;
+    border-radius: 8px;
+}
+
+#pyttabs .tab-content>.tab-pane {
+    /* display: none; */
+    margin-top: 11px;
+    background-color: #f4f4f5;
+}
+
+#pyttabs .tab-content {
+    padding: 0px 0px 0px 0px;
+    background-color: #fff;
+    margin-top: -5px;
+    color: #727272;
+}
+
+/*********************Booking Info ***************************************/
+div#infologpane {
+    padding: 0px;
+    margin-top: 20px;
+}
+
+#infologpane .panel-heading {
+    background-color: #5cb9b1;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 10px 10px 20px;
+}
+
+#infologpane .panel-body {
+    padding: 10px 10px 10px 36px;
+    font-size: 14px;
+    background-color: #f4f4f5;
+    height: auto;
+}
+
+div#contentbkinfo {
+    height: 100px;
+    font-size: 14px;
+    font-family: Myriad pro;
+    color: #727272;
+    padding: 20px;
+    /* padding-right: 20px; */
+    margin-top: 20px;
+    text-align: justify;
+    background-color: #f4f4f5;
+}
+
+.row.sarinfo {
+    float: right;
+    font-weight: bold;
+    margin-right: -116px;
+}
+
+.row.infolist {
+    padding: 0px 10px 30px 15px;
+}
+
+div#servicebk {
+    background-color: #f4f4f5;
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 14px;
+}
+
+#bookinginfopro-bg {
+    width: 100%;
+    height: auto;
+    background-color: #f4f4f5;
+    margin: -6px 0px 0px 0px;
+    padding: 0px;
+}
+
+.bkinfo-head {
+    width: 100%;
+    color: #4b485b;
+    float: left;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: -1.5%;
+}
+
+.go-rightinfo {
+    float: right !important;
+    text-align: left;
+    font-size: 18px !important;
+    height: 0px;
+    color: #4b485b;
+    margin-left: 550px;
+    margin-top: -39px;
+    width: 100%;
+}
+
+.col-lg-8.col-md-8.col-sm-8.col-xs-8.infobookingonline {
+    width: 100%;
+    margin-left: 1%;
+    margin-top: -1%;
+}
+
+#bookinginfo-bg {
+    width: 100%;
+    background-color: #f4f4f5;
+    margin: 0px 0px 0px 0px;
+}
+
+.rightinfotext {
+    float: left;
+}
+
+.row.bookingcust {
+    padding: 0px;
+    width: 100%;
+    height: auto;
+}
+
+.picbook {
+    width: 300px;
+    height: 300px;
+    float: left;
+    margin-top: 1px;
+    margin-left: 17px;
+    position: relative;
+}
+
+/********************personal info **************************************/
+div#infodivider {
+    margin: 10px 0px 20px 0px;
+    border: 1px solid #d4d0d0;
+}
+
+.step {
+    background: #6cc0b9;
+
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 38px;
+    border-radius: 50%;
+    margin-right: 5px;
+    text-align: center;
+    width: 38px;
+    margin-left: 5%;
+}
+
+div#infologin {
+    margin-top: 30px;
+}
+
+#infologin #pills-tab {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    width: 100%;
+}
+
+#infologin .nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #4b485b;
+    margin-left: 0px;
+    background-color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    width: 312.5px;
+    height: 80px;
+    border-bottom: 7px solid #6cc0b9;
+    border-radius: 0px;
+}
+
+#infologin .nav-pills .nav-link {
+    /* border-radius: .25rem; */
+    width: 312.5px;
+    height: 80px;
+    text-align: center;
+    text-decoration: none;
+    color: #4b485b;
+    border-bottom: 7px solid #f4f4f5;
+
+}
+
+#infologin .tab-content {
+    padding: 0px 0px 0px 0px;
+    background-color: #fff;
+    margin-top: -5px;
+    color: #727272;
+}
+
+/*******************form for infoguestlogin *****************************/
+#accordion label+input[type='radio']:checked+.content {
+    display: block;
+}
+
+#accordion label+input[type='radio'] {
+    display: none;
+}
+
+.row.infolog input[type=text],
+select,
+textarea {
+    width: 100%;
+    height: 70%;
+    padding: 12px;
+    color: #727272;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+    resize: vertical;
+}
+.row.infolog select[type=text] {
+    width: 35%;
+    padding: 2px;
+}
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+.col-15.btnnext input[type=submit] {
+    background-color: #6cc0b9;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+.col-15.btnnext input[type=submit]:hover {
+    background-color: #6cc0b9;
+}
+.container.guestlog {
+    border-radius: 5px;
+    background-color: #f4f4f5;
+    padding: 0px 20px 0px 20px;
+}
+.row.infolog {
+    padding: 0px;
+}
+.row.infologtwo {
+    padding: 0px 0px 0px 19px;
+}
+
+.row.infologthree {
+    padding: 0px 0px 0px 19px;
+}
+
+input.uploadsub {
+    height: 40px;
+    line-height: 2px;
+    padding-left: -10px;
+    line-height: -7px;
+    border-radius: 8px;
+}
+
+input.uploadnext {
+    width: 120px;
+    height: 40px;
+    line-height: 2px;
+    padding-left: -10px;
+    line-height: -7px;
+    border-radius: 8px;
+    float: right;
+}
+
+.row.nextbtn {
+    padding: 0px;
+}
+
+.col-15.btnnext {
+    margin-left: 1017px;
+}
+
+.col-20 {
+    float: left;
+    width: 20%;
+    margin-top: 6px;
+}
+
+.col-18 {
+    float: left;
+    width: 18%;
+    margin-top: 6px;
+}
+
+.col-18.addphone {
+    margin-left: -98px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-15 {
+    float: left;
+    width: 15%;
+    margin-top: 6px;
+    display: inline;
+}
+
+.col-15.updbtn {
+    margin-left: -65px;
+}
+
+.col-30 {
+    float: left;
+    width: 30%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/*********************************infoguestlogin ***************************************/
 /************************* start of Event organiser booking details ********************/
 
 /* written by riliwan balogun http://www.facebook.com/riliwan.rabo*/
@@ -2476,19 +3065,6 @@ board.nav-tabs>li a:hover {
     border-bottom: 4px solid red;
 }
 
-.tab-pane {
-    position: relative;
-    padding-top: 50px;
-}
-
-.tab-content .head {
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 35px;
-    text-transform: uppercase;
-    padding-bottom: 10px;
-    font-size: bold;
-}
-
 .btn-outline-rounded {
     padding: 10px 40px;
     margin: 20px 0;
@@ -2650,10 +3226,11 @@ a.btnflex {
 }
 
 textarea#exampleFormControlTextarea1 {
-    width: 99%;
+    width: 99%!important;
+    height: 100px!important;
     border: 2px solid #9e9e9e;
     margin: -14px 10px 0px 10px;
-    padding: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px!important;
     border-radius: 8px;
     color: #727272;
     font-size: 12px;
@@ -2775,17 +3352,6 @@ button.btn.btn-default.btnbkevents {
 }
 
 /********* start of top head for inner page *****************/
-
-.about-headicon {
-    margin-left: 100px;
-}
-
-.about-headzone {
-    width: 500px;
-    text-align: left;
-    overflow: hidden
-}
-
 
 .customerdetails_tabs {
     margin-top: -33px;
@@ -3289,7 +3855,7 @@ div#eventlist-contentright {
     background-color: #6cc0b9;
     border-color: #6cc0b9;
     color: #fff;
-    line-height:23px;
+    line-height: 23px;
     font-size: 12px;
     float: right;
 }
@@ -3297,17 +3863,18 @@ div#eventlist-contentright {
 /***********************************end of Eventorganiserslist *****************/
 /*************************************supplier details *************************/
 a.booksupp {
-    position:relative;
+    position: relative;
     width: 200px;
     height: 40px;
-    background-color:#6cc0b9;
+    background-color: #6cc0b9;
     border: 2px solid #6cc0b9;
     border-radius: 8px;
     text-align: center;
     padding-top: 8px;
     color: #fff;
-    margin-left:15px;
+    margin-left: 15px;
 }
+
 a.shtsupp {
     position: relative;
     width: 200px;
@@ -3319,6 +3886,7 @@ a.shtsupp {
     padding-top: 8px;
     color: #6cc0b9;
 }
+
 .row.buttonsupp {
     float: right;
     margin-right: -115px;
@@ -3326,14 +3894,13 @@ a.shtsupp {
     padding-left: 0px;
     padding-right: 0px;
 }
-a.booksupp.active{
 
-}
 a.shtsupp.active {
-color:#fff;
-background-color:#6cc0b9;
+    color: #fff;
+    background-color: #6cc0b9;
 }
-#supplierpacksect{
+
+#supplierpacksect {
     background-color: #f4f4f5;
     font-family: Myriad pro;
     padding-left: 10px;
@@ -3344,43 +3911,53 @@ background-color:#6cc0b9;
     height: 135px;
     margin-top: 25px;
 }
+
 .row.sartravel {
     padding-top: 0px;
     padding-bottom: 0px;
-    margin-right:-5px;
+    margin-right: -5px;
     float: right;
 }
-.row.suppoffered{
-    color:#676868;
+
+.row.suppoffered {
+    color: #676868;
     font-size: 18px;
     font-weight: bold;
-    padding-top:5px;
-    padding-bottom:2px;
+    padding-top: 5px;
+    padding-bottom: 2px;
 }
-.row.supptravel{
+
+.row.supptravel {
     font-size: 14px;
     padding-top: 0px;
     padding-bottom: 0px;
 }
+
 div#supplierdetails {
     margin-top: 10px;
 }
+
 div#supppackdet {
     margin-left: -30px;
     float: left;
 }
+
 #supplierdetails a#nav-about-tab.active {
-color:#fff;
+    color: #fff;
 }
+
 #supplierdetails a#nav-provided-tab.active {
-    color:#fff;
+    color: #fff;
 }
+
 #supplierdetails a#nav-testi-tab.active {
-        color:#fff;
+    color: #fff;
 }
+
 #supplierdetails a#nav-terms-tab.active {
-            color:#fff;
+    color: #fff;
 }
+
 #supplierdetails a#nav-about-tab {
     width: 24.55%;
     font-weight: bold;
@@ -3388,6 +3965,7 @@ color:#fff;
     font-family: Myraid pro;
     font-size: 18px;
 }
+
 #supplierdetails a#nav-provided-tab {
     width: 24.55%;
     margin-left: 0.60%;
@@ -3396,6 +3974,7 @@ color:#fff;
     font-family: Myriad pro;
     font-size: 18px;
 }
+
 #supplierdetails a#nav-testi-tab {
     width: 24.55%;
     margin-left: 0.60%;
@@ -3404,6 +3983,7 @@ color:#fff;
     font-family: Myriad pro;
     font-size: 18px;
 }
+
 #supplierdetails a#nav-terms-tab {
     width: 24.55%;
     margin-left: 0.60%;
@@ -3412,6 +3992,7 @@ color:#fff;
     font-family: Myriad pro;
     font-size: 18px;
 }
+
 /*************************************supplier details ***************************/
 /********************** Venue List **********************************************/
 
@@ -3505,95 +4086,6 @@ input[type=radio] {
 div#labpackone {
     /* float: left; */
     margin: 3% 0px 0px -5.5%;
-}
-
-/*********** panel ************/
-.row.venueslist {
-    width: 100%;
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-#venue-list-bg {
-    width: 100%;
-    background-color: #fff;
-    margin: 25px 0px 0px 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    display: inline-block;
-}
-
-.filtersidevenue {
-    width: 10%;
-    height: auto;
-    float: left;
-    margin-left: 50px;
-}
-
-.resetvenue {
-    text-decoration: underline;
-    font-size: 12px;
-    margin-top: 0px;
-    margin-right: 0px;
-    float: right;
-}
-
-.filterext {
-    height: 48px;
-}
-
-.venulistsortleft {
-    width: 90%;
-}
-
-.wishlistfive {
-
-    height: auto;
-}
-
-.list {
-
-    float: left;
-}
-
-h4.venuecliphead {
-    font-family: Myriad pro;
-    color: #4b485b;
-    font-size: 20px;
-    padding-top: 17px;
-}
-
-select.form-control.sortvenues {
-    width: 207px;
-    margin-top: -5%;
-    margin-left: 169%;
-}
-
-.row.color-bg-venuelist {
-    margin-top: -12px;
-    margin-left: 77px;
-    margin-right: -33px;
-    width: 1092px;
-    background-color: #f8f8f8;
-    height: auto;
-    padding: 21px;
-}
-
-.row.col-lg-10.col-md-10.col-sm-10.col-xs-10 {
-    padding: 0px;
-}
-
-.row.color-bg-venuelistone {
-    margin-top: 15px;
-    margin-left: 77px;
-    margin-right: -33px;
-    background-color: #f8f8f8;
-    height: auto;
-    padding: 21px;
-}
-
-.venuespagin {
-    margin-left: 50%;
 }
 
 /*************************** venue details **************************************/
@@ -3918,78 +4410,6 @@ button {
     float: left;
 }
 
-/************ 004_04 about us ******************/
-.flat-btn button {
-    height: 60px;
-    width: 100px;
-}
-
-img.arrow-margine-about {
-    margin-left: 2px;
-    margin-top: -10px;
-}
-
-a.left.carousel-control.aboutus {
-    margin-left: 83px;
-    margin-top: -13px;
-}
-
-a.right.carousel-control.aboutusone {
-    margin-right: 77px;
-}
-
-/********* start of about us content *****************/
-
-.about-headicon {
-    margin-left: 100px;
-}
-
-.about-headzone {
-
-    width: 500px;
-    text-align: left;
-    overflow: hidden;
-    color: #4b485b;
-    font-size: 14px;
-}
-
-.about-btn {
-    border-radius: 20px;
-    background-color: white;
-    color: #6cc0b9;
-    border: 2px solid #6cc0b9;
-    font-weight: bolder;
-    text-decoration: none;
-}
-
-.about-btn:hover {
-    border-radius: 20px;
-    background-color: #6cc0b9;
-    color: #fff;
-    border: 2px solid #fff;
-    font-weight: bolder;
-    text-decoration: none;
-}
-
-.bg-about {
-    background-color: #f7f7f7;
-    width: 100%;
-    color: #4b485b;
-    font-size: 14px;
-}
-
-.testi-text {
-    text-align: left;
-    margin-left: 90px;
-    float: center;
-
-}
-
-.change-italic {
-    font-style: italic;
-}
-
-/********* end of about us content *****************/
 
 /********* Venue Dashboard add venue *****************/
 .col-xs-1-5 {
@@ -5208,15 +5628,6 @@ button.close.cross {
 .row.signup-custom {
     margin-top: -14px;
 }
-
-input[type=checkbox],
-input[type=radio] {
-    line-height: normal;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #000;
-}
-
 .foot-font_custom {
     font-size: 14px;
     margin-left: 41px;
@@ -5470,18 +5881,19 @@ a#nav-supp-tab {
     margin-left: 10px;
     width: 32.79%;
 }
+
 /**************package list bottom underline tab ***************/
 .row.packsortlist {
     width: 97%;
     padding-left: 0px;
     padding-right: 0px;
 }
+
 select.form-control.sortpackagelist {
     width: 207px;
-    display:inline;
-    float:right;
-
+    float: right;
 }
+
 .row.expsortlist {
     padding-top: 1px;
     margin-left: 50px;
@@ -5489,16 +5901,20 @@ select.form-control.sortpackagelist {
     padding-left: 0px;
     padding-right: 0px;
 }
+
 div#innertwotab {
     margin-top: 69px;
     padding-left: 33px;
 }
+
 div#underlinetab {
     margin-top: -7px;
     position: relative;
     margin-left: 26px;
 }
-.row.color-bg-expcontent, .row.color-bg-expcontentnext  {
+
+.row.color-bg-expcontent,
+.row.color-bg-expcontentnext {
     position: relative;
     /* padding-left: 15px; */
     margin-top: 2px;
@@ -5508,9 +5924,11 @@ div#underlinetab {
     height: auto;
     padding: 12px;
 }
-.row.color-bg-expcontentnext{
-    margin-top:10px;
+
+.row.color-bg-expcontentnext {
+    margin-top: 10px;
 }
+
 #underlinetab #pills-tab {
     margin-left: 143px;
     position: relative;
@@ -5518,9 +5936,11 @@ div#underlinetab {
     border-bottom: 2px solid #dbdade;
     width: 998px;
 }
-#underlinetab .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+
+#underlinetab .nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     color: #4b485b;
-    margin-left:0px;
+    margin-left: 0px;
     background-color: #ffffff;
     text-decoration: none;
     text-align: center;
@@ -5540,51 +5960,64 @@ div#underlinetab {
     border: none;
     border-radius: none;
 }
-#underlinetab.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+
+#underlinetab.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     background-color: none;
 }
+
 #underlinetab.nav-pills .nav-link {
     border-radius: 0rem;
 }
+
 /******************package list content start **************************/
 .content-optionpacklist {
     width: 665px;
     margin-left: 0px;
 }
+
 div#packagelist-contentright {
     width: 1239px;
     margin-top: -15px;
     padding-left: 0px;
     padding-right: 0px;
 }
+
 .content-expsort-top {
     width: 74%;
     float: right;
     margin-left: 710px;
 }
-.leftfilter{
+
+.leftfilter {
     padding-left: 0px;
     margin-top: -112px;
     margin-left: -108px;
 }
-.rightcontentpack{
-    margin-top:108px;
+
+.rightcontentpack {
+    margin-top: 108px;
     position: relative;
 }
+
 .supppagin {
     margin-top: 8px;
     margin-left: 17%;
 }
+
 .packpagin {
     margin-top: 32px;
     margin-left: 0%;
 }
+
 div#packagelistwhole {
     margin-top: 32px;
 }
+
 div#packageprofile {
     margin-top: 7px;
 }
+
 .row.color-bg-packcontent {
     /* padding-left: 15px; */
     margin-top: 2px;
@@ -5592,7 +6025,7 @@ div#packageprofile {
     width: 999px;
     background-color: #f8f8f8;
     height: auto;
-    padding:12px;
+    padding: 12px;
 }
 
 .row.color-bg-packcontentnxt {
@@ -5602,8 +6035,9 @@ div#packageprofile {
     width: 999px;
     background-color: #f8f8f8;
     height: auto;
-    padding:12px;
+    padding: 12px;
 }
+
 div#packlist-contentright {
     margin-top: -15px;
     padding-left: 0px;
@@ -5769,15 +6203,6 @@ span.star-head-one {
 }
 
 /********* start of top head for inner page *****************/
-.about-headicon {
-    margin-left: 100px;
-}
-
-.about-headzone {
-    width: 500px;
-    text-align: left;
-    overflow: hidden
-}
 
 /* css for table starts */
 .table-hover {
@@ -5987,14 +6412,6 @@ input#phone_number__2 {
 /********* start of home page *****************/
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
-.container-fluid {
-    width: 100%;
-}
-
-.container-fluid {
-    padding-left: 49px;
-    padding-right: 49px;
-}
 
 .container-fluid.slickslideevent {
     padding-left: 25px;
@@ -6204,11 +6621,6 @@ input#phone_number__2 {
     box-sizing: border-box
 }
 
-body {
-    font-family: Verdana, sans-serif;
-    margin: 0
-}
-
 .carousel-inner.testipic {
     position: relative;
     width: 20%;
@@ -6261,13 +6673,6 @@ body {
     margin-top: -20px;
 }
 
-h4 {
-    font-family: Myriad Pro;
-    font-size: 25px;
-    height: 50px;
-    color: black;
-}
-
 .testimonial-pic {
     width: 172px;
     height: 176px;
@@ -6277,7 +6682,7 @@ h4 {
 /* Slideshow container */
 .slideshow-container {
     width: 100%;
-    height: 448px;
+    height: auto;
     position: relative;
     background: #5cb9b1;
     margin-top: -72px;
@@ -6547,6 +6952,73 @@ input[type=checkbox].is-invalid+span {
     font-size: 10px;
 }
 
+/************************ media queries for infoguestlogin ************************/
+@media screen and (max-width: 1024px) {
+    .col-18.addphone {
+        margin-left: -72px;
+    }
+
+    select[type=text],
+    select {
+        width: 43% !important;
+    }
+
+    .col-20 {
+        width: 24%;
+    }
+
+    .col-15.updbtn {
+        margin-left: -29px;
+    }
+
+    .col-15.btnnext {
+        margin-left: 754px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .col-18.addphone {
+        margin-left: -50px;
+    }
+
+    .col-20 {
+        width: 34%;
+    }
+
+    .col-15.updbtn {
+        margin-left: 8px;
+    }
+
+    .col-15.btnnext {
+        margin-left: 526px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .col-20 {
+        width: 76%;
+    }
+
+    .col-15.updbtn {
+        width: 100px;
+        margin-left: 8px;
+    }
+
+    .col-18.addphone {
+        width: 136px;
+        margin-left: -78px;
+    }
+
+    .col-15 {
+        width: 53%;
+        margin-left: -141px;
+    }
+
+    .col-15.btnnext {
+        margin-left: 200px;
+    }
+}
+
 /**********************media Queries for evenorganiserslist *************************/
 @media screen and (max-width: 768px) {
     .row.evenorglist {
@@ -6605,122 +7077,158 @@ input[type=checkbox].is-invalid+span {
 /********************media queries for evenorganiserlist ***********************/
 /************************media queries for package List ***********************/
 @media only screen and (max-width: 1200px) {
-    div#packagelist-contentright{
-        width:1334px;
+    div#packagelist-contentright {
+        width: 1334px;
     }
+
     .row.evenorglist {
         width: 97%;
     }
 }
+
 @media only screen and (max-width: 1024px) {
     a#nav-express-tab {
-        width:32.60%;
+        width: 32.60%;
     }
-    a#nav-eveorg-tab{
-        width:32.60%;
+
+    a#nav-eveorg-tab {
+        width: 32.60%;
     }
-    a#nav-supp-tab{
-        width:32.60%;
+
+    a#nav-supp-tab {
+        width: 32.60%;
     }
-    #underlinetab #pills-tab{
-        width:54%;
+
+    #underlinetab #pills-tab {
+        width: 54%;
     }
+
     .content-optionpacklist {
         width: 649px;
     }
+
     select.form-control.sortvenues {
         margin-left: 638px;
     }
-    .row.color-bg-expcontent, .row.color-bg-expcontentnext{
-        width:54%;
+
+    .row.color-bg-expcontent,
+    .row.color-bg-expcontentnext {
+        width: 54%;
     }
-    .content-expsort-top{
-        width:22%;
+
+    .content-expsort-top {
+        width: 22%;
     }
+
     .packpagin {
         margin-left: -6%;
     }
- 
-select.form-control.sortvenues {
-    margin-left: 640px;
+
+    select.form-control.sortvenues {
+        margin-left: 640px;
+    }
+
 }
-    
-}
+
 @media only screen and (max-width: 768px) {
     a#nav-express-tab {
-        width:32.32%;
+        width: 32.32%;
     }
-    a#nav-eveorg-tab{
-        width:32.33%;
+
+    a#nav-eveorg-tab {
+        width: 32.33%;
     }
-    a#nav-supp-tab{
-        width:32.33%;
+
+    a#nav-supp-tab {
+        width: 32.33%;
     }
+
     .content-optionpacklist {
         width: 395px;
     }
-    .content-expsort-top{
-        width:2.30%;
+
+    .content-expsort-top {
+        width: 2.30%;
     }
+
     .packpagin {
         margin-top: 32px;
         margin-left: -17%;
     }
-    #underlinetab #pills-tab, .row.color-bg-expcontent, .row.color-bg-expcontentnext{
-        width:36.50%;
+
+    #underlinetab #pills-tab,
+    .row.color-bg-expcontent,
+    .row.color-bg-expcontentnext {
+        width: 36.50%;
     }
-    .row.color-bg-eventlist, .row.color-bg-eventlistnext {
+
+    .row.color-bg-eventlist,
+    .row.color-bg-eventlistnext {
         margin-left: 24%;
         width: 76%;
     }
+
     select.form-control.sortvenues {
         margin-left: 389px;
     }
 }
 
-@media only screen and not all (max-width: 1280px) {
+@media only screen and (max-width: 1280px) {
     a#nav-express-tab {
-        width:32.75%;
+        width: 32.75%;
     }
-    a#nav-eveorg-tab{
-        width:32.75%;
+
+    a#nav-eveorg-tab {
+        width: 32.75%;
     }
-    a#nav-supp-tab{
-        width:32.75%;
+
+    a#nav-supp-tab {
+        width: 32.75%;
     }
+
     .row.evenorglist {
         width: 90.50%;
     }
-    #underlinetab #pills-tab{
-        width:80%;
+
+    #underlinetab #pills-tab {
+        width: 80%;
     }
-    .row.color-bg-expcontent, .row.color-bg-expcontentnext{
+
+    .row.color-bg-expcontent,
+    .row.color-bg-expcontentnext {
         margin-left: 143px;
         width: 924px;
     }
+
     .content-optionpacklist {
         width: 600px;
     }
-    .row.color-bg-eventlist, .row.color-bg-eventlistnext{
-    margin-left: 81px;
-    width: 924px;
+
+    .row.color-bg-eventlist,
+    .row.color-bg-eventlistnext {
+        margin-left: 81px;
+        width: 924px;
     }
+
     .content-eve-top {
         width: 53%;
     }
 }
+
 /***********************media queries for supplier details ********************/
 
 @media only screen and (max-width: 1024px) {
-    #supplierpacksect{
-    width: 90.30%;
+    #supplierpacksect {
+        width: 90.30%;
     }
-    }
-    @media only screen and (max-width: 768px) {
-        #supplierpacksect{
+}
+
+@media only screen and (max-width: 768px) {
+    #supplierpacksect {
         width: 87.30%;
-        }
-        }
+    }
+}
+
 /************************media queries for package List ***********************/
 @media only screen and (max-width: 1024px) {
     .row.color-bg-venuelist {
@@ -6840,4 +7348,45 @@ select.form-control.sortvenues {
 
 .morelink {
     display: block;
+}
+
+/* Search - City Datepicker css */
+#cityDateForm .gj-datepicker [role=right-icon] {
+    cursor: pointer;
+    background: #fff;
+}
+
+#cityDateForm .btn-outline-secondary {
+    border: none;
+}
+
+.themeform-top {
+    margin: auto;
+    padding: 0 5%;
+}
+
+.form-control.themehome {
+    height: 40px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+.themelab {
+    color: #fff;
+}
+
+span.date-element-theme {
+    position: absolute;
+    color: #9e9e9e;
+    width: 75px;
+    margin-left: 62%;
+    margin-top: -28px;
+    font-size: 15px;
+}
+
+.btn.btn-danger.sub_theme {
+    width: 150px;
+    height: 40px;
+    display: block;
+    margin-top: 8px;
 }

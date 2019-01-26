@@ -1,40 +1,9 @@
 @include('shared/header')
-
+<link rel="stylesheet" type="text/css" href="{{ url('css/venues.css') }}">
 <!------- form start-------->
-<form class="form-vertical">
-    <div class="container-fluid" id="commonpack-bg">
-        <div class="row" id="set-bg">
-            <div class="col-md-12 col-sm-12 themeform-top">
 
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="citypack">
-                    <label class="themelab">City</label>
-                    <input type="text" name='datepicker' class="form-control themehome" placeholder="Jeddah">
+@include('shared/city-date')
 
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="datapack">
-                    <label class="themelab">Date From</label>
-                    <input type="text" class="form-control themehome" placeholder="16 May, 2018">
-                    <span class="far fa-calendar-alt date-element-theme"></span>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="labpack">
-                    <label class="themelab">Date To</label>
-                    <input type="text" class="form-control themehome" placeholder="20 May,2018" name="contact">
-                    <span class="far fa-calendar-alt date-element-theme"></span>
-                </div>
-                <br>
-                <br>
-                <div class="form-group">
-                    <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="subpack">
-                        <button type="submit" class="btn btn-danger sub_theme">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</form>
 <!------- form start-------->
 <!------maps button and headding --------------->
 <!---<div class="venueheadbtn">
@@ -77,165 +46,43 @@
                 <!--------------left ------------------>
                 <div class="container-fluid" id="venue-list-bg">
                     <div class="filtersidevenue">
-
-
                         <div class="list">
                             <div class="list-heading">Filter</div>
                             <div class="list-body">
-                                <h4 class="venuecliphead"> Rating</h4>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            High - Low
-                                        </label>
-                                        <i class="fas fa-arrow-up" style="color:#a4a4a5"></i>
-                                        <i class="fas fa-arrow-down" style="color:#a4a4a5"></i>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Low - High
-                                        </label>
-                                        <i class="fas fa-arrow-down" style="color:#a4a4a5"></i>
-                                        <i class="fas fa-arrow-up" style="color:#a4a4a5"></i>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <!--
-                            <h4 class="venuecliphead"> Availability</h4>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                          1 Week
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <!--
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                           2 Week
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <!--
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                           3 Week
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <h4 class="venuecliphead"> Price</h4>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            SAR 80 - 150
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            SAR 151 - 200
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            SAR 201 - 250
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
 
+                                <!---- Rating - formgroup ------->
 
-                                <h4 class="venuecliphead"> Event Type</h4>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Birthday
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Wedding
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Business Meeting
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
+                                @if (isset($data["filters"]["rating"]) && count($data["filters"]["rating"]) >
+                                0)
+                                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["rating"],
+                                'type_title'
+                                => 'Rating'], ['prefix' => 'SAR'])
+                                @else
+                                <div>No data!!</div>
+                                @endif
 
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Conference
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Corporate Event
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Other
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
+                                <!---- Price - formgroup ------->
+
+                                @if (isset($data["filters"]["price_range"]) && count($data["filters"]["price_range"]) >
+                                0)
+                                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["price_range"],
+                                'type_title'
+                                => 'Price'], ['prefix' => 'SAR'])
+                                @else
+                                <div>No data!!</div>
+                                @endif
+
+                                <!---- Event Type - formgroup ------->
+
+                                @if (isset($data["filters"]["event_types"]) && count($data["filters"]["event_types"])
+                                >
+                                0)
+                                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["event_types"],
+                                'type_title'
+                                => 'Event Type'])
+                                @else
+                                <div>No data!!</div>
+                                @endif
 
                                 <a class="resetvenue" href id="Reset">Reset Filters</a>
                                 <div class="filterext"></div>
@@ -268,7 +115,7 @@
                                 </div>
                             </div>
 
-                            @if (count($data["eventOrganiserslist"]) > 0)
+                            @if (isset($data["eventOrganiserslist"]) && count($data["eventOrganiserslist"]) > 0)
                             @foreach ($data["eventOrganiserslist"] as $key=>$eventOrganiser)
                             <div class="row color-bg-eventlist">
                                 <div class="content-eve">
@@ -322,32 +169,27 @@
                     </div>
                 </div>
                 <div class="eventspagin">
+                    @if(isset($data["paginate"]))
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item {{ ($data['paginate']['prev_page_url'])?'':'disabled' }}"><a class="page-link"
+                                    href="{{ $data['paginate']['prev_page_url'] }}">Previous</a></li>
+                            @php $totalpages = $data["paginate"]["last_page"]; @endphp
 
-                    <center>
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item {{ ($data['paginate']['prev_page_url'])?'':'disabled' }}"><a class="page-link"
-                                        href="{{ $data['paginate']['prev_page_url'] }}">Previous</a></li>
-                                @php $totalpages = $data["paginate"]["last_page"]; @endphp
-
-                                @foreach(range(1,$totalpages) as $i)
-                                @if($totalpages >0)
-                                <li class="page-item {{ ($data['paginate']['current_page']==$i)?'active':'' }}"><a
-                                        class="page-link" href="{{ $data['paginate']['path'] }}?page={{ $i }}">{{
-                                        $i }}</a></li>
-                                @endif
-                                @php $totalpages--; @endphp
-                                @endforeach
-                                <li class="page-item {{ ($data['paginate']['next_page_url'])?'':'disabled' }}"><a class="page-link"
-                                        href="{{ $data['paginate']['next_page_url'] }}">Next</a></li>
-                            </ul>
-                        </nav>
-                    </center>
-
+                            @foreach(range(1,$totalpages) as $i)
+                            @if($totalpages >0)
+                            <li class="page-item {{ ($data['paginate']['current_page']==$i)?'active':'' }}"><a class="page-link"
+                                    href="{{ $data['paginate']['path'] }}?page={{ $i }}">{{
+                                    $i }}</a></li>
+                            @endif
+                            @php $totalpages--; @endphp
+                            @endforeach
+                            <li class="page-item {{ ($data['paginate']['next_page_url'])?'':'disabled' }}"><a class="page-link"
+                                    href="{{ $data['paginate']['next_page_url'] }}">Next</a></li>
+                        </ul>
+                    </nav>
+                    @endif
                 </div>
-
-
-
 
                 <!------upcoming-contentright ----------->
 
@@ -370,3 +212,4 @@
     <div class="row"> </div>
 </div>
 @include('shared/footer')
+<script src="{{ url('js/city-date.js') }}" type="text/javascript" charset="utf-8"></script>

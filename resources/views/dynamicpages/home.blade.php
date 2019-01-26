@@ -84,15 +84,11 @@
             <div class="container">
                 <div class="middlehead_exp text-center"> <b>Our Partners </b></div>
             </div>
-            <div class="container col-md-12 col-sm-6">
-
-                @if (count($data["partners"]) > 0)
-                @include('slickslider', ['slides' => $data["partners"]])
-                @else
-                <div>No data!!</div>
-                @endif
-
-            </div>
+            @if (count($data["partners"]) > 0)
+            @include('slickslider', ['slides' => $data["partners"]])
+            @else
+            <div>No data!!</div>
+            @endif
         </div>
         <!------------ end of col ------------->
     </div>
@@ -273,4 +269,3 @@
 
 @include('shared/footer')
 <script src="{{ url('js/home.js') }}" type="text/javascript" charset="utf-8"></script>
-<script src="{{ url('js/contact-us.js') }}" type="text/javascript" charset="utf-8"></script>

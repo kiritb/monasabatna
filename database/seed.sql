@@ -4125,7 +4125,1020 @@ insert into supplier_product_mapping
     (package_id,supplier_product_id,order_no,created_by,updated_by)
 values(50, 1, 2, 'v1@v.com', 'v1@v.com');
 
+
+-- #package files
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(35, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'home_page_display', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(35, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 2, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(35, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 3, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(36, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'home_page_display', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(36, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 2, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(37, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 3, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(38, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'home_page_display', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(39, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 2, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(39, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 3, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(40, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'home_page_display', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(40, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 2, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(40, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 3, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(41, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'home_page_display', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(41, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 2, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(41, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 3, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(42, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'home_page_display', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(42, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 2, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(42, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 3, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(47, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'home_page_display', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(47, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 2, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(47, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 3, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(48, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'home_page_display', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(48, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 2, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(48, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 3, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(49, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'home_page_display', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(49, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 2, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(49, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 3, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(50, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'home_page_display', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(50, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 2, 'v1@v.com', 'v1@v.com');
+
+insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+values(50, 'packages', 'http://localhost/monasabatna_web/public/svg/images/portfolio-img7.jpg', 'inner_page_display', 'png', 3, 'v1@v.com', 'v1@v.com');
+
+-- #policies
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(1, 'suppliers', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(1, 'suppliers', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(1, 'suppliers', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(2, 'suppliers', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(2, 'suppliers', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(2, 'suppliers', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(3, 'suppliers', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(3, 'suppliers', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(3, 'suppliers', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(4, 'suppliers', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(4, 'suppliers', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(4, 'suppliers', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+-- #providers
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(35, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(35, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(35, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(35, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(35, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(36, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(36, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(36, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(36, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(37, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(38, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(38, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(39, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(39, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(39, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(40, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(40, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(40, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(40, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(40, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(41, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(41, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(41, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(41, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(41, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(42, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(42, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(42, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(42, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(42, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(43, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(43, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(43, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(43, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(43, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(44, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(44, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(44, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(44, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(44, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(45, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(45, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(45, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(45, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(45, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(46, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(46, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(46, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(46, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(46, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(47, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(47, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(47, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(47, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(47, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(48, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(48, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(48, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(48, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(48, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(49, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(49, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(49, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(49, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(49, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 5', 5, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 1', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 1', 4, 'v1@v.com', 'v1@v.com');
+
+insert into providers
+    (linkable_id, linkable_type, provider_desc, order_no,created_by,updated_by)
+values(50, 'packages', 'Provider 1', 5, 'v1@v.com', 'v1@v.com');
+
+
+-- #pre-requisites
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(35, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(35, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(35, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(35, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(35, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(36, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(36, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(36, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(36, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(36, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(37, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(37, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(37, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(37, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(37, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(38, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(38, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(38, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(38, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(38, 'packages', 'Prerequisites 4', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(39, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(39, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(39, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(39, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(39, 'packages', 'Prerequisites 4', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(40, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(40, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(40, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(40, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(40, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(41, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(41, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(41, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(41, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(41, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(43, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(43, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(43, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(43, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(43, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(44, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(44, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(44, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(44, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(44, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(45, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(45, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(45, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(45, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(45, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(46, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(46, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(46, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(46, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(46, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+--
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(47, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(47, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(47, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(47, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(47, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(48, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(48, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(48, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(48, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(48, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(49, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(49, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(49, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(49, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(49, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(50, 'packages', 'Prerequisites 1', 1, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(50, 'packages', 'Prerequisites 2', 2, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(50, 'packages', 'Prerequisites 3', 3, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(50, 'packages', 'Prerequisites 4', 4, 'v1@v.com', 'v1@v.com');
+
+insert into prerequisites
+    (linkable_id, linkable_type, prerequisite_text, order_no,created_by,updated_by)
+values(50, 'packages', 'Prerequisites 5', 5, 'v1@v.com', 'v1@v.com');
+
+-- #package policies
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(35, 'packages', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(35, 'packages', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(35, 'packages', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(36, 'packages', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(37, 'packages', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(37, 'packages', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(38, 'packages', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(38, 'packages', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(38, 'packages', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(39, 'packages', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(39, 'packages', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(39, 'packages', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(40, 'packages', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(40, 'packages', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(40, 'packages', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(41, 'packages', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(41, 'packages', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(41, 'packages', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(47, 'packages', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(47, 'packages', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(47, 'packages', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(48, 'packages', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(48, 'packages', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(48, 'packages', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(49, 'packages', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(49, 'packages', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(49, 'packages', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(50, 'packages', 'Your Agreement', 'By using this Site, you agree to be bound by, and to comply with, these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use this site.', 1, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(50, 'packages', 'Privacy', 'Please review our Privacy Policy, which also governs your visit to this Site, to understand our practices.', 2, 'v1@v.com', 'v1@v.com');
+
+insert into policies
+    (linkable_id,linkable_type,terms_header,terms,order_no,created_by,updated_by)
+values(50, 'packages', 'Copyright and trademark notice', 'Except our generated dummy copy, which is free to use for private and commercial use, all other text is copyrighted.', 3, 'v1@v.com', 'v1@v.com');
+
+-- #package reviews
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 35, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 35, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 36, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 36, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 37, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 39, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(2, 39, 'packages', 'Amazing venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(2, 40, 'packages', 'Amazing venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(2, 41, 'packages', 'Amazing venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(2, 42, 'packages', 'Amazing venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(2, 43, 'packages', 'Amazing venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(2, 44, 'packages', 'Amazing venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 45, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 46, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 46, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 47, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 48, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(1, 49, 'packages', 'A very good venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(2, 50, 'packages', 'Amazing venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
+insert into reviews
+    (user_id,linkable_id,linkable_type,review_comment,rating,is_approved,created_by,updated_by)
+values(2, 50, 'packages', 'Amazing venue for party. all the servies provided were just perfect', 4, 1, 'v1@v.com', 'v1@v.com');
+
 -- #filters
+
 insert into filters
     (linkable_type,filter_type,filter,order_no,created_by,updated_by)
 values
@@ -4228,6 +5241,86 @@ values
     ('How much do you charge from customers for your service?', 'Our service is free of costs. We do not charge our customers. We get paid by the venue owners for listing and marketing their business.', 4, 'v1@v.com', 'v1@v.com');
 
 
+insert into blogs
+    (user_id, heading,blog, order_no, is_approved,created_by,updated_by)
+values(1, 'Heading 1', 'Journalism News Writing style Ethics Objectivity News values Attribution Defamation Editorial independence Journalism school Index of journalism articles
+	Areas
+	Arts Business Data Entertainment Environment Fashion Medicine Politics Science Sports Technology Trade Traffic Weather World
+	Genres
+	Advocacy Analytic Blogging Broadcast Citizen Civic Collaborative Comics-based Community Data Database Fact-checking Gonzo Immersion Interpretive Investigative Muckraking Narrative New Journalism Non-profit Online Opinion Peace Photojournalism Scientific Sensor Underground Visual Watchdog
+	Social impact
+	Fake news Fourth Estate Fifth Estate Freedom of the press Infotainment Media bias Public relations Press service Propaganda model Yellow journalism
+	News media
+	Newspapers Magazines TV and radio Internet News agencies Alternative media
+	Roles
+	Journalists (reporters) Columnist Blogger Editor Copy editor Meteorologist News presenter Photographer Pundit / commentator
+	Newspaper nicu buculei 01.svg Journalism portal
+	Category: Journalism
+	vte
+	A blog (a truncation of the expression "weblog")[1] is a discussion or informational website published on the World Wide Web consisting of discrete, often informal diary-style text entries (posts). Posts are typically displayed in reverse chronological order, so that the most recent post appears first, at the top of the web page. Until 2009, blogs were usually the work of a single individual,[citation needed] occasionally of a small group, and often covered a single subject or topic. In the 2010s, "multi-author blogs" (MABs) emerged, featuring the writing of multiple authors and sometimes professionally edited. MABs from newspapers, other media outlets, universities, think tanks, advocacy groups, and similar institutions account for an increasing quantity of blog traffic. The rise of Twitter and other "microblogging" systems helps integrate MABs and single-author blogs into the news media. Blog can also be used as a verb, meaning to maintain or add content to a blog.
 
+	The emergence and growth of blogs in the late 1990s coincided with the advent of web publishing tools that facilitated the posting of content by non-technical users who did not have much experience with HTML or computer programming. Previously, a knowledge of such technologies as HTML and File Transfer Protocol had been required to publish content on the Web, and early Web users therefore tended to be hackers and computer enthusiasts. In the 2010s, the majority are interactive Web 2.0 websites, allowing visitors to leave online comments, and it is this interactivity that distinguishes them from other static websites.[2] In that sense, blogging can be seen as a form of social networking service. Indeed, bloggers do not only produce content to post on their blogs, but also often build social relations with their readers and other bloggers.[3] However, there are high-readership blogs which do not allow comments.',
+        1, 1, 'v1@v.com', 'v1@v.com');
 
+insert into blogs
+    (user_id,heading, blog, order_no, is_approved,created_by,updated_by)
+values(1, 'Heading 2', 'Journalism News Writing style Ethics Objectivity News values Attribution Defamation Editorial independence Journalism school Index of journalism articles
+	Areas
+	Arts Business Data Entertainment Environment Fashion Medicine Politics Science Sports Technology Trade Traffic Weather World
+	Genres
+	Advocacy Analytic Blogging Broadcast Citizen Civic Collaborative Comics-based Community Data Database Fact-checking Gonzo Immersion Interpretive Investigative Muckraking Narrative New Journalism Non-profit Online Opinion Peace Photojournalism Scientific Sensor Underground Visual Watchdog
+	Social impact
+	Fake news Fourth Estate Fifth Estate Freedom of the press Infotainment Media bias Public relations Press service Propaganda model Yellow journalism
+	News media
+	Newspapers Magazines TV and radio Internet News agencies Alternative media
+	Roles
+	Journalists (reporters) Columnist Blogger Editor Copy editor Meteorologist News presenter Photographer Pundit / commentator
+	Newspaper nicu buculei 01.svg Journalism portal
+	Category: Journalism
+	vte
+	A blog (a truncation of the expression "weblog")[1] is a discussion or informational website published on the World Wide Web consisting of discrete, often informal diary-style text entries (posts). Posts are typically displayed in reverse chronological order, so that the most recent post appears first, at the top of the web page. Until 2009, blogs were usually the work of a single individual,[citation needed] occasionally of a small group, and often covered a single subject or topic. In the 2010s, "multi-author blogs" (MABs) emerged, featuring the writing of multiple authors and sometimes professionally edited. MABs from newspapers, other media outlets, universities, think tanks, advocacy groups, and similar institutions account for an increasing quantity of blog traffic. The rise of Twitter and other "microblogging" systems helps integrate MABs and single-author blogs into the news media. Blog can also be used as a verb, meaning to maintain or add content to a blog.
 
+	The emergence and growth of blogs in the late 1990s coincided with the advent of web publishing tools that facilitated the posting of content by non-technical users who did not have much experience with HTML or computer programming. Previously, a knowledge of such technologies as HTML and File Transfer Protocol had been required to publish content on the Web, and early Web users therefore tended to be hackers and computer enthusiasts. In the 2010s, the majority are interactive Web 2.0 websites, allowing visitors to leave online comments, and it is this interactivity that distinguishes them from other static websites.[2] In that sense, blogging can be seen as a form of social networking service. Indeed, bloggers do not only produce content to post on their blogs, but also often build social relations with their readers and other bloggers.[3] However, there are high-readership blogs which do not allow comments.',
+        2, 1, 'v1@v.com', 'v1@v.com');
+
+insert into blogs
+    (user_id, heading,blog, order_no, is_approved,created_by,updated_by)
+values(1, 'Heading 3', 'Journalism News Writing style Ethics Objectivity News values Attribution Defamation Editorial independence Journalism school Index of journalism articles
+	Areas
+	Arts Business Data Entertainment Environment Fashion Medicine Politics Science Sports Technology Trade Traffic Weather World
+	Genres
+	Advocacy Analytic Blogging Broadcast Citizen Civic Collaborative Comics-based Community Data Database Fact-checking Gonzo Immersion Interpretive Investigative Muckraking Narrative New Journalism Non-profit Online Opinion Peace Photojournalism Scientific Sensor Underground Visual Watchdog
+	Social impact
+	Fake news Fourth Estate Fifth Estate Freedom of the press Infotainment Media bias Public relations Press service Propaganda model Yellow journalism
+	News media
+	Newspapers Magazines TV and radio Internet News agencies Alternative media
+	Roles
+	Journalists (reporters) Columnist Blogger Editor Copy editor Meteorologist News presenter Photographer Pundit / commentator
+	Newspaper nicu buculei 01.svg Journalism portal
+	Category: Journalism
+	vte
+	A blog (a truncation of the expression "weblog")[1] is a discussion or informational website published on the World Wide Web consisting of discrete, often informal diary-style text entries (posts). Posts are typically displayed in reverse chronological order, so that the most recent post appears first, at the top of the web page. Until 2009, blogs were usually the work of a single individual,[citation needed] occasionally of a small group, and often covered a single subject or topic. In the 2010s, "multi-author blogs" (MABs) emerged, featuring the writing of multiple authors and sometimes professionally edited. MABs from newspapers, other media outlets, universities, think tanks, advocacy groups, and similar institutions account for an increasing quantity of blog traffic. The rise of Twitter and other "microblogging" systems helps integrate MABs and single-author blogs into the news media. Blog can also be used as a verb, meaning to maintain or add content to a blog.
+
+	The emergence and growth of blogs in the late 1990s coincided with the advent of web publishing tools that facilitated the posting of content by non-technical users who did not have much experience with HTML or computer programming. Previously, a knowledge of such technologies as HTML and File Transfer Protocol had been required to publish content on the Web, and early Web users therefore tended to be hackers and computer enthusiasts. In the 2010s, the majority are interactive Web 2.0 websites, allowing visitors to leave online comments, and it is this interactivity that distinguishes them from other static websites.[2] In that sense, blogging can be seen as a form of social networking service. Indeed, bloggers do not only produce content to post on their blogs, but also often build social relations with their readers and other bloggers.[3] However, there are high-readership blogs which do not allow comments.',
+        3, 1, 'v1@v.com', 'v1@v.com');
+
+insert into blogs
+    (user_id, heading, blog, order_no, is_approved,created_by,updated_by)
+values(2, 'Heading 4', 'Journalism News Writing style Ethics Objectivity News values Attribution Defamation Editorial independence Journalism school Index of journalism articles
+	Areas
+	Arts Business Data Entertainment Environment Fashion Medicine Politics Science Sports Technology Trade Traffic Weather World
+	Genres
+	Advocacy Analytic Blogging Broadcast Citizen Civic Collaborative Comics-based Community Data Database Fact-checking Gonzo Immersion Interpretive Investigative Muckraking Narrative New Journalism Non-profit Online Opinion Peace Photojournalism Scientific Sensor Underground Visual Watchdog
+	Social impact
+	Fake news Fourth Estate Fifth Estate Freedom of the press Infotainment Media bias Public relations Press service Propaganda model Yellow journalism
+	News media
+	Newspapers Magazines TV and radio Internet News agencies Alternative media
+	Roles
+	Journalists (reporters) Columnist Blogger Editor Copy editor Meteorologist News presenter Photographer Pundit / commentator
+	Newspaper nicu buculei 01.svg Journalism portal
+	Category: Journalism
+	vte
+	A blog (a truncation of the expression "weblog")[1] is a discussion or informational website published on the World Wide Web consisting of discrete, often informal diary-style text entries (posts). Posts are typically displayed in reverse chronological order, so that the most recent post appears first, at the top of the web page. Until 2009, blogs were usually the work of a single individual,[citation needed] occasionally of a small group, and often covered a single subject or topic. In the 2010s, "multi-author blogs" (MABs) emerged, featuring the writing of multiple authors and sometimes professionally edited. MABs from newspapers, other media outlets, universities, think tanks, advocacy groups, and similar institutions account for an increasing quantity of blog traffic. The rise of Twitter and other "microblogging" systems helps integrate MABs and single-author blogs into the news media. Blog can also be used as a verb, meaning to maintain or add content to a blog.
+
+	The emergence and growth of blogs in the late 1990s coincided with the advent of web publishing tools that facilitated the posting of content by non-technical users who did not have much experience with HTML or computer programming. Previously, a knowledge of such technologies as HTML and File Transfer Protocol had been required to publish content on the Web, and early Web users therefore tended to be hackers and computer enthusiasts. In the 2010s, the majority are interactive Web 2.0 websites, allowing visitors to leave online comments, and it is this interactivity that distinguishes them from other static websites.[2] In that sense, blogging can be seen as a form of social networking service. Indeed, bloggers do not only produce content to post on their blogs, but also often build social relations with their readers and other bloggers.[3] However, there are high-readership blogs which do not allow comments.',
+        4, 1, 'v1@v.com', 'v1@v.com');

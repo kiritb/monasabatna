@@ -1,46 +1,14 @@
 @include('shared/header')
-
+<link rel="stylesheet" type="text/css" href="{{ url('css/venues.css') }}">
 <!------- form start-------->
-<form class="form-vertical">
-    <div class="container-fluid" id="commonpack-bg">
-        <div class="row" id="set-bg">
-            <div class="col-md-12 col-sm-12 themeform-top">
 
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="citypack">
-                    <label class="venuelab">City</label>
-                    <input type="text" name='datepicker' class="form-control venuemainfrm" placeholder="Jeddah">
+@include('shared/city-date')
 
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="citypack">
-                    <label class="venuelabone">Venue Name</label>
-                    <input type="text" name='datepicker' class="form-control venuemainone" placeholder="Jeddah">
-
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="datapack">
-                    <label class="venuelabtwo">Date From</label>
-                    <input type="text" class="form-control venuedatefr" placeholder="16 May, 2018">
-                    <span class="far fa-calendar-alt date-element-venuedtpick"></span>
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="labpack">
-                    <label class="venuelabone">Date To</label>
-                    <input type="text" class="form-control venuedateto" placeholder="20 May,2018" name="contact">
-                    <span class="far fa-calendar-alt date-element-venuedtpick"></span>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-3 form-group packform" id="labpackone">
-                    <a href="#" class="searchvenue">Search</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-</form>
 <!------- form start-------->
 <!------maps button and headding --------------->
 <div class="venueheadbtn">
     <center>
-        <h3 class="venuehead"> 121 Search Results </h3>
+        <h3 class="venuehead"> {{ $data['paginate']['total'] }} Search Results </h3>
     </center>
     <a href="#" class="showmapbtn"> Show in Maps </a>
 </div>
@@ -63,27 +31,20 @@
 
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
                 <div class="customerlinegreen"></div>
-
                 <div class="container-fluid" id="venue-list-bg">
                     <div class="filtersidevenue">
-
-
                         <div class="list">
                             <div class="list-heading">Filter</div>
                             <div class="list-body">
                                 <div class="form-group">
-                                    <div class="form-check">
+                                    <div class="form-check venue_filters">
                                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
                                             required>
                                         <label class="form-check-label" for="invalidCheck2">
                                             Express Deals
                                         </label>
                                     </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
                                             required>
@@ -92,329 +53,105 @@
                                         </label>
                                     </div>
                                 </div>
-                                <!---- formgroup ------->
-                                <h4 class="venuecliphead"> Price</h4>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            SAR 80 - 150
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            SAR 151 - 200
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            SAR 201 - 250
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <h4 class="venuecliphead"> Venue Capacity</h4>
-                                <div class="form-group">
-                                    <div class="text-num">
-                                        <input class="venuetxt" type="text" />
-                                        <input class="venuetxt" type="text" />
-                                        <label class="venuemin">Min.</label>
 
-                                        <label class="venuemax">Max.</label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <h4 class="venuecliphead"> Venue Type</h4>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Open Space
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Closed Space
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Meeting Rooms
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Auditorium
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Restaurant
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Resort
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Lounge
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Celebration Hall
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Hotels
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <h4 class="venuecliphead"> Event Type</h4>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Business
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Personal
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Other
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <h4 class="venuecliphead"> Offers</h4>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Food
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Lighting
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Sound
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Decoration
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <h4 class="venuecliphead"> Facility / Amenities</h4>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Wi-Fi
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Parking
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Bar
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Spa
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Smoking Zone
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Restaurant
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Room Service
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Fitness Center
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <h4 class="venuecliphead"> Room Type</h4>
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Air Conditioning
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"
-                                            required>
-                                        <label class="form-check-label" for="invalidCheck2">
-                                            Non - Air Conditioning
-                                        </label>
-                                    </div>
-                                </div>
-                                <!---- formgroup ------->
+                                <!---- Price - formgroup ------->
+
+                                @if (isset($data["filters"]["price_range"]) && count($data["filters"]["price_range"]) >
+                                0)
+                                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["price_range"],
+                                'type_title'
+                                => 'Price'], ['prefix' => 'SAR'])
+                                @else
+                                <div>No data!!</div>
+                                @endif
+
+                                <!---- Seating Capacity - formgroup ------->
+
+                                @if (isset($data["filters"]["seating_capacity"]) &&
+                                count($data["filters"]["seating_capacity"])
+                                >
+                                0)
+                                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["seating_capacity"],
+                                'type_title'
+                                => 'Seating Capacity'])
+                                @else
+                                <div>No data!!</div>
+                                @endif
+
+                                <!---- Venue Type - formgroup ------->
+
+                                @if (isset($data["filters"]["vennue_types"]) && count($data["filters"]["vennue_types"])
+                                >
+                                0)
+                                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["vennue_types"],
+                                'type_title'
+                                => 'Venue Type'])
+                                @else
+                                <div>No data!!</div>
+                                @endif
+
+                                <!---- Event Type - formgroup ------->
+
+                                @if (isset($data["filters"]["event_types"]) && count($data["filters"]["event_types"])
+                                >
+                                0)
+                                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["event_types"],
+                                'type_title'
+                                => 'Event Type'])
+                                @else
+                                <div>No data!!</div>
+                                @endif
+
+                                <!---- Services Types - formgroup ------->
+
+                                @if (isset($data["filters"]["services_types"]) &&
+                                count($data["filters"]["services_types"])
+                                >
+                                0)
+                                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["services_types"],
+                                'type_title'
+                                => 'Service Types'])
+                                @else
+                                <div>No data!!</div>
+                                @endif
+
+                                <!---- Facility / Amenities - formgroup ------->
+
+                                @if (isset($data["filters"]["ammenties_types"]) &&
+                                count($data["filters"]["ammenties_types"])
+                                >
+                                0)
+                                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["ammenties_types"],
+                                'type_title'
+                                => 'Facility / Amenities'])
+                                @else
+                                <div>No data!!</div>
+                                @endif
+
+                                <!---- Room Type - formgroup ------->
+
+                                @if (isset($data["filters"]["room_types"]) &&
+                                count($data["filters"]["room_types"])
+                                >
+                                0)
+                                @include('ui_utils/filter-checks', ['filters' => $data["filters"]["room_types"],
+                                'type_title'
+                                => 'Room Type'])
+                                @else
+                                <div>No data!!</div>
+                                @endif
+
+                                <!---- Reset Filters ------->
+
                                 <a class="resetvenue" href id="Reset">Reset Filters</a>
                                 <div class="filterext"></div>
-
                             </div>
-
                         </div>
                         <!------- panel end -------->
-
                     </div>
                     <!-------filtersidvenue ---------->
-
-
                     <!---------- wishlist -------------------------------->
                     <div class="wishlistfive">
-
                         <!----------------------- tab container end -------------------->
                         <div class="row col-lg-10 col-md-10 col-sm-10 col-xs-10">
                             <div class="row venueslist">
@@ -442,7 +179,7 @@
 
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                                     <div class="content-optionblog">
-                                        <div class="wish-head"><b><a href="{{ url('/venuedetails/'.$vennueLists['vennueId']) }}">{{
+                                        <div class="wish-head"><b><a href="{{ url('/vennues/'.$vennueLists['vennueId']) }}">{{
                                                     $vennueLists["vennueName"] }}</a></b></div>
                                         <div class="spacer_boxtwo"></div>
 
@@ -492,6 +229,27 @@
                     </div>
                 </div>
                 <!------- venue-list-bg --------->
+
+                <!-- Venue list pagination -->
+                <div class="venuespagin">
+                    <ul class="pagination">
+                        <li class="page-item {{ ($data['paginate']['prev_page_url'])?'':'disabled' }}"><a class="page-link"
+                                href="{{ $data['paginate']['prev_page_url'] }}">Previous</a></li>
+                        @php $totalpages = $data["paginate"]["last_page"]; @endphp
+
+                        @foreach(range(1,$totalpages) as $i)
+                        @if($totalpages >0)
+                        <li class="page-item {{ ($data['paginate']['current_page']==$i)?'active':'' }}"><a class="page-link"
+                                href="{{ $data['paginate']['path'] }}?page={{ $i }}">{{
+                                $i }}</a></li>
+                        @endif
+                        @php $totalpages--; @endphp
+                        @endforeach
+                        <li class="page-item {{ ($data['paginate']['next_page_url'])?'':'disabled' }}"><a class="page-link"
+                                href="{{ $data['paginate']['next_page_url'] }}">Next</a></li>
+                    </ul>
+                </div>
+
             </div>
             <!------- tab close ------->
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -542,31 +300,13 @@
                     </div>
                 </div>
                 <!------------end of events content ---------------------->
-
-
-
             </div>
         </div>
     </div>
 </div>
 <!------- tabs end-------->
 
-<div class="venuespagin">
-    <ul class="pagination">
-        <li class="page-item {{ ($data['paginate']['prev_page_url'])?'':'disabled' }}"><a class="page-link" href="{{ $data['paginate']['prev_page_url'] }}">Previous</a></li>
-        @php $totalpages = $data["paginate"]["last_page"]; @endphp
-
-        @foreach(range(1,$totalpages) as $i)
-        @if($totalpages >0)
-        <li class="page-item {{ ($data['paginate']['current_page']==$i)?'active':'' }}"><a class="page-link" href="{{ $data['paginate']['path'] }}?page={{ $i }}">{{
-                $i }}</a></li>
-        @endif
-        @php $totalpages--; @endphp
-        @endforeach
-        <li class="page-item {{ ($data['paginate']['next_page_url'])?'':'disabled' }}"><a class="page-link" href="{{ $data['paginate']['next_page_url'] }}">Next</a></li>
-    </ul>
-</div>
-
 <div class="row"> </div>
 
 @include('shared/footer')
+<script src="{{ url('js/city-date.js') }}" type="text/javascript" charset="utf-8"></script>

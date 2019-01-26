@@ -90,18 +90,22 @@
 </footer>
 
 <!------- Footer end-------->
-
+<script type="text/javascript" charset="utf-8">
+var base_url = "{{ url('/') }}";
+</script>
 <script src="{{ url('vendors/jquery/jquery3.3.1.min.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ url('vendors/loader/javascriptsloader.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ url('vendors/popper/popper1.14.3.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ url('vendors/bootstrap/bootstrap.min.js') }}" type="text/javascript" charset="utf-8"></script>
-<script src="{{ url('vendors/js-cookie/js-cookie.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ url('vendors/datepicker/datepicker.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ url('vendors/slick/slick.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ url('vendors/validation/jquery.validate.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ url('vendors/notify/notify.min.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ url('vendors/js-cookie/js-cookie.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ url('vendors/shortener/shortener.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ url('js/main.js') }}" type="text/javascript" charset="utf-8"></script>
 
 <!------- footer start-------->
-
 </body>
 
 </html>

@@ -8,17 +8,21 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/bootstrap/bootstrap.min.css') }}" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/fontawesome/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('vendors/datepicker/datepicker.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/slick/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/slick/slick-theme.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/notify/notify.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('vendors/loader/loader.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/fonts.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
 
 </head>
 
-<body>
-    <!------- Header start-------->
+<!-- This id is used for many purposes, please do not remove or modify it -->
 
+<body id="bodyContainer">
+
+    <!------- Header start-------->
     <nav class="twobutton">
         <div class="float-right">
 
@@ -36,7 +40,7 @@
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url('/logout?isWeb=true') }}">Logout</a>
+                        <a class="dropdown-item" onclick="logout()">Logout</a>
                     </div>
                 </div>
 
@@ -50,65 +54,43 @@
     </nav>
     <header>
         <nav class="navbar bg-white">
-            <a class="navbar-brand" href="/"> <img src="svg/images/monasabatna_final_logo.png" height="50"></a>
+            <a class="navbar-brand" href="{{ url('/') }}"> <img src={{ url('svg/images/monasabatna_final_logo.png') }}
+                    height="50"></a>
             <navbar>
                 <ul>
                     <li>
-                        <b> <a href="#" class="active">HOME </a></b>
+                        <b> <a href="{{ url('/') }}" class="active">HOME </a></b>
                     </li>
-                    <b>
-                        <li><a href="#"> EXPRESS </a></li>
-                    </b>
-                    <b>
-                        <li><a href="#"> VENUES</a></li>
-                    </b>
-                    <b>
-                        <li><a href="#">SUPPLIERS </a></li>
-                    </b>
-                    <b>
-                        <li><a href="#"> EVENT ORGANISERS </a></li>
-                    </b>
+                    <li><a href="#"> EXPRESS </a></li>
+                    <li><a href="#"> VENUES</a></li>
+                    <li><a href="#">SUPPLIERS </a></li>
+                    <li><a href="#"> EVENT ORGANISERS </a></li>
                     <li class="submenu">
-                        <b><a href="#">ABOUT US</a></b>
+                        <a href="#">ABOUT US</a></b>
                         <ul id="browse">
-                            <b>
-                                <li class="abovedrop"><a href="#">About us</a></li>
-                            </b>
-                            <b>
-                                <li class="abovedrop"><a href="#">Why Munasabatna</a></li>
-                            </b>
-                            <b>
-                                <li class="abovedrop"><a href="#">Blogs</a></li>
-                            </b>
-                            <b>
-                                <li class="abovedrop"><a href="#">Contact us</a></li>
-                            </b>
+                            <li class="abovedrop"><a href="#">About us</a></li>
+                            <li class="abovedrop"><a href="#">Why Munasabatna</a></li>
+                            <li class="abovedrop"><a href="#">Blogs</a></li>
+                            <li class="abovedrop"><a href="#">Contact us</a></li>
                         </ul>
                     </li>
-                    <b>
-                        <li><a href="#">CUSTOMER SERVICE </a></li>
-                    </b>
-                    <b>
-                        <li><a href="#"> WISHLIST</a></li>
-                    </b>
+                    <li><a href="#">CUSTOMER SERVICE </a></li>
+                    <li><a href="#"> WISHLIST</a></li>
                     <li>
                         <a class="btn btn-default booknow-header" href="#">Book Now</a>
                     </li>
                 </ul>
+                <!-- <div class="menu-toggle"><i class="fa fa-bars" arial-hidden="true"></i></div> -->
+            </navbar>
         </nav>
-        <!---<div class="menu-toggle"><i class="fa fa-bars" arial-hidden="true"></i></div> -->
-        </navbar>
     </header>
-
     <!------- Header end-------->
 
     <div class="content-wrapper">
         <!-- Main content -->
-        <?php
-        if (isset($main_content)) {
-            echo $main_content;
-        }
-    ?>
+        @if(isset($main_content))
+        {{ $main_content }}
+        @endif
         <!-- /.content -->
         <div id="google_translate_element"></div>
     </div>

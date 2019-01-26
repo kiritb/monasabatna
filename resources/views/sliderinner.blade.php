@@ -3,8 +3,11 @@
         @if (count($slides) > 0)
         @foreach ($slides as $key=>$slide)
         <div class="carousel-item {{ ($key==0)?'active':'' }}">
-            <img class="d-block w-100" src={{ $slide['filePath'] }} alt={{ $slide['linkable_type'] }}>
-            <div class="carousel-caption d-none d-md-block">
+            <img class="d-block" src={{ $slide['filePath'] }} alt={{ $slide['linkable_type'] }}>
+            <div class="carousel-caption home-banner-captions">
+                <h1 class="bannerfont">
+                    Performance Appraisal
+                </h1>
             </div>
         </div>
         @endforeach

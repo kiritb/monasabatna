@@ -32,6 +32,12 @@ class VennueController extends Controller
                 return view('dynamicpages/venue_list')->with('data', $responseArr);
             }
 
+            try {
+                $vennueListingData['filters'] = VennueHelper::vennueFilters();
+            } catch (\Exception $e) {
+                $vennueListingData['filters'] = 'Filters not found';
+            }
+
             return view('dynamicpages/venue_list')->with('data', $vennueListingData);
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(
