@@ -47,7 +47,8 @@ class HomeController extends Controller
     {
         $requestParams = $request->all();
 
-        $rules = [  
+        $rules = [      
+                        'name'              => 'required',
                         'country_code'      => 'required',
                         'phone_number'      => 'required',
                         'email'             => 'required|string|email|max:255',

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
+ * @property string $name
  * @property string $country_code
  * @property integer $phone_number
  * @property string $email
@@ -35,7 +36,7 @@ class FacilitateCustomerService extends Model
     /**
      * @var array
      */
-    protected $fillable = ['country_code', 'phone_number', 'email', 'event_date', 'event_type', 'no_of_guests', 'food_type', 'decoration_type', 'budget', 'note',
+    protected $fillable = ['name', 'country_code', 'phone_number', 'email', 'event_date', 'event_type', 'no_of_guests', 'food_type', 'decoration_type', 'budget', 'note',
         'status', 'created_by', 'updated_by'];
 
 }

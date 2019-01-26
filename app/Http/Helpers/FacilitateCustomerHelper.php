@@ -25,6 +25,7 @@ class FacilitateCustomerHelper
         try
         {   
              FacilitateCustomerService::create([
+                'name'                  => $data['country_code'],
                 'country_code'          => $data['country_code'],
                 'phone_number'          => $data['phone_number'],
                 'email'                 => $data['email'],

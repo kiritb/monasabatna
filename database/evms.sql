@@ -736,6 +736,7 @@ create table evms.blogs(
 DROP TABLE IF EXISTS evms.facilitate_customer_service;
 create table evms.facilitate_customer_service(
   id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(256) NOT NULL,
   country_code varchar(5) NOT NULL,
   phone_number varchar(10) NOT NULL,
   email varchar(256) NOT NULL,
