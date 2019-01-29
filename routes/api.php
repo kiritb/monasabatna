@@ -22,6 +22,9 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::post('login', 'Auth\LoginController@login');
 
+    Route::post('home', 'Api\LoginController@forgotpassword');
+
+
     Route::get('home', 'Api\HomeController@index');
 
     Route::get('expressdeals', 'Api\VennueController@getExpressDeals');
@@ -71,6 +74,9 @@ Route::group(['prefix' => 'v1'], function () {
 
 
     Route::get('packages/suppliers', 'Api\EventController@getPackageSupplierList');
+    
+    Route::get('packages/eventorganisers', 'Api\EventController@getPackageEventOrganisersList');
+
     Route::get('packages/eventorganisers', 'Api\EventController@getPackageEventOrganisersList');
 
 

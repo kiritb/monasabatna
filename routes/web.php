@@ -66,7 +66,15 @@ Route::get('paymentconfirmation', function () {
 Route::get('infoguestlogin', function () {
     return view('dynamicpages/infoguestlogin');
 });
-
+Route::get('vendorforgetpwd', function () {
+    return view('dynamicpages/vendor_forgetpwd');
+});
+Route::get('vendorotp', function () {
+    return view('dynamicpages/vendor_otp');
+});
+Route::get('vendor_retypepwd', function () {
+    return view('dynamicpages/vendor_retypepwd');
+});
 Route::get('packagelist', function () {
     return view('dynamicpages/packagelist');
 });

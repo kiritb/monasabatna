@@ -356,3 +356,32 @@ input.form-control.text-high {
         padding: 0px 111px 0px 0px;
     }
 }
+
+/* Reposition the controls slightly */
+.carousel-control {
+    left: -12px;
+}
+
+.carousel-control.right {
+    right: -12px;
+}
+
+/* Changes the position of the indicators */
+
+/* Changes the colour of the indicators */
+.carousel-indicators li {
+    background: #c0c0c0;
+}
+
+.carousel-indicators .active {
+    background: #333333;
+}
+
+img.arrow-marginetheme {
+    margin-left: 36px;
+    margin-top: 6px;
+}
+
+img.arrow-marginethemetwo {
+    margin-left: -117px;
+}
