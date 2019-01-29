@@ -1010,5 +1010,217 @@ class EventHelper
 
     }
 
+    public static function getPackageSupplierList($filterArr)
+    {
+        $returnArr = [];
+
+        $todaysDate = date('Y-m-d h:i:s');
+
+        try
+        {
+
+            $supplierSql = Suppliers::select(   'suppliers.id as supplierId',
+                                                'suppliers.name as supplierName',
+                                                'packages.id as pacakgeId',
+                                                'packages.name as pacakgeName',
+                                                'packages.short_description as packageDescription',
+                                                'suppliers.rating',
+                                                'files.file_path as filePath',
+                                                'pricings.actual_price as actualPrice',
+                                                'pricings.discount',
+                                                'pricing_type.name as pricingType',
+                                                'event_types.name as eventType'
+                                            )
+                ->join('packages', 'packages.linkable_id', '=', 'suppliers.id')
+                ->join('files', 'files.linkable_id', '=', 'packages.id')
+                ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
+                ->join('pricings', 'pricings.linkable_id', '=', 'packages.id')
+                ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
+                ->where('packages.linkable_type', 'suppliers')
+                ->where('files.linkable_type', 'packages')
+                ->where('pricings.linkable_type', 'packages')
+                ->where('files.file_type', 'home_page_display')
+                ->where('suppliers.status', 1)
+                ->where('pricings.status', 1)
+                ->where('files.status', 1)
+                ->where('event_types.status', 1)
+                ->where('packages.status', 1);
+
+            if (isset($filterArr['city']) && !empty($filterArr['city'])) {
+                $supplierSql->join('address', 'suppliers.id', '=', 'address.linkable_id')
+                            ->join('cities', 'address.city_id', '=', 'cities.id')
+                            ->where('address.linkable_type', 'suppliers')
+                            ->where('address.status', 1)
+                            ->whereIn('cities.name', $filterArr['city']);
+
+            }
+
+            if (isset($filterArr['event_types']) && !empty($filterArr['event_types'])) {
+                $supplierSql->whereIn('event_types.name', $filterArr['event_types']);
+            }
+
+            if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
+
+                $todaysDate = $filterArr['from_date'];
+
+                $supplierSql->join('orders', 'orders.linkable_id', '=', 'suppliers.id')
+                    ->where('orders.linkable_type', 'suppliers')
+                    ->whereNotBetween('orders.booking_from_date', [$filterArr['from_date'], $filterArr['to_date']])
+                    ->whereNotBetween('orders.booking_to_date', [$filterArr['to_date'], $filterArr['from_date']]);
+
+            }
+
+            if (isset($filterArr['is_express_deal']) && ($filterArr['is_express_deal'])) {
+
+                $supplierSql->where('suppliers.is_express_deal', 1);
+            }
+
+            if (isset($filterArr['rating']) && !empty($filterArr['rating'])) {
+                if (strtolower($filterArr['rating']) == MiscConst::RATING_HIGH_TO_LOW) {
+                    $supplierSql->orderBy('suppliers.rating', 'desc');
+                } else if (strtolower($filterArr['rating']) == MiscConst::RATING_LOW_TO_HIGH) {
+                    $supplierSql->orderBy('suppliers.rating', 'asc');
+                }
+
+            }
+
+            $suppliersDetails = $supplierSql->orderBy('suppliers.order_no', 'asc')
+                                            ->orderBy('suppliers.created_at', 'asc')
+                                            ->paginate(2);
+            
+            $suppliersArr = $suppliersDetails->toArray();
+
+            if (empty($suppliersArr['data']) ) {
+                \Log::info(__CLASS__ . " " . __FUNCTION__ . " Suppliers  Data does not exists ");
+
+                return [];
+
+            }
+            
+
+            $returnArr['suppliersList'] = $suppliersArr['data'];
+
+            unset($suppliersArr['data']);
+
+            $returnArr['paginate'] = $suppliersArr;
+
+            return $returnArr;
+
+        } catch (\Exception $e) {
+            \Log::info(__CLASS__ . " " . __FUNCTION__ . " Exception Occured while Fetching Package Supplier Listings " . print_r($e->getMessage(), true));
+
+            throw new \Exception(" Exception Occured while Fetching Package Supplier Listings", 1);
+
+        }
+
+    }
+
+
+    public static function getPackageEventOrganisersList($filterArr)
+    {
+        $returnArr = [];
+
+        $todaysDate = date('Y-m-d h:i:s');
+
+        try
+        {
+
+            $eventOrganinserSql = EventOrganisers::select( 
+                                                        'event_organisers.id as eventOrganisersId',
+                                                        'event_organisers.name as eventOrgainsersName',
+                                                        'packages.id as pacakgeId',
+                                                        'packages.name as pacakgeName',
+                                                        'packages.short_description as packageDescription',
+                                                        'event_organisers.rating',
+                                                        'files.file_path as filePath',
+                                                        'pricings.actual_price as actualPrice',
+                                                        'pricings.discount',
+                                                        'pricing_type.name as pricingType',
+                                                        'event_types.name as eventType'
+                                            )
+                ->join('packages', 'packages.linkable_id', '=', 'event_organisers.id')
+                ->join('files', 'files.linkable_id', '=', 'packages.id')
+                ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
+                ->join('pricings', 'pricings.linkable_id', '=', 'packages.id')
+                ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
+                ->where('packages.linkable_type', 'event_organisers')
+                ->where('files.linkable_type', 'packages')
+                ->where('pricings.linkable_type', 'packages')
+                ->where('files.file_type', 'home_page_display')
+                ->where('event_organisers.status', 1)
+                ->where('pricings.status', 1)
+                ->where('files.status', 1)
+                ->where('event_types.status', 1)
+                ->where('packages.status', 1);
+
+            if (isset($filterArr['city']) && !empty($filterArr['city'])) {
+                $eventOrganinserSql->join('address', 'event_organisers.id', '=', 'address.linkable_id')
+                            ->join('cities', 'address.city_id', '=', 'cities.id')
+                            ->where('address.linkable_type', 'suppliers')
+                            ->where('address.status', 1)
+                            ->whereIn('cities.name', $filterArr['city']);
+
+            }
+
+            if (isset($filterArr['event_types']) && !empty($filterArr['event_types'])) {
+                $eventOrganinserSql->whereIn('event_types.name', $filterArr['event_types']);
+            }
+
+            if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
+
+                $todaysDate = $filterArr['from_date'];
+
+                $eventOrganinserSql->join('orders', 'orders.linkable_id', '=', 'suppliers.id')
+                    ->where('orders.linkable_type', 'event_organisers')
+                    ->whereNotBetween('orders.booking_from_date', [$filterArr['from_date'], $filterArr['to_date']])
+                    ->whereNotBetween('orders.booking_to_date', [$filterArr['to_date'], $filterArr['from_date']]);
+
+            }
+
+            if (isset($filterArr['is_express_deal']) && ($filterArr['is_express_deal'])) {
+
+                $eventOrganinserSql->where('event_organisers.is_express_deal', 1);
+            }
+
+            if (isset($filterArr['rating']) && !empty($filterArr['rating'])) {
+                if (strtolower($filterArr['rating']) == MiscConst::RATING_HIGH_TO_LOW) {
+                    $eventOrganinserSql->orderBy('event_organisers.rating', 'desc');
+                } else if (strtolower($filterArr['rating']) == MiscConst::RATING_LOW_TO_HIGH) {
+                    $eventOrganinserSql->orderBy('event_organisers.rating', 'asc');
+                }
+
+            }
+
+            $eventOrganinsersDetails = $eventOrganinserSql->orderBy('event_organisers.order_no', 'asc')
+                                            ->orderBy('event_organisers.created_at', 'asc')
+                                            ->paginate(2);
+            
+            $eventOrganinsersArr = $eventOrganinsersDetails->toArray();
+
+            if (empty($eventOrganinsersArr['data']) ) {
+                \Log::info(__CLASS__ . " " . __FUNCTION__ . " Event organinsers Data does not exists ");
+
+                return [];
+
+            }
+            
+
+            $returnArr['eventOrganiserslist'] = $eventOrganinsersArr['data'];
+
+            unset($eventOrganinsersArr['data']);
+
+            $returnArr['paginate'] = $eventOrganinsersArr;
+
+            return $returnArr;
+
+        } catch (\Exception $e) {
+            \Log::info(__CLASS__ . " " . __FUNCTION__ . " Exception Occured while Fetching Package Event organinsers Listings " . print_r($e->getMessage(), true));
+
+            throw new \Exception(" Exception Occured while Fetching Package Event organinsers Listings", 1);
+
+        }
+
+    }
+
 
 }

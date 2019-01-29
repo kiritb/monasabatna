@@ -261,7 +261,7 @@
         </p>
         <div class="row" id="form-home">
             <!-- Contact form will be loaded here -->
-            @include("shared/customer-service")
+            @include("shared/facilitate-customer-service")
         </div>
     </div>
 </div>

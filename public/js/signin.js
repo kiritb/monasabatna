@@ -63,14 +63,15 @@ function signinFn(event) {
             notifier(params);
         },
         error: function (xhr) {
-            // if error occured
-            var params = {
-                msg: xhr.statusText,
-                closable: true
+            params = {
+                title: "Error!",
+                message: xhr.statusText,
+                type: "danger",
+                autoHide: true,
+                delay: 10000
             };
-            var errorIs = errorAlert(params);
-            $(".bg-custsignin").prepend('<div class="error-holder"></div>');
-            $(".error-holder").html(errorIs);
+
+            notifier(params);
         },
         complete: function () {
             $("form").each(function () {

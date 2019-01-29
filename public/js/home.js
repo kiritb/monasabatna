@@ -46,7 +46,115 @@ $(document).ready(function () {
             notifier(params);
         }
     });
+
+    $("#facilitate-form").validate({
+        rules: {
+            name: {
+                required: true,
+                minlength: 3
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            country_code: {
+                required: true,
+                minlength: 1
+            },
+            phone_number: {
+                required: true,
+                minlength: 10
+            },
+            event_date: {
+                required: true,
+                date: true
+            },
+            event_type: {
+                required: true
+            },
+            no_of_guests: {
+                required: true,
+                minlength: 1
+            },
+            food_type: {
+                required: true
+            },
+            decoration_type: {
+                required: true
+            },
+            budget: {
+                required: true
+            },
+            note: {
+                required: true,
+                minlength: 10
+            }
+        },
+        errorPlacement: function (error, element) {
+            return true;
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass("is-invalid").removeClass("is-valid");
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).addClass("is-valid").removeClass("is-invalid");
+        },
+        submitHandler: function (event) {
+            var formData = $('form').serialize();
+            faciLitate(event, formData);
+        }
+    });
+
+    $('#facilitate-form .datepicker').datepicker({
+        uiLibrary: 'bootstrap4',
+        format: 'yyyy-mm-dd'
+    });
 });
+
+function faciLitate(event, formData) {
+    $.ajax({
+        url: base_url + "/facilitate",
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        contentType: "application/x-www-form-urlencoded",
+        beforeSend: function () {
+            console.log("inside beforeSend!!");
+        },
+        success: function (response) {
+            var params;
+            if (response.data) {
+                params = {
+                    title: "Success!",
+                    message: response.data.message,
+                    type: "success",
+                    autoHide: true,
+                    delay: 10000
+                };
+            } else {
+                params = {
+                    title: "No Data!",
+                    message: "No Data for why us!",
+                    type: "danger",
+                    autoHide: true,
+                    delay: 10000
+                };
+            }
+            notifier(params);
+        },
+        error: function (xhr) {
+            // if error occured
+            var params = {
+                title: "Error!",
+                message: xhr.statusText,
+                type: "danger",
+                autoHide: true,
+                delay: 10000
+            };
+            notifier(params);
+        }
+    });
+}
 
 // Testimonial
 var slideIndex = 1;

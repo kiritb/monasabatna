@@ -1,6 +1,6 @@
 <!------- footer start-------->
 
-<footer class="container-fluid text-center text-md-left" id="footone">
+<footer class="container-fluid text-center text-md-left" id="primary-footer">
 
     <div class="row col-sm-12">
 
@@ -83,15 +83,14 @@
 
 </footer>
 
-<footer class="container-fluid text-center" id="foottwo">
-
+<footer class="container-fluid text-center" id="secondary-footer">
     <p>Copyright 2018 Munasabatana. All rights reserved</p>
-
 </footer>
 
 <!------- Footer end-------->
 <script type="text/javascript" charset="utf-8">
-var base_url = "{{ url('/') }}";
+    var base_url = "{{ url('/') }}";
+
 </script>
 <script src="{{ url('vendors/jquery/jquery3.3.1.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ url('vendors/loader/javascriptsloader.js') }}" type="text/javascript" charset="utf-8"></script>

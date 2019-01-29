@@ -18,7 +18,7 @@
 <body>
     <!------- Header start-------->
 
-    <nav class="twobutton">
+    <nav class="header-secondary">
         <div class="float-right">
             <a href class="btn btn-outline-success"><img src={{ url('svg/images/photohead') }}><span class="badge"></span></a>
             <a href class="btn btn-sm btn-outline-secondary">SIGN UP</a>

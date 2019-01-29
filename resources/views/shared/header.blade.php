@@ -15,35 +15,31 @@
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/loader/loader.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/fonts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
-
+    <link rel="stylesheet" type="text/css" href="{{ url('css/asigned.css') }}">
 </head>
 
 <!-- This id is used for many purposes, please do not remove or modify it -->
 
 <body id="bodyContainer">
-
     <!------- Header start-------->
-    <nav class="twobutton">
+    <nav class="header-secondary">
         <div class="float-right">
-
             @if (Route::has('login'))
             <div class="top-right links">
                 @auth
-
                 <!-- Example split danger button -->
                 <div class="btn-group">
                     <div class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Profile
                     </div>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">User info</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Privacy</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" onclick="logout()">Logout</a>
                     </div>
                 </div>
-
                 @else
                 <a class="btn btn-outline-success" href="{{ route('login') }}">Login</a>
                 <a class="btn btn-sm btn-outline-secondary" href="{{ route('register') }}">Register</a>
@@ -66,7 +62,7 @@
                     <li class="nav-item submenu">
                         <a href={{ url('/about') }}>ABOUT US</a>
                         <ul id="browse">
-                            <li class="abovedrop"><a href={{ url('/about') }}>About us</a></li>
+                            <li class="abovedrop"><a href={{ url('/aboutus') }}>About us</a></li>
                             <li class="abovedrop"><a href={{ url('/whyus') }}>Why Munasabatna</a></li>
                             <li class="abovedrop"><a href={{ url('/blogs') }}>Blogs</a></li>
                             <li class="abovedrop"><a href={{ url('/contactus') }}>Contact us</a></li>
@@ -83,7 +79,6 @@
         </nav>
     </header>
     <!------- Header end-------->
-
     <div class="content-wrapper">
         <!-- Main content -->
         @if(isset($main_content))

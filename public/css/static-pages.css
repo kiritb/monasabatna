@@ -5,78 +5,84 @@
     color: #4b485b;
     font-family: KittenBold;
 }
+
 div#abt-testi {
     float: left;
 }
+
 .leftabout {
     padding-top: 18px;
 }
-div#abtone {
-    padding-left: 0px;
-    padding-right: 0px;
-}
+
 .row.abtfirst {
     padding-left: 0px;
     padding-right: 0px;
 }
+
 .leftalignabout {
     width: 50%;
     padding: 0px;
 }
+
 .rightalignabout {
     width: 50%;
     padding: 0px;
 }
-.about-headicon{
+
+.about-headicon {
     margin-left: 5%;
     font-size: 24px;
     font-family: Myriad pro;
     color: #4b485b;
 }
+
 .about-headzone {
-  width: 91%;
-  padding-left:30px;
+    width: 91%;
+    padding-left: 30px;
     text-align: left;
     overflow: hidden;
     color: #4b485b;
     font-size: 14px;
 }
+
 i#about {
     font-size: 25px;
     color: #6cc0b9;
 }
-.about-btn, .supp-btn, .eventorg-btn {
-    width: 41%;
+
+.about-btn,
+.supp-btn,
+.eventorg-btn {
     border-radius: 20px;
-    background-color: #fff!important;
-    color: #6cc0b9!important;
+    background-color: #fff !important;
+    color: #6cc0b9 !important;
     border: 2px solid #6cc0b9;
     font-weight: bolder;
     text-decoration: none;
 }
-#bgabt{
-color:#f7f7f7;
+
+#bgabt {
+    color: #f7f7f7;
 }
-.supp-btn{
-    width:47%;
-}
-.eventorg-btn{
-width:71%;
-}
+
 .row.testiabthole {
     margin-left: 41%;
 }
-.colone{
-    width:30%;
+
+.colone {
+    width: 30%;
     float: left;
 }
-.coltwo{
-    width:30%;
+
+.coltwo {
+    width: 30%;
     float: left;
 }
-.colthree{
-    width:30%;
+
+.colthree {
+    width: 30%;
 }
+
 .about-btn:hover {
     border-radius: 20px;
     background-color: #6cc0b9;
@@ -92,9 +98,11 @@ width:71%;
     color: #4b485b;
     font-size: 14px;
 }
+
 .imgabtf {
     width: 32%;
 }
+
 .testi-text {
     text-align: left;
     margin-left: 90px;
@@ -253,27 +261,72 @@ a {
 div#whyus-align {
     min-height: 200px;
 }
+
 /*******************************media queries for about us page ******************/
-@media screen and (max-width: 768px){
-    .about-headzone{
-        font-size:11px;
+@media screen and (max-width: 768px) {
+    .about-headzone {
+        font-size: 11px;
     }
-    .about-btn{
+
+    .about-btn {
         font-size: 6px;
     }
-    .eventorg-btn{
-        font-size:6px;
+
+    .eventorg-btn {
+        font-size: 6px;
     }
-    .supp-btn{
-        font-size:6px;
+
+    .supp-btn {
+        font-size: 6px;
     }
 }
-@media screen and (max-width: 488px){
-    .about-headzone{
-        font-size:8px;
+
+@media screen and (max-width: 488px) {
+    .about-headzone {
+        font-size: 8px;
     }
-    .supp-btn{
-        font-size:5px;
+
+    .supp-btn {
+        font-size: 5px;
         line-height: 3;
     }
+}
+
+/* CSS for our team slick slider in ABout us page */
+
+#bg-about {
+    background: #f9f2f2;
+}
+
+#bg-about .slick-initialized .slick-slide {
+    text-align: center;
+    padding: 0 20px;
+}
+
+#bg-about .slick-initialized .slick-slide img {
+    display: block;
+    width: 200px;
+    max-height: 200px;
+    margin: auto;
+}
+
+.our-team h1 {
+    font-family: KittenBold;
+    font-size: 30px;
+    color: #4b485b;
+    font-style: italic;
+}
+
+.employee-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.employee-designation {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.employee-desc {
+    font-size: 14px;
 }

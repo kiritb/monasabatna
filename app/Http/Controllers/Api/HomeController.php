@@ -227,13 +227,13 @@ class HomeController extends Controller
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
-    }    
+    }
 
     public function facilitateService(Request $request)
     {
         $requestParams = $request->all();
 
-        $rules = [      
+        $rules = [
                         'name'              => 'required',
                         'country_code'      => 'required',
                         'phone_number'      => 'required',
@@ -245,8 +245,7 @@ class HomeController extends Controller
 
         $validator = Validator::make($requestParams, $rules);
 
-        if ($validator->fails()) 
-        {
+        if ($validator->fails()) {
             $errorMessages = current($validator->messages());
             
             foreach ($errorMessages as $key => $value) {
@@ -259,12 +258,10 @@ class HomeController extends Controller
         }
 
         try {
-                FacilitateCustomerHelper::FacilitateCustomerService( $requestParams );
+            FacilitateCustomerHelper::FacilitateCustomerService($requestParams);
 
-                return response(ResponseUtil::buildSuccessResponse(['message' =>'Thank you for contacting us, our representative will contact you shortly']), HttpStatusCodesConsts::HTTP_CREATED);
-
-        } catch (\Exception $e) 
-        {
+            return response(ResponseUtil::buildSuccessResponse(['message' =>'Thank you for contacting us, our representative will contact you shortly']), HttpStatusCodesConsts::HTTP_CREATED);
+        } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);

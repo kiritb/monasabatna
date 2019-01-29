@@ -1,4 +1,13 @@
 $(document).ready(function () {
+
+    $(".ourTeamSlicker").slick({
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autospeed: 2000
+    });
+
     $("#whyus-align").overlayMask({
         do: "show"
     });

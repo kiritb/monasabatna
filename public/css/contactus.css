@@ -126,19 +126,25 @@ div#contactworld {
     padding: 15px 0px 0px 41px;
 }
 
-input#exampleInputfname,
-input#exampleInputsname,
-input#exampleInputfamname {
-    height: 40px;
-    width: 50%;
+#contact-us-form input,
+#contact-us-form textarea {
     border: 2px solid #9e9e9e;
+    height: 40px;
+}
+
+#contact-us-form input.form-control.is-invalid,
+#contact-us-form textarea.form-control.is-invalid {
+    border: 2px solid red;
+}
+
+.contact-form-inputs {
+    width: 50%;
     border-radius: 8px;
 }
 
 textarea#exampleInputmsgadd {
     height: 114px;
     width: 97%;
-    border: 2px solid #9e9e9e;
     border-radius: 8px;
 }
 
@@ -149,7 +155,6 @@ textarea#exampleInputmsgadd {
 
 .ctusbtn {
     width: 97%;
-    height: 40px;
     background-color: #6cc0b9;
     color: #fff;
     font-weight: bold;
@@ -157,11 +162,9 @@ textarea#exampleInputmsgadd {
 }
 
 input#exampleInputphone {
-    height: 40px;
     width: 50%;
     width: 266px;
     margin-left: -114px;
-    border: 2px solid #9e9e9e;
     border-radius: 8px;
 }
 
@@ -170,16 +173,12 @@ input#exampleInputphone {
 }
 
 input#exampleInputext {
-    height: 40px;
     width: 40%;
-    border: 2px solid #9e9e9e;
     border-radius: 8px;
 }
 
 input#exampleInputemailadd {
-    height: 40px;
     width: 50%;
-    border: 2px solid #9e9e9e;
     border-radius: 8px;
 }
 

@@ -69,6 +69,12 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::get('blogs', 'Api\BlogController@getBlogs');
 
+
+    Route::get('packages/suppliers', 'Api\EventController@getPackageSupplierList');
+    Route::get('packages/eventorganisers', 'Api\EventController@getPackageEventOrganisersList');
+
+
+
 });
 
 

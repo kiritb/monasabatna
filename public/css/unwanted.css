@@ -1,0 +1,358 @@
+/*****************************start for 003_3_5_theme_detail ***************************/
+
+/* multi gallery start for 003_3_5_theme_detail */
+
+.carousel-showmanymoveone .carousel-control {
+    width: 4%;
+    background-image: none;
+}
+
+.carousel-showmanymoveone .carousel-control.left {
+    margin-left: 0;
+
+}
+
+.carousel-showmanymoveone .carousel-control.right {
+    margin-right: 0;
+}
+
+.carousel-showmanymoveone .cloneditem-1,
+.carousel-showmanymoveone .cloneditem-2,
+.carousel-showmanymoveone .cloneditem-3 {
+    display: none;
+}
+
+.carousel .item .col-xs-12 {
+    padding: 0;
+}
+
+#left-click {
+    margin-left: -30px !important;
+    margin-top: 56px !important;
+}
+
+#right-click {
+    margin-right: -50px !important;
+    margin-top: 56px !important;
+}
+
+#padding-given {
+    padding-left: 10px;
+}
+
+/* Medium Devices, Desktops */
+
+@media only screen and (max-width: 992px) {
+    .carousel .item .col-xs-12:nth-last-child(-n+2) {
+        display: none;
+    }
+}
+
+@media all and (min-width: 768px) {
+
+    .carousel-showmanymoveone .carousel-inner>.active.left,
+    .carousel-showmanymoveone .carousel-inner>.prev {
+        left: -50%;
+    }
+
+    .carousel-showmanymoveone .carousel-inner>.active.right,
+    .carousel-showmanymoveone .carousel-inner>.next {
+        left: 50%;
+    }
+
+    .carousel-showmanymoveone .carousel-inner>.left,
+    .carousel-showmanymoveone .carousel-inner>.prev.right,
+    .carousel-showmanymoveone .carousel-inner>.active {
+        left: 0;
+    }
+
+    .carousel-showmanymoveone .carousel-inner .cloneditem-1 {
+        display: block;
+    }
+}
+
+@media all and (min-width: 768px) and (transform-3d),
+all and (min-width: 768px) and (-webkit-transform-3d) {
+
+    .carousel-showmanymoveone .carousel-inner>.item.active.right,
+    .carousel-showmanymoveone .carousel-inner>.item.next {
+        transform: translate3d(50%, 0, 0);
+        -webkit-transform: translate3d(50%, 0, 0);
+        -ms-transform: translate3d(50%, 0, 0);
+        -moz-transform: translate3d(50%, 0, 0);
+        -o-transform: translate3d(50%, 0, 0);
+        left: 10px;
+    }
+
+    .carousel-showmanymoveone .carousel-inner>.item.active.left,
+    .carousel-showmanymoveone .carousel-inner>.item.prev {
+        transform: translate3d(-50%, 0, 0);
+        -webkit-transform: translate3d(-50%, 0, 0);
+        -ms-transform: translate3d(-50%, 0, 0);
+        -moz-transform: translate3d(-50%, 0, 0);
+        -o-transform: translate3d(-50%, 0, 0);
+        left: 10px;
+    }
+
+    .carousel-showmanymoveone .carousel-inner>.item.left,
+    .carousel-showmanymoveone .carousel-inner>.item.prev.right,
+    .carousel-showmanymoveone .carousel-inner>.item.active {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        left: 0;
+    }
+}
+
+@media all and (min-width: 992px) {
+
+    .carousel-showmanymoveone .carousel-inner>.active.left,
+    .carousel-showmanymoveone .carousel-inner>.prev {
+        left: -16.6%;
+    }
+
+    .carousel-showmanymoveone .carousel-inner>.active.right,
+    .carousel-showmanymoveone .carousel-inner>.next {
+        left: 16.6%;
+    }
+
+    .carousel-showmanymoveone .carousel-inner>.left,
+    .carousel-showmanymoveone .carousel-inner>.prev.right,
+    .carousel-showmanymoveone .carousel-inner>.active {
+        left: 0;
+    }
+
+    .carousel-showmanymoveone .carousel-inner .cloneditem-2,
+    .carousel-showmanymoveone .carousel-inner .cloneditem-3 {
+        display: block;
+    }
+}
+
+@media all and (min-width: 992px) and (transform-3d),
+all and (min-width: 992px) and (-webkit-transform-3d) {
+
+    .carousel-showmanymoveone .carousel-inner>.item.active.right,
+    .carousel-showmanymoveone .carousel-inner>.item.next {
+        transform: translate3d(16.6%, 0, 0);
+        -webkit-transform: translate3d(16.6%, 0, 0);
+        -ms-transform: translate3d(16.6%, 0, 0);
+        -o-transform: translate3d(16.6%, 0, 0);
+        -moz-transform: translate3d(16.6%, 0, 0);
+        left: 0;
+    }
+
+    .carousel-showmanymoveone .carousel-inner>.item.active.left,
+    .carousel-showmanymoveone .carousel-inner>.item.prev {
+        transform: translate3d(-16.6%, 0, 0);
+        -webkit-transform: translate3d(-16.6%, 0, 0);
+        -moz-transform: translate3d(-16.6%, 0, 0);
+        -o-transform: translate3d(-16.6%, 0, 0);
+        -ms-transform: translate3d(-16.6%, 0, 0);
+        left: 0;
+    }
+
+    .carousel-showmanymoveone .carousel-inner>.item.left,
+    .carousel-showmanymoveone .carousel-inner>.item.prev.right,
+    .carousel-showmanymoveone .carousel-inner>.item.active {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        left: 0;
+    }
+}
+
+/************ Gallery multi end ******************/
+
+input.form-control.venuemainfrm {
+    width: 80%;
+    height: 40px;
+    margin-left: 7px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+input.form-control.venuemainone {
+    width: 80%;
+    height: 40px;
+    margin-left: -3%;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+input.form-control.venuedatefr {
+    width: 80%;
+    height: 40px;
+    margin-left: -5%;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+input.form-control.venuedateto {
+    width: 80%;
+    margin-left: -6%;
+    height: 40px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+input.form-control.themevenue {
+    width: 80%;
+    height: 40px;
+    margin-left: -51px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+}
+
+span.date-element-venuedtpick {
+    position: absolute;
+    color: #9e9e9e;
+    width: 75px;
+    margin-left: 60%;
+    margin-top: -28px;
+    font-size: 15px;
+}
+
+input.mintextvenue {
+    width: 50px;
+}
+
+label.venuemax {
+    margin-left: -2px;
+}
+
+.text-num input[type="text"] {
+    width: 30%;
+    height: 40%;
+}
+
+input.venuetxt {
+    width: 288px;
+    margin-left: 20px;
+    border: 2px solid #a2a0aa;
+    border-radius: 4px;
+}
+
+label.venuemin {
+    width: 85px;
+    margin-left: 43px;
+}
+
+i#fasvenue {
+    margin-left: 53px;
+}
+
+.btn.btn-danger.venuebtn {
+    margin: -95px 0px 0px 1154px;
+    width: 150px;
+    /* float: right; */
+    height: 40px;
+}
+
+i#fasvenueone {
+    margin-left: 53px;
+}
+
+i#fasvenuetwo {
+    margin-left: 53px;
+}
+
+i#fasvenuethr {
+    margin-left: 53px;
+}
+
+i#fasvenuefour {
+    margin-left: 53px;
+}
+
+
+
+/********* start of customer profile *****************/
+css for Tab menu in form starts .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 71px;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 11px;
+}
+
+.nav>ul>li {
+    float: left;
+    margin-left: 20px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #9d9d9d;
+}
+
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    width: 277px;
+    text-align: center;
+}
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.navbar-inverse {
+    background-color: #fff;
+    border-color: #080808;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    color: #fff;
+    cursor: default;
+    background-color: #6cc0b9;
+
+    width: 278px;
+    text-align: center;
+}
+
+input.form-control.text-high {
+    height: 34px;
+}
+/***********startt of venue details page**************/
+/*************** start of thumbail carousel *******************/
+/* Removes the default 20px margin and creates some padding space for the indicators and controls */
+/* @media (min-width: 1200px) */
+/* .col-lg-12 { */
+/* margin: 0px 25px 0px 51px; */
+/* width: 100%; */
+/* padding: 0px 111px 0px 0px; */
+/* } */
+@media (min-width: 1200px) {
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.themecar {
+        margin: 0px 25px 0px 51px;
+        width: 101%;
+        padding: 0px 111px 0px 0px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.themecar {
+        margin: 0px 25px 0px 51px;
+        width: 101%;
+        padding: 0px 111px 0px 0px;
+    }
+}
+
+@media (min-width: 1360px) {
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.themecar {
+        margin: 0px 25px 0px 51px;
+        width: 101%;
+        padding: 0px 111px 0px 0px;
+    }
+}

@@ -1,7 +1,9 @@
 <div class="container-fluid slickslideevent">
-    @if(isset($title) ? $title : '')
-    <div class="sliderheadevent">{{ isset($title) ? $title : '' }}</div>
+
+    @if(isset($title))
+    <div class="sliderheadevent">{{ $title }}</div>
     @endif
+
     <section class="mySlicker slicker">
 
         @if (count($slides) > 0)

@@ -6,12 +6,12 @@
 
 <!------- form start-------->
 <!------maps button and headding --------------->
-<!---<div class="venueheadbtn">
+<div class="venueheadbtn">
     <center>
         <h3 class="venuehead"> 121 Search Results </h3>
     </center>
     <a href="#" class="showmapbtn"> Show in Maps </a>
-</div> -->
+</div>
 <!---- maps button and heading ------------>
 <!------- Tabs start-------->
 <div class="container-fluid" id="customerdetails">

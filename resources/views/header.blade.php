@@ -23,7 +23,7 @@
 <body id="bodyContainer">
 
     <!------- Header start-------->
-    <nav class="twobutton">
+    <nav class="header-secondary">
         <div class="float-right">
 
             @if (Route::has('login'))

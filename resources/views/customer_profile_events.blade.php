@@ -49,7 +49,7 @@
                   <div class="container-fluid" id="customer-profile-bg">
                   <div class="row custprofeven">
                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" class="img-fluid img-thumbnail" style="width:300px; height:300px; margin-left:-47px; margin-top:0px">
+                        <img src="svg/images/customer-profile11.jpg" alt="Mountains" class="img-fluid img-thumbnail" style="width:300px; height:300px; margin-left:-15px; margin-top:0px">
                      </div>
                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 cust-prof-onlinepy">
                         <div class="fullrow">
@@ -308,6 +308,7 @@
             <!------------------------------ Add to Express ----------------------------------->
 </div>
 
+</div>
 </div>
 
 

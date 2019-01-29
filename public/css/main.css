@@ -10,7 +10,6 @@ body {
     color: orange;
 }
 
-
 a.profilehead {
     width: 20px;
     height: 40px;
@@ -35,7 +34,7 @@ span#headbadge {
     margin-left: 18px;
 }
 
-/***** css for top navbar starts *********/
+/***** css for Home page top navbar starts *********/
 navbar.twolinks {
     background-color: #cccccc;
     height: 50px;
@@ -126,11 +125,16 @@ a.btn.btn-sm.btn-outline-secondary {
     margin-left: 20px;
 }
 
-.twobutton {
+.header-secondary {
     background-color: #ccc;
     display: inline-block;
     width: 100%;
-    padding: 0 10px 10px 10px;
+    padding: 5px;
+}
+
+.header-secondary .btn,
+.header-secondary a {
+    font-size: 12px;
 }
 
 /**************** header nav ****************/
@@ -254,54 +258,13 @@ a.btn.btn-default.booknow-header {
     cursor: pointer;
 }
 
-@media(max-width:650px) {
-
-    header {
-        padding: 0px;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    header nav.navbar {
-        position: absolute;
-        width: 100%;
-        height: calc(100v -50px);
-        top: 50px;
-        left: -100%;
-        transition: 0.5s;
-    }
-
-    header nav.navbar.active {
-        left: 0px;
-    }
-
-    header nav.navbar ul {
-        display: block;
-        text-align: center;
-    }
-
-    header nav.navbar ul li a {
-        border-bottom: 1px solid red;
-    }
-
-    header nav.navbar ul li.active ul {
-        position: relative;
-    }
-
-    header nav.navbar ul li ul li {
-        width: 100%;
-    }
-}
-
 /************************************* Banner **********************************************/
 
-.container-fluid.banner-main-content {
+#home_page.container-fluid.banner-main-content {
     margin-top: 67px;
 }
 
-.form-control.banner {
+#home_page.form-control.banner {
     padding: 18px;
     display: block;
     width: 85%;
@@ -320,11 +283,11 @@ h1.bannerfont {
     font-size: 60px;
 }
 
-.home-banner-captions {
-    top: 45%;
+#home_page.home-banner-captions {
+    top: 35%;
 }
 
-/************** effects **************/
+/************** start of home page 4 box effects **************/
 .image {
     opacity: 1;
     display: block;
@@ -375,7 +338,7 @@ h1.bannerfont {
     margin: 0px 76px 0px 60px;
 }
 
-/************** effects **************/
+/************** end of homepage 4 box effects **************/
 .head1 {
     color: #676868;
     font-family: Myriad Pro;
@@ -462,6 +425,7 @@ span.spaceone {
     text-align: center;
 }
 
+/****************** home page 4 box completed *****************/
 .show_box,
 .show_boxhighlight {
     width: 95px;
@@ -579,10 +543,10 @@ button#show_record_why {
 
 #sponsor {
     margin-top: 30px;
-    height: 225px;
     background-color: #f7f7f7;
 }
 
+/********************** home page sponsor page done *********************/
 .middlehead {
     height: auto;
     color: #ffffff;
@@ -642,7 +606,6 @@ button#show_record_why {
     color: #4b485b;
     margin-top: 0px;
     font-style: italic;
-    text-align: center;
 }
 
 .middlehead_exptop {
@@ -678,7 +641,7 @@ i#date-element-span {
     background-color: #5cb9b1;
 }
 
-/********** star of menubg ***********/
+/********** star of home page menubg ***********/
 #show_menubg {
     width: 100%;
     height: 200px;
@@ -758,74 +721,18 @@ p.count-text {
     color: #8c8c8c;
 }
 
-/********** end of menubg ***********/
-
-
-.form-control.details-option,
-.form-control.details-optionone {
-    display: block;
-    width: 60%;
-    height: 65%;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    -webkit-transition: border-color ease-in-out .15s,
-        box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,
-        box-shadow ease-in-out .15s;
-    -ms-transition: border-color ease-in-out .15s,
-        box-shadow ease-in-out .15s;
-    -moz-transition: border-color ease-in-out .15s,
-        box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,
-        box-shadow ease-in-out .15s;
-}
-
-.form-control.details-option {
-    margin-left: -102px;
-}
-
-.form-control.details-optionone {
-    margin-left: -199px;
-}
-
-
-
-.detail-party {
-    padding-top: 20px;
-    padding-bottom: 10px;
-    margin-left: 0px;
-    width: 205px;
-    float: left;
-    color: #4b485b;
-    font-size: 18px;
-}
-
-input.form-control.text-high {
-    height: 34px;
-    width: 170px;
-}
-
-.btn-xs {
-    background-color: #6cc0b9 !important;
-}
+/********** end of home page menubg ***********/
 
 /* css for second nav bar ends */
 /*********************************end of header *******************************************/
 
 /************* HOME PAGE FORM **********************************/
 
-.form-control.customhome,
-.form-control.customhomeone {
+#form-home .form-control.customhome,
+#form-home .form-control.customhomeone {
     display: block;
-    padding: 18px;
+    padding: 5px;
+    height: 40px;
     font-size: 12px;
     line-height: 1.5;
     color: #495057;
@@ -836,7 +743,7 @@ input.form-control.text-high {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.form_hometext {
+#form-home .form_hometext {
     color: #727272;
     font-size: 15px;
 }
@@ -848,8 +755,8 @@ h2.form_homehead {
     color: #4b485b;
 }
 
-select.selectpicker.customhomeone,
-select.selectpicker.customhomeother {
+#form-home select.selectpicker.customhomeone,
+#form-home select.selectpicker.customhomeother {
     width: 240px;
     height: 40px;
     border: 2px solid #6cc0b9;
@@ -858,15 +765,15 @@ select.selectpicker.customhomeother {
     padding-left: 15px;
 }
 
-select.selectpicker.customhomeone {
+#form-home select.selectpicker.customhomeone {
     margin-left: 244px;
 }
 
-select.selectpicker.customhomeother {
+#form-home select.selectpicker.customhomeother {
     margin-left: -295px;
 }
 
-.form-control.customtext {
+#form-home .form-control.customtext {
     display: block;
     border: 2px solid #6cc0b9 !important;
     padding: 18px;
@@ -879,312 +786,21 @@ select.selectpicker.customhomeother {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-/* css for form starts */
-#formcall {
-    background-color: #f4f4f5;
-    height: auto;
-    font-size: 14px;
-    font-family: Myriad Web Pro Regular;
-    font-weight: light;
+/* Home page facilitate form date picker CSS starts*/
+
+.gj-datepicker [role=right-icon] {
+    position: absolute;
+    right: 0;
+    border: 0px solid;
+    top: 2px;
 }
 
-.line_hr {
-    border: 1px linear grey;
+.gj-datepicker [role=right-icon] button {
+    border: none;
 }
 
-.textalign {
-    width: 356px;
-    text-align: left !important;
-    margin-left: 131px;
-    color: #676868;
-    font-size: 18px;
-}
+/* Home page facilitate form date picker CSS ends*/
 
-.checkalign {
-    margin: 27px 0px 0px -20px;
-    padding: 0px 0px 0px -5px;
-}
-
-.signme,
-.signme:hover {
-    width: 250px;
-    height: 40px;
-    text-align: center;
-    padding: 0px 0px 0px 6px;
-    background-color: #5cb9b1;
-    color: white !important;
-    margin-left: 206px;
-}
-
-.addn,
-.addn:hover {
-    background-color: #5cb9b1;
-    margin: 22px 0px 0px -21px;
-}
-
-.signme-venuereg {
-    width: 250px;
-    height: 40px;
-    text-align: center;
-    margin-left: 225px;
-    padding: 0px 0px 0px 6px;
-    background-color: #5cb9b1;
-}
-
-.signme-venuereg:hover {
-    width: 250px;
-    height: 40px;
-    text-align: center;
-    margin-left: 225px;
-    padding: 0px 0px 0px 6px;
-    background-color: #5cb9b1;
-}
-
-.alert-danger,
-.alert-error {
-    border-color: #d73925;
-}
-
-.alert-success {
-    border-color: #008d4c;
-}
-
-.alert-error {
-    background-color: #dd4b39 !important;
-}
-
-.error-class {
-    color: #dd4b39 !important;
-}
-
-/* css for form ends */
-/*****************************start for 008_10_venue_dashboard_item_policies ***************************/
-button#sign-text {
-    width: 200px;
-    height: 40px;
-    color: #fff;
-    margin-left: 12%;
-}
-
-/*****************************start for 008_03_venue_dashboard_cancel_booking ***************************/
-/*** first two button start ***/
-ul.second-nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #fff;
-    color: black;
-    margin-left: 18px;
-}
-
-li.venue-one {
-    float: left;
-    margin-left: 20px;
-    background-color: #fff;
-    color: black;
-    border-radius: 10px;
-    height: 50px;
-}
-
-li.venue-one a {
-    height: 48px;
-    border: 2px solid #6cc0b9;
-    border-radius: 8px;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li.venue-one a:hover:not(.active) {
-    background-color: #5cb9b1;
-}
-
-.active-one {
-    background-color: #5cb9b1;
-    border-radius: 8px;
-    width: 200px;
-    height: 50px;
-}
-
-.signtwo {
-    width: 200px;
-    height: 100px;
-    color: #6cc0b9 !important;
-}
-
-.signthree {
-    width: 100px;
-    background-color: #6cc0b9;
-    float: right;
-    color: #ffffff;
-}
-
-div#myNavbar {
-    padding-left: -15px;
-    margin-left: -259px;
-}
-
-label {
-    color: #676868;
-}
-
-/*** first two button start ***/
-
-/*** vertical navbar start ***/
-.head-dash {
-    margin-left: 20%;
-    color: #6cc0b9;
-}
-
-.vertical-menu {
-    width: 150px;
-    border: 1px solid #6cc0b9;
-}
-
-.vertical-menu a {
-    background-color: #ffffff;
-    color: black;
-    display: block;
-    padding: 12px;
-    text-decoration: none;
-    border: 1px solid #6cc0b9;
-}
-
-.vertical-menu a:hover {
-    background-color: #6cc0b9;
-    color: #ffffff;
-}
-
-.vertical-menu a.active {
-    background-color: #6cc0b9;
-    color: white;
-}
-
-/************ top nav start ******************/
-.head-dropzone {
-    margin-top: -7px;
-    border-radius: 20px;
-    background-color: #6cc0b9;
-    color: #ffffff;
-
-}
-
-/************ top nav end ******************/
-.color-change {
-    color: #6cc0b9;
-}
-
-.row {
-    padding: 21px;
-}
-
-/********* start of top head for inner page *****************/
-/********* end of content *****************/
-
-/* Content start */
-button {
-    background-color: #6cc0b9;
-}
-
-button:hover {
-    background-color: #6cc0b9;
-    color: #fff;
-    border: 2px solid #fff;
-    font-weight: bolder;
-}
-
-.content {
-    background-color: white;
-    padding: 10px;
-}
-
-.content-option {
-    margin-top: -19%;
-    width: 210px;
-    float: left;
-    font-size: 16px;
-    margin-left: -19px;
-}
-
-.row.portthemebtn {
-    padding-right: 0px;
-}
-
-#btn-port {
-    margin-top: -6%;
-    float: right;
-    margin-left: 11%;
-    width: 125px;
-    height: 39px;
-    background-color: #6cc0b9;
-    border-color: #6cc0b9;
-    color: #fff;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-/**************** Content end*********************/
-/*************** css for table starts **************/
-.table-hover {
-    background-color: #e5e5e5;
-}
-
-.table-color-head {
-    background-color: #6cc0b9;
-}
-
-.bg-white-booking {
-    background-color: #ffffff;
-}
-
-/* css for table end */
-
-
-/* css for model 008_02 start */
-
-button#payment_booking {
-    width: 467px;
-    color: #fff;
-}
-
-.modal-header .close {
-    margin-top: -35px;
-}
-
-.custom-button {
-    width: 90%;
-}
-
-/* css for model 008_02 end */
-
-/* css for model 008_03 start */
-.custom-color {
-    color: #10a336;
-}
-
-/* css for model 008_04 start */
-textarea#change-text {
-    margin-left: 10%;
-}
-
-/* css for model 008_05 start */
-select#bg-orange {
-    background-color: orange;
-    color: #ffffff;
-}
-
-.row.content-payment {
-    margin-left: 10%;
-}
-
-.row.changeleft {
-    margin-left: -79px;
-}
-
-/*****************************end for 008_03_venue_dashboard_cancel_booking ***************************/
 /*****************************start  of newwishlist ***************************/
 .wishlist_tabs {
     margin-top: 27px;
@@ -1327,175 +943,6 @@ button.btn.btn-default.customer-review {
 }
 
 /*****************************end of newwishlist ***************************/
-
-/*****************************start for 003_3_5_theme_detail ***************************/
-
-/* multi gallery start for 003_3_5_theme_detail */
-
-.carousel-showmanymoveone .carousel-control {
-    width: 4%;
-    background-image: none;
-}
-
-.carousel-showmanymoveone .carousel-control.left {
-    margin-left: 0;
-
-}
-
-.carousel-showmanymoveone .carousel-control.right {
-    margin-right: 0;
-}
-
-.carousel-showmanymoveone .cloneditem-1,
-.carousel-showmanymoveone .cloneditem-2,
-.carousel-showmanymoveone .cloneditem-3 {
-    display: none;
-}
-
-.carousel .item .col-xs-12 {
-    padding: 0;
-}
-
-#left-click {
-    margin-left: -30px !important;
-    margin-top: 56px !important;
-}
-
-#right-click {
-    margin-right: -50px !important;
-    margin-top: 56px !important;
-}
-
-#padding-given {
-    padding-left: 10px;
-}
-
-/* Medium Devices, Desktops */
-
-@media only screen and (max-width: 992px) {
-    .carousel .item .col-xs-12:nth-last-child(-n+2) {
-        display: none;
-    }
-}
-
-@media all and (min-width: 768px) {
-
-    .carousel-showmanymoveone .carousel-inner>.active.left,
-    .carousel-showmanymoveone .carousel-inner>.prev {
-        left: -50%;
-    }
-
-    .carousel-showmanymoveone .carousel-inner>.active.right,
-    .carousel-showmanymoveone .carousel-inner>.next {
-        left: 50%;
-    }
-
-    .carousel-showmanymoveone .carousel-inner>.left,
-    .carousel-showmanymoveone .carousel-inner>.prev.right,
-    .carousel-showmanymoveone .carousel-inner>.active {
-        left: 0;
-    }
-
-    .carousel-showmanymoveone .carousel-inner .cloneditem-1 {
-        display: block;
-    }
-}
-
-@media all and (min-width: 768px) and (transform-3d),
-all and (min-width: 768px) and (-webkit-transform-3d) {
-
-    .carousel-showmanymoveone .carousel-inner>.item.active.right,
-    .carousel-showmanymoveone .carousel-inner>.item.next {
-        transform: translate3d(50%, 0, 0);
-        -webkit-transform: translate3d(50%, 0, 0);
-        -ms-transform: translate3d(50%, 0, 0);
-        -moz-transform: translate3d(50%, 0, 0);
-        -o-transform: translate3d(50%, 0, 0);
-        left: 10px;
-    }
-
-    .carousel-showmanymoveone .carousel-inner>.item.active.left,
-    .carousel-showmanymoveone .carousel-inner>.item.prev {
-        transform: translate3d(-50%, 0, 0);
-        -webkit-transform: translate3d(-50%, 0, 0);
-        -ms-transform: translate3d(-50%, 0, 0);
-        -moz-transform: translate3d(-50%, 0, 0);
-        -o-transform: translate3d(-50%, 0, 0);
-        left: 10px;
-    }
-
-    .carousel-showmanymoveone .carousel-inner>.item.left,
-    .carousel-showmanymoveone .carousel-inner>.item.prev.right,
-    .carousel-showmanymoveone .carousel-inner>.item.active {
-        transform: translate3d(0, 0, 0);
-        -webkit-transform: translate3d(0, 0, 0);
-        -moz-transform: translate3d(0, 0, 0);
-        -o-transform: translate3d(0, 0, 0);
-        -ms-transform: translate3d(0, 0, 0);
-        left: 0;
-    }
-}
-
-@media all and (min-width: 992px) {
-
-    .carousel-showmanymoveone .carousel-inner>.active.left,
-    .carousel-showmanymoveone .carousel-inner>.prev {
-        left: -16.6%;
-    }
-
-    .carousel-showmanymoveone .carousel-inner>.active.right,
-    .carousel-showmanymoveone .carousel-inner>.next {
-        left: 16.6%;
-    }
-
-    .carousel-showmanymoveone .carousel-inner>.left,
-    .carousel-showmanymoveone .carousel-inner>.prev.right,
-    .carousel-showmanymoveone .carousel-inner>.active {
-        left: 0;
-    }
-
-    .carousel-showmanymoveone .carousel-inner .cloneditem-2,
-    .carousel-showmanymoveone .carousel-inner .cloneditem-3 {
-        display: block;
-    }
-}
-
-@media all and (min-width: 992px) and (transform-3d),
-all and (min-width: 992px) and (-webkit-transform-3d) {
-
-    .carousel-showmanymoveone .carousel-inner>.item.active.right,
-    .carousel-showmanymoveone .carousel-inner>.item.next {
-        transform: translate3d(16.6%, 0, 0);
-        -webkit-transform: translate3d(16.6%, 0, 0);
-        -ms-transform: translate3d(16.6%, 0, 0);
-        -o-transform: translate3d(16.6%, 0, 0);
-        -moz-transform: translate3d(16.6%, 0, 0);
-        left: 0;
-    }
-
-    .carousel-showmanymoveone .carousel-inner>.item.active.left,
-    .carousel-showmanymoveone .carousel-inner>.item.prev {
-        transform: translate3d(-16.6%, 0, 0);
-        -webkit-transform: translate3d(-16.6%, 0, 0);
-        -moz-transform: translate3d(-16.6%, 0, 0);
-        -o-transform: translate3d(-16.6%, 0, 0);
-        -ms-transform: translate3d(-16.6%, 0, 0);
-        left: 0;
-    }
-
-    .carousel-showmanymoveone .carousel-inner>.item.left,
-    .carousel-showmanymoveone .carousel-inner>.item.prev.right,
-    .carousel-showmanymoveone .carousel-inner>.item.active {
-        transform: translate3d(0, 0, 0);
-        -webkit-transform: translate3d(0, 0, 0);
-        -moz-transform: translate3d(0, 0, 0);
-        -o-transform: translate3d(0, 0, 0);
-        -ms-transform: translate3d(0, 0, 0);
-        left: 0;
-    }
-}
-
-/************ Gallery multi end ******************/
 /************ tabs for package details five ******************/
 
 /* testimonial tab */
@@ -1997,95 +1444,6 @@ label.control-label.label-setone {
 
 /*
 /************ Tabs ******************/
-/************ carousel banner ******************/
-.carousel-inner img {
-    width: 100%;
-    height: 100%;
-}
-
-.arrow-margine {
-    margin-top: 164px;
-}
-
-img.arrow-margine-theme {
-    margin-left: 4px;
-}
-
-img.arrow-margine-themedetails {
-    margin-top: 171px;
-}
-
-a.right.carousel-control.detailtheme {
-    margin-top: 49px;
-    margin-right: 17px;
-}
-
-a.left.carousel-control.detailtheme-left {
-    margin-left: 13px;
-}
-
-.carousel-control.right {
-    right: 59px;
-}
-
-.container.themedetail-bg {
-    width: 1260px;
-}
-
-.container.tabsdetails {
-    width: 1260px;
-}
-
-.carousel-control.left,
-.carousel-control.right {
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
-    background-image: -o-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));
-    background-image: linear-gradient(to right, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
-    background-repeat: no-repeat;
-    width: 41px;
-}
-
-.carousel-control.left {
-    margin-top: 49px;
-    margin-left: 86p
-}
-
-.carousel-control.right {
-    margin-top: -4px;
-    margin-left: 75px;
-}
-
-a#arrow-detail-left {
-    margin-top: 106px;
-    width: 0px;
-}
-
-a#arrow-detail-right {
-    margin-top: 121px;
-    margin-left: 0px;
-    width: 0px;
-}
-
-/************ carousel banner end ******************/
-
-/************ form start ******************/
-#set-bg {
-    background-color: #6cc0b9;
-    height: 150px;
-    margin: 0px -15px 0px -18px;
-    padding: 0px 0px 0px 0px;
-}
-
-.flat-btn button {
-    height: 60px;
-    width: 100px;
-}
-
-#center-done {
-    margin-left: 34px;
-}
 
 /************ forms end ******************/
 #bg-requirement {
@@ -2102,11 +1460,6 @@ a#arrow-detail-right {
     height: 35px;
     background-color: #6cc0b9;
 }
-
-
-
-/* Add padding BETWEEN each column */
-
 
 /* Create three equal columns that floats next to each other */
 .column {
@@ -2139,196 +1492,6 @@ a#arrow-detail-right {
 
 
 /*****************************end for 003_3_5_theme_detail ***************************/
-/*************************************Contact Us *************************************/
-.facebtn {
-    width: 140px;
-    height: 40px;
-    margin-left: 16px;
-    text-align: center;
-    font-size: 18px;
-    font-family: Myriad pro;
-    color: #fff;
-    padding-top: 6px;
-    background-color: #6cc0b9;
-    border-radius: 8px;
-}
-
-.facebtn:hover {
-    width: 140px;
-    height: 40px;
-    margin-left: 16px;
-    text-align: center;
-    font-size: 18px;
-    font-family: Myriad pro;
-    color: #6cc0b9;
-    padding-top: 6px;
-    background-color: #fff;
-    border: 2px solid #6cc0b9;
-    border-radius: 8px;
-}
-
-div#contactworld {
-    width: 100%;
-    padding-left: 49px;
-    padding-right: 49px;
-    margin-top: 25px;
-    height: 612px;
-}
-
-.leftcontact {
-    width: 39.5%;
-    height: 190px;
-    padding: 0px;
-    font-weight: bold;
-    float: left;
-    background-color: #f4f4f5;
-}
-
-.leftsocial {
-    width: 39.5%;
-    height: 150px;
-    padding: 0px;
-    margin-top: 18px;
-    font-weight: bold;
-    float: left;
-    background-color: #f4f4f5;
-}
-
-.rightcontact {
-    width: 59.5%;
-    float: right;
-    padding: 10px 0px 0px 21px;
-    height: 612px;
-    background-color: #f4f4f5;
-}
-
-.row.cnthead,
-.row.cntheadem {
-    color: #000000;
-    font-family: Myriad pro;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.row.cnttxt {
-    color: #888889;
-    font-size: 12px;
-}
-
-.row.cnthead {
-    padding: 10px 0px 0px 29px;
-}
-
-.row.cntheadem {
-    padding: 10px 0px 0px 12px;
-}
-
-.cntaddress,
-.cntaddressz,
-    {
-    color: #717171;
-    font-family: Myriad pro;
-    font-size: 16px;
-}
-
-.cntaddressz {
-    margin-left: 4%;
-}
-
-.cntaddress {
-    margin-left: 6%;
-}
-
-.cntdesc,
-.cntdescone,
-.cntdesctwo {
-    font-size: 14px;
-    color: #9f9f9f;
-    font-style: normal;
-    width: 65%;
-    margin-left: 3%;
-    font-weight: 400;
-    word-wrap: break-word;
-}
-
-.cntdescone {
-    margin-left: 5%;
-}
-
-.cntdesc {
-    margin-left: 3%;
-}
-
-.cntdesctwo {
-    margin-left: 7%;
-}
-
-.row.cntmap {
-    padding: 15px 0px 0px 41px;
-}
-
-input#exampleInputfname,
-input#exampleInputsname,
-input#exampleInputfamname {
-    height: 40px;
-    width: 50%;
-    border: 2px solid #9e9e9e;
-    border-radius: 8px;
-}
-
-textarea#exampleInputmsgadd {
-    height: 114px;
-    width: 97%;
-    border: 2px solid #9e9e9e;
-    border-radius: 8px;
-}
-
-::placeholder {
-    color: #f6f6f6;
-    font-size: 14px;
-}
-
-a.ctusbtn {
-    width: 96%;
-    height: 40px;
-    background-color: #6cc0b9;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 8px;
-    padding: 12px 328px 12px 328px;
-}
-
-input#exampleInputphone {
-    height: 40px;
-    width: 50%;
-    width: 266px;
-    margin-left: -114px;
-    border: 2px solid #9e9e9e;
-    border-radius: 8px;
-}
-
-.row.cntinput {
-    padding: 0px 0px 16px 16px;
-}
-
-input#exampleInputext {
-    height: 40px;
-    width: 40%;
-    border: 2px solid #9e9e9e;
-    border-radius: 8px;
-}
-
-input#exampleInputemailadd {
-    height: 40px;
-    width: 50%;
-    border: 2px solid #9e9e9e;
-    border-radius: 8px;
-}
-
-#rightcontact input::placeholder {
-    color: #c6c6c6;
-    font-size: 1.5em;
-}
 
 /*********************************infoguestlogin ***************************************/
 /********************************** Payment Info ***************************************/
@@ -2361,13 +1524,6 @@ a#btnpyt {
     /* Firefox */
 }
 
-::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #b6b6b7;
-    opacity: 3;
-    /* Firefox */
-}
-
 :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: #b6b6b7;
@@ -2388,7 +1544,7 @@ span.pytslash {
 }
 
 #pyttabs input[type=text],
- {
+    {
     width: 70%;
     height: 70%;
     padding: 12px;
@@ -2464,7 +1620,10 @@ div#pyttabs {
     color: #fff !important;
 }
 
-#pyttabs #nav-debit-tab, #pyttabs #nav-netbank-tab, #pyttabs #nav-credit-tab, #pyttabs #nav-sadad-tab{
+#pyttabs #nav-debit-tab,
+#pyttabs #nav-netbank-tab,
+#pyttabs #nav-credit-tab,
+#pyttabs #nav-sadad-tab {
     font-size: 20px;
     margin-top: 20px;
     margin-left: 20px;
@@ -2662,17 +1821,10 @@ div#infologin {
 }
 
 /*******************form for infoguestlogin *****************************/
-#accordion label+input[type='radio']:checked+.content {
-    display: block;
-}
-
-#accordion label+input[type='radio'] {
-    display: none;
-}
 
 .row.infolog input[type=text],
-select,
-textarea {
+.row.infolog select,
+.row.infolog textarea {
     width: 100%;
     height: 70%;
     padding: 12px;
@@ -2681,14 +1833,13 @@ textarea {
     border-radius: 8px;
     resize: vertical;
 }
+
 .row.infolog select[type=text] {
     width: 35%;
     padding: 2px;
 }
-label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-}
+
+
 .col-15.btnnext input[type=submit] {
     background-color: #6cc0b9;
     color: white;
@@ -2698,17 +1849,21 @@ label {
     cursor: pointer;
     float: right;
 }
+
 .col-15.btnnext input[type=submit]:hover {
     background-color: #6cc0b9;
 }
+
 .container.guestlog {
     border-radius: 5px;
     background-color: #f4f4f5;
     padding: 0px 20px 0px 20px;
 }
+
 .row.infolog {
     padding: 0px;
 }
+
 .row.infologtwo {
     padding: 0px 0px 0px 19px;
 }
@@ -2717,7 +1872,7 @@ label {
     padding: 0px 0px 0px 19px;
 }
 
-input.uploadsub {
+.row.infolog input.uploadsub {
     height: 40px;
     line-height: 2px;
     padding-left: -10px;
@@ -2725,7 +1880,7 @@ input.uploadsub {
     border-radius: 8px;
 }
 
-input.uploadnext {
+.row.infolog input.uploadnext {
     width: 120px;
     height: 40px;
     line-height: 2px;
@@ -2769,7 +1924,6 @@ input.uploadnext {
     float: left;
     width: 15%;
     margin-top: 6px;
-    display: inline;
 }
 
 .col-15.updbtn {
@@ -3226,11 +2380,11 @@ a.btnflex {
 }
 
 textarea#exampleFormControlTextarea1 {
-    width: 99%!important;
-    height: 100px!important;
+    width: 99% !important;
+    height: 100px !important;
     border: 2px solid #9e9e9e;
     margin: -14px 10px 0px 10px;
-    padding: 10px 10px 10px 10px!important;
+    padding: 10px 10px 10px 10px !important;
     border-radius: 8px;
     color: #727272;
     font-size: 12px;
@@ -3341,14 +2495,9 @@ button.btn.btn-default.btnbkevents {
 
 /****************** customer profile eventorganisers***********************/
 
-/********* start of 008_03_venue_dashboard_cancel_booking*****************/
 /************ top nav end ******************/
 .color-change {
     color: #6cc0b9;
-}
-
-.row {
-    padding: 21px;
 }
 
 /********* start of top head for inner page *****************/
@@ -3418,6 +2567,8 @@ address {
 
 div#customerdetails {
     margin-top: 32px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 #customerdetails .nav-pills .nav-link.active,
@@ -3508,12 +2659,13 @@ div#customerprofile {
 .go-right {
     float: right !important;
     text-align: left;
-    font-size: 18px !important;
+    font-family: Myriad pro;
+    font-size: 19px !important;
     height: 0px;
     color: #4b485b;
     margin-left: 632px;
     margin-top: -39px;
-    width: 100%;
+    width: 98%;
 }
 
 .fullrow {
@@ -3579,20 +2731,6 @@ a.venuepy-cash {
 .row.custprofeven {
     width: 100%;
     padding: 0px;
-}
-
-.nav-tabs .nav-link {
-    border: 1px solid #dbdadf;
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
-    background-color: #dbdadf;
-    color: #4b485b;
-    width: 304px;
-    height: 50px;
-    padding-top: 11px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
 }
 
 a#nav-home-tab.active {
@@ -3662,7 +2800,7 @@ a.btnonline {
 
 a.btnonlinepy {
     font-size: 13px;
-    margin-right: -168px;
+    margin-right: -144px;
     margin-top: 28px;
     margin-bottom: 14px;
     float: right;
@@ -3691,18 +2829,6 @@ button.btn.btn-default.customer-review {
     border-radius: 8px;
 }
 
-.customerdetails_tabs .nav-tabs>li.active>a,
-.nav-tabs>li.active>a:focus,
-.nav-tabs>li.active>a:hover {
-    color: #fff;
-    background-color: #6cc0b9;
-    cursor: default;
-    border: 1px solid #ddd;
-    border-bottom-color: #6cc0b9;
-    width: 265px;
-    text-align: center;
-}
-
 textarea.text-area-right {
     width: 146%;
     border-radius: 8px;
@@ -3723,7 +2849,8 @@ button.cancel-confirm {
     width: 100%;
     color: #4b485b;
     float: left;
-    font-size: 20px;
+    font-family: Myriad pro;
+    font-size: 24px;
     margin-top: 15px;
     margin-left: -64%;
 }
@@ -4218,107 +3345,6 @@ div#venuelist {
     /* padding-left: 47px; */
 }
 
-input.form-control.venuemainfrm {
-    width: 80%;
-    height: 40px;
-    margin-left: 7px;
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-}
-
-input.form-control.venuemainone {
-    width: 80%;
-    height: 40px;
-    margin-left: -3%;
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-}
-
-input.form-control.venuedatefr {
-    width: 80%;
-    height: 40px;
-    margin-left: -5%;
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-}
-
-input.form-control.venuedateto {
-    width: 80%;
-    margin-left: -6%;
-    height: 40px;
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-}
-
-input.form-control.themevenue {
-    width: 80%;
-    height: 40px;
-    margin-left: -51px;
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-}
-
-span.date-element-venuedtpick {
-    position: absolute;
-    color: #9e9e9e;
-    width: 75px;
-    margin-left: 60%;
-    margin-top: -28px;
-    font-size: 15px;
-}
-
-input.mintextvenue {
-    width: 50px;
-}
-
-label.venuemax {
-    margin-left: -2px;
-}
-
-.text-num input[type="text"] {
-    width: 30%;
-    height: 40%;
-}
-
-input.venuetxt {
-    width: 288px;
-    margin-left: 20px;
-    border: 2px solid #a2a0aa;
-    border-radius: 4px;
-}
-
-label.venuemin {
-    width: 85px;
-    margin-left: 43px;
-}
-
-i#fasvenue {
-    margin-left: 53px;
-}
-
-.btn.btn-danger.venuebtn {
-    margin: -95px 0px 0px 1154px;
-    width: 150px;
-    /* float: right; */
-    height: 40px;
-}
-
-i#fasvenueone {
-    margin-left: 53px;
-}
-
-i#fasvenuetwo {
-    margin-left: 53px;
-}
-
-i#fasvenuethr {
-    margin-left: 53px;
-}
-
-i#fasvenuefour {
-    margin-left: 53px;
-}
-
 .blogvenue {
     width: 96%;
     color: #727272;
@@ -4609,125 +3635,6 @@ button.btn.btn-default.btncutomer:hover {
     text-align: justify;
 }
 
-
-
-/********* start of customer profile *****************/
-css for Tab menu in form starts .navbar-nav>li>a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 71px;
-}
-
-.nav>li>a {
-    position: relative;
-    display: block;
-    padding: 10px 11px;
-}
-
-.nav>ul>li {
-    float: left;
-    margin-left: 20px;
-}
-
-.navbar-inverse .navbar-nav>li>a {
-    color: #9d9d9d;
-}
-
-.nav-tabs>li>a {
-    margin-right: 2px;
-    line-height: 1.42857143;
-    border: 1px solid transparent;
-    border-radius: 4px 4px 0 0;
-    width: 277px;
-    text-align: center;
-}
-
-.nav-tabs {
-    border-bottom: none;
-}
-
-.navbar-inverse {
-    background-color: #fff;
-    border-color: #080808;
-}
-
-.nav-tabs>li.active>a,
-.nav-tabs>li.active>a:focus,
-.nav-tabs>li.active>a:hover {
-    color: #fff;
-    cursor: default;
-    background-color: #6cc0b9;
-
-    width: 278px;
-    text-align: center;
-}
-
-input.form-control.text-high {
-    height: 34px;
-}
-
-/***********startt of venue details page**************/
-/*************** start of thumbail carousel *******************/
-/* Removes the default 20px margin and creates some padding space for the indicators and controls */
-/* @media (min-width: 1200px) */
-/* .col-lg-12 { */
-/* margin: 0px 25px 0px 51px; */
-/* width: 100%; */
-/* padding: 0px 111px 0px 0px; */
-/* } */
-@media (min-width: 1200px) {
-    .col-lg-12.col-md-12.col-sm-12.col-xs-12.themecar {
-        margin: 0px 25px 0px 51px;
-        width: 101%;
-        padding: 0px 111px 0px 0px;
-    }
-}
-
-@media (min-width: 1280px) {
-    .col-lg-12.col-md-12.col-sm-12.col-xs-12.themecar {
-        margin: 0px 25px 0px 51px;
-        width: 101%;
-        padding: 0px 111px 0px 0px;
-    }
-}
-
-@media (min-width: 1360px) {
-    .col-lg-12.col-md-12.col-sm-12.col-xs-12.themecar {
-        margin: 0px 25px 0px 51px;
-        width: 101%;
-        padding: 0px 111px 0px 0px;
-    }
-}
-
-/* Reposition the controls slightly */
-.carousel-control {
-    left: -12px;
-}
-
-.carousel-control.right {
-    right: -12px;
-}
-
-/* Changes the position of the indicators */
-
-/* Changes the colour of the indicators */
-.carousel-indicators li {
-    background: #c0c0c0;
-}
-
-.carousel-indicators .active {
-    background: #333333;
-}
-
-img.arrow-marginetheme {
-    margin-left: 36px;
-    margin-top: 6px;
-}
-
-img.arrow-marginethemetwo {
-    margin-left: -117px;
-}
-
 .bg-tab-venue {
     background-color: #f7f7f7;
     color: black;
@@ -4853,11 +3760,11 @@ a.right.carousel-control.four-right {
     margin-left: 3%;
 }
 
-ul {
+#exTab3 ul {
     list-style: none;
 }
 
-ul ol::before {
+#exTab3 ul ol::before {
     content: "\2022";
     color: #6cc0b9;
     font-weight: bold;
@@ -4998,61 +3905,6 @@ div#eventmargin {
 }
 
 /*************** end of thumbail carousel *******************/
-
-.navbar-nav>li>a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 71px;
-}
-
-.nav>li>a {
-    position: relative;
-    display: block;
-    padding: 10px 11px;
-}
-
-.nav>ul>li {
-    float: left;
-    margin-left: 20px;
-}
-
-.navbar-inverse .navbar-nav>li>a {
-    color: #9d9d9d;
-}
-
-.nav-tabs-tab>li>a {
-    margin-right: 2px;
-    line-height: 1.42857143;
-    border: 1px solid transparent;
-    border-radius: 4px 4px 0 0;
-    width: 277px;
-    text-align: center;
-}
-
-.navbar-inverse {
-    background-color: #fff;
-    border-color: #080808;
-}
-
-.navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-    border: white;
-}
-
-.nav-tabs>li.active>a,
-.nav-tabs>li.active>a:focus,
-.nav-tabs>li.active>a:hover {
-    color: #fff;
-    cursor: default;
-    background-color: #6cc0b9;
-
-    width: 276px;
-    text-align: center;
-}
-
-/* css for tab menu ends */
-/*** first two button start ***/
 
 #signone,
 #signtwo {
@@ -5211,16 +4063,6 @@ p.get-right {
 
 /************ customer profile supplier start ******************/
 
-@media only screen and (min-height: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .cust-prof-onlinepy {
-        margin-left: -4rem !important;
-    }
-}
-
-.mt-10 {
-    margin-top: 20px;
-}
-
 a:hover,
 a:focus {
     text-decoration: none;
@@ -5366,108 +4208,6 @@ button:focus {
 }
 
 /*************** start 004_4_4-package event organiser *********/
-/*************** for filter validation *********/
-.form-filter-eve {
-    width: 95%;
-    height: 30px;
-    background-color: #dbdade;
-    font-size: 18px;
-    font-style: bold;
-    margin-left: -20px;
-    padding-left: 19px;
-}
-
-fieldset {
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 1em 0 0;
-    background: #ebebeb;
-    padding: .5em;
-
-    width: 250px;
-    margin-left: -20px;
-    padding-left: 17px;
-}
-
-.checkbox {
-
-    cursor: pointer;
-    margin-bottom: 8px;
-}
-
-.text-num {
-    display: block;
-    position: relative;
-    margin-bottom: 8px;
-}
-
-.text-num input[type="text"] {
-    width: 30%;
-    height: 20%;
-
-}
-
-.checkbox input[type="checkbox"] {
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    margin: 0;
-    opacity: 0;
-    z-index: 1;
-}
-
-.checkbox label {
-    display: inline-block;
-    vertical-align: top;
-    text-align: left;
-    padding-left: 1.5em;
-}
-
-.checkbox label:before,
-.checkbox label:after {
-    content: '';
-    display: block;
-    position: absolute;
-}
-
-.checkbox label:before {
-    left: 0;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
-    background: #ddd;
-    border-radius: 3px;
-}
-
-.checkbox label:after {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-    background: #68b8c4;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.checkbox input:checked~label:after {
-    opacity: 1;
-}
-
-.checkbox input:focus~label:before {
-    background: #eee;
-}
-
-.change-black {
-    color: #000000;
-}
 
 /*************** customer SignIn start *********/
 
@@ -5628,6 +4368,7 @@ button.close.cross {
 .row.signup-custom {
     margin-top: -14px;
 }
+
 .foot-font_custom {
     font-size: 14px;
     margin-left: 41px;
@@ -5709,139 +4450,6 @@ span#tweeticon {
 
 /*************** customer SignIn End*********/
 
-/*************** vendor signup start*********/
-div#myNavbar {
-    padding-left: -15px;
-    margin-left: -259px;
-}
-
-.vendorsignup {
-    width: 250px;
-    height: 40px;
-    margin-left: 9px;
-    text-align: center;
-    padding: 0px 0px 0px 6px;
-    background-color: #5cb9b1;
-    color: #fff !important;
-}
-
-.vendorsignup:hover {
-    width: 250px;
-    height: 40px;
-    text-align: center;
-    padding: 0px 0px 0px 6px;
-
-    color: #fff !important;
-}
-
-.signtwo:hover {
-    width: 200px;
-    height: 100px;
-    color: #fff !important;
-}
-
-.signtwo:hover {
-    width: 200px;
-    height: 100px;
-    color: #fff !important;
-    background-color: #5cb9b1;
-}
-
-.textalign_vendor {
-    width: 342px;
-    text-align: left !important;
-    margin-left: 35px;
-    margin-top: 20px;
-    color: #676868;
-    font-size: 18px;
-}
-
-input#phone_number {
-    margin-left: -58px;
-    margin-top: 19px;
-    border-radius: 8px;
-    border: 2px solid #9e9e9e;
-    width: 174px;
-}
-
-input#phone_number_1 {
-    margin-left: -58px;
-    margin-top: 19px;
-    border-radius: 8px;
-    border: 2px solid #9e9e9e;
-    width: 174px;
-}
-
-input#phone_number_2 {
-    margin-left: -58px;
-    margin-top: 19px;
-    border-radius: 8px;
-    border: 2px solid #9e9e9e;
-    width: 174px;
-}
-
-#formvendor-signup {
-    background-color: #f4f4f5;
-    height: auto;
-    padding: 40px 0px 0px 40px;
-    font-family: Myriad Web Pro Regular;
-    font-weight: light;
-    margin-left: -49px;
-    width: auto;
-}
-
-input.form-control.csignin-vendor {
-    margin-left: -24px;
-    margin-top: 19px;
-    border-radius: 8px;
-    border: 2px solid #9e9e9e;
-    width: 242px;
-
-}
-
-.textalign_vendorsignin {
-    width: 204px;
-    text-align: left !important;
-    margin-left: 35px;
-    margin-top: 20px;
-    color: #676868;
-    font-size: 18px;
-}
-
-.small-custvendor {
-    font-size: 12px;
-    margin-left: 348px;
-}
-
-.signinvendor {
-    width: 250px;
-    height: 36px;
-    border-radius: 8px;
-    margin-left: 211px;
-    text-align: center;
-    color: #fff;
-    font-size: 12px;
-    text-decoration: none;
-    line-height: 0;
-    background-color: #5cb9b1;
-}
-
-input.form-control.csignin-venue {
-    margin-left: 0px;
-    margin-top: 19px;
-    border-radius: 8px;
-    border: 2px solid #9e9e9e;
-    width: 242px;
-}
-
-.text-align-venue {
-    width: 200px;
-    text-align: left !important;
-    margin-top: 18px;
-    margin-left: 45px;
-    color: #676868;
-    font-size: 18px;
-}
 
 /*************** package venues tab start *********/
 a#nav-express-tab.active {
@@ -6144,47 +4752,14 @@ span.star-head-one {
     margin-left: 15px;
 }
 
-/********* start ofvenue dash board bookinge *****************/
-/*** vertical navbar end ***/
-.head-dash {
-    margin-left: 20%;
-    color: #6cc0b9;
-}
 
-.vertical-menu {
-    width: 150px;
-    border: 1px solid #6cc0b9;
-    color: #6cc0b9;
-}
-
-.vertical-menu a {
-    background-color: #ffffff;
-    color: black;
-    display: block;
-    padding: 12px;
-    text-decoration: none;
-    border: 1px solid #6cc0b9;
-}
-
-.vertical-menu a:hover {
-    background-color: #6cc0b9;
-    color: #ffffff;
-}
-
-.vertical-menu a.active {
-    background-color: #6cc0b9;
-    color: white;
-}
-
-/*** vertical navbar end ***/
-
+/*****************************customer profile start head *************************/
 /************ top nav start ******************/
 .head-dropzone {
     margin-top: -7px;
     border-radius: 20px;
     background-color: #6cc0b9;
     color: #ffffff;
-
 }
 
 /************ top nav end ******************/
@@ -6197,217 +4772,6 @@ span.star-head-one {
     background-color: #f4f4f5;
     margin: 25px 0px 0px 0px;
 }
-
-.row {
-    padding: 21px;
-}
-
-/********* start of top head for inner page *****************/
-
-/* css for table starts */
-.table-hover {
-    background-color: #e5e5e5;
-}
-
-.table-color-head {
-    background-color: #6cc0b9;
-}
-
-.bg-white-booking {
-    background-color: #ffffff;
-}
-
-#signthree {
-    width: 100px;
-    background-color: #6cc0b9;
-    float: right;
-    color: #ffffff;
-}
-
-/* css for table end */
-
-/********* end of venue dash board bookinge *****************/
-/********* start of venue dash board booking popup *****************/
-/* css for table starts */
-.table-hover {
-    background-color: #e5e5e5;
-}
-
-.table-color-head {
-    background-color: #6cc0b9;
-}
-
-.bg-white-booking {
-    background-color: #ffffff;
-}
-
-#signthree {
-    width: 100px;
-    background-color: #6cc0b9;
-    float: right;
-    color: #ffffff;
-}
-
-/* css for table end */
-.form-control change {
-    margin: 30px 0px 0px 46px;
-}
-
-/* css for model 008_04 start */
-.custom-button-cancel {
-    width: 100%;
-    height: 50%;
-    color: #fff;
-}
-
-.custom-button-cancelagain {
-    width: 50%;
-    height: 50%;
-    float: left;
-    color: #ffffff;
-}
-
-/* css for model 008_04 end*/
-
-/* css for model 008_03 start */
-.custom-color {
-    color: #10a336;
-}
-
-/* css for model 008_03 start */
-.custom-color {
-    color: #10a336;
-}
-
-/* css for model 008_04 start */
-textarea#change-text {
-    margin-left: 10%;
-}
-
-/* css for model 008_05 start */
-select#bg-orange {
-    background-color: orange;
-    color: #ffffff;
-}
-
-/* css for model 008_02 start */
-
-
-.modal-header .close {
-    margin-top: -35px;
-}
-
-.custom-button {
-    width: 90%;
-}
-
-/* css for model 008_03 start */
-/********* end of venue dash board booking popup *****************/
-/********* end of venue dash board add venue*****************/
-#sign-onevenue {
-    width: 200px;
-    height: 40px;
-    color: #ffffff;
-}
-
-#sign-twovenue {
-    width: 200px;
-    height: 40px;
-    background-color: #ffffff;
-    border: 2px solid #6cc0b9;
-}
-
-/********* end of venue dash board add venue *****************/
-/********* start of venue dash board profile *****************/
-/* css for form starts */
-
-
-#formcall-dash {
-    background-color: #f4f4f5;
-    height: auto;
-    font-size: 14px;
-    font-family: Myriad Web Pro Regular;
-    font-weight: light;
-    padding-left: 30px;
-}
-
-#formcall-dash-one {
-    background-color: #f4f4f5;
-    height: auto;
-    font-size: 14px;
-    font-family: Myriad Web Pro Regular;
-    font-weight: light;
-    padding-left: 30px;
-}
-
-#formcall-dash-two {
-    background-color: #f4f4f5;
-    height: auto;
-    font-size: 14px;
-    font-family: Myriad Web Pro Regular;
-    font-weight: light;
-    padding-left: 30px;
-}
-
-.btn-default {
-    color: #333;
-    background-color: #6cc0b9;
-    border-color: #6cc0b9;
-}
-
-.bankhead {
-    margin-left: 35px;
-    color: #4b485b;
-    font-size: 24px;
-    width: 200px;
-    text-align: left !important;
-
-}
-
-textarea#note {
-    /* width: 200px; */
-    /* text-align: left!important; */
-    /* margin-left: 35px; */
-    /* margin-top: 20px; */
-    /* color: #676868; */
-    /* font-size: 18px; */
-    margin-left: -24px;
-    margin-top: 19px;
-    border-radius: 8px;
-    border: 2px solid #9e9e9e;
-    width: 242px;
-}
-
-.form-control {
-    display: block;
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    -ms-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-
-input#phone_number__2 {
-    margin-left: 110px;
-    margin-top: 19px;
-    border-radius: 8px;
-    border: 2px solid #9e9e9e;
-    width: 174px;
-}
-
-/********* end of venue dash board profile *****************/
 
 /********* start of home page *****************/
 /* CUSTOMIZE THE CAROUSEL
@@ -6428,7 +4792,7 @@ input#phone_number__2 {
 
 #search-form {
     position: absolute;
-    top: 55%;
+    top: 50%;
     color: blue;
 }
 
@@ -6742,64 +5106,16 @@ q {
 
 /****************** Testimonial end ***************************/
 
-/********** Form Starts ***********/
-#form-home {
-    background-color: #ffffff;
-    height: auto;
-    font-size: 14px;
-    font-family: Myriad Web Pro Regular;
-    font-weight: lighter;
-}
-
-#form-home form {
-    margin: auto;
-    width: 60%;
-}
-
-#form-home .row {
-    margin: 0;
-    padding: 0;
-}
-
-.signme {
-    width: 250px;
-    height: 40px;
-    text-align: center;
-    padding: 0px 0px 0px 6px;
-    background-color: #5cb9b1;
-}
-
-.signme:hover {
-    width: 250px;
-    height: 40px;
-    text-align: center;
-    padding: 0px 0px 0px 6px;
-    background-color: #5cb9b1 !important;
-    color: #fff !important;
-}
-
-.addn,
-.addn:hover {
-    background-color: #5cb9b1;
-}
-
-/* css for form ends */
-
-.modal.fade.in.request {
-    top: 26%;
-    margin-left: 27%;
-    overflow: hidden;
-}
 
 /********************************* end of home page *****************/
 /********************************* end of home page *****************/
 /* footer starts */
 footer {
-    background-color: #f2f2f2;
     padding: 25px;
-    width: 100%;
-    height: auto;
     margin: auto;
+    color: #fff;
+    overflow: hidden;
+    font-size: 14px;
 }
 
 footer h5 {
@@ -6861,12 +5177,14 @@ footer li a:hover {
     background-color: red;
 }
 
-footer#footone {
-    height: auto;
+footer#primary-footer {
     background-color: #373737;
-    height: auto;
-    color: #ffffff;
-    text-align: left;
+}
+
+footer#secondary-footer {
+    background-color: #2c2c2c;
+    height: 11px;
+    font-size: 11px;
 }
 
 .foot-font {
@@ -6878,20 +5196,8 @@ h5.foot-decoration {
     text-decoration: underline;
 }
 
-footer#foottwo {
-    background-color: #2c2c2c;
-    height: 11px;
-    color: #fff;
-    font-size: 11px;
-    overflow: hidden;
-}
-
 /******************* footer ends **********************/
 /******************* footer ends **********************/
-.navbar-dark .navbar-toggler-icon {
-    background-image: url();
-}
-
 #myCarousel .item {
     width: 100%;
     margin: 0;
@@ -6940,11 +5246,6 @@ input.form-control.is-invalid {
 
 input[type=checkbox].is-invalid+span {
     color: red;
-}
-
-.error-holder {
-    width: 92%;
-    position: absolute;
 }
 
 .otpholder {
@@ -7389,4 +5690,15 @@ span.date-element-theme {
     height: 40px;
     display: block;
     margin-top: 8px;
+}
+
+/* CSS for phone number inputs, we can use these classes gobally, use col-2 for first child and use col-9 formsecond child */
+
+.phone-row input:first-child {
+    width: 20%;
+}
+
+.phone-row input:nth-child(2) {
+    width: 77%;
+    margin-left: 3%;
 }

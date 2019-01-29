@@ -175,7 +175,10 @@
         </div>
     </div>
 </div>
-@include('slickslider')
+
+@if( isset($data) && !$data['files']->isEmpty())
+@include('slickslider', ['slides' => $data['files']])
+@endif
 <!---------------------------- Thumbnail carousel start --------------------------------->
 
 <div class="row"> </div>

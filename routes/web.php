@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('aboutus', function () {
-    return view('004_6_about_us');
-});
 Route::get('blogs', function () {
     return view('blogs');
 });
@@ -65,15 +62,11 @@ Route::get('eventorganiserslist', function () {
 Route::get('paymentconfirmation', function () {
     return view('dynamicpages/paymentconfirmation');
 });
-Route::get('contactus', function () {
-    return view('dynamicpages/contactus');
-});
+
 Route::get('infoguestlogin', function () {
     return view('dynamicpages/infoguestlogin');
 });
-Route::get('aboutus', function () {
-    return view('dynamicpages/aboutus');
-});
+
 Route::get('packagelist', function () {
     return view('dynamicpages/packagelist');
 });
@@ -120,6 +113,8 @@ Route::get('reset', array('as' => 'password.request', function () {
 
 Route::get('/', 'Web\HomeController@index')->name('home');
 
+Route::post('facilitate', 'Web\HomeController@facilitateService');
+
 Route::get('vennues', 'Web\VennueController@vennueListing')->name('venuelist');
 
 Route::get('vennues/{id}', 'Web\VennueController@venueDetails')->name('venuedetails');
@@ -131,6 +126,12 @@ Route::get('events/upcoming/{id}', 'Web\EventController@upComingeventDetails')->
 Route::get('events/organisers', 'Web\EventController@getEventOrgainsersList')->name('eventorganisers');
 
 Route::get('events/organisers/{id}', 'Web\EventController@getEventOrgainserDetails')->name('organiserdetails');
+
+Route::get('aboutus', 'Web\HomeController@aboutUs')->name('aboutus');
+
+Route::get('contactus', function () {
+    return view('static/contactus');
+});
 
 Route::get('whyus', array('as' => 'whyus', function () {
     return view('static/whyus');

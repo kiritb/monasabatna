@@ -47,32 +47,3 @@
     </div>
 </div>
 @include('footer')
-
-<script>
-    $(document).ready(function () {
-        $(".nav-tabs a").click(function () {
-            $(this).tab('show');
-        });
-    });
-
-    $(document).ready(function () {
-        $(".nav-tabs a").click(function () {
-            $(this).tab('show');
-        });
-        $('.nav-tabs a').on('shown.bs.tab', function (event) {
-            var x = $(event.target).text(); // active tab
-            var y = $(event.relatedTarget).text(); // previous tab
-            $(".act span").text(x);
-            $(".prev span").text(y);
-        });
-    });
-
-    $('.panel-collapse').on('show.bs.collapse', function () {
-        $(this).siblings('.panel-heading').addClass('active');
-    });
-
-    $('.panel-collapse').on('hide.bs.collapse', function () {
-        $(this).siblings('.panel-heading').removeClass('active');
-    });
-
-</script>
