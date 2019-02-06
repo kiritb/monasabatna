@@ -1276,7 +1276,7 @@
             </div>
             <!---------------------------eventorganisation tab---------------------------->
             <div class="tab-pane fade" id="nav-supp" role="tabpanel" aria-labelledby="nav-supp-tab">
-                @include('dynamicpages/suppliers')
+
             </div>
         </div>
     </div>

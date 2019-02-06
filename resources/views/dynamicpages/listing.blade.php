@@ -6,10 +6,8 @@
 
 <!------- form start-------->
 <!------maps button and headding --------------->
-<div class="venueheadbtn">
-    <center>
-        <h3 class="venuehead"> <span id="totalResults"></span> Search Results </h3>
-    </center>
+<div class="venueheadbtn text-center">
+    <h3 class="venuehead"><span id="totalResults"></span> Search Results </h3>
     <a href="#" class="showmapbtn"> Show in Maps </a>
 </div>
 <!---- maps button and heading ------------>
@@ -31,23 +29,16 @@
 
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-venues" role="tabpanel" aria-labelledby="nav-venues-tab">
-                Venues list with filters sidebar here
+                <!-- Venues list with filters sidebar here -->
             </div>
-            <!------- tab close ------->
             <div class="tab-pane fade" id="nav-suppliers" role="tabpanel" aria-labelledby="nav-suppliers-tab">
-                Updating ....
+                <!-- Suppliers list with filters sidebar here -->
             </div>
             <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-                <!--------------Event Organisers ------------------>
-                Coding in process...
-                <!------------end of events content ---------------------->
+                <!-- Event org list with filters sidebar here -->
             </div>
             <div class="tab-pane fade" id="nav-packages" role="tabpanel" aria-labelledby="nav-packages-tab">
-                <div class="customerlinegreen"></div>
-                <div class="container-fluid" id="customer-profile-bg">
-
-                </div>
-                <!------------end of events content ---------------------->
+                <!-- Package list with filters sidebar here -->
             </div>
         </div>
     </div>

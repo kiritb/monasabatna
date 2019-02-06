@@ -87,9 +87,6 @@ Route::get('vendordashboard', function () {
 Route::get('vendordashboardtrial', function () {
     return view('vendor-panel/vendordashboardtrial');
 });
-Route::get('packagelist', function () {
-    return view('dynamicpages/packagelist');
-});
 Route::get('dashboardvenueform', function () {
     return view('vendor-panel/dashboardvenueform');
 });
@@ -102,7 +99,6 @@ Route::get('vendorsignup', function () {
 Route::get('venue_dashboard_filter', function () {
     return view('008_06_venue_dashboard_filter');
 });
-
 Route::get('package_event_organisers', function () {
     return view('004_4_4_package_event_organisers');
 });
@@ -118,18 +114,15 @@ Route::get('venuedetailstwo', function () {
 Route::get('packagedetails', function () {
     return view('packagedetails');
 });
-
 Route::get('packagedetails', function () {
     return view('dynamicpages/packagedetails');
 });
-
 Route::get('venuedetails', function () {
     return view('dynamicpages/venuedetails');
 });
 Route::get('wishlist', function () {
     return view('dynamicpages/newwishlist');
 });
-
 Route::get('reset', array('as' => 'password.request', function () {
     return view('auth.passwords.reset');
 }));
@@ -159,6 +152,18 @@ Route::get('suppliers', 'Web\EventController@getSuppliersList')->name('supplier-
 Route::get('suppliers/{id}', 'Web\EventController@getSupplierDetails')->name('supplierdetails');
 
 Route::get('aboutus', 'Web\HomeController@aboutUs')->name('aboutus');
+
+Route::get('package-list', function () {
+    return view('dynamicpages/packagelist');
+});
+
+Route::get('package-supplier-list', function () {
+    return view('dynamicpages/packagelist');
+});
+
+Route::get('package-eventorgs-list', function () {
+    return view('dynamicpages/packagelist');
+});
 
 Route::get('contactus', function () {
     return view('static/contactus');

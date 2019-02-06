@@ -32,4 +32,18 @@ $(document).ready(function () {
         ajaxHtmlRender(params);
 
     });
+
+    $("#nav-packages-tab").on("click", function () {
+
+        let params = {
+            type: "ajaxRender",
+            url: "/package-list",
+            element: "#nav-packages",
+            method: "GET",
+            overlayMask: true
+        };
+        ajaxHtmlRender(params);
+
+    });
+
 });

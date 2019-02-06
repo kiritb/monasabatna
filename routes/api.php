@@ -93,7 +93,7 @@ Route::group(['middleware' => ['jwt.verify'], 'prefix' => 'v1'], function () {
     Route::get('users/{id}', 'Auth\LoginController@getUserDetails');
     Route::post('users/{id}', 'Auth\LoginController@updateUserDetails');
     Route::post('password/reset', 'Auth\LoginController@resetPassword');
-    Route::post('blogs', 'Api\BlogController@postBlog');
+    Route::post('reviews', 'Api\BlogController@postReviews');
 
 
 });

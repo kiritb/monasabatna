@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Constants\SmsTypeConst;
+
+use App\Models\Phones;
 use JWTAuth;
 
 class LoginController extends Controller
@@ -109,9 +111,13 @@ class LoginController extends Controller
 
                 return response(ResponseUtil::buildSuccessResponse(['message' => 'Successfully Logged-in!!']),
                     HttpStatusCodesConsts::HTTP_OK);
-            } else {
-                if (!$token = JWTAuth::attempt($credentials)) {
+            } else 
+            {
+                if (! $token = JWTAuth::attempt($credentials)) 
+                {
                     $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['wrong password']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, 'noUserFoundException');
+                    
+                    return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
                 }
 
                 return response(ResponseUtil::buildSuccessResponse(['authtoken' => $token]), HttpStatusCodesConsts::HTTP_OK);
@@ -205,25 +211,59 @@ class LoginController extends Controller
      *
      * @param Request $request 'header'
      */
-    public function updateUserDetails(RRequest $request, $id)
+    public function updateUserDetails(Request $request, $id)
     {   
         $requestParams = $request->all();
 
         try {
 
-            if(empty($requestParams))
+            if(!empty($requestParams))
             {
-                $userData = UserHelper::updateUser( $id, $requestParams );
-                
-                if (empty($userData)) 
-                {
-                    $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['Request payload cannot be empty']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
 
-                    return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+            }
+
+            $userDetails = UserHelper::emailByUserId($id);
+            
+            if($userDetails)
+            {
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No User Details Found']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+            }
+
+            \DB::beginTransaction();
+
+            $phoneData = isset($requestParams['phones']) ? $requestParams['phones'] : [];
+
+            unset($requestParams['phones']);
+
+            $requestParams['updated_by'] = $userDetails['email'];
+
+            $userData = UserHelper::updateUser( $id, $requestParams );
+
+            if( !empty($phoneData) )
+            {   
+
+                Phones::where('linkable_id',$id)
+                        ->where('linkable_type','users')
+                        ->update(['status' => 0,'updated_by'=>$userDetails['email'] ] );
+
+                foreach ($requestParams['phones'] as $key => $value) {
+                    
+                    $value['linkable_id']   = $id;
+
+                    $value['linkable_type'] = 'users';
+
+                    $value['email'] = $userDetails['email'];
+
+                    phones::Create( $value ) ;
                 }
             }
 
-            return response(ResponseUtil::buildSuccessResponse($userData), HttpStatusCodesConsts::HTTP_OK);
+
+            return response(ResponseUtil::buildSuccessResponse(['message' => 'User details successfully updated.']), HttpStatusCodesConsts::HTTP_OK);
 
         } catch (\Exception $e) {
 

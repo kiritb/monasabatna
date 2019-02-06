@@ -296,6 +296,26 @@ class UserHelper
        
     }
 
+
+    /**
+     * @param integer  $userId
+     *
+     * @return Array
+     *
+    */
+    public static function emailByUserId($userId)
+    {
+        $userDetails = current (Users::select('email')
+                                      ->where('users.id',$userId)
+                                      ->where('users.status', 1)
+                                      ->get()
+                                      ->toArray()
+                        );
+
+        return $userDetails;
+    }
+
+
     /**
      * @param integer  $userId
      *
@@ -375,6 +395,7 @@ class UserHelper
         }
         
     }
+
 
     /**
      * Validate Password
