@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Api;
+namespace app\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Constants\HttpStatusCodesConsts;
@@ -12,47 +12,40 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    
     public function getBlogs()
     {
-
         try {
-                $blogsData = BlogHelper::getBlogs();
-                
-                if( empty($blogsData) )
-                {
-                    $responseArr = ResponseUtil::buildErrorResponse( ['errors' => ['No Data Found'] ], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
-                    
-                    return response( $responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND );
-                }
+            $blogsData = BlogHelper::getBlogs();
 
-                return response( ResponseUtil::buildSuccessResponse($blogsData), HttpStatusCodesConsts::HTTP_OK );
-        }
-        catch( \Exception $e)
-        {
-            $responseArr = ResponseUtil::buildErrorResponse( ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING] ], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
-                
-            return response( $responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR );
+            if (empty($blogsData)) {
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+            }
+
+            return response(ResponseUtil::buildSuccessResponse($blogsData), HttpStatusCodesConsts::HTTP_OK);
+        } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-    
 
     public function postBlog(Request $request)
     {
         $requestParams = $request->all();
 
         $rules = [
-                    'user_id'       => 'required',
-                    'blog'          => 'required',
-                    'heading'       => 'required'
+                    'user_id' => 'required',
+                    'blog' => 'required',
+                    'heading' => 'required',
                  ];
 
         $validator = Validator::make($requestParams, $rules);
 
-        if ($validator->fails()) 
-        {
+        if ($validator->fails()) {
             $errorMessages = current($validator->messages());
-            
+
             foreach ($errorMessages as $key => $value) {
                 \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message '.current($value).' Response Code '.HttpStatusCodesConsts::HTTP_BAD_REQUEST);
 
@@ -62,31 +55,28 @@ class BlogController extends Controller
             }
         }
 
-        $userData = Current(Users::select( 'email')
+        $userData = current(Users::select('email')
                             ->where('id', $requestParams['user_id'])
                             ->where('status', 1)
                             ->get()
                             ->toArray()
                     );
 
-        if(empty($userData))
-        {
+        if (empty($userData)) {
             \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message User not found Response Code '.HttpStatusCodesConsts::HTTP_BAD_REQUEST);
 
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['User Not Found']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
-        } 
+        }
 
-        try {   
-                $requestParams['email'] = $userData['email'];
+        try {
+            $requestParams['email'] = $userData['email'];
 
-                BlogHelper::postBlog( $requestParams );
+            BlogHelper::postBlog($requestParams);
 
-                return response(ResponseUtil::buildSuccessResponse(['message' =>'Successfully created a blog']), HttpStatusCodesConsts::HTTP_CREATED);
-
-        } catch (\Exception $e) 
-        {
+            return response(ResponseUtil::buildSuccessResponse(['message' => 'Successfully created a blog']), HttpStatusCodesConsts::HTTP_CREATED);
+        } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);

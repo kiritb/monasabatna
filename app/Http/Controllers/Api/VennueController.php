@@ -80,6 +80,7 @@ class VennueController extends Controller
 
             return response(ResponseUtil::buildSuccessResponse($vennueDetails), HttpStatusCodesConsts::HTTP_OK);
         } catch (\Exception $e) {
+            
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);

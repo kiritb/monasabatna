@@ -28,4 +28,27 @@ class Cities extends Model
      */
     protected $fillable = [ 'name', 'status','created_by', 'updated_by' ];
 
+
+
+    public static function createCity($data)
+    {
+
+        self::create ( 
+            [
+                'name'              => $data['name'],
+                'status'            => 1,
+                'created_by'        => $data['email'],
+                'updated_by'        => $data['email']
+            ]
+        );
+    }
+
+     /* Update the Cities based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateCity($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
 }

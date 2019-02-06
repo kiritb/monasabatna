@@ -32,4 +32,31 @@ class Blogs extends Model
      */
     protected $fillable = [ 'user_id', 'heading', 'blog','order_no', 'is_approved', 'status', 'created_by', 'updated_by' ];
 
+
+
+    public static function createBlog($data)
+    {
+
+        self::create ( 
+            [
+                'user_id'           => $data['user_id'],
+                'heading'           => $data['heading'],
+                'blog'              => $data['blog'],
+                'order_no'          => isset( $data['order_no'] ) ? $data['order_no'] : NULL,
+                'is_approved'       => isset( $data['is_approved'] ) ? $data['is_approved'] : 0,
+                'status'            => 1,
+                'created_by'        => $data['email'],
+                'updated_by'        => $data['email']
+            ]
+        );
+    }
+
+     /* Update the Blogs based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateBlog($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
 }

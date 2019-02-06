@@ -164,7 +164,7 @@ class EventHelper
                                                 'address.address_line_2 as AddressLine_2', 
                                                 'address.google_map_link as googleMapLink',
                                                 'cities.name as cityName',
-                                                'vendors.vendor_name as vendorName',
+                                                'vendors.company_name as vendorName',
                                                 'vendors.license_no as licenseNo',
                                                 'pricings.actual_price as actualPrice', 
                                                 'pricings.discount',
@@ -381,7 +381,7 @@ class EventHelper
                 'address.address_line_2 as AddressLine_2',
                 'address.google_map_link as googleMapLink',
                 'cities.name as cityName',
-                'vendors.vendor_name as vendorName',
+                'vendors.company_name as vendorName',
                 'vendors.license_no as licenseNo'
             )
                     ->join('address', 'event_organisers.id', '=', 'address.linkable_id')
@@ -870,7 +870,7 @@ class EventHelper
                                                 'address.address_line_2 as AddressLine_2',
                                                 'address.google_map_link as googleMapLink',
                                                 'cities.name as cityName',
-                                                'vendors.vendor_name as vendorName',
+                                                'vendors.company_name as vendorName',
                                                 'vendors.license_no as licenseNo'
                                             )
                 ->join('address', 'suppliers.id', '=', 'address.linkable_id')

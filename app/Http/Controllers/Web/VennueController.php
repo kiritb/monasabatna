@@ -29,7 +29,10 @@ class VennueController extends Controller
             if (empty($vennueListingData)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                return view('dynamicpages/venue_list')->with('data', $responseArr);
+                $returnHTML = view('dynamicpages.venue-list')->with('data', $vennueListingData);
+                $html = $returnHTML->render();
+
+                return response()->json(array('success' => true, 'html' => $html));
             }
 
             try {
@@ -38,15 +41,17 @@ class VennueController extends Controller
                 $vennueListingData['filters'] = 'Filters not found';
             }
 
-            return view('dynamicpages/venue_list')->with('data', $vennueListingData);
-        } catch (\Exception $e) {
-            $responseArr = ResponseUtil::buildErrorResponse(
-                ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]],
-                HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
-HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
-            );
+            $returnHTML = view('dynamicpages.venue-list')->with('data', $vennueListingData);
+            $html = $returnHTML->render();
 
-            return view('dynamicpages/venue_list')->with('data', $responseArr);
+            return response()->json(array('success' => true, 'html' => $html));
+        } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            $returnHTML = view('dynamicpages.venue-list')->with('data', $responseArr);
+            $html = $returnHTML->render();
+
+            return response()->json(array('success' => true, 'html' => $html));
         }
     }
 
@@ -66,13 +71,9 @@ HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
         try {
             $vennueFiltersData = VennueHelper::vennueFilters();
 
-            return response(ResponseUtil::buildSuccessResponse($vennueFiltersData), HttpStatusCodesConsts::HTTP_CREATED);
+            return response(ResponseUtil::buildSuccessResponse($vennueFiltersData), HttpStatusCodesConsts::HTTP_OK);
         } catch (\Exception $e) {
-            $responseArr = ResponseUtil::buildErrorResponse(
-                ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]],
-                HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
-HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
-            );
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
@@ -92,15 +93,11 @@ HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
         try {
             $vennueDetails = VennueHelper::venueDetails($vennueId);
 
-            return view('dynamicpages/venuedetails')->with('data', $vennueDetails);
+            return response(ResponseUtil::buildSuccessResponse($vennueDetails), HttpStatusCodesConsts::HTTP_OK);
         } catch (\Exception $e) {
-            $responseArr = ResponseUtil::buildErrorResponse(
-                ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]],
-                HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
-HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
-            );
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return view('dynamicpages/venuedetails')->with('data', $responseArr);
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -120,13 +117,9 @@ HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
         try {
             $vennueListingData = VennueHelper::getExpressDeals();
 
-            return response(ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_CREATED);
+            return response(ResponseUtil::buildSuccessResponse($vennueListingData), HttpStatusCodesConsts::HTTP_OK);
         } catch (\Exception $e) {
-            $responseArr = ResponseUtil::buildErrorResponse(
-                ['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]],
-                HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR,
-HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING
-            );
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }

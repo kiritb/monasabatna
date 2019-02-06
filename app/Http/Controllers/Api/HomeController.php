@@ -9,6 +9,8 @@ use App\Http\Helpers\HomeHelper;
 use App\Http\Helpers\CustomerQueryHelper;
 use App\Http\Helpers\FacilitateCustomerHelper;
 
+use App\Models\Cities;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -262,6 +264,32 @@ class HomeController extends Controller
 
             return response(ResponseUtil::buildSuccessResponse(['message' =>'Thank you for contacting us, our representative will contact you shortly']), HttpStatusCodesConsts::HTTP_CREATED);
         } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    /**
+     * get city List
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getCities()
+    {
+
+        try {
+                $cityData = Cities::select('id','name')
+                                  ->where('status', 1)
+                                  ->get()
+                                  ->toArray();
+
+            return response(ResponseUtil::buildSuccessResponse($cityData), HttpStatusCodesConsts::HTTP_OK);
+        } 
+        catch (\Exception $e) 
+        {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);

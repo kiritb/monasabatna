@@ -23,8 +23,7 @@
                 @if (isset($data["filters"]["price_range"]) && count($data["filters"]["price_range"]) >
                 0)
                 @include('ui_utils/filter-checks', ['filters' => $data["filters"]["price_range"],
-                'type_title'
-                => 'Price'], ['prefix' => 'SAR'])
+                'type_title' => 'Price', 'name' => 'price_range', 'prefix' => 'SAR'])
                 @else
                 <div>No data!!</div>
                 @endif
@@ -35,8 +34,7 @@
                 >
                 0)
                 @include('ui_utils/filter-checks', ['filters' => $data["filters"]["event_types"],
-                'type_title'
-                => 'Event Type'])
+                'type_title' => 'Event Type', 'name' => 'event_types'])
                 @else
                 <div>No data!!</div>
                 @endif

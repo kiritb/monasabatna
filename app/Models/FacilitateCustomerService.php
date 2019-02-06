@@ -39,4 +39,34 @@ class FacilitateCustomerService extends Model
     protected $fillable = ['name', 'country_code', 'phone_number', 'email', 'event_date', 'event_type', 'no_of_guests', 'food_type', 'decoration_type', 'budget', 'note',
         'status', 'created_by', 'updated_by'];
 
+
+     
+    public static function createFacilitateCustomerService($data)
+    {
+
+        self::create([
+                'name'                  => $data['name'],
+                'country_code'          => $data['country_code'],
+                'phone_number'          => $data['phone_number'],
+                'email'                 => $data['email'],
+                'event_date'            => $data['event_date'],
+                'event_type'            => $data['event_type'],
+                'no_of_guests'          => isset( $data['no_of_guests'] ) ? $data['no_of_guests'] : NULL ,
+                'food_type'             => isset( $data['food_type'] ) ? $data['food_type'] : NULL,
+                'decoration_type'       => isset( $data['decoration_type'] ) ? $data['decoration_type'] : NULL,
+                'budget'                => isset( $data['budget'] ) ? $data['budget'] : NULL,
+                'note'                  => isset( $data['note'] ) ? $data['note'] : NULL,
+                'created_by'            => $data['email'],
+                'updated_by'            => $data['email']
+            ]);
+    }
+
+     /* Update the FacilitateCustomerService based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateFacilitateCustomerService($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+    
 }

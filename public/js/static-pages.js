@@ -9,7 +9,7 @@ $(document).ready(function () {
     });
 
     $("#whyus-align").overlayMask({
-        do: "show"
+        do: "showLoader"
     });
     $.ajax({
         url: base_url + "/api/v1/whyus",
@@ -23,7 +23,7 @@ $(document).ready(function () {
             var params;
             if (response.data && response.data.length) {
                 $("#whyus-align").overlayMask({
-                    do: "hide"
+                    do: "hideLoader"
                 });
                 // cities from API
                 var whyusdata = '';
@@ -35,26 +35,12 @@ $(document).ready(function () {
                 $("#whyus-container").append(whyusdata);
 
             } else {
-                params = {
-                    title: "No Cities!",
-                    message: "No Cities, error fetching data!",
-                    type: "notification",
-                    autoHide: true,
-                    delay: 10000
-                };
-                notifier(params);
+                notifyError("No Cities, error fetching data!");
             }
         },
         error: function (xhr) {
             // if error occured
-            var params = {
-                title: "Error!",
-                message: xhr.statusText,
-                type: "notification",
-                autoHide: true,
-                delay: 10000
-            };
-            notifier(params);
+            notifyError(xhr.statusText);
         }
     });
 });

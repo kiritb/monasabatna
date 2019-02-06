@@ -30,4 +30,27 @@ class VennueTypes extends Model
      */
     protected $fillable = [ 'name', 'short_description', 'order_no', 'status','created_by', 'updated_by' ];
 
+
+    public static function createVennueTypes($data)
+    {
+
+        self::Create(
+            [   
+                'name'           => $data['name'],
+                'short_description'    => isset( $data['short_description'] ) ? $data['short_description'] : NULL,
+                'order_no'       => isset( $data['order_no'] ) ? $data['order_no'] : NULL,
+                'created_by'     => $data['email'],
+                'updated_by'     => $data['email']
+            ]
+        );
+    }
+
+    /* Update the VennueTypes based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateVennueTypes($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
 }

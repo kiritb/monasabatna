@@ -11,6 +11,9 @@ namespace App\Http\Helpers;
 use App\Models\Users;
 use App\Models\Phones;
 use App\Models\SmsOtp;
+use App\Models\Address;
+use App\Models\Files;
+
 
 
 use Illuminate\Support\Facades\Hash;
@@ -184,9 +187,9 @@ class UserHelper
         }
         catch( \Exception $e)
         {   
-            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured fetching  a user ".print_r( $e->getMessage(), true) );
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured Verifying Otp ".print_r( $e->getMessage(), true) );
 
-            throw new \Exception(" Exception Occured fetching  a user ", 1);
+            throw new \Exception(" Exception Occured Verifying Otp ", 1);
         }
        
     }
@@ -237,6 +240,225 @@ class UserHelper
             \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while re-sending Otp ".print_r( $e->getMessage(), true) );
 
             throw new \Exception(" Exception Occured fetching  a user ", 1);
+        }
+       
+    }
+
+
+     /**
+     * @param integer  $userId
+     *
+     * @return Array
+     *
+     * @throws Exception
+    */
+    public static function sendOtp( $userId, $phone, $smsType, $smsText )
+    {   
+
+        try
+        {   
+
+            $userDetails = current (Users::select('email')
+                                      ->where('id',$userId)
+                                      ->where('status', 1)
+                                      ->get()
+                                      ->toArray()
+                            );
+
+            if( empty($userDetails) )
+            {
+                return [];
+            }
+
+            $digits         = env('SMS_OTP_NO_DIGITS', 4);
+            
+            $otp            = rand( pow(10, $digits-1), pow(10, $digits)-1 );
+
+            $otpType        = $smsType;
+
+            $validityMins   = env('SMS_OTP_VALIDAITY_TIME', 20);
+
+            $otpValidity    = date("Y-m-d H:i:s", strtotime("+$validityMins minutes") );
+
+            $smsText        = str_replace( [ '~SMS_OTP~', '~VALIDITY~'], [$otp, $otpValidity], $smsText );
+
+            $otpData = SmsOtpHelper::createOtp($userId, $otp, $otpType, $smsText, $otpValidity,$userDetails['email'], true );
+
+            return $otpData->toArray();
+            
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while re-sending Otp ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured fetching  a user ", 1);
+        }
+       
+    }
+
+    /**
+     * @param integer  $userId
+     *
+     * @return Array
+     *
+    */
+    public static function getUserDetails($userId)
+    {
+        $userDetails = current (Users::select('first_name','fathers_name','family_name','email','marital_status','gender','dob')
+                                      ->where('users.id',$userId)
+                                      ->where('users.status', 1)
+                                      ->get()
+                                      ->toArray()
+                        );
+
+        if(!empty($userDetails))
+        {
+            $phoneData          = Phones::select('country_code','phone_number','is_default','is_landline')
+                                        ->where('linkable_id', $userId )
+                                        ->where('linkable_type', 'users' )
+                                        ->where('status', 1 )
+                                        ->get()
+                                        ->toArray();
+
+            $addressData         = Address::select('address_line_1','address_line_2','google_map_link','cities.name')
+                                        ->join('cities', 'address.city_id', '=', 'cities.id')
+                                        ->where('linkable_id', $userId )
+                                        ->where('linkable_type', 'users' )
+                                        ->where('address.status', 1 )
+                                        ->get()
+                                        ->toArray();
+
+            $imageData          =   Current(Files::select('file_path')
+                                        ->where('linkable_id', $userId )
+                                        ->where('linkable_type', 'users')
+                                        ->where('file_type', 'user_image')
+                                        ->where('status', 1 )
+                                        ->get()
+                                        ->toArray()
+                                    );
+
+            $userDetails['address']           = $addressData;
+
+            $userDetails['phones']            = $phoneData;
+
+            $userDetails['profile_image']     = $imageData['file_path'];
+
+            return $userDetails;
+        }
+        
+        return [];
+    }
+
+    /**
+     * update User
+     * @param integer  $userId
+     *
+     * @param Array $data
+     *
+     * @return Boolean
+     *
+     * @throws Exception
+    */
+    public static function updateUser($userId,$data)
+    {
+        try
+        {
+            Users::where('id', $userId)->update( $data );
+
+            return TRUE;
+        }
+        catch(\Exception $e)
+        {
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Updating User ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception while updating User ", 1);
+        }
+        
+    }
+
+    /**
+     * Validate Password
+     * @param integer  $userId
+     *
+     * @return Boolean
+     *
+     * @throws Exception
+    */
+     public static function validatePassword($userId,$password)
+    {
+        try
+        {
+            $userDetails = Current( Users::select('password')->where('id', $userId)->where('status', 1)->get()->toArray() );
+            
+            if(empty($userDetails))
+            {
+                return false;        
+            }
+            
+            if( Hash::check($password, $userDetails['password'] ) )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        catch(\Exception $e)
+        {
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Validatiing Password ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured while Validatiing Password ", 1);
+        }
+        
+    }
+
+
+    
+    /**
+     * @param integer  $otp
+     * @param integer  $userId
+     *
+     * @return boolean
+    */
+    public static function validateOtp( $otp, $userId, $type )
+    {   
+
+        try
+        {   
+
+             $currentDate   = date("Y-m-d H:i:s");
+
+             \Log::info(__CLASS__." ".__FUNCTION__." currentDate ".$currentDate);
+
+             $otpData       = current( SmsOtp::select('sms_otp.id','expiry_date')
+                                        ->join('users', 'users.id', '=', 'sms_otp.user_id')
+                                        ->where('sms_otp.user_id', $userId )
+                                        ->where('sms_otp.otp', $otp )
+                                        ->where('sms_otp.otp_type', $type)
+                                        ->where('sms_otp.status', 1 )
+                                        ->where('users.status', 1 )
+                                        ->get()
+                                        ->toArray()
+                               );
+                                        
+            if( empty($otpData) )
+            {
+
+                \Log::info(__CLASS__." ".__FUNCTION__." Invalid Otp ");
+                
+                return false;
+                
+            }
+
+            return true;
+            
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured Validating OTP ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured Validating OTP ", 1);
         }
        
     }

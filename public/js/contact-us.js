@@ -59,25 +59,11 @@ function contactUs(event, formData) {
         },
         success: function (data) {
             if (data.data.message) {
-                var params = {
-                    title: 'Thank you!',
-                    message: data.data.message,
-                    type: 'notification',
-                    autoHide: true,
-                    delay: 10000
-                };
-                notifier(params);
+                notifySuccess(data.data.message);
             }
         },
         error: function (xhr) { // if error occured
-            var params = {
-                title: 'Error!',
-                message: xhr.statusText,
-                type: 'notification',
-                autoHide: true,
-                delay: 10000
-            };
-            notifier(params);
+            notifyError(xhr.statusText);
         },
         complete: function () {
             $('form').each(function () {

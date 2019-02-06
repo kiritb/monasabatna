@@ -28,4 +28,25 @@ class SupplierProductTypes extends Model
      */
     protected $fillable = ['name','status','created_by', 'updated_by' ];
 
+
+    public static function createSupplierProductTypes($data)
+    {
+
+        self::Create(
+            [   
+                'name'          => $data['name'],
+                'created_by'    => $data['email'],
+                'updated_by'    => $data['email']
+            ]
+        );
+    }
+
+    /* Update the SupplierProductTypes based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateSupplierProductTypes($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
 }

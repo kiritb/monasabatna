@@ -1,9 +1,9 @@
 @include('shared/header')
-
+<link rel="stylesheet" type="text/css" href="{{ url('css/home.css') }}">
 <div id="home_page">
 
     <!-- Home Carousal for Banners -->
-    @include("slider")
+    @include("shared/home_slider")
 
     @auth
     <h1>Logged in!!</h1>

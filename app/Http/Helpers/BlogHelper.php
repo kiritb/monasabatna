@@ -9,6 +9,7 @@
 namespace App\Http\Helpers;
 
 use App\Models\Blogs;
+use App\Models\Reviews;
 
 class BlogHelper
 {   
@@ -53,25 +54,36 @@ class BlogHelper
 
    public static function postBlog($data)
    {    
-
         try
         {  
 
-            Blogs::create([
-                'user_id'           => $data['user_id'],
-                'heading'           => $data['heading'],
-                'blog'              => $data['blog'],
-                'created_by'        => $data['email'],
-                'updated_by'        => $data['email']
-            ]);
+            Blogs::createBlog($data);
            
             return TRUE;
         }
         catch( \Exception $e)
         {   
-            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while creating blogsData ".print_r( $e->getMessage(), true) );
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while creating Reviews ".print_r( $e->getMessage(), true) );
 
-            throw new \Exception(" Exception Occured while creating blogsData", 1);
+            throw new \Exception(" Exception Occured while creating Reviews", 1);
+
+        }
+   }
+   
+   public static function postReviews($data)
+   {    
+        try
+        {  
+
+            Reviews::createReviews($data);
+           
+            return TRUE;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while creating Reviews ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured while creating Reviews", 1);
 
         }
    }

@@ -31,4 +31,28 @@ class Services extends Model
      */
     protected $fillable = ['service_type_id', 'linkable_id', 'linkable_type', 'order_no', 'status', 'created_by', 'updated_by' ];
 
+
+    public static function createServices($data)
+    {
+
+        self::Create(
+            [   
+                'service_type_id'   => $data['service_type_id'],
+                'linkable_id'       => $data['linkable_id'],
+                'linkable_type'     => $data['linkable_type'],
+                'order_no'          => isset( $data['order_no'] ) ? $data['order_no'] : NULL,
+                'created_by'        => $data['email'],
+                'updated_by'        => $data['email']
+            ]
+        );
+    }
+
+    /* Update the Services based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateServices($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
 }

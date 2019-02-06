@@ -21,7 +21,7 @@
         <div class="form_custsignup">
             
             <div class="forgottext">
-            Resend Password!
+            Reset Password!
             </div>
          <form>
  

@@ -283,7 +283,7 @@ h1.bannerfont {
     font-size: 60px;
 }
 
-#home_page.home-banner-captions {
+#home_page .home-banner-captions {
     top: 35%;
 }
 
@@ -622,7 +622,6 @@ button#show_record_why {
 #middlelayer2 {
     margin-top: -10px;
     background-color: #5cb9b1;
-    height: 802px;
 }
 
 i#date-element-span {
@@ -790,7 +789,7 @@ h2.form_homehead {
 
 .gj-datepicker [role=right-icon] {
     position: absolute;
-    right: 0;
+    right: 3px;
     border: 0px solid;
     top: 2px;
 }
@@ -800,7 +799,31 @@ h2.form_homehead {
 }
 
 /* Home page facilitate form date picker CSS ends*/
-
+/*************************express deals page **************************/
+input.maxmin {
+    display: inline-flex;
+    width: 59px;
+    border-radius: 4px;
+    border: 2px solid #aeaeae;
+}
+label#maxexp {
+    margin-left: 35px;
+}
+label#minexp {
+    margin-left: 20px;
+}
+h2.exphead {
+    font-family: Myriad pro;
+    text-align: center;
+}
+a.addvenuedash {
+    padding: 15px 60px 15px 60px;
+    color: #fff;
+    border-radiuS: 6px;
+    background-color: #6cc0b9;
+    height: 43px;
+    /* padding: 0px; */
+}
 /*****************************start  of newwishlist ***************************/
 .wishlist_tabs {
     margin-top: 27px;
@@ -843,6 +866,41 @@ h2.form_homehead {
 
 .blogwish {
     color: #727272;
+    font-size: 14px;
+}
+
+.nav-item.nav-link.list-nav-tabs {
+    font-size: 20px;
+    font-weight: bold;
+    flex: 1;
+}
+
+.nav-item.nav-link.list-nav-tabs:not(:first-child) {
+    margin-left: 10px;
+}
+
+.nav-tabs .nav-link.list-nav-tabs {
+    color: #9d9ca4;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: #ffffff;
+    background-color: #6cc0b9;
+    border-color: #6cc0b9;
+}
+
+.nav-tabs .nav-link {
+    color: #4b485b;
+    border: 1px solid #dbdadf;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    background-color: #dbdadf;
+    width: 304px;
+    height: 50px;
+    padding-top: 11px;
+    text-align: center;
+    text-decoration: none;
     font-size: 14px;
 }
 
@@ -1055,39 +1113,6 @@ div#nav-packContent {
     padding-bottom: 0px;
 }
 
-#packagedetails .nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-    color: #ffffff;
-    background-color: #6cc0b9;
-    border-color: #6cc0b9 #6cc0b9 #6cc0b9;
-    width: 235px;
-    height: 50px;
-    padding-top: 11px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-#packagedetails a#nav-about-tab.active {
-    color: #fff;
-}
-
-#packagedetails a#nav-provided-tab.active {
-    color: #fff;
-}
-
-#packagedetails a#nav-requisites-tab.active {
-    color: #fff;
-}
-
-#packagedetails a#nav-testi-tab.active {
-    color: #fff;
-}
-
-#packagedetails a#nav-terms-tab.active {
-    color: #fff;
-}
-
 #packagedetails a#nav-about-tab {
     width: 19.5%;
     font-weight: bold;
@@ -1297,7 +1322,6 @@ span.namechange {
 .tab-content {
     padding: 20px;
     background-color: #f4f4f5;
-    margin-top: -19px;
     color: #727272;
 }
 
@@ -1635,7 +1659,6 @@ div#pyttabs {
 }
 
 #pyttabs .tab-content>.tab-pane {
-    /* display: none; */
     margin-top: 11px;
     background-color: #f4f4f5;
 }
@@ -2291,34 +2314,6 @@ board.nav-tabs>li a:hover {
     border-bottom: 2px solid #6cc0b9;
 }
 
-#bookinghistorysection .nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-    color: #ffffff;
-    background-color: #6cc0b9;
-    border-color: #6cc0b9 #6cc0b9 #6cc0b9;
-    width: 304px;
-    height: 50px;
-    padding-top: 11px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.nav-tabs .nav-link {
-    color: #4b485b;
-    border: 1px solid #dbdadf;
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
-    background-color: #dbdadf;
-    color: #4b485b;
-    width: 304px;
-    height: 50px;
-    padding-top: 11px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-}
-
 a#bookvenue-tab {
     padding-top: 13px;
 }
@@ -2561,8 +2556,8 @@ address {
 
 .customerlinegreen {
     border-bottom: 2px solid #6cc0b9;
+    margin: 1px 0;
     width: 100%;
-    padding-bottom: 5px;
 }
 
 div#customerdetails {
@@ -2635,19 +2630,6 @@ div#customerprofile {
     height: 261px;
 }
 
-#customerprofile .nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-    color: #ffffff;
-    background-color: #6cc0b9;
-    border-color: #6cc0b9 #6cc0b9 #6cc0b9;
-    width: 305px;
-    height: 50px;
-    padding-top: 11px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-}
-
 /**************** customer_profile_events ****************/
 .custevents {
     font-size: 13px;
@@ -2690,33 +2672,6 @@ div#customerprofilehistory {
     margin-top: 7px;
 }
 
-#customerprofilehistory .nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-    color: #ffffff;
-    background-color: #6cc0b9;
-    border-color: #6cc0b9 #6cc0b9 #6cc0b9;
-    width: 304px;
-    height: 50px;
-    padding-top: 11px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.nav-tabs .nav-link {
-    border: 1px solid #dbdadf;
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
-    background-color: #dbdadf;
-    color: #4b485b;
-    width: 304px;
-    height: 50px;
-    padding-top: 11px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-}
-
 a.venuepy-cash {
     font-size: 15px;
     color: #fc4141 !important;
@@ -2731,57 +2686,6 @@ a.venuepy-cash {
 .row.custprofeven {
     width: 100%;
     padding: 0px;
-}
-
-a#nav-home-tab.active {
-    color: #fff;
-}
-
-a#nav-profile-tab.active {
-    color: #fff;
-}
-
-a#nav-contact-tab.active {
-    color: #fff;
-}
-
-a#nav-events-tab.active {
-    color: #fff;
-}
-
-a#nav-home-tab {
-    font-size: 20px;
-    color: #9d9ca4;
-    font-weight: bold;
-    font-family: Myriad pro;
-    width: 24.40%;
-}
-
-a#nav-profile-tab {
-    font-size: 20px;
-    color: #9d9ca4;
-    font-weight: bold;
-    font-family: Myriad pro;
-    margin-left: 10px;
-    width: 24.40%;
-}
-
-a#nav-contact-tab {
-    font-size: 20px;
-    color: #9d9ca4;
-    font-weight: bold;
-    font-family: Myriad pro;
-    margin-left: 10px;
-    width: 24.40%;
-}
-
-a#nav-events-tab {
-    font-size: 20px;
-    color: #9d9ca4;
-    font-weight: bold;
-    font-family: Myriad pro;
-    margin-left: 10px;
-    width: 24.35%;
 }
 
 a.btnreview {
@@ -2943,33 +2847,14 @@ div#eventlist-contentright {
     padding-right: 0px;
 }
 
-.row.color-bg-eventlistnext {
-    /* padding-left: 15px; */
-    margin-top: 10px;
-    margin-left: 77px;
-    width: 92.50%;
-    background-color: #f8f8f8;
-    height: auto;
-    padding: 12px;
-}
-
 .row.color-bg-eventlist {
-    /* padding-left: 15px; */
-    margin-top: -13px;
-    margin-left: 77px;
-    width: 92.50%;
     background-color: #f8f8f8;
     height: auto;
     padding: 12px;
-}
-
-.row.rightevent {
-    padding-left: 0px;
-    padding-right: 0px;
 }
 
 .row.evenorglist {
-    width: 97%;
+    width: 100%;
     padding-left: 0px;
     padding-right: 0px;
 }
@@ -3069,22 +2954,6 @@ div#supppackdet {
     float: left;
 }
 
-#supplierdetails a#nav-about-tab.active {
-    color: #fff;
-}
-
-#supplierdetails a#nav-provided-tab.active {
-    color: #fff;
-}
-
-#supplierdetails a#nav-testi-tab.active {
-    color: #fff;
-}
-
-#supplierdetails a#nav-terms-tab.active {
-    color: #fff;
-}
-
 #supplierdetails a#nav-about-tab {
     width: 24.55%;
     font-weight: bold;
@@ -3125,13 +2994,15 @@ div#supppackdet {
 div#forgotcontent {
     padding-right: 300px;
     padding-left: 300px;
-    margin-bottom:45px;
+    margin-bottom: 45px;
 }
+
 .forgotimg {
     align-items: center;
     margin-top: 6%;
     margin-left: 30%;
 }
+
 .forgottext {
     color: #676868;
     font-size: 18px;
@@ -3140,6 +3011,7 @@ div#forgotcontent {
     font-family: Myriad pro;
     font-weight: 600;
 }
+
 #forgotcontent input[type=text],
     {
     width: 70%;
@@ -3150,26 +3022,32 @@ div#forgotcontent {
     border-radius: 8px;
     resize: vertical;
 }
+
 div#formforgot {
     margin-top: 24px;
     /* margin-bottom: 30px; */
 }
-label#forgotlab, label#retypelab {
+
+label#forgotlab,
+label#retypelab {
     color: #686868;
     font-size: 13px;
     text-align: center;
     margin-left: 5%;
-    margin-top:8%;
+    margin-top: 8%;
     font-weight: 300;
 }
-label#retypelab{
-    margin-top:0%;
+
+label#retypelab {
+    margin-top: 0%;
 }
-#inputforgot::placeholder{
-    color:#e5e5e5;
-    text-align: center;
-    font-size:14px;
+
+#inputforgot::placeholder {
+    color: #e5e5e5;
+    text-align: left;
+    font-size: 14px;
 }
+
 input#inputforgot {
     color: #727272;
     padding: 12px;
@@ -3178,20 +3056,23 @@ input#inputforgot {
     width: 92%;
     margin-left: 4%;
 }
+
 button.forgotsubmit {
     width: 91%;
     color: #fff;
     background-color: #5cb9b1;
     margin-left: 4%;
-    margin-top:6%;
+    margin-top: 6%;
     font-family: Myriad pro;
     border-radius: 6px;
 }
+
 .row.forgotbaselink {
     margin: 90px 0px 0px 92px;
     font-size: 14px;
     text-decoration: underline;
 }
+
 /********************** Venue List **********************************************/
 
 .eventspagin {
@@ -3223,23 +3104,19 @@ a.showmapbtn {
 
 /*** panel **************/
 .list-heading {
-    padding: 10px 10px 10px 10px;
-    width: 240px;
+    padding: 10px;
     color: #4b485b;
     font-size: 20px;
     font-weight: bold;
     font-family: Myriad pro light;
-    margin-left: -49px;
     background-color: #dbdadb;
 }
 
 .list-body {
-    padding: 10px 10px 10px 10px;
-    width: 240px;
+    padding: 10px;
     font-size: 13px;
     font-weight: bold;
     color: #a4a4a5;
-    margin-left: -49px;
     background-color: #ebebed;
 }
 
@@ -3450,14 +3327,7 @@ button {
     margin: -27px 0px 0px -29px;
 }
 
-.content-eve-top {
-    width: 50%;
-    float: right;
-}
-
 .content-eve {
-
-
     float: left;
 }
 
@@ -3553,14 +3423,6 @@ span.blog-icon-text {
     text-align: justify;
     margin-top: 5px;
     margin-left: 13px;
-}
-
-.pagination {
-    display: -ms-flexbox;
-    display: flex;
-    padding-left: 434px;
-    list-style: none;
-    border-radius: .25rem;
 }
 
 .justify-content-end {
@@ -4321,7 +4183,7 @@ input.form-control.csignin {
 
 .form_custsignin,
 .form_custsignup {
-    width:100%;
+    width: 100%;
     float: left;
     color: #676868;
     background-color: #ffffff;
@@ -4522,46 +4384,6 @@ span#tweeticon {
 
 /*************** customer SignIn End*********/
 
-
-/*************** package venues tab start *********/
-a#nav-express-tab.active {
-    color: #fff;
-}
-
-a#nav-eveorg-tab.active {
-    color: #fff;
-}
-
-a#nav-supp-tab.active {
-    color: #fff;
-}
-
-a#nav-express-tab {
-    font-size: 20px;
-    color: #9d9ca4;
-    font-weight: bold;
-    font-family: Myriad pro;
-    width: 32.79%;
-}
-
-a#nav-eveorg-tab {
-    font-size: 20px;
-    color: #9d9ca4;
-    font-weight: bold;
-    font-family: Myriad pro;
-    margin-left: 10px;
-    width: 32.79%;
-}
-
-a#nav-supp-tab {
-    font-size: 20px;
-    color: #9d9ca4;
-    font-weight: bold;
-    font-family: Myriad pro;
-    margin-left: 10px;
-    width: 32.79%;
-}
-
 /**************package list bottom underline tab ***************/
 .row.packsortlist {
     width: 97%;
@@ -4587,19 +4409,17 @@ div#innertwotab {
     padding-left: 33px;
 }
 
-div#underlinetab {
-    margin-top: -7px;
-    position: relative;
-    margin-left: 26px;
+.tab-filters {
+    float: left;
+}
+
+.tab-data {
+    float: right;
 }
 
 .row.color-bg-expcontent,
 .row.color-bg-expcontentnext {
     position: relative;
-    /* padding-left: 15px; */
-    margin-top: 2px;
-    margin-left: 143px;
-    width: 1000px;
     background-color: #f8f8f8;
     height: auto;
     padding: 12px;
@@ -4610,11 +4430,9 @@ div#underlinetab {
 }
 
 #underlinetab #pills-tab {
-    margin-left: 143px;
     position: relative;
     border-top: 2px solid #dbdade;
     border-bottom: 2px solid #dbdade;
-    width: 998px;
 }
 
 #underlinetab .nav-pills .nav-link.active,
@@ -4779,14 +4597,6 @@ div#packlist-contentright {
 .venues-tab>li>a::after {
     background: #21527d none repeat scroll 0% 0%;
     color: #fff;
-}
-
-.tab-pane {
-    padding: 15px 0;
-}
-
-.tab-content {
-    padding: 20px
 }
 
 .material-icons {
@@ -5399,11 +5209,6 @@ input[type=checkbox].is-invalid+span {
         margin-left: -104px;
     }
 
-    .row.color-bg-eventlistnext {
-        margin-left: 130px;
-        width: 76.5%;
-    }
-
     .row.color-bg-eventlist {
         margin-left: 130px;
         width: 76.5%;
@@ -5428,11 +5233,6 @@ input[type=checkbox].is-invalid+span {
     }
 
     .row.color-bg-eventlist {
-        margin-left: 14%;
-        width: 86%;
-    }
-
-    .row.color-bg-eventlistnext {
         margin-left: 14%;
         width: 86%;
     }
@@ -5535,8 +5335,7 @@ input[type=checkbox].is-invalid+span {
         width: 36.50%;
     }
 
-    .row.color-bg-eventlist,
-    .row.color-bg-eventlistnext {
+    .row.color-bg-eventlist {
         margin-left: 24%;
         width: 76%;
     }
@@ -5577,14 +5376,9 @@ input[type=checkbox].is-invalid+span {
         width: 600px;
     }
 
-    .row.color-bg-eventlist,
-    .row.color-bg-eventlistnext {
+    .row.color-bg-eventlist {
         margin-left: 81px;
         width: 924px;
-    }
-
-    .content-eve-top {
-        width: 53%;
     }
 }
 
@@ -5740,7 +5534,7 @@ input[type=checkbox].is-invalid+span {
 
 .form-control.themehome {
     height: 40px;
-    border: 1px solid #eeeeee;
+    border: 2px solid grey;
     border-radius: 4px;
 }
 

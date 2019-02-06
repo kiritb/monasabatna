@@ -290,14 +290,14 @@ values
 
 -- # Create Vendors
 insert into vendors
-    ( vendor_name,fathers_name, family_name, email,license_no,created_by,updated_by)
+    ( company_name, email,password,license_no,created_by,updated_by)
 values
-    ('vendor1', 'v1', 'v1', 'v1@v.com', 'V1LLD1', 'v1@v.com', 'v1@v.com');
+    ('ABC', 'v1@v.com', 'AAAA', 'V1LLD1', 'v1@v.com', 'v1@v.com');
 
 insert into vendors
-    ( vendor_name,fathers_name, family_name, email,license_no,created_by,updated_by)
+    ( company_name, email,password,license_no,created_by,updated_by)
 values
-    ('vendor2', 'v2', 'v2', 'v2@v.com', 'V1LLD2', 'v2@v.com', 'v2@v.com');
+    ('XYZ', 'v2@v.com', 'AAAA', 'V1LLD2', 'v2@v.com', 'v2@v.com');
 
 -- #Create Vennues
 insert into vennues

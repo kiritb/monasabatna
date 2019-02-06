@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property string $vendor_name
- * @property string $fathers_name
- * @property string $family_name
+ * @property string $company_name
  * @property string $email
+ * @property string $password
  * @property string $accessToken
  * @property datetime $expiry_date
  * @property string $license_no
+ * @property string $note
+ * @property string $fb_link
+ * @property string $twitter_link
  * @property integer $status
  * @property datetime $created_at
  * @property datetime $updated_at
@@ -32,6 +34,7 @@ class Vendors extends Model
     /**
      * @var array
      */
-    protected $fillable = ['vendor_name', 'fathers_name', 'family_name', 'email', 'accessToken', 'expiry_date', 'license_no', 'status','created_by', 'updated_by' ];
+    protected $fillable = ['company_name', 'email', 'password','accessToken', 'expiry_date', 'license_no', 'note',
+    'fb_link','twitter_link','status','created_by', 'updated_by' ];
 
 }

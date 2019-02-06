@@ -10,5 +10,7 @@ namespace App\Http\Constants;
 
 abstract class SmsTypeConst
 {
-   const SMS_TYPE_ACCOUNT_VERIFICATION = 1;
+   const SMS_TYPE_ACCOUNT_VERIFICATION 		= 1;
+
+   const SMS_TYPE_ACCOUNT_FORGOT_PASSWORD 	= 2;
 }

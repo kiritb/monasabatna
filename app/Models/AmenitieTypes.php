@@ -28,4 +28,29 @@ class AmenitieTypes extends Model
      */
     protected $fillable = ['name', 'short_description', 'status','created_by', 'updated_by' ];
 
+
+    public static function createAmenitieTypes( $data)
+    {
+        self::create(
+            [
+                'name'                  => $data['linkable_id'],
+                'short_description'     => isset( $data['short_description'] ) ? $data['short_description'] : NULL,
+                'status'                => 1,
+                'created_by'            => $data['email'],
+                'updated_by'            => $data['email']
+            ]
+
+        );
+    }
+
+
+    /* Update the AmenitieTypes based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateAmenitieTypes($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
+
 }

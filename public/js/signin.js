@@ -24,13 +24,13 @@ $(document).ready(function () {
                 .removeClass("is-invalid");
         },
         submitHandler: function (event) {
-            signinFn(event);
+            var formData = $(event).serialize() + "&isWeb=" + true;
+            signinFn(event, formData);
         }
     });
 });
 
-function signinFn(event) {
-    var formData = $("form").serialize() + "&isWeb=" + true;
+function signinFn(event, formData) {
     $.ajax({
         url: "login",
         type: "POST",
@@ -41,37 +41,15 @@ function signinFn(event) {
             console.log("inside beforeSend!!");
         },
         success: function (response) {
-            var params;
             if (response.data.message) {
-                params = {
-                    title: "Login Success!",
-                    message: response.data.message,
-                    type: "notification",
-                    autoHide: true,
-                    delay: 10000
-                };
+                notifySuccess(response.data.message);
                 location.reload();
             } else {
-                params = {
-                    title: "Login Error!",
-                    message: "Couldn't Login!! Please try again.",
-                    type: "notification",
-                    autoHide: true,
-                    delay: 10000
-                };
+                notifyError("Couldn't Login!! Please try again.");
             }
-            notifier(params);
         },
         error: function (xhr) {
-            params = {
-                title: "Error!",
-                message: xhr.statusText,
-                type: "danger",
-                autoHide: true,
-                delay: 10000
-            };
-
-            notifier(params);
+            notifyError(xhr.responseJSON.error.errors['0']);
         },
         complete: function () {
             $("form").each(function () {

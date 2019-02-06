@@ -1,0 +1,28 @@
+#myCarousel-home .carousel-item>img.d-block {
+    width: 100%;
+    margin: auto;
+}
+
+#myCarousel-home .carousel-indicators {
+    position: relative;
+    bottom: auto;
+    padding: 25px;
+    margin: auto;
+}
+
+#myCarousel-home .carousel-indicators li {
+    margin-top: -75px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+}
+
+#myCarousel-home .carousel-indicators li {
+    border: 2px solid #fff;
+    background: transparent;
+}
+
+#myCarousel-home .carousel-indicators .active {
+    background: #6cc0b9;
+    border: none;
+}

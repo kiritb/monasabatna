@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Http\Constants\HttpStatusCodesConsts;
+use App\Http\Controllers\Controller;
 use App\Http\Helpers\ResponseUtil;
 use App\Http\Helpers\UserHelper;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -21,7 +21,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
     /**
      * Where to redirect users after registration.
@@ -47,21 +47,21 @@ class RegisterController extends Controller
     {
         $requestParams = $request->all();
 
-        \Log::info(__CLASS__.' '.__FUNCTION__.' Request Params =>'.print_r($requestParams, true));
+        \Log::info(__CLASS__ . ' ' . __FUNCTION__ . ' Request Params =>' . print_r($requestParams, true));
 
         $rules = ['email' => 'required|string|email|max:255|unique:users',
-                          'first_name' => 'required|string||max:255|',
-                          'fathers_name' => 'required|string||max:255|',
-                          'family_name' => 'required|string||max:255|',
-                          'password' => 'required|string||min:6|confirmed',
-                       ];
+            'first_name'      => 'required|string||max:255|',
+            'fathers_name'    => 'required|string||max:255|',
+            'family_name'     => 'required|string||max:255|',
+            'password'        => 'required|string||min:6|confirmed',
+        ];
 
         $validator = Validator::make($requestParams, $rules);
 
         if ($validator->fails()) {
             $errorMessages = current($validator->messages());
             foreach ($errorMessages as $key => $value) {
-                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message '.current($value).' Response Code '.HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+                \Log::info(__CLASS__ . ' ' . __FUNCTION__ . ' Error Message ' . current($value) . ' Response Code ' . HttpStatusCodesConsts::HTTP_BAD_REQUEST);
 
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => [current($value)]], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
 
@@ -84,18 +84,18 @@ class RegisterController extends Controller
     {
         $requestParams = $request->all();
 
-        \Log::info(__CLASS__.' '.__FUNCTION__.' Request Params =>'.print_r($requestParams, true));
+        \Log::info(__CLASS__ . ' ' . __FUNCTION__ . ' Request Params =>' . print_r($requestParams, true));
 
         $rules = ['otp' => 'required|integer',
-                          'user_id' => 'required|integer',
-                       ];
+            'user_id'       => 'required|integer',
+        ];
 
         $validator = Validator::make($requestParams, $rules);
 
         if ($validator->fails()) {
             $errorMessages = current($validator->messages());
             foreach ($errorMessages as $key => $value) {
-                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message '.current($value).' Response Code '.HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+                \Log::info(__CLASS__ . ' ' . __FUNCTION__ . ' Error Message ' . current($value) . ' Response Code ' . HttpStatusCodesConsts::HTTP_BAD_REQUEST);
 
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => [current($value)]], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
 
@@ -122,18 +122,18 @@ class RegisterController extends Controller
     {
         $requestParams = $request->all();
 
-        \Log::info(__CLASS__.' '.__FUNCTION__.' Request Params =>'.print_r($requestParams, true));
+        \Log::info(__CLASS__ . ' ' . __FUNCTION__ . ' Request Params =>' . print_r($requestParams, true));
 
         $rules = [
-                         'user_id' => 'required|integer',
-                       ];
+            'user_id' => 'required|integer',
+        ];
 
         $validator = Validator::make($requestParams, $rules);
 
         if ($validator->fails()) {
             $errorMessages = current($validator->messages());
             foreach ($errorMessages as $key => $value) {
-                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message '.current($value).' Response Code '.HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+                \Log::info(__CLASS__ . ' ' . __FUNCTION__ . ' Error Message ' . current($value) . ' Response Code ' . HttpStatusCodesConsts::HTTP_BAD_REQUEST);
 
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => [current($value)]], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
 
@@ -145,7 +145,7 @@ class RegisterController extends Controller
             $optData = UserHelper::resendotp($requestParams['user_id']);
 
             if (empty($optData)) {
-                \Log::info(__CLASS__.' '.__FUNCTION__.' user does not exists'.HttpStatusCodesConsts::HTTP_NOT_FOUND);
+                \Log::info(__CLASS__ . ' ' . __FUNCTION__ . ' user does not exists' . HttpStatusCodesConsts::HTTP_NOT_FOUND);
 
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['user does not exists']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'user does not exists');
 

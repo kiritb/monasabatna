@@ -8,10 +8,12 @@
 <!------- Banner start-------->
 <div class="container-fluid" id="packagecommon">
 
-    <h3 class="detail-party"><b>Party Zone</b></h3>
+    <h3 class="detail-party"><b>{{ $data['supplierName'] }}</b></h3>
 
-    @include('sliderinnercustom')
+    @include('sliderinner', ['slides' => $data['files']])
+
 </div>
+
 <!------- Banner end-------->
 
 <div class="container-fluid" id="supplierpacksect">
@@ -176,9 +178,8 @@
     </div>
 </div>
 
-@if( isset($data) && !$data['files']->isEmpty())
 @include('slickslider', ['slides' => $data['files']])
-@endif
+
 <!---------------------------- Thumbnail carousel start --------------------------------->
 
 <div class="row"> </div>

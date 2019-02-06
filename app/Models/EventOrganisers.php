@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $vendor_id
  * @property string $name
  * @property string $short_description
+ * @property integer $prior_intimation_days
+ * @property integer $is_express_deal
  * @property integer $order_no
  * @property float $rating
  * @property string $fb_link
@@ -32,6 +34,35 @@ class EventOrganisers extends Model
     /**
      * @var array
      */
-    protected $fillable = ['vendor_id', 'name', 'short_description', 'order_no', 'home_page_display', 'rating', 'fb_link', 'twitter_link',  'status','created_by', 'updated_by' ];
+    protected $fillable = ['vendor_id', 'name', 'short_description','prior_intimation_days', 'is_express_deal', 'order_no', 'rating', 'fb_link', 'twitter_link',  'status','created_by', 'updated_by' ];
 
+
+    public static function createEventOrganisers($data)
+    {
+
+        self::create ( 
+            [
+                'vendor_id'                     => $data['vendor_id'],
+                'name'                          => $data['name'],
+                'short_description'             => isset( $data['short_description'] ) ? $data['short_description'] : NULL,
+                'order_no'                      => isset( $data['order_no'] ) ? $data['order_no'] : NULL,
+                'prior_intimation_days'         => $data['prior_intimation_days'],
+                'is_express_deal'               => isset( $data['is_express_deal'] ) ? $data['is_express_deal'] : 0,
+                'rating'                        => isset($data['rating'] ) ? $data['rating'] : 0,
+                'fb_link'                       => isset($data['fb_link']) ? $data['fb_link'] : NULL,
+                'twitter_link'                  => isset($data['twitter_link']) ? $data['twitter_link'] : NULL,
+                'status'                        => 1,
+                'created_by'                    => $data['email'],
+                'updated_by'                    => $data['email']
+            ]
+        );
+    }
+
+     /* Update the BankAccounts based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateEventOrganisers($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
 }

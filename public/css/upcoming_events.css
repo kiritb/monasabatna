@@ -354,9 +354,7 @@ select.form-control.sortvenues {
 
 .row.color-bg-venuelist {
     margin-top: -12px;
-    margin-left: 77px;
-    margin-right: -33px;
-    width: 1092px;
+    width: 100%;
     background-color: #f8f8f8;
     height: auto;
     padding: 21px;
@@ -364,15 +362,6 @@ select.form-control.sortvenues {
 
 .row.col-lg-10.col-md-10.col-sm-10.col-xs-10 {
     padding: 0px;
-}
-
-.row.color-bg-venuelistone {
-    margin-top: 15px;
-    margin-left: 77px;
-    margin-right: -33px;
-    background-color: #f8f8f8;
-    height: auto;
-    padding: 21px;
 }
 
 .venuespagin {
@@ -516,14 +505,7 @@ button {
     margin: -27px 0px 0px -29px;
 }
 
-.content-eve-top {
-    width: 50%;
-    float: right;
-}
-
 .content-eve {
-
-
     float: left;
 }
 

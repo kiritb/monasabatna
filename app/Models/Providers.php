@@ -31,4 +31,28 @@ class Providers extends Model
      */
     protected $fillable = ['linkable_id', 'linkable_type', 'provider_desc', 'order_no', 'status', 'created_by', 'updated_by' ];
 
+
+    public static function createProviders($data)
+    {
+
+        self::Create(
+            [   
+                'linkable_id'       => $data['linkable_id'],
+                'linkable_type'     => $data['linkable_type'],
+                'provider_desc'     => $data['provider_desc'],
+                'order_no'          => isset( $data['order_no'] ) ? $data['order_no'] : NULL,
+                'created_by'        => $data['email'],
+                'updated_by'        => $data['email']
+            ]
+        );
+    }
+
+    /* Update the Providers based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateProviders($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
 }

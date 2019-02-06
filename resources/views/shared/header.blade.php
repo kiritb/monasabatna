@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/loader/loader.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/fonts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('css/asigned.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('css/vendorpanel.css') }}">
 </head>
 
 <!-- This id is used for many purposes, please do not remove or modify it -->
@@ -56,7 +56,7 @@
                 <ul id="mainNav">
                     <li class="nav-item"><a href="{{ url('/') }}">HOME</a></li>
                     <li class="nav-item"><a href="#">EXPRESS</a></li>
-                    <li class="nav-item"><a href={{ url('/vennues') }}>VENUES</a></li>
+                    <li class="nav-item"><a href={{ url('/listing') }}>VENUES</a></li>
                     <li class="nav-item"><a href="#">SUPPLIERS </a></li>
                     <li class="nav-item"><a href={{ url('/events/organisers') }}>EVENT ORGANISERS</a></li>
                     <li class="nav-item submenu">

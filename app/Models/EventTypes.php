@@ -28,4 +28,26 @@ class EventTypes extends Model
      */
     protected $fillable = [ 'name', 'status','created_by', 'updated_by' ];
 
+
+    public static function createEventTypes($data)
+    {
+
+        self::create ( 
+            [
+                'name'          => $data['name'],
+                'status'        => 1,
+                'created_by'    => $data['email'],
+                'updated_by'    => $data['email']
+            ]
+        );
+    }
+
+     /* Update the Events based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateEventTypes($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
 }

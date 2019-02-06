@@ -117,6 +117,7 @@
                     <div class="modal-content">
                         <form class="form-horizontal text-center" method="post" id="otp_verify_form">
                             <!-- Modal Header -->
+                            @csrf
                             <div class="modal-header text-center">
                                 <h3 class="modal-title">OTP</h3>
                             </div>

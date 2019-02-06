@@ -22,6 +22,10 @@ use App\Models\RoomTypes;
 use App\Models\ServicesTypes;
 use App\Models\Vennues;
 use App\Models\VennueTypes;
+use App\Models\EventOrganisers;
+use App\Models\Suppliers;
+
+
 
 class VennueHelper
 {
@@ -37,7 +41,7 @@ class VennueHelper
         {
 
             $vennueSql = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName', 'vennues.short_description as vennueShortDescription',
-                'vennues.start_time as vennueStartTime', 'vennues.order_no as displayOrder',
+                'vennues.start_time as vennueStartTime', 'vennues.order_no as displayOrder','vennues.min_guest_cap as MinGuestCap', 'vennues.max_guest_cap as MaxGuestCap',
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')
@@ -205,7 +209,7 @@ class VennueHelper
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType',
-                'vendors.vendor_name as vendorName',
+                'vendors.company_name as vendorName',
                 'vendors.license_no as licenseNo')
                 ->join('address', 'vennues.id', '=', 'address.linkable_id')
                 ->join('pricings', 'vennues.id', '=', 'pricings.linkable_id')
@@ -279,9 +283,66 @@ class VennueHelper
 
             $venneDataArr['services'] = empty($serviceData) ? [] : $serviceData;
 
+
+            $recommendedVennues = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName', 'files.file_path as filePath')
+                                        ->join('address', 'vennues.id', '=', 'address.linkable_id')
+                                        ->join('files', 'vennues.id', '=', 'files.linkable_id')
+                                        ->join('cities', 'address.city_id', '=', 'cities.id')
+                                        ->where('address.linkable_type', 'vennues')
+                                        ->where('files.linkable_type', 'vennues')
+                                        ->where('files.file_type', 'home_page_display')
+                                        ->where('cities.name', $venneDataArr['cityName'])
+                                        ->where('address.status', 1)
+                                        ->where('vennues.id', '!=', $vennueId)
+                                        ->where('vennues.status', 1)
+                                        ->where('cities.status', 1)
+                                        ->get()
+                                        ->toArray();
+
+            $venneDataArr['recommendations']['vennues'] = empty($recommendedVennues) ?  [] : $recommendedVennues;
+
+            
+            $recommendedEventOrganinsers = EventOrganisers::select( 'event_organisers.id as eventOrganisersId',
+                                                            'event_organisers.name as eventOrgainsersName',
+                                                            'files.file_path as filePath')
+                                        ->join('address', 'event_organisers.id', '=', 'address.linkable_id')
+                                        ->join('files', 'event_organisers.id', '=', 'files.linkable_id')
+                                        ->join('cities', 'address.city_id', '=', 'cities.id')
+                                        ->where('address.linkable_type', 'event_organisers')
+                                        ->where('files.linkable_type', 'event_organisers')
+                                        ->where('files.file_type', 'home_page_display')
+                                        ->where('cities.name', $venneDataArr['cityName'])
+                                        ->where('address.status', 1)
+                                        ->where('event_organisers.status', 1)
+                                        ->where('cities.status', 1)
+                                        ->get()
+                                        ->toArray();
+
+            $venneDataArr['recommendations']['eventOrgainsers'] = empty($recommendedEventOrganinsers) ?  [] : $recommendedEventOrganinsers;
+
+            $recommendedSuppliers = Suppliers::select( 'suppliers.id as supplierOrganisersId',
+                                                            'suppliers.name as supplierName',
+                                                            'files.file_path as filePath')
+                                            ->join('address', 'suppliers.id', '=', 'address.linkable_id')
+                                            ->join('files', 'suppliers.id', '=', 'files.linkable_id')
+                                            ->join('cities', 'address.city_id', '=', 'cities.id')
+                                            ->where('address.linkable_type', 'suppliers')
+                                            ->where('files.linkable_type', 'suppliers')
+                                            ->where('files.file_type', 'home_page_display')
+                                            ->where('cities.name', $venneDataArr['cityName'])
+                                            ->where('address.status', 1)
+                                            ->where('suppliers.status', 1)
+                                            ->where('cities.status', 1)
+                                            ->get()
+                                            ->toArray();
+                
+
+               $venneDataArr['recommendations']['suppliers'] = empty($recommendedSuppliers) ?  [] : $recommendedSuppliers;
+
             return $venneDataArr;
         } catch (\Exception $e) {
-            
+                
+
             \Log::info(__CLASS__ . " " . __FUNCTION__ . " Exception Occured while Fetching Vennue Listings " . print_r($e->getMessage(), true));
 
             throw new \Exception(" Exception Occured while Fetching Vennue Listings", 1);

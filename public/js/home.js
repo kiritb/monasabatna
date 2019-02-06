@@ -24,26 +24,12 @@ $(document).ready(function () {
                     "lessText": "Less",
                 });
             } else {
-                params = {
-                    title: "No Data!",
-                    message: "No Data for why us!",
-                    type: "notification",
-                    autoHide: true,
-                    delay: 10000
-                };
-                notifier(params);
+                notifyError("No Data for why us!");
             }
         },
         error: function (xhr) {
             // if error occured
-            var params = {
-                title: "Error!",
-                message: xhr.statusText,
-                type: "notification",
-                autoHide: true,
-                delay: 10000
-            };
-            notifier(params);
+            notifyError(xhr.statusText);
         }
     });
 
@@ -122,36 +108,15 @@ function faciLitate(event, formData) {
             console.log("inside beforeSend!!");
         },
         success: function (response) {
-            var params;
             if (response.data) {
-                params = {
-                    title: "Success!",
-                    message: response.data.message,
-                    type: "success",
-                    autoHide: true,
-                    delay: 10000
-                };
+                notifySuccess(response.data.message);
             } else {
-                params = {
-                    title: "No Data!",
-                    message: "No Data for why us!",
-                    type: "danger",
-                    autoHide: true,
-                    delay: 10000
-                };
+                notifyError("No Data for why us!");
             }
-            notifier(params);
         },
         error: function (xhr) {
             // if error occured
-            var params = {
-                title: "Error!",
-                message: xhr.statusText,
-                type: "danger",
-                autoHide: true,
-                delay: 10000
-            };
-            notifier(params);
+            notifyError(xhr.statusText);
         }
     });
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $supplier_id
+ * @property integer $package_id
  * @property integer $supplier_product_id
  * @property integer $order_no
  * @property integer $status
@@ -28,6 +28,29 @@ class SupplierProductMappings extends Model
     /**
      * @var array
      */
-    protected $fillable = ['supplier_id', 'supplier_product_id', 'order_no', 'status','created_by', 'updated_by' ];
+    protected $fillable = ['package_id', 'supplier_product_id', 'order_no', 'status','created_by', 'updated_by' ];
+
+
+    public static function createSupplierProductMappings($data)
+    {
+
+        self::Create(
+            [   
+                'package_id'                    => $data['package_id'],
+                'supplier_product_id'           => $data['supplier_product_id'] ,
+                'order_no'                      => isset( $data['order_no'] ) ? $data['order_no'] : NULL ,
+                'created_by'                    => $data['email'],
+                'updated_by'                    => $data['email']
+            ]
+        );
+    }
+
+    /* Update the SupplierProductMappings based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateSupplierProductMappings($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
 
 }

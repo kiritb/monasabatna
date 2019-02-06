@@ -28,4 +28,25 @@ class PricingTypes extends Model
      */
     protected $fillable = ['name', 'status', 'created_by', 'updated_by' ];
 
+
+    public static function createPricingTypes($data)
+    {
+
+        self::Create(
+            [   
+                'name'           => $data['name'],
+                'created_by'     => $data['email'],
+                'updated_by'     => $data['email']
+            ]
+        );
+    }
+
+    /* Update the PricingTypes based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updatePricingTypes($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
 }

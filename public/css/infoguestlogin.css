@@ -639,11 +639,11 @@ div#infologin {
     display: none;
 }
 
-input[type=text],
+#infologin input[type=text],
 select,
 textarea {
     width: 100%;
-    height: 70% !important;
+    height: 70%;
     padding: 12px;
     color: #727272;
     border: 2px solid #9e9e9e;
@@ -651,18 +651,18 @@ textarea {
     resize: vertical;
 }
 
-select[type=text],
-select {
+#infologin select[type=text],
+#infologin select {
     width: 40% !important;
     padding: 2px;
 }
 
-label {
+#infologin label {
     padding: 12px 12px 12px 0;
     display: inline-block;
 }
 
-input[type=submit] {
+#infologin input[type=submit] {
     background-color: #6cc0b9;
     color: white;
     padding: 12px 20px;
@@ -672,7 +672,7 @@ input[type=submit] {
     float: right;
 }
 
-input[type=submit]:hover {
+#infologin input[type=submit]:hover {
     background-color: #6cc0b9;
 }
 

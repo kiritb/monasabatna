@@ -31,4 +31,27 @@ class Filters extends Model
      */
     protected $fillable = [ 'linkable_type', 'filter_type', 'filter' ,'order_no', 'status','created_by', 'updated_by' ];
 
+
+    public static function createFilters($data)
+    {
+
+        self::Create(
+            [
+                'linkable_type'     => $data['linkable_type'],
+                'filter_type'       => $data['filter_type'],
+                'filter'            => $data['filter'],
+                'order_no'          => isset( $data['order_no'] ) ? $data['order_no'] : NULL,
+                'created_by'        => $data['email'],
+                'updated_by'        => $data['email']
+            ]
+        );
+    }
+
+    /* Update the Filters based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateFilters($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
 }

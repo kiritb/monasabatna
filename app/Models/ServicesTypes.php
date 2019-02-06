@@ -29,4 +29,26 @@ class ServicesTypes extends Model
      */
     protected $fillable = [ 'name', 'short_description', 'status','created_by', 'updated_by' ];
 
+
+    public static function createServicesTypes($data)
+    {
+
+        self::Create(
+            [   
+                'name'                          => $data['name'],
+                'short_description'             => isset( $data['short_description'] ) ? $data['short_description'] : NULL,
+                'created_by'                    => $data['email'],
+                'updated_by'                    => $data['email']
+            ]
+        );
+    }
+
+    /* Update the ServicesTypes based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateServicesTypes($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
 }

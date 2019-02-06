@@ -5,48 +5,55 @@
 $.fn.overlayMask = function (action) {
     // if no input data parameters
     if (undefined == action) {
-        var error = "No parameters passed to OverlayMask loader at: ";
+        let error = "No parameters passed to OverlayMask loader at: ";
         console.log(error, this);
         return false;
     }
 
     // Adding a overlayMask class
-    var insertafterme = false;
+    let insertafterme = false;
     if (action.insertafterme) {
         insertafterme = action.insertafterme;
     }
 
-    var mask = this.children(".overlay-mask");
+    let mask = this.children(".overlay-mask");
     if (insertafterme) {
         mask = this.next(".overlay-mask");
     }
 
-    var bgsize = 75; // background size is 75px by default
-    var bghalf = bgsize / 2 + "px";
-    var fiftyprcnt = "50%";
-    var fourtyfiveprcnt = "45%";
-    var minSize = 85; // minimum size will be always 85px by default which +10 of bgsize bcz parent div should be more than background image
+    let bgsize = 75; // background size is 75px by default
+    let bghalf = bgsize / 2 + "px";
+    let fiftyprcnt = "50%";
+    let fourtyfiveprcnt = "45%";
+    let minSize = 85; // minimum size will be always 85px by default which +10 of bgsize bcz parent div should be more than background image
 
     // Defaults
-    var pPos = "initial";
-    var pOverflow = "hidden";
-    var bgc = "rgba(0, 0, 0, 0.11)";
-    var bgsizePx = bgsize + "px";
-    var minSizePx = minSize + "px";
-    var pos = "absolute";
-    var bgimg = base_url + "/vendors/loader/bars.svg"; //'loader.gif';
-    var zIndex = 2000;
-    var displayParent = "visible";
+    let pPos = "initial";
+    let pOverflow = "hidden";
+    let bgc = "rgba(0, 0, 0, 0.50)";
+    let bgsizePx = bgsize + "px";
+    let minSizePx = minSize + "px";
+    let pos = "absolute";
+    let bgimg = base_url + "/vendors/loader/bars.svg"; //'loader.gif';
+    let zIndex = 2000;
+    let displayParent = "visible";
+    let hideparent = false;
+    let pHeight = $(window).height();
 
-    if (mask.length && action.do === "hide") {
+    if (mask.length && action.do === "hideLoader") {
         if (action.fadeOut) {
             mask.fadeOut(action.fadeOut);
         } else {
             // Act based on params, if hide then remove loader div
             mask.remove();
         }
-        this.removeAttr("style");
-    } else if (!mask.length && action.do === "show") {
+
+        this.removeStyle('position');
+        this.removeStyle('overflow');
+        this.removeStyle('visibility');
+        this.removeStyle('height');
+
+    } else if (!mask.length && action.do === "showLoader") {
         if (action.pPos !== "" && action.pPos !== undefined) {
             pPos = action.pPos;
         }
@@ -72,17 +79,27 @@ $.fn.overlayMask = function (action) {
             zIndex = action.zIndex;
         }
 
-        if (insertafterme) {
+        if (action.hideparent) {
+            hideparent = action.hideparent;
+        }
+
+        if (hideparent) {
             displayParent = "hidden";
         }
 
-        this.css({
+        var parentCss = {
             position: pPos,
             overflow: pOverflow,
             visibility: displayParent
-        });
+        };
 
-        var maskCss = {
+        if (pPos !== "relative") {
+            parentCss.height = pHeight;
+        }
+
+        this.css(parentCss);
+
+        let maskCss = {
             position: pos,
             width: "100%",
             height: "100%",
@@ -93,7 +110,7 @@ $.fn.overlayMask = function (action) {
             minHeight: minSizePx
         };
 
-        var childCss = {
+        let childCss = {
             backgroundImage: "url(" + bgimg + ")",
             backgroundSize: bgsizePx,
             width: bgsizePx,
@@ -104,11 +121,11 @@ $.fn.overlayMask = function (action) {
         };
 
         if (action.customMessage) {
-            var msgbgcolor = "transparent";
-            var msgcolor = "#000000";
-            var msgfontsize = "15px";
-            var txtpadding = "10px";
-            var txtradius = "3px";
+            let msgbgcolor = "transparent";
+            let msgcolor = "#000000";
+            let msgfontsize = "15px";
+            let txtpadding = "10px";
+            let txtradius = "3px";
             if (action.msgBgColor) {
                 msgbgcolor = action.msgBgColor;
             }
@@ -125,7 +142,7 @@ $.fn.overlayMask = function (action) {
                 txtradius = action.txtRadius;
             }
 
-            var messageCss = {
+            let messageCss = {
                 position: "absolute",
                 zIndex: 9999999,
                 left: "0px",
@@ -134,7 +151,7 @@ $.fn.overlayMask = function (action) {
                 textAlign: "center"
             };
 
-            var fontCss = {
+            let fontCss = {
                 fontSize: msgfontsize,
                 color: msgcolor,
                 background: msgbgcolor,
@@ -142,7 +159,7 @@ $.fn.overlayMask = function (action) {
                 padding: txtpadding
             };
 
-            var message = "Please wait...";
+            let message = "Please wait...";
 
             if (action.message) {
                 message = action.message;
@@ -186,6 +203,24 @@ $.fn.overlayMask = function (action) {
 
 /*
  * Code for Global Loader goes here - ends
+ */
+
+/*
+ * Code for remove a style - starts
+ */
+(function ($) {
+    $.fn.removeStyle = function (style) {
+        var search = new RegExp(style + '[^;]+;?', 'g');
+
+        return this.each(function () {
+            $(this).attr('style', function (i, style) {
+                return style.replace(search, '');
+            });
+        });
+    };
+}(jQuery));
+/*
+ * Code for remove a style - ends
  */
 
 /*
@@ -239,9 +274,9 @@ var load = (function () {
  */
 
 var loaderParams = {
-    do: "show",
+    do: "showLoader",
     insertafterme: true,
-    displayme: false,
+    hideparent: true,
     customMessage: true,
     msgFontSize: "15px",
     txtRadius: "3px",
@@ -255,7 +290,7 @@ $("#bodyContainer").overlayMask(loaderParams);
 $(window).on("load", function () {
     // makes sure the whole site is loaded
     $("#bodyContainer").overlayMask({
-        do: "hide",
+        do: "hideLoader",
         insertafterme: true,
         fadeOut: true
     });

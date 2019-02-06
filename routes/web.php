@@ -56,8 +56,8 @@ Route::get('customer_profile_cancel_booking', function () {
 Route::get('faqs', function () {
     return view('faqs');
 });
-Route::get('eventorganiserslist', function () {
-    return view('dynamicpages/eventorganiserslist');
+Route::get('eventorganisers', function () {
+    return view('dynamicpages/eventorganisers');
 });
 Route::get('paymentconfirmation', function () {
     return view('dynamicpages/paymentconfirmation');
@@ -66,20 +66,35 @@ Route::get('paymentconfirmation', function () {
 Route::get('infoguestlogin', function () {
     return view('dynamicpages/infoguestlogin');
 });
+Route::get('registration', function () {
+    return view('dynamicpages/vendor_registration');
+});
 Route::get('vendorforgetpwd', function () {
     return view('dynamicpages/vendor_forgetpwd');
 });
 Route::get('vendorotp', function () {
     return view('dynamicpages/vendor_otp');
 });
-Route::get('vendor_retypepwd', function () {
+Route::get('vendorretypepwd', function () {
     return view('dynamicpages/vendor_retypepwd');
+});
+Route::get('vendorbookings', function () {
+    return view('dynamicpages/vendorbookings');
+});
+Route::get('vendordashboard', function () {
+    return view('vendor-panel/vendordashboard');
+});
+Route::get('vendordashboardtrial', function () {
+    return view('vendor-panel/vendordashboardtrial');
 });
 Route::get('packagelist', function () {
     return view('dynamicpages/packagelist');
 });
-Route::get('supplierdetails', function () {
-    return view('dynamicpages/supplierdetails');
+Route::get('dashboardvenueform', function () {
+    return view('vendor-panel/dashboardvenueform');
+});
+Route::get('expressdeals', function () {
+    return view('dynamicpages/expressdeals');
 });
 Route::get('vendorsignup', function () {
     return view('vendor_signup');
@@ -121,9 +136,13 @@ Route::get('reset', array('as' => 'password.request', function () {
 
 Route::get('/', 'Web\HomeController@index')->name('home');
 
-Route::post('facilitate', 'Web\HomeController@facilitateService');
+Route::post('facilitate', 'Api\HomeController@facilitateService');
 
-Route::get('vennues', 'Web\VennueController@vennueListing')->name('venuelist');
+Route::get('listing', function () {
+    return view('dynamicpages/listing');
+});
+
+Route::get('venues', 'Web\VennueController@vennueListing')->name('venue-list');
 
 Route::get('vennues/{id}', 'Web\VennueController@venueDetails')->name('venuedetails');
 
@@ -131,9 +150,13 @@ Route::get('events/upcoming', 'Web\EventController@eventListing')->name('eventli
 
 Route::get('events/upcoming/{id}', 'Web\EventController@upComingeventDetails')->name('upcomingeventdetails');
 
-Route::get('events/organisers', 'Web\EventController@getEventOrgainsersList')->name('eventorganisers');
+Route::get('eventsorganisers', 'Web\EventController@getEventOrgainsersList')->name('eventorganisers-list');
 
 Route::get('events/organisers/{id}', 'Web\EventController@getEventOrgainserDetails')->name('organiserdetails');
+
+Route::get('suppliers', 'Web\EventController@getSuppliersList')->name('supplier-list');
+
+Route::get('suppliers/{id}', 'Web\EventController@getSupplierDetails')->name('supplierdetails');
 
 Route::get('aboutus', 'Web\HomeController@aboutUs')->name('aboutus');
 

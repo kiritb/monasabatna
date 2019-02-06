@@ -53,6 +53,7 @@ input.form-control.text-high {
 .btn-xs {
     background-color: #6cc0b9 !important;
 }
+
 /*****************************start for 008_10_venue_dashboard_item_policies ***************************/
 button#sign-text {
     width: 200px;
@@ -186,10 +187,6 @@ label {
     font-weight: light;
 }
 
-.line_hr {
-    border: 1px linear grey;
-}
-
 .textalign {
     width: 356px;
     text-align: left !important;
@@ -220,24 +217,6 @@ label {
     margin: 22px 0px 0px -21px;
 }
 
-.signme-venuereg {
-    width: 250px;
-    height: 40px;
-    text-align: center;
-    margin-left: 225px;
-    padding: 0px 0px 0px 6px;
-    background-color: #5cb9b1;
-}
-
-.signme-venuereg:hover {
-    width: 250px;
-    height: 40px;
-    text-align: center;
-    margin-left: 225px;
-    padding: 0px 0px 0px 6px;
-    background-color: #5cb9b1;
-}
-
 .alert-danger,
 .alert-error {
     border-color: #d73925;
@@ -262,16 +241,19 @@ label {
 button {
     background-color: #6cc0b9;
 }
+
 button:hover {
     background-color: #6cc0b9;
     color: #fff;
     border: 2px solid #fff;
     font-weight: bolder;
 }
+
 .content {
     background-color: white;
     padding: 10px;
 }
+
 .content-option {
     margin-top: -19%;
     width: 210px;
@@ -279,9 +261,11 @@ button:hover {
     font-size: 16px;
     margin-left: -19px;
 }
+
 .row.portthemebtn {
     padding-right: 0px;
 }
+
 #btn-port {
     margin-top: -6%;
     float: right;
@@ -294,6 +278,7 @@ button:hover {
     font-weight: bold;
     font-size: 14px;
 }
+
 /**************** Content end*********************/
 /*************** css for table starts **************/
 .table-hover {
@@ -364,6 +349,7 @@ select#bg-orange {
     margin-left: -20px;
     padding-left: 19px;
 }
+
 fieldset {
     display: inline-block;
     vertical-align: top;
@@ -374,11 +360,13 @@ fieldset {
     margin-left: -20px;
     padding-left: 17px;
 }
+
 .checkbox {
 
     cursor: pointer;
     margin-bottom: 8px;
 }
+
 .text-num {
     display: block;
     position: relative;
@@ -452,6 +440,7 @@ fieldset {
 .change-black {
     color: #000000;
 }
+
 /*************** vendor signup start*********/
 div#myNavbar {
     padding-left: -15px;
@@ -585,6 +574,7 @@ input.form-control.csignin-venue {
     color: #676868;
     font-size: 18px;
 }
+
 /********* start ofvenue dash board bookinge *****************/
 /*** vertical navbar end ***/
 .head-dash {
@@ -771,15 +761,6 @@ select#bg-orange {
     border-color: #6cc0b9;
 }
 
-.bankhead {
-    margin-left: 35px;
-    color: #4b485b;
-    font-size: 24px;
-    width: 200px;
-    text-align: left !important;
-
-}
-
 textarea#note {
     /* width: 200px; */
     /* text-align: left!important; */
@@ -872,6 +853,7 @@ input#phone_number__2 {
     margin-left: 27%;
     overflow: hidden;
 }
+
 /************ carousel banner ******************/
 .carousel-inner img {
     width: 100%;

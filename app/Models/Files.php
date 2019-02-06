@@ -32,4 +32,29 @@ class Files extends Model
      */
     protected $fillable = ['linkable_id', 'linkable_type', 'file_path', 'file_type', 'file_extension', 'status', 'created_by', 'updated_by' ];
 
+
+    public static function createFiles($data)
+    {
+
+        self::Create(
+            [
+                'linkable_id'       => $data['linkable_id'],
+                'linkable_type'     => $data['linkable_type'],
+                'file_path'         => $data['file_path'],
+                'file_type'         => $data['file_type'],
+                'file_extension'    => $data['file_extension'],
+                'created_by'        => $data['email'],
+                'updated_by'        => $data['email']
+            ]
+        );
+    }
+
+    /* Update the Files based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateFaqs($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
+
 }

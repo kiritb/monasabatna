@@ -34,4 +34,32 @@ class Address extends Model
      */
     protected $fillable = ['linkable_id', 'linkable_type', 'address_line_1', 'address_line_2', 'google_map_link', 'city_id', 'country_id', 'status','created_by', 'updated_by' ];
 
+
+    public static function createAddress( $data)
+    {
+        self::create(
+            [
+                'linkable_id'       => $data['linkable_id'],
+                'linkable_type'     => $data['linkable_type'],
+                'address_line_1'    => $data['address_line_1'],
+                'address_line_2'    => isset( $data['address_line_2'] ) ? $data['address_line_2'] : NULL,
+                'google_map_link'   => $data['google_map_link'],
+                'city_id'           => $data['city_id'],
+                'country_id'        => $data['country_id'],
+                'status'            => 1,
+                'created_by'        => $data['email'],
+                'updated_by'        => $data['email']
+            ]
+
+        );
+    }
+
+
+    /* Update the Address based on Id
+        And also use the same function to delete [status => 0 ]
+    */
+    public static function updateAddress($id, $data )
+    {
+        self::where('id', $id)->update( $data );
+    }
 }

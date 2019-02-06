@@ -12,6 +12,9 @@ create table evms.users(
   password text NOT NULL,
   remember_token varchar(100) DEFAULT NULL,
   account_verified_at datetime DEFAULT NULL,
+  marital_status varchar(256) DEFAULT NULL,
+  gender varchar(6) DEFAULT NULL,
+  dob datetime DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
@@ -25,13 +28,15 @@ DROP TABLE IF EXISTS evms.vendors;
 CREATE TABLE evms.vendors
 (
   id  int(11) NOT NULL AUTO_INCREMENT,
-  vendor_name varchar(256) NOT NULL,
-  fathers_name varchar(256) NOT NULL,
-  family_name varchar(256) DEFAULT NULL,
+  company_name varchar(256) NOT NULL,
   email varchar(30) NOT NULL,
+  password varchar(256) NOT NULL,
   accessToken varchar(32) DEFAULT NULL,
   license_no varchar(256) NOT NULL,
   expiry_date datetime DEFAULT NULL,
+  note text DEFAULT NULL,
+  fb_link text DEFAULT NULL,
+  twitter_link text DEFAULT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
@@ -39,6 +44,26 @@ CREATE TABLE evms.vendors
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id),
   UNIQUE KEY email (email,status)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.bank_accounts;
+CREATE TABLE evms.bank_accounts
+(
+  id  int(11) NOT NULL AUTO_INCREMENT,
+  vendor_id int(11) NOT NULL,
+  account_name varchar(256) NOT NULL,
+  bank_name varchar(256) NOT NULL,
+  iban_name varchar(256) NOT NULL,
+  account_number varchar(256) DEFAULT NULL,
+  payment_method varchar(30) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (vendor_id) REFERENCES vendors(id),
+  UNIQUE KEY email (vendor_id,account_number,status)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS evms.address;
@@ -118,7 +143,7 @@ CREATE TABLE evms.vennues
   created_by varchar(256) NOT NULL,
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (vendor_id) REFERENCES vennues(id)
+  FOREIGN KEY (vendor_id) REFERENCES vendors(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -225,7 +250,7 @@ create table evms.events(
   created_by varchar(256) NOT NULL,
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (vendor_id) REFERENCES vennues(id)
+  FOREIGN KEY (vendor_id) REFERENCES vendors(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS evms.event_organisers;
@@ -246,7 +271,7 @@ create table evms.event_organisers(
   created_by varchar(256) NOT NULL,
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (vendor_id) REFERENCES vennues(id)
+  FOREIGN KEY (vendor_id) REFERENCES vendors(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS evms.packages;
@@ -344,7 +369,7 @@ create table evms.suppliers(
   created_by varchar(256) NOT NULL,
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (vendor_id) REFERENCES vennues(id),
+  FOREIGN KEY (vendor_id) REFERENCES vendors(id),
   FOREIGN KEY (supplier_type_id) REFERENCES supplier_types(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -599,7 +624,11 @@ create table evms.reviews(
   linkable_id int(11) NOT NULL,
   linkable_type varchar(30) NOT NULL,
   review_comment text DEFAULT NULL,
-  rating int(11) DEFAULT NULL,
+  rating decimal(10,1) DEFAULT NULL,
+  rating_responsiveness decimal(10,1) DEFAULT NULL,
+  rating_quality decimal(10,1) DEFAULT NULL,
+  rating_availability decimal(10,1) DEFAULT NULL,
+  rating_value_for_money decimal(10,1) DEFAULT NULL,
   is_approved tinyint(1) NOT NULL DEFAULT 1,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
