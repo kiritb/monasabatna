@@ -217,7 +217,7 @@ class LoginController extends Controller
 
         try {
 
-            if(!empty($requestParams))
+            if(empty($requestParams))
             {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['Request payload cannot be empty']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
 
@@ -226,7 +226,7 @@ class LoginController extends Controller
 
             $userDetails = UserHelper::emailByUserId($id);
             
-            if($userDetails)
+            if(empty($userDetails))
             {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No User Details Found']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
 
@@ -250,7 +250,7 @@ class LoginController extends Controller
                         ->where('linkable_type','users')
                         ->update(['status' => 0,'updated_by'=>$userDetails['email'] ] );
 
-                foreach ($requestParams['phones'] as $key => $value) {
+                foreach ($phoneData as $key => $value) {
                     
                     $value['linkable_id']   = $id;
 
@@ -258,14 +258,17 @@ class LoginController extends Controller
 
                     $value['email'] = $userDetails['email'];
 
-                    phones::Create( $value ) ;
+                    phones::createPhones( $value ) ;
                 }
             }
 
+            \DB::commit();
 
             return response(ResponseUtil::buildSuccessResponse(['message' => 'User details successfully updated.']), HttpStatusCodesConsts::HTTP_OK);
 
         } catch (\Exception $e) {
+
+            \DB::rollBack();
 
             \Log::info(__CLASS__.' '.__FUNCTION__.' Exception Occured '.print_r($e->getMessage(), true));
             
@@ -351,6 +354,8 @@ class LoginController extends Controller
         $requestParams = $request->all();
 
         $rules = [
+            'otp'       => 'required',
+            'type'      => 'required',
             'user_id'   => 'required|exists:users,id',
             'password'  => 'required|string||min:6|confirmed',
         ];
@@ -371,10 +376,19 @@ class LoginController extends Controller
         }
 
         try
-        {   
-            UserHelper::updateUser($requestParams['user_id'],['password' => \Hash::make($requestParams['password']) ] );
+        {  
+            if (UserHelper::validateOtp($requestParams['otp'], $requestParams['user_id'], $requestParams['otp_type'] ) ) 
+            {
+                UserHelper::updateUser($requestParams['user_id'],['password' => \Hash::make($requestParams['password']) ] );
 
-            return response(ResponseUtil::buildSuccessResponse(['message' => 'successfully updated the password']), HttpStatusCodesConsts::HTTP_OK);
+                return response(ResponseUtil::buildSuccessResponse(['message' => 'successfully updated the password']), HttpStatusCodesConsts::HTTP_OK);
+            }
+            else
+            {
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['Invalid Otp']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+            }
             
         }
         catch (\Exception $e) {

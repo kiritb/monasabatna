@@ -55,7 +55,7 @@
 
     <!--- event right ---------------------->
     <div class="container-fluid" id="eventlist-contentright">
-        <div class="row rightevent">
+        <div class="container rightevent">
             <div class="row evenorglist">
                 <div class="venulistsortleft"> </div>
                 <div class="content-eve-top">
@@ -96,7 +96,8 @@
                         <div class="wish-text"><b><span class="go-green">Theme : </span>8</b></div>
                         <div class="spacer_boxtwo"></div>
                         <div class="wish-text"><b><span class="go-green">Event Covered : </span>
-                                @if (count($eventOrganiser["event_covers"]) > 0)
+                                @if (isset($eventOrganiser["event_covers"]) && count($eventOrganiser["event_covers"]) >
+                                0)
                                 @foreach ($eventOrganiser["event_covers"] as $key=>$event_cover)
                                 {{ $loop->first ? '' : ', ' }}
                                 {{ $event_cover }}

@@ -75,19 +75,14 @@ class UserHelper
             $smsText        = 'please use the otp to authenticate and approve your account '.$otp.' and would be valid for next '.$validityMins;
 
 
-            SmsOtpHelper::createOtp($userObj->id, $otp, $otpType, $smsText, $otpValidity, $data['email']);
+            SmsOtpHelper::createOtp($userObj->id, $otp, $otpType, $smsText, $otpValidity, $data['email'], $data['phone'] );
 
             \DB::commit();
 
 
-            $userObj->otp           = $otp;
+            $userObj->otp_type      = $otpType;
 
-            $userObj->smsText       = $smsText;
-
-            $userObj->otpValidity   = $otpValidity;
-
-
-             return $userObj; 
+            return $userObj; 
         }
         catch( \Exception $e)
         {   
@@ -206,9 +201,13 @@ class UserHelper
 
         try
         {   
-            $userDetails = current (Users::select('email')
-                                      ->where('id',$userId)
-                                      ->where('status', 1)
+            $userDetails = current (Users::select('users.email','phones.country_code','phones.phone_number')
+                                      ->join('phones','phones.linkable_id','users.id')
+                                      ->where('phones.linkable_type','users')
+                                      ->where('phones.is_default',1)
+                                      ->where('phones.status',1)
+                                      ->where('users.id',$userId)
+                                      ->where('users.status', 1)
                                       ->get()
                                       ->toArray()
                             );
@@ -224,15 +223,15 @@ class UserHelper
 
             $otpType        = SmsTypeConst::SMS_TYPE_ACCOUNT_VERIFICATION;
 
-            $validityMins   = env('SMS_OTP_NO_DIGITS', 20);
+            $validityMins   = env('SMS_OTP_VALIDAITY_TIME', 20);
 
             $otpValidity    = date("Y-m-d H:i:s", strtotime("+$validityMins minutes") );
 
-            $smsText        = 'please use the otp to authenticate and approve your account '.$otp.' and would be valid for next '.$validityMins;
+            $smsText        = 'please use the otp to authenticate and approve your account '.$otp.' and would be valid for next '.$validityMins." minutes";
 
-            $otpData = SmsOtpHelper::createOtp($userId, $otp, $otpType, $smsText, $otpValidity,$userDetails['email'], true );
+            $otpData = SmsOtpHelper::createOtp($userId, $otp, $otpType, $smsText, $otpValidity,$userDetails['email'], $userDetails['country_code'].$userDetails['phone_number'], true );
 
-            return $otpData->toArray();
+            return $otpData;
             
         }
         catch( \Exception $e)
@@ -282,9 +281,9 @@ class UserHelper
 
             $smsText        = str_replace( [ '~SMS_OTP~', '~VALIDITY~'], [$otp, $otpValidity], $smsText );
 
-            $otpData = SmsOtpHelper::createOtp($userId, $otp, $otpType, $smsText, $otpValidity,$userDetails['email'], true );
+            $otpData = SmsOtpHelper::createOtp($userId, $otp, $otpType, $smsText, $otpValidity,$userDetails['email'], $phone );
 
-            return $otpData->toArray();
+            return $otpData;
             
         }
         catch( \Exception $e)

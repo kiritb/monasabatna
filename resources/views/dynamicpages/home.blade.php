@@ -9,8 +9,7 @@
     <h1>Logged in!!</h1>
     @endauth
 
-    <!-----middlelayer star---------------->
-    <div class="container-fluid" id="middlelayer">
+    <div class="container-fluid home-containers" id="middlelayer">
         <div class="middlehead_exptop">
             <b>Express Deals </b>
         </div>
@@ -78,8 +77,7 @@
         </p>
     </div>
 
-    <!-----middlelayer---------------->
-    <div class="container-fluid" id="sponsor">
+    <div class="container-fluid home-containers" id="sponsor">
         <div class="row">
             <div class="container">
                 <div class="middlehead_exp text-center"> <b>Our Partners </b></div>
@@ -92,9 +90,8 @@
         </div>
         <!------------ end of col ------------->
     </div>
-    <!---end of row -->
-    <!-----middlelayer star---------------->
-    <div class="container-fluid" id="middlelayer2">
+
+    <div class="container-fluid home-containers" id="upcomingeves">
 
         <div class="container middlehead">
             <caption> Upcoming Events </caption>
@@ -164,67 +161,53 @@
         </p>
     </div>
 
-    <!-----middlelayer---------------->
-    <!-----middlelayer end---------------->
-    <!-------------- menuback start --------------->
-    <div class="container-fuild">
-        <div id="show_menubg">
-            <div class="wrapper">
-                <div class="counter col_fifth">
-                    <span class="count">{{ $data["totalEvents"] }}</span>
-                    <p class="count-text">Events</p>
-                </div>
-                <div class="counter col_fifth">
-                    <span class="count">{{ $data["totalVennues"] }}</span>
-                    <p class="count-text">Venues</p>
-                </div>
-                <div class="counter col_fifth">
-                    <span class="count">{{ $data["totalVendors"] }}</span>
-                    <p class="count-text">Vendors</p>
-                </div>
-                <div class="counter col_fifth">
-                    <span class="count">{{ $data["totalEventOrganisers"] }}</span>
-                    <p class="count-text">Event Organizers</p>
-                </div>
-                <div class="counter col_fifth">
-                    <span class="count">{{ $data["totalUsers"] }}</span>
-                    <p class="count-text ">Customers</p>
-                </div>
+    <div class="container-fuild home-containers" id="show_menubg">
+        <div class="wrapper">
+            <div class="counter col_fifth">
+                <span class="count">{{ $data["totalEvents"] }}</span>
+                <p class="count-text">Events</p>
+            </div>
+            <div class="counter col_fifth">
+                <span class="count">{{ $data["totalVennues"] }}</span>
+                <p class="count-text">Venues</p>
+            </div>
+            <div class="counter col_fifth">
+                <span class="count">{{ $data["totalVendors"] }}</span>
+                <p class="count-text">Vendors</p>
+            </div>
+            <div class="counter col_fifth">
+                <span class="count">{{ $data["totalEventOrganisers"] }}</span>
+                <p class="count-text">Event Organizers</p>
+            </div>
+            <div class="counter col_fifth">
+                <span class="count">{{ $data["totalUsers"] }}</span>
+                <p class="count-text ">Customers</p>
             </div>
         </div>
     </div>
-    <!-------------- menuback end --------------->
 
-    <!-------------- meeting layer start --------------->
-    <div class="container-fluid">
-        <div class="row">
-            <div id="middlehead" class="text-center">
-                <b>Why Munasabatna?</b>
-            </div>
-            <div class="row control_why">
+    <div class="container-fluid home-containers">
+
+        <h1 id="middlehead" class="text-center">
+            Why Munasabatna?
+        </h1>
+        <div class="row why-collap">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <h3 class="why_head"><b>EVERYTHING TO MAKE YOU SMILE</b> </h3>
-            </div>
-            <div class="row why-collap">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 why-us">
+                <div class="why-us">
                     <!-- Data loads from ajax call -->
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <a href="#"><img src="svg/images/meetpic.jpg" class="img-responsive" style="width:600px; height:300px; margin-left:13px"></a>
-                </div>
+                <button type="button" class="btn btn-info btn-lg" id="show_record_why"><b>BOOK NOW</b></button>
             </div>
-            <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <a href="#">
-                    <center><button type="button" class="btn btn-info btn-lg" id="show_record_why"><b>BOOK NOW</b></button>
-                        <center>
+                    <img src="svg/images/meetpic.jpg" class="img-responsive">
                 </a>
             </div>
-
         </div>
     </div>
-    <!-------------- meeting layer end --------------->
 
-    <!-------------- testimonial start --------------->
-    <div class="slideshow-container">
+    <div class="slideshow-container home-containers">
         <h4 class="testimonial-head">See what our Customers are Saying</h4>
         @if (count($data["testimonials"]) > 0)
         @foreach ($data["testimonials"] as $testimonials)
@@ -249,10 +232,8 @@
         <a class="prev" onclick="plusSlides(-1)"><i class="fas fa-angle-left" style="font-size:45px"></i></a>
         <a class="next" onclick="plusSlides(1)"><i class="fas fa-angle-right" style="font-size:45px"></i></a>
     </div>
-    <!-------testimonialcontent---------->
 
-    <!-------------- Forms start--------------->
-    <div class="container">
+    <div class="container-fluid home-containers">
         <h2 class="form_homehead  text-center">
             <b>Facilitate Customer Service</b>
         </h2>

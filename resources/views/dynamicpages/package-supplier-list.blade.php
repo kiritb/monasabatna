@@ -5,248 +5,74 @@
         <div class="list">
             <div class="list-heading">Filter</div>
             <div class="list-body">
-                <h4 class="venuecliphead">Type of Supplier</h4>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Company
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Individual
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <h4 class="venuecliphead"> Price</h4>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            SAR 80 - 150
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            SAR 151 - 200
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            SAR 201 - 250
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
 
-                <h4 class="venuecliphead">Event Type</h4>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Birthday
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Wedding
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Business Meeting
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Conference
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Corporate Event
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Other
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <h4 class="venuecliphead">Items</h4>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Chococlates
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Flowers
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Beauticians
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <h4 class="venuecliphead"> Event Type</h4>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Chairs And Tables
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Food
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Ice Cream
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Cake
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Food Combo
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Photographer
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <h4 class="venuecliphead"> Availability</h4>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            1 Day
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <h4 class="venuecliphead"> Facility / Amenities</h4>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            2 Days
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            3 Days
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            5 Days
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            15 Days
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            1 Month
-                        </label>
-                    </div>
-                </div>
-                <!---- formgroup ------->
+                <!---- Price Range - formgroup ------->
+
+                @if (isset($data["filters"]["price_range"]) && count($data["filters"]["price_range"]) >
+                0)
+                @include('ui_utils/filter-checks', [
+                'filters' => $data["filters"]["price_range"],
+                'type_title'=> 'Price Range',
+                'name' => 'price_range'
+                ])
+                @else
+                <div>No data!!</div>
+                @endif
+
+                <!---- Rating - formgroup ------->
+
+                @if (isset($data["filters"]["rating"]) && count($data["filters"]["rating"]) >
+                0)
+                @include('ui_utils/filter-checks', [
+                'filters' => $data["filters"]["rating"],
+                'type_title'=> 'Rating',
+                'name' => 'rating'
+                ])
+                @else
+                <div>No data!!</div>
+                @endif
+
+                <!---- Event Type - formgroup ------->
+
+                @if (isset($data["filters"]["event_types"]) && count($data["filters"]["event_types"])
+                >
+                0)
+                @include('ui_utils/filter-checks',[
+                'filters' => $data["filters"]["event_types"],
+                'type_title' => 'Event Type',
+                'name' => 'event_types'
+                ])
+                @else
+                <div>No data!!</div>
+                @endif
+
+                <!---- Supplier Type - formgroup ------->
+
+                @if (isset($data["filters"]["supplier_types"]) && count($data["filters"]["supplier_types"])
+                >
+                0)
+                @include('ui_utils/filter-checks',[
+                'filters' => $data["filters"]["supplier_types"],
+                'type_title' => 'Supplier Type',
+                'name' => 'supplier_types'
+                ])
+                @else
+                <div>No data!!</div>
+                @endif
+
+                <!---- Items - formgroup ------->
+
+                @if (isset($data["filters"]["items"]) && count($data["filters"]["items"])
+                >
+                0)
+                @include('ui_utils/filter-checks',[
+                'filters' => $data["filters"]["items"],
+                'type_title' => 'Items',
+                'name' => 'items'
+                ])
+                @else
+                <div>No data!!</div>
+                @endif
 
                 <a class="resetvenue" href id="Reset">Reset Filters</a>
                 <div class="filterext"></div>
@@ -261,7 +87,7 @@
 
     <!--- event right ---------------------->
     <div class="col-sm-10 tab-data" id="eventlist-contentright">
-        <div class="row rightevent">
+        <div class="container rightevent">
             <div class="row evenorglist">
                 <div class="venulistsortleft"> </div>
                 <div class="content-eve-top">
@@ -278,35 +104,30 @@
                     </div>
                 </div>
             </div>
+            @if (isset($data['suppliersList']) && count($data['suppliersList']) > 0)
+            @foreach ($data['suppliersList'] as $key=>$suppliersList)
             <div class="row color-bg-eventlist">
                 <div class="content-eve">
-                    <img src="svg/images/supp-pic1.jpg" alt="Mountains" style="width:300px; height:273px">
+                    <img src={{ $suppliersList['filePath'] }} alt="Mountains" style="width:300px; height:273px">
                 </div>
 
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                     <div class="content-optionpacklist">
-                        <div class="wish-head"><b>Package Name </b></div>
+                        <div class="wish-head"><b>{{ $suppliersList['pacakgeName'] }}</b></div>
                         <div class="spacer_boxtwo"></div>
-                        <div class="wish-text"><span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span></div>
+                        <div class="wish-text">
+                            @include('ui_utils.stars', ['stars'=> $suppliersList["rating"]])
+                        </div>
                         <div class="spacer_boxtwo"></div>
 
-                        <div class="wish-text"><b><span class="go-green">Event Covered : </span>Birthday,
-                                Wedding, Business Meeting</b></div>
+                        <div class="wish-text"><b><span class="go-green">Event Type :
+                                </span>{{ $suppliersList['eventType'] }}</b></div>
                         <div class="spacer_boxtwo"></div>
-                        <p class="eventwish">**Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                            **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et
-
-
-
+                        <p class="eventwish">
+                            {{ $suppliersList['packageDescription'] }}
                         </p>
-                        <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / Day </b>
+                        <div class="wish-text"><b><span class="col-green">SAR:</span>
+                                {{ $suppliersList['actualPrice'].' '.$suppliersList['pricingType'] }} </b>
                         </div>
 
                         <a href="http://18.218.133.17/supplierdetails" class="btn active" id="btn-eventlist" onclick="#"><b>
@@ -314,181 +135,34 @@
                     </div>
                 </div>
             </div>
-
-            <!-----------color-bg-eventlist ------------>
-            <div class="row color-bg-eventlist">
-                <div class="content-eve">
-                    <img src="svg/images/supp-pic2.jpg" alt="Mountains" style="width:300px; height:273px">
-                </div>
-
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
-                    <div class="content-optionpacklist">
-                        <div class="wish-head"><b>Package Name </b></div>
-                        <div class="spacer_boxtwo"></div>
-                        <div class="wish-text"><span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span></div>
-                        <div class="spacer_boxtwo"></div>
-
-                        <div class="wish-text"><b><span class="go-green">Event Covered : </span>Birthday,
-                                Wedding, Business Meeting</b></div>
-                        <div class="spacer_boxtwo"></div>
-                        <p class="eventwish">**Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                            **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et
-
-
-
-                        </p>
-                        <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / Day </b>
-                        </div>
-
-                        <a href="http://18.218.133.17/supplierdetails" class="btn active" id="btn-eventlist" onclick="#"><b>
-                                Book Now </b></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-----------color-bg-eventlist ------------>
-
-            <div class="row color-bg-eventlist">
-                <div class="content-eve">
-                    <img src="svg/images/supp-pic3.jpg" alt="Mountains" style="width:300px; height:273px">
-                </div>
-
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
-                    <div class="content-optionpacklist">
-                        <div class="wish-head"><b>Package Name </b></div>
-                        <div class="spacer_boxtwo"></div>
-                        <div class="wish-text"><span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span></div>
-                        <div class="spacer_boxtwo"></div>
-
-                        <div class="wish-text"><b><span class="go-green">Event Covered : </span>Birthday,
-                                Wedding, Business Meeting</b></div>
-                        <div class="spacer_boxtwo"></div>
-                        <p class="eventwish">**Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                            **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et
-
-
-
-                        </p>
-                        <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / Day </b>
-                        </div>
-
-                        <a href="http://18.218.133.17/supplierdetails" class="btn active" id="btn-eventlist" onclick="#"><b>
-                                Book Now </b></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-----------color-bg-eventlist ------------>
-            <div class="row color-bg-eventlist">
-                <div class="content-eve">
-                    <img src="svg/images/supp-pic4.jpg" alt="Mountains" style="width:300px; height:273px">
-                </div>
-
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
-                    <div class="content-optionpacklist">
-                        <div class="wish-head"><b>Package Name </b></div>
-                        <div class="spacer_boxtwo"></div>
-                        <div class="wish-text"><span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span></div>
-                        <div class="spacer_boxtwo"></div>
-
-
-                        <div class="wish-text"><b><span class="go-green">Event Covered : </span>Birthday,
-                                Wedding, Business Meeting</b></div>
-                        <div class="spacer_boxtwo"></div>
-                        <p class="eventwish">**Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                            **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et
-
-
-
-                        </p>
-                        <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / Day </b>
-                        </div>
-
-                        <a href="http://18.218.133.17/supplierdetails" class="btn active" id="btn-eventlist" onclick="#"><b>
-                                Book Now </b></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-----------color-bg-eventlist ------------>
-            <div class="row color-bg-eventlist">
-                <div class="content-eve">
-                    <img src="svg/images/supp-pic5.jpg" alt="Mountains" style="width:300px; height:273px">
-                </div>
-
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
-                    <div class="content-optionpacklist">
-                        <div class="wish-head"><b>package Name </b></div>
-                        <div class="spacer_boxtwo"></div>
-                        <div class="wish-text"><span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span></div>
-                        <div class="spacer_boxtwo"></div>
-
-
-                        <div class="wish-text"><b><span class="go-green">Event Covered : </span>Birthday,
-                                Wedding, Business Meeting</b></div>
-                        <div class="spacer_boxtwo"></div>
-                        <p class="eventwish">**Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                            **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et
-
-
-
-                        </p>
-                        <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / Day </b>
-                        </div>
-
-                        <a href="http://18.218.133.17/supplierdetails" class="btn active" id="btn-eventlist" onclick="#"><b>
-                                Book Now </b></a>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
+            @else
+            <div>No data!!</div>
+            @endif
             <!-----------color-bg-eventlist ------------>
         </div>
         <div class="supppagin">
 
-            <center>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </center>
+            @if(isset($data["paginate"]))
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item {{ ($data['paginate']['prev_page_url'])?'':'disabled' }}"><a class="page-link"
+                            href="{{ $data['paginate']['prev_page_url'] }}">Previous</a></li>
+                    @php $totalpages = $data["paginate"]["last_page"]; @endphp
+
+                    @foreach(range(1,$totalpages) as $i)
+                    @if($totalpages >0)
+                    <li class="page-item {{ ($data['paginate']['current_page']==$i)?'active':'' }}"><a class="page-link"
+                            href="{{ $data['paginate']['path'] }}?page={{ $i }}">{{
+                            $i }}</a></li>
+                    @endif
+                    @php $totalpages--; @endphp
+                    @endforeach
+                    <li class="page-item {{ ($data['paginate']['next_page_url'])?'':'disabled' }}"><a class="page-link"
+                            href="{{ $data['paginate']['next_page_url'] }}">Next</a></li>
+                </ul>
+            </nav>
+            @endif
 
         </div>
     </div>

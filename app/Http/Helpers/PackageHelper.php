@@ -122,5 +122,27 @@ class PackageHelper
        
     }
 
+    public static function getRecommendedPackages($packageId, $linkableType, $eventName)
+    {
+
+        $recommendedPcakges = Packages::select(  
+                                                 'packages.id as packageId',
+                                                 'packages.name as packageName',
+                                                 'files.file_path as filePath'
+                                        )
+                                        ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
+                                        ->join('files', 'files.linkable_id', '=', 'packages.id')
+                                        ->where('files.linkable_type','packages')
+                                        ->where('files.file_type', 'home_page_display')
+                                        ->where('packages.linkable_type', $linkableType)
+                                        ->where('packages.id','!=', $packageId)
+                                        ->where('event_types.name', $eventName)
+                                        ->where('event_types.status', 1)
+                                        ->where('packages.status', 1)
+                                        ->get()
+                                        ->toArray();
+        return $recommendedPcakges;
+    }
+
     
 }

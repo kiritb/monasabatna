@@ -124,7 +124,7 @@ $venues= $data;
     <!---------- wishlist -------------------------------->
     <div class="col-sm-10 tab-data">
         <!----------------------- tab container end -------------------->
-        <div class="row">
+        <div class="container">
             <div class="row venueslist">
                 <div class="form-group">
                     <select class="form-control sortvenues">
@@ -139,11 +139,11 @@ $venues= $data;
             @if (count($venues["vennueLists"]) > 0)
             @foreach ($venues["vennueLists"] as $vennueLists)
             <div class="row color-bg-venuelist">
-                <div class="content-eve">
-                    <img src={{ $vennueLists["filePath"] }} alt="Mountains" style="width:300px; height:273px">
+                <div class="col-sm-3 content-eve p-0">
+                    <img src={{ $vennueLists["filePath"] }} alt="Mountains">
                 </div>
 
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
+                <div class="col-sm-9" id="content-eve-right">
                     <div class="content-optionblog">
                         <div class="wish-head"><b><a href="{{ url('/vennues/'.$vennueLists['vennueId']) }}">{{
                                     $vennueLists["vennueName"] }}</a></b></div>

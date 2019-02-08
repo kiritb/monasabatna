@@ -261,7 +261,7 @@
 
     <!--- event right ---------------------->
     <div class="col-sm-10 tab-data" id="eventlist-contentright">
-        <div class="row rightevent">
+        <div class="container rightevent">
             <div class="row evenorglist">
                 <div class="venulistsortleft"> </div>
                 <div class="content-eve-top">

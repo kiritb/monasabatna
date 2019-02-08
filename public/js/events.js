@@ -4,7 +4,8 @@ $(document).ready(function () {
         url: "/venues",
         element: "#nav-venues",
         method: "GET",
-        overlayMask: true
+        overlayMask: true,
+        data: null
     };
     ajaxHtmlRender(params);
     $("#nav-events-tab").on("click", function () {
@@ -14,7 +15,8 @@ $(document).ready(function () {
             url: "/eventsorganisers",
             element: "#nav-events",
             method: "GET",
-            overlayMask: true
+            overlayMask: true,
+            data: null
         };
         ajaxHtmlRender(params);
 
@@ -27,23 +29,75 @@ $(document).ready(function () {
             url: "/suppliers",
             element: "#nav-suppliers",
             method: "GET",
-            overlayMask: true
+            overlayMask: true,
+            data: null
+        };
+        ajaxHtmlRender(params);
+
+    });
+
+    $("#nav-package-suppliers-tab").on("click", function () {
+
+        let params = {
+            type: "ajaxRender",
+            url: "/packages/suppliers",
+            element: "#nav-package-suppliers",
+            method: "GET",
+            overlayMask: true,
+            data: null
+        };
+        ajaxHtmlRender(params);
+
+    });
+
+    $("#nav-package-eveorgs-tab").on("click", function () {
+
+        let params = {
+            type: "ajaxRender",
+            url: "/packages/eventorganisers",
+            element: "#nav-package-eveorgs",
+            method: "GET",
+            overlayMask: true,
+            data: null
+        };
+        ajaxHtmlRender(params);
+
+    });
+
+    $("#nav-express-deals-tab").on("click", function () {
+
+        let params = {
+            type: "ajaxRender",
+            url: "/packages/eventorganisers",
+            element: "#express-eventorgs",
+            method: "GET",
+            overlayMask: true,
+            data: {
+                is_express_deal: 1
+            }
+        };
+        ajaxHtmlRender(params);
+
+    });
+
+    $("#express-suppliers-tab").on("click", function () {
+
+        let params = {
+            type: "ajaxRender",
+            url: "/packages/suppliers",
+            element: "#express-suppliers",
+            method: "GET",
+            overlayMask: true,
+            data: {
+                is_express_deal: 1
+            }
         };
         ajaxHtmlRender(params);
 
     });
 
     $("#nav-packages-tab").on("click", function () {
-
-        let params = {
-            type: "ajaxRender",
-            url: "/package-list",
-            element: "#nav-packages",
-            method: "GET",
-            overlayMask: true
-        };
-        ajaxHtmlRender(params);
-
+        $("#nav-express-deals-tab").trigger("click");
     });
 
 });

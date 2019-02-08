@@ -22,7 +22,7 @@ function ajaxHtmlRender(params) {
         },
         success: function (response) {
             if (response.html && response.success) {
-                //pass a id element for better results
+                //always pass a id as element for better results
                 $(params.element).overlayMask({
                     do: "hideLoader"
                 });

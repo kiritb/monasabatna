@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/loader/loader.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/fonts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url('css/vendorpanel.css') }}">
 </head>
 
 <!-- This id is used for many purposes, please do not remove or modify it -->

@@ -9,6 +9,7 @@
 namespace App\Http\Helpers;
 
 use App\Http\Constants\MiscConst;
+use App\Http\Helpers\AmmenitieHelper;
 use App\Http\Helpers\FilterHelper;
 use App\Http\Helpers\MiscHelper;
 use App\Http\Helpers\PackageHelper;
@@ -17,14 +18,12 @@ use App\Http\Helpers\PrerequisitesHelper;
 use App\Http\Helpers\ProvidersHelper;
 use App\Http\Helpers\ReviewsHelper;
 use App\Http\Helpers\ServicesHelper;
-use App\Http\Helpers\AmmenitieHelper;
 use App\Models\EventOrganisers;
 use App\Models\Events;
 use App\Models\EventTypes;
-use App\Models\SupplierTypes;
 use App\Models\SupplierProductTypes;
 use App\Models\Suppliers;
-
+use App\Models\SupplierTypes;
 
 class EventHelper
 {
@@ -39,7 +38,7 @@ class EventHelper
         try
         {
 
-            $eventsSql = Events::select('events.id as eventId','events.name as eventName', 'events.short_description as eventShortDescription', 'events.start_date as vennueStartTime',
+            $eventsSql = Events::select('events.id as eventId', 'events.name as eventName', 'events.short_description as eventShortDescription', 'events.start_date as vennueStartTime',
                 'events.end_date as eventEndTime', 'events.order_no as displayOrder', 'event_types.name as eventType',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')
@@ -144,58 +143,57 @@ class EventHelper
     {
         $returnArr = [];
 
-
         try
         {
 
             $eventsDetails = current(Events::select(
-                                                'events.id',
-                                                'events.name as eventName', 
-                                                'events.short_description as eventShortDescription', 
-                                                'events.start_date as vennueStartTime',
-                                                'events.end_date as eventEndTime', 
-                                                'events.fb_link as fbLink', 
-                                                'events.twitter_link as twitterLink',
-                                                'events.rating',
-                                                'events.start_date as startDate',
-                                                'events.end_date as endDate',
-                                                'events.booking_last_date as lastDateToBook',
-                                                'address.address_line_1 as AddressLine_1', 
-                                                'address.address_line_2 as AddressLine_2', 
-                                                'address.google_map_link as googleMapLink',
-                                                'cities.name as cityName',
-                                                'vendors.company_name as vendorName',
-                                                'vendors.license_no as licenseNo',
-                                                'pricings.actual_price as actualPrice', 
-                                                'pricings.discount',
-                                                'pricing_type.name as pricingType',
-                                                'event_types.name as eventType'
+                'events.id',
+                'events.name as eventName',
+                'events.short_description as eventShortDescription',
+                'events.start_date as vennueStartTime',
+                'events.end_date as eventEndTime',
+                'events.fb_link as fbLink',
+                'events.twitter_link as twitterLink',
+                'events.rating',
+                'events.start_date as startDate',
+                'events.end_date as endDate',
+                'events.booking_last_date as lastDateToBook',
+                'address.address_line_1 as AddressLine_1',
+                'address.address_line_2 as AddressLine_2',
+                'address.google_map_link as googleMapLink',
+                'cities.name as cityName',
+                'vendors.company_name as vendorName',
+                'vendors.license_no as licenseNo',
+                'pricings.actual_price as actualPrice',
+                'pricings.discount',
+                'pricing_type.name as pricingType',
+                'event_types.name as eventType'
 
-                                                )
-                ->join('address', 'events.id', '=', 'address.linkable_id')
-                ->join('pricings', 'events.id', '=', 'pricings.linkable_id')
-                ->join('vendors', 'vendors.id', '=', 'events.vendor_id')
-                ->join('event_types', 'event_types.id', '=', 'events.event_type_id')
-                ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
-                ->join('cities', 'address.city_id', '=', 'cities.id')
-                ->where('address.linkable_type', 'events')
-                ->where('pricings.linkable_type', 'events')
-                ->where('events.id',$eventId)
-                ->where('address.status', 1)
-                ->where('events.status', 1)
-                 ->where('event_types.status', 1)
-                ->where('pricings.status', 1)
-                ->where('pricing_type.status', 1)
-                ->where('cities.status', 1)
-                ->get()
-                ->toArray()
+            )
+                    ->join('address', 'events.id', '=', 'address.linkable_id')
+                    ->join('pricings', 'events.id', '=', 'pricings.linkable_id')
+                    ->join('vendors', 'vendors.id', '=', 'events.vendor_id')
+                    ->join('event_types', 'event_types.id', '=', 'events.event_type_id')
+                    ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
+                    ->join('cities', 'address.city_id', '=', 'cities.id')
+                    ->where('address.linkable_type', 'events')
+                    ->where('pricings.linkable_type', 'events')
+                    ->where('events.id', $eventId)
+                    ->where('address.status', 1)
+                    ->where('events.status', 1)
+                    ->where('event_types.status', 1)
+                    ->where('pricings.status', 1)
+                    ->where('pricing_type.status', 1)
+                    ->where('cities.status', 1)
+                    ->get()
+                    ->toArray()
             );
 
             $fileData = FileHelper::getFiles([$eventId], 'events');
 
             $eventsDetails['files'] = empty($fileData) ? [] : $fileData;
 
-             /* get policy temrs and conditions */
+            /* get policy temrs and conditions */
 
             $policyData = PoliciesHelper::getPolicies($eventId, 'events');
 
@@ -208,6 +206,8 @@ class EventHelper
             $ammentiesData = AmmenitieHelper::getAmmenties([$eventId], 'events');
 
             $eventsDetails['ammenties'] = empty($ammentiesData) ? [] : array_column($ammentiesData, 'amenitieName');
+
+            $eventsDetails['customerCareNo'] = env('CUSTOMER_CARE_NO');
 
             return $eventsDetails;
 
@@ -405,16 +405,15 @@ class EventHelper
 
             }
 
-
             $eventCoversData = PackageHelper::getEventCovers([$id], 'event_organisers');
 
             $packgagesData = $eventCoversData[$id]['packages'];
-            
-            $eventOrganisersArr['noOfPackages']     = count($packgagesData);
-            
-            $eventOrganisersArr['travelNote']       = $packgagesData[0]['travelNote'];
-            
-            $eventOrganisersArr['setUpTime']        = $packgagesData[0]['setUpTime'];
+
+            $eventOrganisersArr['noOfPackages'] = count($packgagesData);
+
+            $eventOrganisersArr['travelNote'] = $packgagesData[0]['travelNote'];
+
+            $eventOrganisersArr['setUpTime'] = $packgagesData[0]['setUpTime'];
 
             $packagesArr = [];
 
@@ -428,7 +427,7 @@ class EventHelper
 
             foreach ($packgagesData as $key => $value) {
                 $packagesArr['all'][] = [
-                    'packageId'   => $value['packageId'],  
+                    'packageId'   => $value['packageId'],
                     'packageName' => $value['name'],
                     'actualPrice' => $value['actualPrice'],
                     'filePath'    => $value['filePath'],
@@ -453,6 +452,33 @@ class EventHelper
 
             $eventOrganisersArr['policies'] = empty($policyData) ? [] : $policyData;
 
+
+            $reviewsDetails = ReviewsHelper::getAverageReviews($id,'event_organisers');
+
+            $eventOrganisersArr['reviews'] = empty( $reviewsDetails ) ? [] : $reviewsDetails;
+
+            $recommendedEventOrganinsers = EventOrganisers::select('event_organisers.id as eventOrganisersId',
+                'event_organisers.name as eventOrgainsersName',
+                'files.file_path as filePath')
+                ->join('address', 'event_organisers.id', '=', 'address.linkable_id')
+                ->join('files', 'event_organisers.id', '=', 'files.linkable_id')
+                ->join('cities', 'address.city_id', '=', 'cities.id')
+                ->where('address.linkable_type', 'event_organisers')
+                ->where('files.linkable_type', 'event_organisers')
+                ->where('files.file_type', 'home_page_display')
+                ->where('cities.name', $eventOrganisersArr['cityName'])
+                ->where('event_organisers.id', '!=', $id)
+                ->where('address.status', 1)
+                ->where('event_organisers.status', 1)
+                ->where('cities.status', 1)
+                ->get()
+                ->toArray();
+
+            $eventOrganisersArr['recommendations'] = empty($recommendedEventOrganinsers) ? [] : $recommendedEventOrganinsers;
+
+
+            $eventOrganisersArr['customerCareNo'] = env('CUSTOMER_CARE_NO');
+
             return $eventOrganisersArr;
         } catch (\Exception $e) {
             \Log::info(__CLASS__ . " " . __FUNCTION__ . " Exception Occured while Fetching Event Organisers Listings " . print_r($e->getMessage(), true));
@@ -466,7 +492,7 @@ class EventHelper
     /**
      *
      * @return Array
-    */
+     */
     public static function getPackageDetails($id)
     {
         $returnArr = [];
@@ -498,14 +524,20 @@ class EventHelper
 
             $packageDetails['policies'] = empty($policyData) ? [] : $policyData;
 
-            /* Fetch Reviews for themese */
+            /* Fetch Reviews for packages */
 
             $reviewData = ReviewsHelper::getReviews($id, 'packages');
 
             $packageDetails['reviews'] = empty($reviewData) ? [] : $reviewData;
 
+            $recommendations = PackageHelper::getRecommendedPackages($id, 'event_organisers',$packageDetails['eventName'] );
+
+            $packageDetails['recommendations'] = empty($recommendations) ? [] : $recommendations;
+
+            $packageDetails['customerCareNo'] = env('CUSTOMER_CARE_NO');
+
             return $packageDetails;
-            
+
         } catch (\Exception $e) {
             \Log::info(__CLASS__ . " " . __FUNCTION__ . " Exception Occured while Fetching packages Details " . print_r($e->getMessage(), true));
 
@@ -605,7 +637,7 @@ class EventHelper
         }
     }
 
-     /**
+    /**
      *
      * @return Array
      */
@@ -643,31 +675,28 @@ class EventHelper
 
             $returnArr['event_types'] = empty($eventTypes) ? [] : array_column($eventTypes, 'name');
 
+            $supplierTypes = SupplierTypes::select('name')
+                ->where('status', 1)
+                ->get()
+                ->toArray();
 
-            $supplierTypes                  = SupplierTypes::select('name')
-                                                            ->where('status', 1)
-                                                            ->get()
-                                                            ->toArray();
-            
-            $returnArr['supplier_types']    = empty($supplierTypes) ? [] : array_column($supplierTypes, 'name');
+            $returnArr['supplier_types'] = empty($supplierTypes) ? [] : array_column($supplierTypes, 'name');
 
+            $supplierItems = SupplierProductTypes::select('supplier_product_types.name')
+                ->join('supplier_product_mapping', 'supplier_product_mapping.supplier_product_id', '=', 'supplier_product_types.id')
+                ->join('packages', 'packages.id', '=', 'supplier_product_mapping.package_id')
+                ->join('suppliers', 'suppliers.id', '=', 'packages.linkable_id')
+                ->where('packages.linkable_type', 'suppliers')
+                ->where('supplier_product_types.status', 1)
+                ->where('packages.status', 1)
+                ->where('suppliers.status', 1)
+                ->where('supplier_product_mapping.status', 1)
+                ->distinct('supplier_product_types.name')
+                ->get()
+                ->toArray();
 
-            $supplierItems                  = SupplierProductTypes::select('supplier_product_types.name')
-                                                            ->join('supplier_product_mapping', 'supplier_product_mapping.supplier_product_id', '=', 'supplier_product_types.id')
-                                                            ->join('packages', 'packages.id', '=', 'supplier_product_mapping.package_id')
-                                                            ->join('suppliers', 'suppliers.id', '=', 'packages.linkable_id')
-                                                            ->where('packages.linkable_type', 'suppliers')
-                                                            ->where('supplier_product_types.status', 1)
-                                                            ->where('packages.status', 1)
-                                                            ->where('suppliers.status', 1)
-                                                            ->where('supplier_product_mapping.status', 1)
-                                                            ->distinct('supplier_product_types.name')
-                                                            ->get()
-                                                            ->toArray();
-            
-            $returnArr['items']    = empty($supplierItems) ? [] : array_column($supplierItems, 'name');
-            
-                                            
+            $returnArr['items'] = empty($supplierItems) ? [] : array_column($supplierItems, 'name');
+
             return $returnArr;
 
         } catch (\Exception $e) {
@@ -681,7 +710,7 @@ class EventHelper
     /**
      *
      * @return Array
-    */
+     */
     public static function getSuppliersList($filterArr)
     {
         $returnArr = [];
@@ -691,19 +720,19 @@ class EventHelper
         try
         {
 
-            $supplierSql = Suppliers::select(   'suppliers.id as supplierId',
-                                                'suppliers.name as supplierName',
-                                                'suppliers.short_description as supplierDescription',
-                                                'suppliers.order_no as displayOrder',
-                                                'suppliers.rating',
-                                                'suppliers.twitter_link as twitterLink',
-                                                'suppliers.fb_link as fbLink',
-                                                'address.address_line_1 as AddressLine_1',
-                                                'address.address_line_2 as AddressLine_2',
-                                                'address.google_map_link as googleMapLink',
-                                                'cities.name as cityName',
-                                                'files.file_path as filePath'
-                                            )
+            $supplierSql = Suppliers::select('suppliers.id as supplierId',
+                'suppliers.name as supplierName',
+                'suppliers.short_description as supplierDescription',
+                'suppliers.order_no as displayOrder',
+                'suppliers.rating',
+                'suppliers.twitter_link as twitterLink',
+                'suppliers.fb_link as fbLink',
+                'address.address_line_1 as AddressLine_1',
+                'address.address_line_2 as AddressLine_2',
+                'address.google_map_link as googleMapLink',
+                'cities.name as cityName',
+                'files.file_path as filePath'
+            )
                 ->join('address', 'suppliers.id', '=', 'address.linkable_id')
                 ->join('cities', 'address.city_id', '=', 'cities.id')
                 ->join('files', 'suppliers.id', '=', 'files.linkable_id')
@@ -758,10 +787,10 @@ class EventHelper
 
             $suppliersDetails = $supplierSql->orderBy('suppliers.order_no', 'asc')
                 ->paginate(2);
-            
+
             $suppliersArr = $suppliersDetails->toArray();
 
-            if (empty($suppliersArr['data']) ) {
+            if (empty($suppliersArr['data'])) {
                 \Log::info(__CLASS__ . " " . __FUNCTION__ . " Suppliers  Data does not exists ");
 
                 return [];
@@ -788,34 +817,33 @@ class EventHelper
 
                 $priceArr[$key] = $value['price'][0];
 
-                $packageId      = $value['packages'][0]['eventOrganiserId'];
+                $packageId = $value['packages'][0]['eventOrganiserId'];
             }
 
-            
             $eventArr = [];
 
             foreach ($suppliersArr['data'] as $key => $value) {
 
-                $value['event_covers']          = isset($eventCoversArr[$value['supplierId']]) ? $eventCoversArr[$value['supplierId']] : [];
+                $value['event_covers'] = isset($eventCoversArr[$value['supplierId']]) ? $eventCoversArr[$value['supplierId']] : [];
 
-                $value['price']                 = isset($priceArr[$value['supplierId']]) ? $priceArr[$value['supplierId']] : [];
+                $value['price'] = isset($priceArr[$value['supplierId']]) ? $priceArr[$value['supplierId']] : [];
 
-                $value['noOfPackages']          = count($value['event_covers']);
+                $value['noOfPackages'] = count($value['event_covers']);
 
-                $supplierItems                  = SupplierProductTypes::select('supplier_product_types.name')
-                                                            ->join('supplier_product_mapping', 'supplier_product_mapping.supplier_product_id', '=', 'supplier_product_types.id')
-                                                            ->join('packages', 'packages.id', '=', 'supplier_product_mapping.package_id')
-                                                            ->join('suppliers', 'suppliers.id', '=', 'packages.linkable_id')
-                                                            ->where('packages.linkable_type', 'suppliers')
-                                                            ->where('supplier_product_mapping.status', 1)
-                                                            ->where('packages.linkable_type', 'suppliers')
-                                                            ->where('suppliers.id', $value['supplierId'])
-                                                            ->where('packages.status', 1)
-                                                            ->where('suppliers.status', 1)
-                                                            ->where('supplier_product_mapping.status', 1)
-                                                            ->distinct('supplier_product_types.name')
-                                                            ->get()
-                                                            ->toArray();
+                $supplierItems = SupplierProductTypes::select('supplier_product_types.name')
+                    ->join('supplier_product_mapping', 'supplier_product_mapping.supplier_product_id', '=', 'supplier_product_types.id')
+                    ->join('packages', 'packages.id', '=', 'supplier_product_mapping.package_id')
+                    ->join('suppliers', 'suppliers.id', '=', 'packages.linkable_id')
+                    ->where('packages.linkable_type', 'suppliers')
+                    ->where('supplier_product_mapping.status', 1)
+                    ->where('packages.linkable_type', 'suppliers')
+                    ->where('suppliers.id', $value['supplierId'])
+                    ->where('packages.status', 1)
+                    ->where('suppliers.status', 1)
+                    ->where('supplier_product_mapping.status', 1)
+                    ->distinct('supplier_product_types.name')
+                    ->get()
+                    ->toArray();
 
                 $value['items'] = array_column($supplierItems, 'name');
 
@@ -823,13 +851,7 @@ class EventHelper
 
             }
 
-            
-            
-
             unset($suppliersArr['data']);
-
-
-            
 
             $returnArr['suppliersList'] = $eventArr;
 
@@ -849,8 +871,8 @@ class EventHelper
     /**
      *
      * @return Array
-    */
-    public static function getSupplierDetails( $id )
+     */
+    public static function getSupplierDetails($id)
     {
         $returnArr = [];
 
@@ -859,42 +881,42 @@ class EventHelper
         try
         {
 
-            $supplierDetailsArr = current(Suppliers::select(   'suppliers.id as supplierId',
-                                                'suppliers.name as supplierName',
-                                                'suppliers.short_description as supplierDescription',
-                                                'suppliers.order_no as displayOrder',
-                                                'suppliers.rating',
-                                                'suppliers.twitter_link as twitterLink',
-                                                'suppliers.fb_link as fbLink',
-                                                'address.address_line_1 as AddressLine_1',
-                                                'address.address_line_2 as AddressLine_2',
-                                                'address.google_map_link as googleMapLink',
-                                                'cities.name as cityName',
-                                                'vendors.company_name as vendorName',
-                                                'vendors.license_no as licenseNo'
-                                            )
-                ->join('address', 'suppliers.id', '=', 'address.linkable_id')
-                ->join('cities', 'address.city_id', '=', 'cities.id')
-                 ->join('vendors', 'vendors.id', '=', 'suppliers.vendor_id')
-                ->where('address.linkable_type', 'suppliers')
-                ->where('address.status', 1)
-                ->where('suppliers.status', 1)
-                ->where('cities.status', 1)
-                ->where('suppliers.id', $id)
-                ->orderBy('suppliers.order_no', 'asc')
-                ->get()
-                ->toArray()
+            $supplierDetailsArr = current(Suppliers::select('suppliers.id as supplierId',
+                'suppliers.name as supplierName',
+                'suppliers.short_description as supplierDescription',
+                'suppliers.order_no as displayOrder',
+                'suppliers.rating',
+                'suppliers.twitter_link as twitterLink',
+                'suppliers.fb_link as fbLink',
+                'address.address_line_1 as AddressLine_1',
+                'address.address_line_2 as AddressLine_2',
+                'address.google_map_link as googleMapLink',
+                'cities.name as cityName',
+                'vendors.company_name as vendorName',
+                'vendors.license_no as licenseNo'
+            )
+                    ->join('address', 'suppliers.id', '=', 'address.linkable_id')
+                    ->join('cities', 'address.city_id', '=', 'cities.id')
+                    ->join('vendors', 'vendors.id', '=', 'suppliers.vendor_id')
+                    ->where('address.linkable_type', 'suppliers')
+                    ->where('address.status', 1)
+                    ->where('suppliers.status', 1)
+                    ->where('cities.status', 1)
+                    ->where('suppliers.id', $id)
+                    ->orderBy('suppliers.order_no', 'asc')
+                    ->get()
+                    ->toArray()
             );
-            
+
             $supplierCoversData = PackageHelper::getEventCovers([$id], 'suppliers');
 
             $packgagesData = $supplierCoversData[$id]['packages'];
-            
-            $supplierDetailsArr['noOfPackages']     = count($packgagesData);
-            
-            $supplierDetailsArr['travelNote']       = $packgagesData[0]['travelNote'];
-            
-            $supplierDetailsArr['setUpTime']        = $packgagesData[0]['setUpTime'];
+
+            $supplierDetailsArr['noOfPackages'] = count($packgagesData);
+
+            $supplierDetailsArr['travelNote'] = $packgagesData[0]['travelNote'];
+
+            $supplierDetailsArr['setUpTime'] = $packgagesData[0]['setUpTime'];
 
             $packagesArr = [];
 
@@ -908,7 +930,7 @@ class EventHelper
 
             foreach ($packgagesData as $key => $value) {
                 $packagesArr['all'][] = [
-                    'packageId'   => $value['packageId'],  
+                    'packageId'   => $value['packageId'],
                     'packageName' => $value['name'],
                     'actualPrice' => $value['actualPrice'],
                     'filePath'    => $value['filePath'],
@@ -916,7 +938,7 @@ class EventHelper
                 ];
 
                 $packagesArr[$value['eventTypes']][] = [
-                    'packageId'   => $value['packageId'],  
+                    'packageId'   => $value['packageId'],
                     'packageName' => $value['name'],
                     'actualPrice' => $value['actualPrice'],
                     'filePath'    => $value['filePath'],
@@ -932,8 +954,34 @@ class EventHelper
             $policyData = PoliciesHelper::getPolicies($id, 'suppliers');
 
             $supplierDetailsArr['policies'] = empty($policyData) ? [] : $policyData;
-           
-           return $supplierDetailsArr;
+
+            $reviewsDetails = ReviewsHelper::getAverageReviews($id,'suppliers');
+
+            $eventOrganisersArr['reviews'] = empty( $reviewsDetails ) ? [] : $reviewsDetails;
+
+            $recommendedSuppliers = Suppliers::select('suppliers.id as supplierOrganisersId',
+                'suppliers.name as supplierName',
+                'files.file_path as filePath')
+                ->join('address', 'suppliers.id', '=', 'address.linkable_id')
+                ->join('files', 'suppliers.id', '=', 'files.linkable_id')
+                ->join('cities', 'address.city_id', '=', 'cities.id')
+                ->where('address.linkable_type', 'suppliers')
+                ->where('files.linkable_type', 'suppliers')
+                ->where('files.file_type', 'home_page_display')
+                ->where('cities.name', $supplierDetailsArr['cityName'])
+                ->where('suppliers.id', '!=', $id)
+                ->where('address.status', 1)
+                ->where('suppliers.status', 1)
+                ->where('cities.status', 1)
+                ->get()
+                ->toArray();
+
+            $supplierDetailsArr['recommendations'] = empty($recommendedSuppliers) ? [] : $recommendedSuppliers;
+
+
+            $supplierDetailsArr['customerCareNo'] = env('CUSTOMER_CARE_NO');
+
+            return $supplierDetailsArr;
 
         } catch (\Exception $e) {
             \Log::info(__CLASS__ . " " . __FUNCTION__ . " Exception Occured while Fetching Suplier Details " . print_r($e->getMessage(), true));
@@ -947,7 +995,7 @@ class EventHelper
     /**
      *
      * @return Array
-    */
+     */
     public static function getSupplierPackageDetails($id)
     {
         $returnArr = [];
@@ -962,19 +1010,19 @@ class EventHelper
 
             $packageDetails['files'] = empty($fileData) ? [] : $fileData;
 
-            $supplierItems                  = SupplierProductTypes::select('supplier_product_types.name')
-                                                            ->join('supplier_product_mapping', 'supplier_product_mapping.supplier_product_id', '=', 'supplier_product_types.id')
-                                                            ->join('packages', 'packages.id', '=', 'supplier_product_mapping.package_id')
-                                                            ->where('packages.linkable_type', 'suppliers')
-                                                            ->where('supplier_product_mapping.status', 1)
-                                                            ->where('packages.linkable_type', 'suppliers')
-                                                            ->where('packages.id', $id)
-                                                            ->where('packages.status', 1)
-                                                            ->where('supplier_product_mapping.status', 1)
-                                                            ->get()
-                                                            ->toArray();
+            $supplierItems = SupplierProductTypes::select('supplier_product_types.name')
+                ->join('supplier_product_mapping', 'supplier_product_mapping.supplier_product_id', '=', 'supplier_product_types.id')
+                ->join('packages', 'packages.id', '=', 'supplier_product_mapping.package_id')
+                ->where('packages.linkable_type', 'suppliers')
+                ->where('supplier_product_mapping.status', 1)
+                ->where('packages.linkable_type', 'suppliers')
+                ->where('packages.id', $id)
+                ->where('packages.status', 1)
+                ->where('supplier_product_mapping.status', 1)
+                ->get()
+                ->toArray();
 
-            $packageDetails['items']        = array_column($supplierItems, 'name');
+            $packageDetails['items'] = array_column($supplierItems, 'name');
 
             /* get prerequisites */
 
@@ -999,8 +1047,14 @@ class EventHelper
 
             $packageDetails['reviews'] = empty($reviewData) ? [] : $reviewData;
 
+            $recommendations = PackageHelper::getRecommendedPackages($id, 'suppliers', $packageDetails['eventName'] );
+
+            $packageDetails['recommendations'] = empty($recommendations) ? [] : $recommendations;
+
+            $packageDetails['customerCareNo'] = env('CUSTOMER_CARE_NO');
+
             return $packageDetails;
-            
+
         } catch (\Exception $e) {
             \Log::info(__CLASS__ . " " . __FUNCTION__ . " Exception Occured while Fetching packages Details " . print_r($e->getMessage(), true));
 
@@ -1019,18 +1073,18 @@ class EventHelper
         try
         {
 
-            $supplierSql = Suppliers::select(   'suppliers.id as supplierId',
-                                                'suppliers.name as supplierName',
-                                                'packages.id as pacakgeId',
-                                                'packages.name as pacakgeName',
-                                                'packages.short_description as packageDescription',
-                                                'suppliers.rating',
-                                                'files.file_path as filePath',
-                                                'pricings.actual_price as actualPrice',
-                                                'pricings.discount',
-                                                'pricing_type.name as pricingType',
-                                                'event_types.name as eventType'
-                                            )
+            $supplierSql = Suppliers::select('suppliers.id as supplierId',
+                'suppliers.name as supplierName',
+                'packages.id as pacakgeId',
+                'packages.name as pacakgeName',
+                'packages.short_description as packageDescription',
+                'suppliers.rating',
+                'files.file_path as filePath',
+                'pricings.actual_price as actualPrice',
+                'pricings.discount',
+                'pricing_type.name as pricingType',
+                'event_types.name as eventType'
+            )
                 ->join('packages', 'packages.linkable_id', '=', 'suppliers.id')
                 ->join('files', 'files.linkable_id', '=', 'packages.id')
                 ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
@@ -1048,10 +1102,10 @@ class EventHelper
 
             if (isset($filterArr['city']) && !empty($filterArr['city'])) {
                 $supplierSql->join('address', 'suppliers.id', '=', 'address.linkable_id')
-                            ->join('cities', 'address.city_id', '=', 'cities.id')
-                            ->where('address.linkable_type', 'suppliers')
-                            ->where('address.status', 1)
-                            ->whereIn('cities.name', $filterArr['city']);
+                    ->join('cities', 'address.city_id', '=', 'cities.id')
+                    ->where('address.linkable_type', 'suppliers')
+                    ->where('address.status', 1)
+                    ->whereIn('cities.name', $filterArr['city']);
 
             }
 
@@ -1085,18 +1139,17 @@ class EventHelper
             }
 
             $suppliersDetails = $supplierSql->orderBy('suppliers.order_no', 'asc')
-                                            ->orderBy('suppliers.created_at', 'asc')
-                                            ->paginate(2);
-            
+                ->orderBy('suppliers.created_at', 'asc')
+                ->paginate(2);
+
             $suppliersArr = $suppliersDetails->toArray();
 
-            if (empty($suppliersArr['data']) ) {
+            if (empty($suppliersArr['data'])) {
                 \Log::info(__CLASS__ . " " . __FUNCTION__ . " Suppliers  Data does not exists ");
 
                 return [];
 
             }
-            
 
             $returnArr['suppliersList'] = $suppliersArr['data'];
 
@@ -1115,7 +1168,6 @@ class EventHelper
 
     }
 
-
     public static function getPackageEventOrganisersList($filterArr)
     {
         $returnArr = [];
@@ -1125,19 +1177,19 @@ class EventHelper
         try
         {
 
-            $eventOrganinserSql = EventOrganisers::select( 
-                                                        'event_organisers.id as eventOrganisersId',
-                                                        'event_organisers.name as eventOrgainsersName',
-                                                        'packages.id as pacakgeId',
-                                                        'packages.name as pacakgeName',
-                                                        'packages.short_description as packageDescription',
-                                                        'event_organisers.rating',
-                                                        'files.file_path as filePath',
-                                                        'pricings.actual_price as actualPrice',
-                                                        'pricings.discount',
-                                                        'pricing_type.name as pricingType',
-                                                        'event_types.name as eventType'
-                                            )
+            $eventOrganinserSql = EventOrganisers::select(
+                'event_organisers.id as eventOrganisersId',
+                'event_organisers.name as eventOrgainsersName',
+                'packages.id as pacakgeId',
+                'packages.name as pacakgeName',
+                'packages.short_description as packageDescription',
+                'event_organisers.rating',
+                'files.file_path as filePath',
+                'pricings.actual_price as actualPrice',
+                'pricings.discount',
+                'pricing_type.name as pricingType',
+                'event_types.name as eventType'
+            )
                 ->join('packages', 'packages.linkable_id', '=', 'event_organisers.id')
                 ->join('files', 'files.linkable_id', '=', 'packages.id')
                 ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
@@ -1155,10 +1207,10 @@ class EventHelper
 
             if (isset($filterArr['city']) && !empty($filterArr['city'])) {
                 $eventOrganinserSql->join('address', 'event_organisers.id', '=', 'address.linkable_id')
-                            ->join('cities', 'address.city_id', '=', 'cities.id')
-                            ->where('address.linkable_type', 'suppliers')
-                            ->where('address.status', 1)
-                            ->whereIn('cities.name', $filterArr['city']);
+                    ->join('cities', 'address.city_id', '=', 'cities.id')
+                    ->where('address.linkable_type', 'suppliers')
+                    ->where('address.status', 1)
+                    ->whereIn('cities.name', $filterArr['city']);
 
             }
 
@@ -1192,18 +1244,17 @@ class EventHelper
             }
 
             $eventOrganinsersDetails = $eventOrganinserSql->orderBy('event_organisers.order_no', 'asc')
-                                            ->orderBy('event_organisers.created_at', 'asc')
-                                            ->paginate(2);
-            
+                ->orderBy('event_organisers.created_at', 'asc')
+                ->paginate(2);
+
             $eventOrganinsersArr = $eventOrganinsersDetails->toArray();
 
-            if (empty($eventOrganinsersArr['data']) ) {
+            if (empty($eventOrganinsersArr['data'])) {
                 \Log::info(__CLASS__ . " " . __FUNCTION__ . " Event organinsers Data does not exists ");
 
                 return [];
 
             }
-            
 
             $returnArr['eventOrganiserslist'] = $eventOrganinsersArr['data'];
 
@@ -1221,6 +1272,5 @@ class EventHelper
         }
 
     }
-
 
 }

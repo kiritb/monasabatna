@@ -21,6 +21,8 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::post('resendotp', 'Auth\RegisterController@resendotp');
 
+    Route::post('resendotp/register', 'Auth\RegisterController@resendotp');
+
     Route::post('login', 'Auth\LoginController@login');
 
     Route::post('password/forgot', 'Auth\LoginController@forgotPassword');
@@ -42,10 +44,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('events/organisers/filters', 'Api\EventController@getEventOrganinsersFilters');
     Route::get('events/organisers', 'Api\EventController@getEventOrgainsersList');
     Route::get('events/organisers/{id}', 'Api\EventController@getEventOrgainserDetails');
-
     Route::get('events/organisers/packages/{id}', 'Api\EventController@getPackageDetails');
-
-    Route::get('events/organisers/packages', 'Api\EventController@getAllEventOrgainserPackages');
 
     Route::get('suppliers/filters', 'Api\EventController@getSuppliersFilters');
     Route::get('suppliers', 'Api\EventController@getSuppliersList');

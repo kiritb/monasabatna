@@ -151,6 +151,10 @@ Route::get('suppliers', 'Web\EventController@getSuppliersList')->name('supplier-
 
 Route::get('suppliers/{id}', 'Web\EventController@getSupplierDetails')->name('supplierdetails');
 
+Route::get('packages/suppliers', 'Web\EventController@getPackageSupplierList');
+
+Route::get('packages/eventorganisers', 'Web\EventController@getPackageEventOrganisersList');
+
 Route::get('aboutus', 'Web\HomeController@aboutUs')->name('aboutus');
 
 Route::get('package-list', function () {

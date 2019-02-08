@@ -1,14 +1,6 @@
 /*********** panel ************/
 .row.venueslist {
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
     display: block;
-}
-
-.row.venueslist .form-group {
-    float: right;
 }
 
 #venue-list-bg {
@@ -43,16 +35,6 @@
     width: 90%;
 }
 
-.wishlistfive {
-
-    height: auto;
-}
-
-.list {
-
-    float: left;
-}
-
 h4.venuecliphead {
     font-family: Myriad pro;
     color: #4b485b;
@@ -60,11 +42,8 @@ h4.venuecliphead {
 }
 
 .row.color-bg-venuelist {
-    margin-top: -12px;
-    width: 100%;
     background-color: #f8f8f8;
-    height: auto;
-    padding: 21px;
+    margin-bottom: 20px;
 }
 
 .venuespagin {

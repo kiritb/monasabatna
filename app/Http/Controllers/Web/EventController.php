@@ -341,6 +341,12 @@ class EventController extends Controller
                 return response()->json(array('success' => true, 'html' => $html));
             }
 
+            try {
+                $supplierList['filters'] = EventHelper::getSuppliersFilters();
+            } catch (\Exception $e) {
+                $supplierList['filters'] = 'Filters not found';
+            }
+
             $returnHTML = view('dynamicpages.package-supplier-list')->with('data', $supplierList);
             $html = $returnHTML->render();
 
@@ -368,8 +374,8 @@ class EventController extends Controller
 
         try {
             $eventOrgsList = EventHelper::getPackageEventOrganisersList($requestParams);
-
-            if (empty($supplierList)) {
+            
+            if (empty($eventOrgsList)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
                 $returnHTML = view('dynamicpages.package-eventorgs-list')->with('data', $responseArr);

@@ -149,7 +149,7 @@
 
                     <!--- event right ---------------------->
                     <div class="container-fluid" id="eventlist-contentright">
-                        <div class="row rightevent">
+                        <div class="container rightevent">
                             <div class="row evenorglist">
                                 <div class="venulistsortleft"> </div>
                                 <div class="content-eve-top">
@@ -774,7 +774,7 @@
 
                     <!--- event right ---------------------->
                     <div class="container-fluid" id="eventlist-contentright">
-                        <div class="row rightevent">
+                        <div class="container rightevent">
                             <div class="row evenorglist">
                                 <div class="venulistsortleft"> </div>
                                 <div class="content-eve-top">
@@ -1298,7 +1298,7 @@
 
                     <!--- event right ---------------------->
                     <div class="container-fluid" id="eventlist-contentright">
-                        <div class="row rightevent">
+                        <div class="container rightevent">
                             <div class="row evenorglist">
                                 <div class="venulistsortleft"> </div>
                                 <div class="content-eve-top">
