@@ -54,6 +54,8 @@ class RegisterController extends Controller
             'fathers_name'    => 'required|string||max:255|',
             'family_name'     => 'required|string||max:255|',
             'password'        => 'required|string||min:6|confirmed',
+            'countryCode'     => 'required',   
+            'phone'           => 'required'
         ];
 
         $validator = Validator::make($requestParams, $rules);

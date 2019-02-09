@@ -75,7 +75,7 @@ class UserHelper
             $smsText        = 'please use the otp to authenticate and approve your account '.$otp.' and would be valid for next '.$validityMins;
 
 
-            SmsOtpHelper::createOtp($userObj->id, $otp, $otpType, $smsText, $otpValidity, $data['email'], $data['phone'] );
+            SmsOtpHelper::createOtp($userObj->id, $otp, $otpType, $smsText, $otpValidity, $data['email'], $data['countryCode'].$data['phone'] );
 
             \DB::commit();
 
