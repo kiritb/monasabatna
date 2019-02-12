@@ -29,7 +29,7 @@ class VennueController extends Controller
             if (empty($vennueListingData)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                $returnHTML = view('dynamicpages.venue-list')->with('data', $vennueListingData);
+                $returnHTML = view('list_pages.venue-list')->with('data', $vennueListingData);
                 $html = $returnHTML->render();
 
                 return response()->json(array('success' => true, 'html' => $html));
@@ -41,14 +41,14 @@ class VennueController extends Controller
                 $vennueListingData['filters'] = 'Filters not found';
             }
 
-            $returnHTML = view('dynamicpages.venue-list')->with('data', $vennueListingData);
+            $returnHTML = view('list_pages.venue-list')->with('data', $vennueListingData);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            $returnHTML = view('dynamicpages.venue-list')->with('data', $responseArr);
+            $returnHTML = view('list_pages.venue-list')->with('data', $responseArr);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));

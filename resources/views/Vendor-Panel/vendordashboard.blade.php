@@ -1,7 +1,7 @@
 
 
 @include('shared/header')
-<link rel="stylesheet" type="text/css" href="{{ url('/css/vendor-panel/superadmin.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url('css/vendor-panel/superadmin.css') }}">
       <!------- body start--------> 
      
 
@@ -982,7 +982,443 @@
 </div><!------------------end of container-fluid ------------------------------>
   <div class="tab-pane fade" id="v-pills-venues" role="tabpanel" aria-labelledby="v-pills-venues-tab">
       <div class="dashvendortop">
-          <a class="addvenuedash" href="#"> Add </a>
+          <a class="addvenuedash" href="http://18.218.133.17/dashboardvenueform"> Add </a>
+</div><!----------------add button ---------------------->
+  <div class="dashboardvenuepart">
+            <table class="table table-xs-12 table-sm-12 table-md-12">
+               <thead class="table-color-head">
+                  <tr>
+                     <th scope="col">Room ID</th>
+                     <th scope="col">Guest Capacity </th>
+                     <th scope="col">Regular Price</th>
+                     <th scope="col">Express Price</th>
+                     <th scope="col">AC / Non-AC</th>
+                     <th scope="col">Services</th>
+                     <th scope="col">Phone</th>
+                     <th scope="col">Cancellation</th>
+                 
+                  </tr>
+               </thead>
+               <tbody class="table-hover">
+                  <tr>
+                     <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>Catering</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                    
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#venudeleteModal" id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#venueaddexp" id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>AC</td>
+                     <td>lighting</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                   
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>Sound</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                  
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>Catering</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                    
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>lighting</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                    
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>Catering</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+          
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>Catering</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>Catering</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>Catering</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>Catering</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>Catering</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td>Catering</td>
+                     <td>+616-783437843</td>
+                     <td>5% </td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+               </tbody>
+            </table>
+            <!------------------------------ Delete Venues ----------------------------------->
+            <!-- Modal with Text area -->
+            <div class="modal fade" id="venudeleteModal" tabindex="-1" role="dialog" aria-labelledby="venudeleteModalLabel" aria-hidden="true">
+            <div id="canceldash" class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm to Delete Venue</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to Delete the venue.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary yesamen" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-primary noamen">No</button>
+      </div>
+    </div>
+  </div>
+    
+</div>
+<!------------------Delete Modal ------------------------->
+<!-------------------------------------View venue Modal -------------------------------->
+<div class="modal fade bd-example-modal-xl" id="viewvenuemodal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  <div id="viewvenuefm" class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title">View Venue Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+  <div class="form-row">
+  <div class="form-group col-md-2">
+      <label for="inputEmail4">Photo :</label>
+      <a class="venimgpic" href="#"><img src="svg/images/testi-about1.png" class="img-thumbnail" alt="Cinque Terre"> </a>
+    </div>
+    <div class="form-group col-md-2">
+    <label for="inputAddress2">Video : </label>
+    <a class="venimgpic" href="#"><video width="265" height="178" controls>
+                                <source src="svg/images/venuevideo.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                                </video> </a>
+  </div>
+    <div class="form-group col-md-1">
+      <label for="inputEmail4">Room ID :</label>
+      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="B502">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputPassword4">Venue Name :</label>
+      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    value="Party">
+    </div>
+    <div class="form-group col-md-2">
+    <label for="inputAddress">Guest Capacity :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="300">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Regular Price :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    value="200 / Day">
+  </div>
+  
+  
+  </div><!--------------end of row ---------------------------------->
+  <div class="form-row">
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Express Price :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="200 / Day">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Ac / Non Ac :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    value="AC">
+  </div>
+    <div class="form-group col-md-2">
+      <label for="inputPassword4">Phone :</label>
+      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="9008089765">
+    </div>
+    <div class="form-group col-md-2">
+    <label for="inputAddress">Services : </label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="Catering and Lighting">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Country : </label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="India">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Cancellation Charges: </label>
+    <input type="text" readonly class="form-control-customcharges" id="fname" name="firstname" value="Before 24 Hours">
+    <input type="text" readonly class="form-control-customcol" id="fname" name="firstname" value="5%">
+
+  </div>
+  
+  
+  </div><!----------------------end of row --------------------------->
+  <div class="form-row">
+  <div class="form-group sttimeven">
+    <label for="inputAddress2">Start Time :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="10 : 30">
+  </div>
+  <div class="form-group sttimeven">
+    <label for="inputAddress2">End Time :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    value="12 : 30">
+  </div>
+    <div class="form-group col-md-3">
+      <label for="inputPassword4">Conference Hall Provided :</label>
+      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="Yes">
+    </div>
+    <div class="form-group col-md-2">
+    <label for="inputAddress">Event Type : </label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="Marriage">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Amenities : </label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="Food">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">          </label>
+    <input type="text" readonly class="form-control-customcharges" id="fname" name="firstname" value="Before 24 Hours">
+    <input type="text" readonly class="form-control-customcol" id="fname" name="firstname"
+                                     value="5%">
+  </div>
+  </div><!----------------------end of row --------------------------->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">Note : </label>
+      <input type="text" class="form-control" id="Express deal discout is offered only for seasonal period"
+      value="Express deal discount is offered only for seasonal period">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Deadline for cash payment : </label>
+      <input type="text" class="form-control" id="Express deal discout is offered only for seasonal period"
+      value="Check Maturity Date as per your credential">
+    </div>
+    <div class="form-group col-md-2 chargeven">
+    <label for="inputAddress2">            </label>
+    <input type="text" readonly class="form-control-customcharges" id="fname" name="firstname" value="Before 24 Hours">
+    <input type="text" readonly class="form-control-customcol" id="fname" name="firstname"
+                                     value="5%">
+  </div>
+  </div>
+</form> 
+
+</div>
+  </div>
+</div>
+</div>
+<!-----------------------View Venue pop up -------------------------------------------------------->
+   <!------------------------------ venue Add to express Deals ----------------------------------->
+   <div class="modal fade" id="venueaddexp" tabindex="-1" role="dialog" aria-labelledby="venueaddexpLabel" aria-hidden="true">
+               <div id="paymentdash" class="modal-dialog">
+                  <div class="modal-content">
+                     <!-- Modal Header -->
+                     <div class="modal-header">
+                        <h3 class="modal-title">Add to Express Deals</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">×</span>
+                                 </button>
+                     </div>
+                     <!-- Modal body -->
+                     <div class="content-payment">
+                     <div class="form-group row express">
+    <label for="inputEmail3" class="vendoraddexp"> Current Price(SAR) :</label>
+
+                        <div class="col-sm-5">
+        <input type="text" name="company_name" class="vendorformexp" placeholder="100">
+    </div>
+    <div class="col-15">
+                            <select id="country" class="selectvenexp" name="country">
+                                <option value="australia" selected>Per day</option>
+                                <option value="canada">Per hour</option>
+                                <option value="usa">Per Person</option>
+                            </select>
+                        </div>                 
+</div>
+<!------------------form-group row ------------------------->
+                     <div class="form-group row express">
+    <label for="inputEmail3" class="vendoraddexp"> Express Price(SAR) :</label>
+    
+                        <div class="col-sm-5">
+        <input type="text" name="company_name" class="vendorformexp" placeholder="80">
+    </div>
+    <div class="col-15">
+                            <select id="country" class="selectvenexp" name="country">
+                                <option value="australia" selected>Per day</option>
+                                <option value="canada">Per Person</option>
+                                <option value="usa">Per head</option>
+                            </select>
+                        </div>
+                        
+</div>
+<!------------------form-group row ------------------------->
+
+</div><!-----------content-payment ----------------------->
+                     <!-- Modal footer -->
+                     <div class="modal-footer">
+                               
+                     <!---<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--->
+                     <button data-toggle="modal" id="closeModal" data-target="#closeModallabel" type="submit" class="btn btn-primary">Add</button>
+                           </div>
+                  </div>
+               </div>
+            </div>
+<!-------------------------------Payment Details ------------------------------------>
+</div><!--------------end of booking ---------------------------------->     
+</div>   
+  <div class="tab-pane fade" id="v-pills-services" role="tabpanel" aria-labelledby="v-pills-services-tab">
+  <div class="dashvendortop">
+          <a class="addvenuedash" href="http://18.218.133.17/dashboardvenueform"> Add </a>
 </div><!----------------add button ---------------------->
   <div class="dashboardvenuepart">
             <table class="table table-xs-12 table-sm-12 table-md-12">
@@ -1189,9 +1625,9 @@
                   </tr>
                </tbody>
             </table>
+            
 </div><!--------------end of booking ---------------------------------->     
-</div>   
-  <div class="tab-pane fade" id="v-pills-services" role="tabpanel" aria-labelledby="v-pills-services-tab">php</div>
+  </div><!-----------------Services Tab -------------------------------->
   <div class="tab-pane fade" id="v-pills-policies" role="tabpanel" aria-labelledby="v-pills-policies-tab">drupal</div>
   <div class="tab-pane fade" id="v-pills-profiles" role="tabpanel" aria-labelledby="v-pills-profiles-tab">java</div>
   <div class="tab-pane fade" id="v-pills-amenities" role="tabpanel" aria-labelledby="v-pills-amenities-tab">
@@ -1381,7 +1817,9 @@
   </div>
     
 </div>
-<!------------------form-group row -------------------------> 
+<!------------------form-group row ------------------------->
+
+  
 <!-------------------Delete Modal -------------------------------------->
 </div><!--------------end of booking ----------------------------------> 
 

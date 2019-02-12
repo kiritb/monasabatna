@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('blogs', function () {
     return view('blogs');
 });
@@ -47,18 +45,17 @@ Route::get('customer_profile_suppliers', function () {
 Route::get('customer_profile_venues_bookinghistory', function () {
     return view('customer_profile_venues_bookinghistory');
 });
-Route::get('customer_profile', function () {
-    return view('005_4_3_1_customer_profile');
-});
 Route::get('customer_profile_cancel_booking', function () {
     return view('customer_profile_cancel_booking');
 });
 Route::get('faqs', function () {
     return view('faqs');
 });
-Route::get('eventorganisers', function () {
-    return view('dynamicpages/eventorganisers');
+
+Route::get('eventorganiserslist', function () {
+    return view('dynamicpages/eventorganiserslist');
 });
+
 Route::get('paymentconfirmation', function () {
     return view('dynamicpages/paymentconfirmation');
 });
@@ -90,18 +87,16 @@ Route::get('vendordashboardtrial', function () {
 Route::get('dashboardvenueform', function () {
     return view('vendor-panel/dashboardvenueform');
 });
+Route::get('dashboardserviceform', function () {
+    return view('vendor-panel/dashboardserviceform');
+});
 Route::get('expressdeals', function () {
     return view('dynamicpages/expressdeals');
 });
 Route::get('vendorsignup', function () {
     return view('vendor_signup');
 });
-Route::get('venue_dashboard_filter', function () {
-    return view('008_06_venue_dashboard_filter');
-});
-Route::get('package_event_organisers', function () {
-    return view('004_4_4_package_event_organisers');
-});
+
 Route::get('package_venues', function () {
     return view('package_venues');
 });
@@ -132,7 +127,7 @@ Route::get('/', 'Web\HomeController@index')->name('home');
 Route::post('facilitate', 'Api\HomeController@facilitateService');
 
 Route::get('listing', function () {
-    return view('dynamicpages/listing');
+    return view('list_pages/listing', ['page' => 'listing']);
 });
 
 Route::get('venues', 'Web\VennueController@vennueListing')->name('venue-list');
@@ -157,18 +152,6 @@ Route::get('packages/eventorganisers', 'Web\EventController@getPackageEventOrgan
 
 Route::get('aboutus', 'Web\HomeController@aboutUs')->name('aboutus');
 
-Route::get('package-list', function () {
-    return view('dynamicpages/packagelist');
-});
-
-Route::get('package-supplier-list', function () {
-    return view('dynamicpages/packagelist');
-});
-
-Route::get('package-eventorgs-list', function () {
-    return view('dynamicpages/packagelist');
-});
-
 Route::get('contactus', function () {
     return view('static/contactus');
 });
@@ -186,7 +169,6 @@ Route::get('register', array('as' => 'register', function () {
 }));
 
 Route::get('static/faqs', 'Web\FaqController@getFaqs')->name('faqs');
-Route::get('upcomingevents', 'Web\EventController@eventListing')->name('upcomingevents');
 
 Route::post('login', 'Auth\LoginController@login');
 Route::post('users', 'Auth\RegisterController@createUser');

@@ -1,15 +1,16 @@
 function ajaxHtmlRender(params) {
-    let overlayMask = (params.overlayMask) ? params.overlayMask : false;
+    let overlayMask = params.overlayMask ? params.overlayMask : false;
     if (overlayMask) {
         $(params.element).overlayMask({
             do: "showLoader",
             pPos: "relative"
         });
     }
-
-    let methodParams = {
-        type: params.type
-    };
+    let methodParams = {};
+    if (params.data) {
+        methodParams = params.data;
+    }
+    methodParams.type = params.type;
 
     $.ajax({
         url: base_url + params.url,
@@ -27,8 +28,12 @@ function ajaxHtmlRender(params) {
                     do: "hideLoader"
                 });
                 $(params.element).html(response.html);
-
             } else {
+                let html =
+                    '<h3 class="m-auto text-center p-3">' +
+                    "Failed to get data from API!! Please reload page." +
+                    "</h3 > ";
+                $(params.element).html(html);
                 notifyError("Failed to get data!!");
             }
         },
@@ -51,34 +56,45 @@ function ajaxHtmlRender(params) {
 // if settings.maskUI is other than true, it's value will be used as the color value while bloking (i.e settings.maskUI='rgba(176,176,176,0.7)'
 // in addition an hourglass is displayed while ajax in progress
 function ajaxMaskUI(settings) {
-    function maskPageOn(color) { // color can be ie. 'rgba(51,51,51,0.7)' or 'transparent'
-        var div = $('#maskPageDiv');
+    function maskPageOn(color) {
+        // color can be ie. 'rgba(51,51,51,0.7)' or 'transparent'
+        var div = $("#maskPageDiv");
         if (div.length === 0) {
-            $(document.body).append('<div id="maskPageDiv" style="position:fixed;width:100%;height:100%;left:0;top:0;display:none"></div>'); // create it
-            div = $('#maskPageDiv');
+            $(document.body).append(
+                '<div id="maskPageDiv" style="position:fixed;width:100%;height:100%;left:0;top:0;display:none"></div>'
+            ); // create it
+            div = $("#maskPageDiv");
         }
         if (div.length !== 0) {
             div[0].style.zIndex = 2147483647;
             div[0].style.backgroundColor = color;
-            div[0].style.display = 'inline';
+            div[0].style.display = "inline";
         }
-    }
-    function maskPageOff() {
-        var div = $('#maskPageDiv');
-        if (div.length !== 0) {
-            div[0].style.display = 'none';
-            div[0].style.zIndex = 'auto';
-        }
-    }
-    function hourglassOn() {
-        if ($('style:contains("html.hourGlass")').length < 1) $('<style>').text('html.hourGlass, html.hourGlass * { cursor: wait !important; }').appendTo('head');
-        $('html').addClass('hourGlass');
-    }
-    function hourglassOff() {
-        $('html').removeClass('hourGlass');
     }
 
-    if (settings.maskUI === true) settings.maskUI = 'transparent';
+    function maskPageOff() {
+        var div = $("#maskPageDiv");
+        if (div.length !== 0) {
+            div[0].style.display = "none";
+            div[0].style.zIndex = "auto";
+        }
+    }
+
+    function hourglassOn() {
+        if ($('style:contains("html.hourGlass")').length < 1)
+            $("<style>")
+            .text(
+                "html.hourGlass, html.hourGlass * { cursor: wait !important; }"
+            )
+            .appendTo("head");
+        $("html").addClass("hourGlass");
+    }
+
+    function hourglassOff() {
+        $("html").removeClass("hourGlass");
+    }
+
+    if (settings.maskUI === true) settings.maskUI = "transparent";
 
     if (!!settings.maskUI) {
         maskPageOn(settings.maskUI);
@@ -93,7 +109,8 @@ function ajaxMaskUI(settings) {
                 hourglassOff();
             }
             dfd.reject(jqXHR, textStatus, errorThrown);
-        }).done(function (data, textStatus, jqXHR) {
+        })
+        .done(function (data, textStatus, jqXHR) {
             if (!!settings.maskUI) {
                 maskPageOff();
                 hourglassOff();

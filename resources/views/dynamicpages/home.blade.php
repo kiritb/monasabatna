@@ -9,7 +9,7 @@
     <h1>Logged in!!</h1>
     @endauth
 
-    <div class="container-fluid home-containers" id="middlelayer">
+    <div class="container-fluid home-containers padd-lr-2" id="middlelayer">
         <div class="middlehead_exptop">
             <b>Express Deals </b>
         </div>
@@ -91,7 +91,7 @@
         <!------------ end of col ------------->
     </div>
 
-    <div class="container-fluid home-containers" id="upcomingeves">
+    <div class="container-fluid home-containers padd-lr-2" id="upcomingeves">
 
         <div class="container middlehead">
             <caption> Upcoming Events </caption>

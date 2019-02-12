@@ -39,7 +39,7 @@ class Amenities extends Model
                 'linkable_id'           => $data['linkable_id'],
                 'linkable_type'         => $data['linkable_type'],
                 'amenitie_type_id'      => $data['amenitie_type_id'],
-                'address_line_2'        => isset( $data['order_no'] ) ? $data['order_no'] : NULL,
+                'order_no'              => isset( $data['order_no'] ) ? $data['order_no'] : NULL,
                 'status'                => 1,
                 'created_by'            => $data['email'],
                 'updated_by'            => $data['email']

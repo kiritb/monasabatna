@@ -55,14 +55,29 @@ class EventController extends Controller
             if (empty($upcomingEventListingData)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+                $returnHTML = view('list_pages.upcomingeventlist')->with('data', $responseArr);
+                $html = $returnHTML->render();
+
+                return response()->json(array('success' => true, 'html' => $html));
             }
 
-            return response(ResponseUtil::buildSuccessResponse($upcomingEventListingData), HttpStatusCodesConsts::HTTP_OK);
+            try {
+                $upcomingEventListingData['filters'] = EventHelper::getEventFilters();
+            } catch (\Exception $e) {
+                $upcomingEventListingData['filters'] = 'Filters not found';
+            }
+
+            $returnHTML = view('list_pages.upcomingeventlist')->with('data', $upcomingEventListingData);
+            $html = $returnHTML->render();
+
+            return response()->json(array('success' => true, 'html' => $html));
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            $returnHTML = view('list_pages.upcomingeventlist')->with('data', $responseArr);
+            $html = $returnHTML->render();
+
+            return response()->json(array('success' => true, 'html' => $html));
         }
     }
 
@@ -135,7 +150,7 @@ class EventController extends Controller
             if (empty($eventOrgainsersListData)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                $returnHTML = view('dynamicpages.eventorganiser-list')->with('data', $responseArr);
+                $returnHTML = view('list_pages.eventorganiser-list')->with('data', $responseArr);
                 $html = $returnHTML->render();
 
                 return response()->json(array('success' => true, 'html' => $html));
@@ -147,14 +162,14 @@ class EventController extends Controller
                 $eventOrgainsersListData['filters'] = 'Filters not found';
             }
 
-            $returnHTML = view('dynamicpages.eventorganiser-list')->with('data', $eventOrgainsersListData);
+            $returnHTML = view('list_pages.eventorganiser-list')->with('data', $eventOrgainsersListData);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            $returnHTML = view('dynamicpages.eventorganiser-list')->with('data', $responseArr);
+            $returnHTML = view('list_pages.eventorganiser-list')->with('data', $responseArr);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));
@@ -250,20 +265,26 @@ class EventController extends Controller
             if (empty($supplierList)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                $returnHTML = view('dynamicpages.supplier-list')->with('data', $responseArr);
+                $returnHTML = view('list_pages.supplier-list')->with('data', $responseArr);
                 $html = $returnHTML->render();
 
                 return response()->json(array('success' => true, 'html' => $html));
             }
 
-            $returnHTML = view('dynamicpages.supplier-list')->with('data', $supplierList);
+            try {
+                $supplierList['filters'] = EventHelper::getSuppliersFilters();
+            } catch (\Exception $e) {
+                $supplierList['filters'] = 'Filters not found';
+            }
+
+            $returnHTML = view('list_pages.supplier-list')->with('data', $supplierList);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            $returnHTML = view('dynamicpages.supplier-list')->with('data', $responseArr);
+            $returnHTML = view('list_pages.supplier-list')->with('data', $responseArr);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));
@@ -335,7 +356,7 @@ class EventController extends Controller
             if (empty($supplierList)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                $returnHTML = view('dynamicpages.package-supplier-list')->with('data', $responseArr);
+                $returnHTML = view('list_pages.package-supplier-list')->with('data', $responseArr);
                 $html = $returnHTML->render();
 
                 return response()->json(array('success' => true, 'html' => $html));
@@ -347,14 +368,14 @@ class EventController extends Controller
                 $supplierList['filters'] = 'Filters not found';
             }
 
-            $returnHTML = view('dynamicpages.package-supplier-list')->with('data', $supplierList);
+            $returnHTML = view('list_pages.package-supplier-list')->with('data', $supplierList);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            $returnHTML = view('dynamicpages.package-supplier-list')->with('data', $responseArr);
+            $returnHTML = view('list_pages.package-supplier-list')->with('data', $responseArr);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));
@@ -374,11 +395,11 @@ class EventController extends Controller
 
         try {
             $eventOrgsList = EventHelper::getPackageEventOrganisersList($requestParams);
-            
+
             if (empty($eventOrgsList)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                $returnHTML = view('dynamicpages.package-eventorgs-list')->with('data', $responseArr);
+                $returnHTML = view('list_pages.package-eventorgs-list')->with('data', $responseArr);
                 $html = $returnHTML->render();
 
                 return response()->json(array('success' => true, 'html' => $html));
@@ -390,14 +411,14 @@ class EventController extends Controller
                 $eventOrgsList['filters'] = 'Filters not found';
             }
 
-            $returnHTML = view('dynamicpages.package-eventorgs-list')->with('data', $eventOrgsList);
+            $returnHTML = view('list_pages.package-eventorgs-list')->with('data', $eventOrgsList);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            $returnHTML = view('dynamicpages.package-eventorgs-list')->with('data', $responseArr);
+            $returnHTML = view('list_pages.package-eventorgs-list')->with('data', $responseArr);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));

@@ -25,55 +25,7 @@
         </div>
     </nav>
     <header>
-        <nav class="navbar bg-white">
-            <a class="navbar-brand" href="#"> <img src={{ url('svg/images/monasabatna_final_logo.png') }} height="50"></a>
-            <navbar>
-                <ul>
-                    <li>
-                        <b> <a href="#" class="active">HOME </a></b>
-                    </li>
-                    <b>
-                        <li><a href="#"> EXPRESS </a></li>
-                    </b>
-                    <b>
-                        <li><a href="#"> VENUES</a></li>
-                    </b>
-                    <b>
-                        <li><a href="#">SUPPLIERS </a></li>
-                    </b>
-                    <b>
-                        <li><a href="#"> EVENT ORGANISERS </a></li>
-                    </b>
-                    <li class="submenu">
-                        <b><a href="#">ABOUT US</a></b>
-                        <ul id="browse">
-                            <b>
-                                <li class="abovedrop"><a href="#">About us</a></li>
-                            </b>
-                            <b>
-                                <li class="abovedrop"><a href="#">Why Munasabatna</a></li>
-                            </b>
-                            <b>
-                                <li class="abovedrop"><a href="#">Blogs</a></li>
-                            </b>
-                            <b>
-                                <li class="abovedrop"><a href="#">Contact us</a></li>
-                            </b>
-                        </ul>
-                    </li>
-                    <b>
-                        <li><a href="#">CUSTOMER SERVICE </a></li>
-                    </b>
-                    <b>
-                        <li><a href="#"> SHORTLIST</a></li>
-                    </b>
-                    <li>
-                        <a class="btn btn-default booknow-header" href="#">Book Now</a>
-                    </li>
-                </ul>
-        </nav>
-        <!---<div class="menu-toggle"><i class="fa fa-bars" arial-hidden="true"></i></div> -->
-        </navbar>
+       
     </header>
 
     <!------- Header end-------->
