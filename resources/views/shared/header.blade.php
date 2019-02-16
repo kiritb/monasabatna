@@ -54,17 +54,18 @@
             <navbar>
                 <ul id="mainNav">
                     <li class="nav-item"><a href="{{ url('/') }}">HOME</a></li>
-                    <li class="nav-item"><a href="#">EXPRESS</a></li>
-                    <li class="nav-item"><a href={{ url('/listing') }}>VENUES</a></li>
-                    <li class="nav-item"><a href="#">SUPPLIERS </a></li>
-                    <li class="nav-item"><a href={{ url('/events/organisers') }}>EVENT ORGANISERS</a></li>
+                    <li class="nav-item"><a href="{{ url('/expressdeals') }}">EXPRESS</a></li>
+                    <li class="nav-item"><a href="{{ url('/upcoming-events') }}">UPCOMINGS</a></li>
+                    <li class="nav-item"><a href="{{ url('/listing') }}">VENUES</a></li>
+                    <li class="nav-item"><a href="{{ url('/listing?pageis=suppliers') }}">SUPPLIERS </a></li>
+                    <li class="nav-item"><a href="{{ url('/events/organisers') }}">EVENT ORGANISERS</a></li>
                     <li class="nav-item submenu">
-                        <a href={{ url('/about') }}>ABOUT US</a>
+                        <a href="{{ url('/about') }}">ABOUT US</a>
                         <ul id="browse">
-                            <li class="abovedrop"><a href={{ url('/aboutus') }}>About us</a></li>
-                            <li class="abovedrop"><a href={{ url('/whyus') }}>Why Munasabatna</a></li>
-                            <li class="abovedrop"><a href={{ url('/blogs') }}>Blogs</a></li>
-                            <li class="abovedrop"><a href={{ url('/contactus') }}>Contact us</a></li>
+                            <li class="abovedrop"><a href="{{ url('/aboutus') }}">About us</a></li>
+                            <li class="abovedrop"><a href="{{ url('/whyus') }}">Why Munasabatna</a></li>
+                            <li class="abovedrop"><a href="{{ url('/blogs') }}">Blogs</a></li>
+                            <li class="abovedrop"><a href="{{ url('/contactus') }}">Contact us</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a href="#">CUSTOMER SERVICE </a></li>

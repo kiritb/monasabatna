@@ -26,20 +26,6 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
-    .row.color-bg-upclist {
-        width: 73%;
-        margin-left: 27%;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .row.color-bg-upclist {
-        width: 80%;
-        margin-left: 20%;
-    }
-}
-
 /*********upcoming events ******************/
 h3.nameupc {
     font-weight: bold;
@@ -148,21 +134,6 @@ div#upc-userclick-content {
 .upcpagin {
     margin-top: 2%;
     margin-left: 50%;
-}
-
-.row.color-bg-upclist {
-    width: 80%;
-    margin-left: 20%;
-    padding: 15px;
-    background-color: #f8f8f8;
-}
-
-.row.color-bg-upclistone {
-    width: 80%;
-    margin-left: 20%;
-    margin-top: 10px;
-    padding: 15px;
-    background-color: #f8f8f8;
 }
 
 div#upcuser-search {
@@ -352,14 +323,6 @@ select.form-control.sortvenues {
     margin-left: 169%;
 }
 
-.row.color-bg-venuelist {
-    margin-top: -12px;
-    width: 100%;
-    background-color: #f8f8f8;
-    height: auto;
-    padding: 21px;
-}
-
 .row.col-lg-10.col-md-10.col-sm-10.col-xs-10 {
     padding: 0px;
 }
@@ -512,23 +475,6 @@ button {
 /********************upcoming events user click ******************/
 /********************** Venue List **********************************************/
 
-
-@media only screen and (max-width: 1024px) {
-    .row.color-bg-venuelist {
-
-        margin-left: 108px;
-
-        width: 87%;
-
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .row.color-bg-venuelist {
-        width: 88%;
-    }
-}
-
 @media only screen and (min-width: 1024px) {
     select.form-control.sortvenues {
 
@@ -550,27 +496,6 @@ button {
 
     /********************upcoming events user click ******************/
     /********************** Venue List **********************************************/
-
-
-    @media only screen and (max-width: 1024px) {
-        .row.color-bg-venuelist {
-
-            margin-left: 108px;
-
-            width: 87%;
-
-        }
-    }
-
-    @media only screen and (max-width: 1200px) {
-        .row.color-bg-venuelist {
-
-            margin-left: 77px;
-
-            width: 97%;
-
-        }
-    }
 
     @media only screen and (min-width: 1024px) {
         select.form-control.sortvenues {
@@ -651,27 +576,6 @@ button {
 
     /********************upcoming events user click ******************/
     /********************** Venue List **********************************************/
-
-
-    @media only screen and (max-width: 1024px) {
-        .row.color-bg-venuelist {
-
-            margin-left: 108px;
-
-            width: 87%;
-
-        }
-    }
-
-    @media only screen and (max-width: 1200px) {
-        .row.color-bg-venuelist {
-
-            margin-left: 77px;
-
-            width: 97%;
-
-        }
-    }
 
     @media only screen and (min-width: 1024px) {
         select.form-control.sortvenues {

@@ -1,84 +1,18 @@
-<div class="customerlinegreen"></div>
+@if(!isset($data) && empty($data))
+<div class="errorBox">No Data from API!!</div>
+@else
+
+@php
+$packageSuppliers= $data;
+$appliedParams= $data['appliedParams'];
+@endphp
+
 <!--------------left ------------------>
-<div class="container-fluid" id="venue-list-bg">
+<div id="venue-list-bg">
     <div class="col-sm-2 tab-filters">
         <div class="list">
-            <div class="list-heading">Filter</div>
-            <div class="list-body">
-
-                <!---- Price Range - formgroup ------->
-
-                @if (isset($data["filters"]["price_range"]) && count($data["filters"]["price_range"]) >
-                0)
-                @include('ui_utils/filter-checks', [
-                'filters' => $data["filters"]["price_range"],
-                'type_title'=> 'Price Range',
-                'name' => 'price_range'
-                ])
-                @else
-                <div>No data!!</div>
-                @endif
-
-                <!---- Rating - formgroup ------->
-
-                @if (isset($data["filters"]["rating"]) && count($data["filters"]["rating"]) >
-                0)
-                @include('ui_utils/filter-checks', [
-                'filters' => $data["filters"]["rating"],
-                'type_title'=> 'Rating',
-                'name' => 'rating'
-                ])
-                @else
-                <div>No data!!</div>
-                @endif
-
-                <!---- Event Type - formgroup ------->
-
-                @if (isset($data["filters"]["event_types"]) && count($data["filters"]["event_types"])
-                >
-                0)
-                @include('ui_utils/filter-checks',[
-                'filters' => $data["filters"]["event_types"],
-                'type_title' => 'Event Type',
-                'name' => 'event_types'
-                ])
-                @else
-                <div>No data!!</div>
-                @endif
-
-                <!---- Supplier Type - formgroup ------->
-
-                @if (isset($data["filters"]["supplier_types"]) && count($data["filters"]["supplier_types"])
-                >
-                0)
-                @include('ui_utils/filter-checks',[
-                'filters' => $data["filters"]["supplier_types"],
-                'type_title' => 'Supplier Type',
-                'name' => 'supplier_types'
-                ])
-                @else
-                <div>No data!!</div>
-                @endif
-
-                <!---- Items - formgroup ------->
-
-                @if (isset($data["filters"]["items"]) && count($data["filters"]["items"])
-                >
-                0)
-                @include('ui_utils/filter-checks',[
-                'filters' => $data["filters"]["items"],
-                'type_title' => 'Items',
-                'name' => 'items'
-                ])
-                @else
-                <div>No data!!</div>
-                @endif
-
-                <a class="resetvenue" href id="Reset">Reset Filters</a>
-                <div class="filterext"></div>
-
-            </div>
-
+            @include('shared.filters', ['filters' => $packageSuppliers["filters"], 'pageType' =>
+            $appliedParams['pageType']])
         </div>
         <!------- panel end -------->
 
@@ -104,9 +38,9 @@
                     </div>
                 </div>
             </div>
-            @if (isset($data['suppliersList']) && count($data['suppliersList']) > 0)
-            @foreach ($data['suppliersList'] as $key=>$suppliersList)
-            <div class="row color-bg-eventlist">
+            @if (isset($packageSuppliers['suppliersList']) && count($packageSuppliers['suppliersList']) > 0)
+            @foreach ($packageSuppliers['suppliersList'] as $key=>$suppliersList)
+            <div class="row item-bg-color">
                 <div class="content-eve">
                     <img src={{ $suppliersList['filePath'] }} alt="Mountains" style="width:300px; height:273px">
                 </div>
@@ -139,31 +73,17 @@
             @else
             <div>No data!!</div>
             @endif
-            <!-----------color-bg-eventlist ------------>
         </div>
         <div class="supppagin">
 
-            @if(isset($data["paginate"]))
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item {{ ($data['paginate']['prev_page_url'])?'':'disabled' }}"><a class="page-link"
-                            href="{{ $data['paginate']['prev_page_url'] }}">Previous</a></li>
-                    @php $totalpages = $data["paginate"]["last_page"]; @endphp
-
-                    @foreach(range(1,$totalpages) as $i)
-                    @if($totalpages >0)
-                    <li class="page-item {{ ($data['paginate']['current_page']==$i)?'active':'' }}"><a class="page-link"
-                            href="{{ $data['paginate']['path'] }}?page={{ $i }}">{{
-                            $i }}</a></li>
-                    @endif
-                    @php $totalpages--; @endphp
-                    @endforeach
-                    <li class="page-item {{ ($data['paginate']['next_page_url'])?'':'disabled' }}"><a class="page-link"
-                            href="{{ $data['paginate']['next_page_url'] }}">Next</a></li>
-                </ul>
-            </nav>
+            @if (isset($packageSuppliers["paginate"]) && count($packageSuppliers["paginate"]) > 0)
+            @include('ui_utils.paginate', ['paginate' => $packageSuppliers['paginate'], 'pageType' =>
+            $appliedParams['pageType']])
+            @else
+            <div>No pagination data!!</div>
             @endif
 
         </div>
     </div>
 </div>
+@endif

@@ -783,3 +783,39 @@ create table evms.facilitate_customer_service(
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.wish_list;
+create table evms.wish_list(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  email varchar(256) NOT NULL,
+  linkable_id int(11) NOT NULL,
+  linkable_type varchar(256)  NOT NULL,
+  from_date date NOT NULL,
+  to_date date NOT NULL,
+  comment text DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.generic_terms;
+create table evms.generic_terms(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  type varchar(256) NOT NULL,
+  terms_header varchar(256) NOT NULL,
+  terms_text text NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+

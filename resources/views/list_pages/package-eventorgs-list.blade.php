@@ -4,15 +4,15 @@
 
 @php
 $packageEvents= $data;
+$appliedParams= $data['appliedParams'];
 @endphp
 
-<div class="customerlinegreen"></div>
 <!--------------left ------------------>
-<div class="container-fluid" id="venue-list-bg">
+<div id="venue-list-bg">
     <div class="col-sm-2 tab-filters">
         <div class="list">
-            @include('shared.filters', ['filters' => $packageEvents["filters"], 'type' => 'packageEvents', 'url' =>
-            '/packages/eventorganisers'])
+            @include('shared.filters', ['filters' => $packageEvents["filters"], 'pageType' =>
+            $appliedParams['pageType']])
         </div>
         <!------- panel end -------->
 
@@ -41,7 +41,7 @@ $packageEvents= $data;
 
             @if (isset($packageEvents["eventOrganiserslist"]) && count($packageEvents["eventOrganiserslist"]) > 0)
             @foreach ($packageEvents["eventOrganiserslist"] as $key=>$eventOrganiser)
-            <div class="row color-bg-eventlist">
+            <div class="row item-bg-color">
                 <div class="content-eve">
                     <img src={{ $eventOrganiser['filePath'] }} alt="Mountains" style="width:300px; height:273px">
                 </div>
@@ -95,17 +95,19 @@ $packageEvents= $data;
             @else
             <div>No data!!</div>
             @endif
-            <!-----------color-bg-eventlist ------------>
         </div>
-    </div>
-</div>
-<div class="eventspagin">
 
-    @if (isset($packageEvents["paginate"]) && count($packageEvents["paginate"]) > 0)
-    @include('ui_utils.paginate', ['paginate' => $packageEvents['paginate'], 'type' => 'packageEvents'])
-    @else
-    <div>No pagination data!!</div>
-    @endif
+        <div class="eventspagin">
+            @if (isset($packageEvents["paginate"]) && count($packageEvents["paginate"]) > 0)
+            @include('ui_utils.paginate', ['paginate' => $packageEvents['paginate'], 'pageType' =>
+            $appliedParams['pageType']])
+            @else
+            <div>No pagination data!!</div>
+            @endif
+
+        </div>
+
+    </div>
 
 </div>
 @endif

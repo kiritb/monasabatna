@@ -89,5 +89,43 @@ class ReviewsHelper
        
     }
 
+    /**
+     * @param Array  $data
+     *
+     * @return Object
+    */
+    public static function getAverageReviewsByType( $linkableId, $linkableType )
+    {   
+        
+        try
+        {   
+            $reviewsDetails = Current(Reviews::select(
+                                            \DB::raw('cast( ifnull(avg(rating_responsiveness),3.2) as decimal(10,2) ) as ratingResponsiveness'),
+                                            \DB::raw('cast(ifnull(avg(rating_quality),4.2) as decimal(10,2) ) as ratingQuality'),
+                                            \DB::raw('cast(ifnull(avg(rating_availability),4.5) as decimal(10,2) ) as ratingAvailability'),
+                                            \DB::raw('cast(ifnull(avg(rating_value_for_money),3.2) as decimal(10,2) ) as ratingValueForMoney')
+                                        
+                                )
+                                ->where('reviews.linkable_type', $linkableType)
+                                ->where('reviews.linkable_id',$linkableId)
+                                ->groupBy('reviews.linkable_id')
+                                ->where('reviews.status', 1)
+                                ->get()
+                                ->toArray()
+                            );
+
+
+            return $reviewsDetails;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching Reviews ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Error while Fetching Reviews", 1);
+
+        }
+       
+    }
+
     
 }

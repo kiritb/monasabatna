@@ -5,10 +5,6 @@
     <!-- Home Carousal for Banners -->
     @include("shared/home_slider")
 
-    @auth
-    <h1>Logged in!!</h1>
-    @endauth
-
     <div class="container-fluid home-containers padd-lr-2" id="middlelayer">
         <div class="middlehead_exptop">
             <b>Express Deals </b>
@@ -70,7 +66,7 @@
         <!----- end of row col-sm-12 ----->
 
         <p>
-            <a href="#">
+            <a href="{{ url('/expressdeals') }}">
                 <center><button type="button" class="btn btn-info btn-lg" id="show_record"><b>SHOW MORE</b></button>
                     <center>
             </a>
@@ -154,7 +150,7 @@
         <!----- end of row col-sm-12 ----->
 
         <p>
-            <a href="#">
+            <a href="{{ url('/upcoming-events') }}">
                 <center><button type="button" class="btn btn-info btn-lg" id="show_recordone"><b>SHOW MORE</b></button>
                     <center>
             </a>
@@ -197,7 +193,8 @@
                 <div class="why-us">
                     <!-- Data loads from ajax call -->
                 </div>
-                <button type="button" class="btn btn-info btn-lg" id="show_record_why"><b>BOOK NOW</b></button>
+                <button type="button" class="btn btn-info btn-lg" id="show_record_why"><a
+                        href="{{ url('/listing') }}"><b>BOOK NOW</b></a></button>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <a href="#">

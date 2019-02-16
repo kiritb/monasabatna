@@ -41,6 +41,12 @@ class VennueController extends Controller
                 $vennueListingData['filters'] = 'Filters not found';
             }
 
+            if (isset($requestParams) && count($requestParams) > 0) {
+                $vennueListingData['appliedParams'] = $requestParams;
+            } else {
+                $vennueListingData['appliedParams'] = [];
+            }
+
             $returnHTML = view('list_pages.venue-list')->with('data', $vennueListingData);
             $html = $returnHTML->render();
 
@@ -93,11 +99,11 @@ class VennueController extends Controller
         try {
             $vennueDetails = VennueHelper::venueDetails($vennueId);
 
-            return response(ResponseUtil::buildSuccessResponse($vennueDetails), HttpStatusCodesConsts::HTTP_OK);
+            return view('detail_pages.venuedetails')->with('data', $vennueDetails);
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            return view('detail_pages.venuedetails')->with('data', $responseArr);
         }
     }
 
@@ -123,5 +129,19 @@ class VennueController extends Controller
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public function listVenue()
+    {
+        try {
+            $vennueListingData = VennueHelper::vennueListing();
+            $response = $vennueListingData;
+        } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            $response = response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        return view('vendor-panel/vendorvenue')->with('data', $response);
     }
 }

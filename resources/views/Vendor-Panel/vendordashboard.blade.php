@@ -1,15 +1,28 @@
 
 
-@include('shared/header')
+@include('shared/headercustom')
 <link rel="stylesheet" type="text/css" href="{{ url('css/vendor-panel/superadmin.css') }}">
       <!------- body start--------> 
-     
-
-  <div class="container-fluid" id="dashboardcontent">
+      <div id="greydivider"> </div>
+      <div class="container-fluid" id="globevendorpanel">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-vendorpan-tab" data-toggle="pill" href="#pills-vendorpan" role="tab" aria-controls="pills-vendorpan" aria-selected="true">Venues</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-suplpan-tab" data-toggle="pill" href="#pills-suplpan" role="tab" aria-controls="pills-suplpan" aria-selected="false">Supplier</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-eventpan-tab" data-toggle="pill" href="#pills-eventpan" role="tab" aria-controls="pills-eventpan" aria-selected="false">Event Organisers</a>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-vendorpan" role="tabpanel" aria-labelledby="pills-vendorpan-tab">
+<div class="container-fluid" id="dashboardcontent">
       
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <a class="nav-link active" id="v-pills-books-tab" data-toggle="pill" href="#v-pills-books" role="tab" aria-controls="v-pills-books" aria-selected="true">Bookings</a>
-  <a class="nav-link" id="v-pills-venues-tab" data-toggle="pill" href="#v-pills-venues" role="tab" aria-controls="v-pills-venues" aria-selected="false">Venue </a>
+  <a class="nav-link active" id="v-pills-books-tab" href="{{ url('views/vendor-panel/vendorbookings') }}" role="tab" aria-controls="v-pills-books" aria-selected="true">Bookings</a>
+  <a class="nav-link" id="v-pills-venues-tab" href="{{ url('vendor-panel/vendorvenue') }}" role="tab" aria-controls="v-pills-venues" aria-selected="false">Venue </a>
   <a class="nav-link" id="v-pills-services-tab" data-toggle="pill" href="#v-pills-services" role="tab" aria-controls="v-pills-services" aria-selected="false">Services</a>
   <a class="nav-link" id="v-pills-policies-tab" data-toggle="pill" href="#v-pills-policies" role="tab" aria-controls="v-pills-policies" aria-selected="false">Terms & Policies</a>
   <a class="nav-link" id="v-pills-profiles-tab" data-toggle="pill" href="#v-pills-profiles" role="tab" aria-controls="v-pills-profiles" aria-selected="false">Profile</a>
@@ -61,7 +74,7 @@
                    
                      <td class="bg-white-booking"><a  data-toggle="modal" data-target="#myBookingOTP" href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#cancelBooking" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewpopModal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewbookingsmodal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
@@ -248,7 +261,7 @@
                      <div class="modal-header">
                         <h3 class="modal-title">Payment Details</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                 <span aria-hidden="true">×</span>
+                                 <span aria-hidden="true">Ã—</span>
                                  </button>
                      </div>
                      <!-- Modal body -->
@@ -475,201 +488,127 @@
 </div>
   </div>
 </div>
-<!-----------------------filter pop up -------------------------------------------------------->
-<!-------------------------------------View Modal -------------------------------->
-<div class="modal fade" id="viewpopModal" tabindex="-1" role="dialog" aria-labelledby="viewpopModal" aria-hidden="true">
-  <div class="modal-dialog" id="viewformdash" role="document">
+<!-----------------------filter pop up --------------------------------------------------------><!-------------------------------------View Bookings Modal -------------------------------->
+<div class="modal fade" id="viewbookingsmodal" tabindex="-1" role="dialog" aria-
+
+labelledby="mybookingsviewmodalLabel" aria-hidden="true">
+  <div id="viewvenuebk" class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">View Booking Details</h5>
+      <h5 class="modal-title">View Venue Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
       <form>
-      <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Booking ID : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="Aeos500">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="lname">Room ID : </label>
-                            </div>
-                            <div class="col-25">
-                            <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="B502">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Venue Name : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="Party">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Customer Name : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="Shirish Sharma">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Mobile : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="9008065432">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Email : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="sagarsri@gmail.com">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Date From : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="22/10/2019 12:15 am">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Date To : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="24/10/2019 12:15 am">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Total Days : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="2 Days">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Service Chosen : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="Birthday PArty">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Delivery Address : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="232/B Wing, Ss CHS, sector 14, Koparkhairane, Navi Mumbai 400709">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Revenue(SAR) : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="SAR 100 per day">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Payment Status<br>(Paid/Unpaid) : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="20% paid online balance pending with auto debit permission">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Payment Type : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="Auto Debit">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Note(if Customer has written while bookings) : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="Auto Debit">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Expected guests(Customer given) : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="150 person">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
-                        <div class="row infolog">
-                            <div class="col-20">
-                                <label for="fname">Attached Iqama/Passport : </label>
-                            </div>
-                            <div class="col-25">
-                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                    style="border:none" value="ACER123U3">
-                            </div>
-                        </div>
-                        <!---- row infolog------------>
+  <div class="form-row">
+  <div class="form-group col-md-1">
+      <label for="inputEmail4">Room ID :</label>
+      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="B502">
+    </div><!-------------form-group -------------------->
+    <div class="form-group col-md-2">
+      <label for="inputEmail4">Booking ID :</label>
+      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="B502">
+    </div><!-------------form-group -------------------->
+    
+    <div class="form-group col-md-2">
+      <label for="inputPassword4">Venue Name :</label>
+      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    value="Party">
+    </div>
+    <div class="form-group col-md-2">
+    <label for="inputAddress">Customer Name :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="Shirish Sharma">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Mobile:</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    value="9008065432">
+  </div>
+  
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Email :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    value="sundarma@gmail.com">
+  </div>
+  
+  </div><!--------------end of row ---------------------------------->
+  <div class="form-row">
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Date From :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    value="22/10/2019 12:15 am">
+  </div>
+    <div class="form-group col-md-2">
+      <label for="inputPassword4">Date To :</label>
+      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="24/10/2019 12:15 am">
+    </div>
+    <div class="form-group col-md-2">
+    <label for="inputAddress">Total Days : </label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="2 Days">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Service Chosen : </label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="Birthday Party">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">Delivery Address : </label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="India">
+  </div>
+  
+  
+  </div><!----------------------end of row --------------------------->
+  <div class="form-row">
+  <div class="form-group sttimeven">
+    <label for="inputAddress2">Revenue (SAR) :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="SAR 100 per day">
+  </div>
+  <div class="form-group sttimeven">
+    <label for="inputAddress2">Payment Status (Paid/Unpaid) :</label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    value="20% paid online balance pending with auto debit permission">
+  </div>
+    <div class="form-group col-md-2">
+      <label for="inputPassword4">Payment Type :</label>
+      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="Auto Debit">
+    </div>
+       <div class="form-group col-md-3">
+    <label for="inputAddress2">Attached Iqama / Passport : </label>
+    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                     value="150 person">
+  </div>
+  </div><!----------------------end of row --------------------------->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">Note(if customer has written while Booking) : </label>
+      <input type="text" class="form-control" id="Express deal discout is offered only for seasonal period"
+      value="Auto Transaction">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Expected guests (Customer given) : </label>
+      <input type="text" class="form-control" id="Express deal discout is offered only for seasonal period"
+      value="thousand guest">
+    </div>
+    
+  </div>
+</form> 
 
-
-  </form>
-      </div>
-     <!---- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="okfilter" data-dismiss="modal">Ok</button>
-       
-      </div>---->
 </div>
   </div>
 </div>
-<!-----------------------View pop up -------------------------------------------------------->
+</div>
+<!-----------------------View Bookings pop up -------------------------------------------------------->
+
 <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
 <div id="historydropdown" class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1013,7 +952,7 @@
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#venudeleteModal" id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><label class="switch">
-                        <input type="checkbox" id="togBtn">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
                         <div class="slider round">
                             <span class="on"></span>
                             <span class="off"></span>
@@ -1189,7 +1128,7 @@
                      <td>5% </td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:12px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
@@ -1357,6 +1296,16 @@
   </div>
 </div>
 </div>
+<div class="col-md-2">
+    
+    <h4>iOS7 Style</h4>
+
+    <div class="switch">
+    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+    <label for="cmn-toggle-4"></label>
+    </div>
+
+</div>
 <!-----------------------View Venue pop up -------------------------------------------------------->
    <!------------------------------ venue Add to express Deals ----------------------------------->
    <div class="modal fade" id="venueaddexp" tabindex="-1" role="dialog" aria-labelledby="venueaddexpLabel" aria-hidden="true">
@@ -1366,7 +1315,7 @@
                      <div class="modal-header">
                         <h3 class="modal-title">Add to Express Deals</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                 <span aria-hidden="true">×</span>
+                                 <span aria-hidden="true">Ã—</span>
                                  </button>
                      </div>
                      <!-- Modal body -->
@@ -1418,218 +1367,619 @@
 </div>   
   <div class="tab-pane fade" id="v-pills-services" role="tabpanel" aria-labelledby="v-pills-services-tab">
   <div class="dashvendortop">
-          <a class="addvenuedash" href="http://18.218.133.17/dashboardvenueform"> Add </a>
+      <a class="servicetext" href="#"> Services </a>
+          <a class="addservicedash" href="http://18.218.133.17/dashboardserviceform"> Add Services</a>
 </div><!----------------add button ---------------------->
   <div class="dashboardvenuepart">
             <table class="table table-xs-12 table-sm-12 table-md-12">
                <thead class="table-color-head">
                   <tr>
-                     <th scope="col">Room ID</th>
-                     <th scope="col">Guest Capacity </th>
-                     <th scope="col">Regular Price</th>
-                     <th scope="col">Express Price</th>
-                     <th scope="col">AC / Non-AC</th>
-                     <th scope="col">Services</th>
-                     <th scope="col">Phone</th>
-                     <th scope="col">Cancellation</th>
-                 
+                     <th scope="col">Sr No.</th>
+                     <th scope="col">Service Name </th>
+                     <th scope="col">Cost</th>
+                     <th scope="col">Cost Type</th>
+                     <th scope="col">Added date & time</th>        
                   </tr>
                </thead>
                <tbody class="table-hover">
                   <tr>
                      <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>Catering</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                    
+                     <td>Food </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewservicesmodal" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#servicedeleteModal" id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
+                  </tr>
+                  <tr>
+                     <th scope="row">201</th>
+                     <td>Music </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                   </tr>
                   <tr>
                   <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>AC</td>
-                     <td>lighting</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                   
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td>Speaker </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                   </tr>
                   <tr>
                   <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>Sound</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                  
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td>Music </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                   </tr>
                   <tr>
                   <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>Catering</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                    
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td>Speaker </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
-                  </tr>
-                  <tr>
-                  <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>lighting</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                    
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                      
                   </tr>
                   <tr>
                   <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>Catering</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-          
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td>Food </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                   </tr>
                   <tr>
                   <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>Catering</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td>Music </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                   </tr>
                   <tr>
                   <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>Catering</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td>Speaker </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                   </tr>
                   <tr>
                   <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>Catering</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td>Food </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                   </tr>
                   <tr>
                   <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>Catering</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td>Music </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                   </tr>
                   <tr>
                   <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>Catering</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td>Speaker </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                   </tr>
                   <tr>
                   <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td>Catering</td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td>Food </td>
+                     <td>100 </td>
+                     <td>Per Person</td>
+                     <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><label class="switch">
+                        <input type="checkbox" id="togBtn" style="font-size:12px">
+                        <div class="slider round">
+                            <span class="on"></span>
+                            <span class="off"></span>
+                        </div>
+                        </label></td>
                   </tr>
                </tbody>
             </table>
-            
+            <!-------------------------------------View Services Modal -------------------------------->
+<div class="modal fade xlservices" id="viewservicesmodal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  <div id="viewvenuesm" class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title">View Services Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <caption class="servhd">Services Provided : </caption>
+<table style="width:100%">
+ 
+  <tr class="servicetable">
+    <th>Service Name : Food</th>
+    <th>Cost : 100/Person</th>
+    <th>Added Date & Time</th>
+    
+  </tr>
+  <tr>
+    <td class="servborder">What's Provided</td>
+    <td  class="servborder"> </td>
+    <td  class="servborder"> </td>
+  </tr>
+  <tr>
+    <td class="servborder">1. Chicken Wings </td>
+    <td class="servborder"> </td>
+    <td  class="servborder"> </td>
+  </tr>
+  <tr>
+    <td class="servborder">2. Hot Chocolate </td>
+    <td class="servborder"> </td>
+    <td  class="servborder"> </td>
+  </tr>
+  <tr>
+    <td class="servborder">3. Finger Chips </td>
+    <td class="servborder"> </td>
+    <td  class="servborder"> </td>
+  </tr>
+</table>
+
+</div>
+  </div>
+</div>
+</div>
+
+<!-----------------------View Services pop up -------------------------------------------------------->
+            <!-- Modal with Text area -->
+            <div class="modal fade" id="servicedeleteModal" tabindex="-1" role="dialog" aria-labelledby="servicedeleteModalLabel" aria-hidden="true">
+            <div id="canceldash" class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Alert!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to Delete the Services?</p>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary noamen">No</button>
+        <button type="button" class="btn btn-secondary yesamen" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+    
+</div>
+<!------------------Delete Modal ------------------------->
 </div><!--------------end of booking ---------------------------------->     
   </div><!-----------------Services Tab -------------------------------->
-  <div class="tab-pane fade" id="v-pills-policies" role="tabpanel" aria-labelledby="v-pills-policies-tab">drupal</div>
-  <div class="tab-pane fade" id="v-pills-profiles" role="tabpanel" aria-labelledby="v-pills-profiles-tab">java</div>
+  <div class="tab-pane fade" id="v-pills-policies" role="tabpanel" aria-labelledby="v-pills-policies-tab">
+  <div class="profileleft">    
+                  <form class="form-horizontal" action="">
+                     <div class="form-group">
+                        <div class="profileterms">
+                           <textarea class = "form-control" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationlaboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                              **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationlaboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                              **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationlaboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip " rows = "22"></textarea>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="email"></label>
+                        <ul>
+                          <button type="button" class="btn btn-default btn-lg-6" id="sign-text">Edit</button> 
+                        </ul>
+                     </div>
+                  </form>
+      </div>
+  </div><!------------------------v-pills-policies------------------------------------------->
+  <div class="tab-pane fade" id="v-pills-profiles" role="tabpanel" aria-labelledby="v-pills-profiles-tab">
+  <div class="container-fluid" id="formprofile-signup">
+
+<form class="form-horizontal" method="post" id="vendor_sign_up_form">
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Company Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="company_name" class="vendorformreg" placeholder="Enter Company Name">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Logo : </label>
+        <div class="col-sm-2 profilewrap">
+
+            <div class="upload-btn-wrapper">
+                <button class="btn uploadbutton">Upload</button>
+                <input type="file" name="logo_upload_file" />
+            </div>
+
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Phone Number : </label>
+        <div class="col-sm-2">
+            <select id="inputState" class="profileformsel" disabled>
+                <option selected>+678</option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" name="primary_phone_no" class="profileformphone" placeholder="999999999">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Alternate Contact Number 1 : </label>
+        <div class="col-sm-2">
+            <select id="inputState" class="profileformsel" disabled>
+                <option selected>+678</option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" name="secondary_phone_no" class="profileformphone" placeholder="999999999">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Alternate Contact Number 2 : </label>
+        <div class="col-sm-2">
+            <select id="inputState" class="profileformsel" disabled>
+                <option selected>+678</option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" name="alternate_phone_no" class="profileformphone" placeholder="999999999">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Email : </label>
+        <div class="col-sm-5">
+            <input type="email" name="email" class="vendorformreg" placeholder="Enter Email">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Country : </label>
+        <div class="col-sm-5">
+            <select id="inputForCountry" class="vendorfullsel" name="country_id">
+                <option value="1" selected>Saudi</option>
+            </select>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">City : </label>
+        <div class="col-sm-5">
+            <select id="inputForCities" class="vendorfullsel" name="city_id">
+                <option value="" selected>--- Select city ---</option>
+            </select>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Address Line 1 : </label>
+        <div class="col-sm-5">
+            <input type="text" name="address_line_1" class="vendorformreg" placeholder="Enter address Line">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Address Line 2 : </label>
+        <div class="col-sm-5">
+            <input type="text" name="address_line_2" class="vendorformreg" placeholder="Enter Address Line 2">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Add in Google Map : </label>
+        <div class="col-sm-5">
+            <input type="text" name="google_map_link" class="vendorformreg" placeholder="Enter Google map link here">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Note : </label>
+        <div class="col-sm-5">
+            <textarea class="form-control" name="note" id="vendorfromtxtarea" rows="3" placeholder="Enter here..."></textarea>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">License Number : </label>
+        <div class="col-sm-5">
+            <input type="text" name="license_no" class="vendorformreg" placeholder="Enter License Number">
+        </div>
+    </div>
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">ID Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="id_name" class="vendorformreg" placeholder="Enter ID Type">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">License Photo : </label>
+
+        <div class="col-sm-2 profilewrap">
+
+            <div class="upload-btn-wrapper">
+                <button class="btn uploadbutton">Upload</button>
+                <input type="file" name="license_upload_file" name="myfile" />
+            </div>
+
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Photo of National ID / Passport : </label>
+
+        <div class="col-sm-2 profilewrap">
+
+            <div class="upload-btn-wrapper">
+                <button class="btn uploadbutton">Upload</button>
+                <input type="file" name="id_upload_file" name="myfile" />
+            </div>
+
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Password : </label>
+        <div class="col-sm-5">
+            <input type="text" name="password" id="vendorPassword" class="vendorformreg" placeholder="*************">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Confirm Password : </label>
+        <div class="col-sm-5">
+            <input type="text" name="password_confirmation" id="conf_vendorPassword" class="vendorformreg"
+                placeholder="**************">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Facebook Link : </label>
+        <div class="col-sm-5">
+            <input type="text" name="fb_link" class="vendorformreg" placeholder="Enter Facebook Link">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Twitter Link : </label>
+        <div class="col-sm-5">
+            <input type="text" name="twitter_link" class="vendorformreg" placeholder="Enter Twitter Link">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="linehr"></div>
+
+    <div class="form-group">
+
+        <label class="control-label col-sm-3 bankhead" for="head"><b>Bank info</b></label>
+
+    </div>
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Bank Account Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="account_name" class="vendorformreg" placeholder="Enter Bank Account Name">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Bank Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="bank_name" class="vendorformreg" placeholder="Enter Bank Name">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">IBAN Number : </label>
+        <div class="col-sm-5">
+            <input type="text" name="iban_name" class="vendorformreg" placeholder="Enter IBAN Number">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Account Number : </label>
+        <div class="col-sm-5">
+            <input type="text" name="account_number" class="vendorformreg" placeholder="Enter Account Number">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <!-- <div class="form-group">
+
+        <label class="control-label col-sm-6 textalign_vendor" for="pwd">Payment Option:</label>
+
+        <div class="col-sm-8 checkalign">
+
+            <div class="checkbox">
+
+                <label><input type="checkbox" name="payment_option" value="1"> <b style="font-size:15px">Online
+                        Payment</b></label>
+
+                <label> </label>
+
+                <label> </label>
+
+                <label> </label>
+
+                <label> </label>
+
+                <label><input type="checkbox" name="payment_option" value="2"> <b style="font-size:15px">
+                        Cash</b></label>
+
+                <div id="payment_option-error" class="error-class"></div>
+            </div>
+        </div>
+    </div> -->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="profileregco">Account Number : </label>
+        <div class="optcheckterms">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment_method" value="online" id="checkboxOnline">
+                <label class="form-check-label" id="vendorchkon" for="checkboxOnline">Online Payment</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment_method" value="cash" id="checkboxCash">
+                <label class="form-check-label" id="vendorchkcash" for="checkboxCash">Cash</label>
+            </div>
+            <!---------------optcheckbox------------------>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 profileterms">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="terms_conditions" id="checkboxTerms"
+                    value="option1">
+                <label class="form-check-label" for="checkboxTerms"><span class="vendorterms">I
+                        agreed to Monasabatna </b></span><a href="#">Term & Conditions </a><b><span
+                            class="vendorterms">and </span></b><a href="#">Privacy Policies</a></label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-10 textalign">
+            <button type="submit" id="myModal" name="submit" value="submit" class="btn btn-default signme-profilereg">Sign
+                Up</button>
+        </div>
+    </div>
+</form>
+</div>
+<!--------------------------container-fluid Profile registration -------------------->   
+
+
+  </div><!-----------------v-pills-profiles ------------------------------->
   <div class="tab-pane fade" id="v-pills-amenities" role="tabpanel" aria-labelledby="v-pills-amenities-tab">
   <div class="dashvendortop">
           <a  data-toggle="modal" data-target="#addAmenities" class="addvenuedash" href="#"> Add </a>
@@ -1828,6 +2178,17 @@
 </div><!----------------------------container-fluid-------------------------->
 </div><!--------------v-pills-books -------------------------------->
 
+
+</div><!----------------------vendorpan-tab ------------------------------------>
+<div class="tab-pane fade" id="pills-suplpan" role="tabpanel" aria-labelledby="pills-suplpan-tab">
+trigger
+</div><!-------------------------------suplpan--------------------------------->
+<div class="tab-pane fade" id="pills-eventpan" role="tabpanel" aria-labelledby="pills-eventpan-tab">
+    globalus
+</div><!----------------------------eventpan-tab-------------------------->
+</div><!--------------tab-content --------------------->
+</div><!-------------------------globevendorpanel--------------------------->
+  
       <!------- body end-------->
 @include('shared/footer')
    

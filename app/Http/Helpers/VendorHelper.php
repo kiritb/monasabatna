@@ -89,9 +89,6 @@ class VendorHelper
 
    public static function login($creds)
    {
-
-
-
     $vendorData = current(
                         Vendors::select('vendors.id','vendors.company_name','vendors.note','vendors.fb_link','vendors.twitter_link','vendors.license_no','vendors.password')
                             ->where('vendors.email', $creds['email'])
@@ -126,6 +123,101 @@ class VendorHelper
 
     return [];
         
+   }
+
+   // to get vendor details based on email
+   public static function getVendorDetails($id){
+        $vendorData = current(
+                    Vendors::select('vendors.id','vendors.company_name','vendors.note','vendors.fb_link','vendors.twitter_link','vendors.license_no','vendors.password')
+                        ->where('vendors.id', $id)
+                        ->where('vendors.status',1)
+                        ->get()
+                        ->toArray()
+            );
+        return $vendorData;
+   }
+
+
+   public static function updateVendor($id, $data)
+   {    
+        \DB::beginTransaction();
+
+        try
+        {   
+            Vendors::where('id', $id )->update([
+                            'company_name'     =>  $data['vendors']['company_name'],
+                            'note'             =>  $data['vendors']['note'], 
+                            'fb_link'          =>  $data['vendors']['fb_link'],  
+                            'twitter_link'     =>  $data['vendors']['twitter_link'],   
+                            'license_no'       =>  $data['vendors']['license_no'],
+                            'created_by'       =>  $data['vendors']['email'],
+                            'updated_by'       =>  $data['vendors']['email']
+            ]);
+
+
+            $data['address']['linkable_id']     = $id;
+            $data['address']['linkable_type']   = 'vendors';
+            $data['address']['email']           = $data['vendors']['email'];
+
+
+            Address::where('linkable_id' , $id)
+                     ->where('linkable_type','vendors')
+                     ->update( ['status' =>1 , 'updated_by' => $data['vendors']['email'] ] );
+
+            Phones::where('linkable_id' , $id)
+                     ->where('linkable_type','vendors')
+                     ->update( ['status' =>1 , 'updated_by' => $data['vendors']['email'] ] );
+             
+            Files::where('linkable_id' , $id)
+                     ->where('linkable_type','vendors')
+                     ->update( ['status' =>1 , 'updated_by' => $data['vendors']['email'] ] );
+
+            BankAccounts::where('vendor_id' , $id)
+                        ->update( ['status' =>1 , 'updated_by' => $data['vendors']['email'] ] );
+
+         
+            Address::createAddress($data['address']);
+
+            foreach ($data['files'] as $key => $value) 
+            {   
+                $value['linkable_id']           = $id;
+                
+                $value['linkable_type']         = 'vendors';
+
+                $value['email']                 = $data['vendors']['email'];
+                
+                Files::createFiles($value);
+            }
+
+            foreach ($data['phones'] as $key => $value) {
+                
+                $value["linkable_id"]           = $id;
+                
+                $value['linkable_type']         = 'vendors';
+
+                $value['email']                 = $data['vendors']['email'];
+
+                Phones::createPhones($value);
+            }
+
+            $data['bank_accounts']['vendor_id']       = $id;
+            $data['bank_accounts']['email']           = $data['vendors']['email'];
+            
+            BankAccounts::createBankAccounts($data['bank_accounts']);
+
+            \DB::commit();
+           
+            return ['vendor_id' => $vendorObj->id ];
+        }
+        catch( \Exception $e)
+        {   
+            \DB::rollBack();
+
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while creating Vendor ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception Occured while creating Vendor", 1);
+
+        }
    }
     
 }

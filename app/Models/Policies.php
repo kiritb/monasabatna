@@ -58,4 +58,11 @@ class Policies extends Model
         self::where('id', $id)->update( $data );
     }
 
+    // get policy based on vendor id
+    public static function getPolicy($vendor_id=""){
+        return self::where('linkable_id', $vendor_id)
+                    ->where('linkable_type', 'vennues')
+                    ->orderBy('id', 'DESC')
+                    ->first();
+    }
 }

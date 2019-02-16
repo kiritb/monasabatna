@@ -9,6 +9,7 @@ use App\Http\Helpers\VendorHelper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Policies;
 
 class VendorController extends Controller
 {
@@ -176,5 +177,58 @@ class VendorController extends Controller
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public function getVendorPolicy(){
+        try{
+            $vendor_id = 1;
+            $vendorData['details'] = VendorHelper::getVendorDetails($vendor_id);
+            if(!empty($vendorData['details'])){
+               $vendorData['policy'] = Policies::getPolicy($vendorData['details']['id']);
+            }
+            $response = $vendorData;
+           // response(ResponseUtil::buildSuccessResponse([$vendorData]),HttpStatusCodesConsts::HTTP_OK);
+        }catch(\Exception $e){
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            $response = $responseArr;
+        }
+        return view('vendor-panel/vendorterms')->with('data', $response);
+    }
+
+    public function updateVendorPolicy(Request $request){
+        $requestParams = $request->all();
+        $rules = [
+                    'terms' => 'required'
+                ];
+
+        $validator = Validator::make($requestParams, $rules);
+
+        if ($validator->fails()) {
+            $errorMessages = current($validator->messages());
+            foreach ($errorMessages as $key => $value) {
+                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message '.current($value).' Response Code '.HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => [current($value)]], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+            }
+        }
+
+        try{
+            $data['terms'] = $requestParams['terms'];
+            $id = $requestParams['terms_id'];
+            $res = Policies::updatePolicies($id, $data);
+            $response = response(ResponseUtil::buildSuccessResponse('successfully updated'), HttpStatusCodesConsts::HTTP_CREATED);
+            
+        }catch (\Exception $e) {
+            \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message '.print_r($e->getMessage(), true).' Response Code '.HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            $response = response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+        }
+         //return view('vendor-panel/vendorterms')->with('data', $response);
+        return redirect('vendorterms')->with('message', $response);
     }
 }

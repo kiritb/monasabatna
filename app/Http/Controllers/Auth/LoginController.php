@@ -499,4 +499,67 @@ class LoginController extends Controller
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+
+     /**
+     * update vendor
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addProfileImage(Request $request, $id)
+    {
+        $requestParams = $request->all();
+
+        $maxSize = 8 * 1024;
+
+        $rules = [
+          
+            'image_upload_file'         => 'required|mimes:jpeg,jpg,png,pjpeg|max:' . $maxSize,
+        ];
+
+        $validator = Validator::make($requestParams, $rules);
+
+        if ($validator->fails()) 
+        {
+            $errorMessages = current($validator->messages());
+
+            foreach ($errorMessages as $key => $value) 
+            {
+                \Log::info(__CLASS__ . ' ' . __FUNCTION__ . ' Error Message ' . current($value) . ' Response Code ' . HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => [current($value)]], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+            }
+        }
+
+        try {
+
+            $imageObject    = $request->file('image_upload_file');
+
+            $fileName       = $imageObject->getClientOriginalName();
+
+            $fileMimeType   = $imageObject->getClientMimeType();
+
+            $filePath = env('APP_URL') . '/storage/app/public/users/' . $fileName;
+
+            Storage::disk('public')->putFileAs('users/', $imageObject, $fileName);
+
+            $updateData = ['linkable_id' => $id, 'linkable_type' => 'users', 'file_path' => $filePath, 'file_type' => 'user_image', 'file_extension' => $fileMimeType];
+            
+            $res = UserHelper::upsertUserImage($id, $updateData);
+
+            return response(ResponseUtil::buildSuccessResponse( $res ), HttpStatusCodesConsts::HTTP_CREATED);
+
+        } catch (\Exception $e) {
+
+            \Log::info(__CLASS__ . ' ' . __FUNCTION__ . ' Error Message ' . print_r($e->getMessage(), true) . ' Response Code ' . HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
 }

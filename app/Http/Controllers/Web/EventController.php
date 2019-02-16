@@ -55,7 +55,7 @@ class EventController extends Controller
             if (empty($upcomingEventListingData)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                $returnHTML = view('list_pages.upcomingeventlist')->with('data', $responseArr);
+                $returnHTML = view('list_pages.upcomings-list')->with('data', $responseArr);
                 $html = $returnHTML->render();
 
                 return response()->json(array('success' => true, 'html' => $html));
@@ -67,14 +67,20 @@ class EventController extends Controller
                 $upcomingEventListingData['filters'] = 'Filters not found';
             }
 
-            $returnHTML = view('list_pages.upcomingeventlist')->with('data', $upcomingEventListingData);
+            if (isset($requestParams) && count($requestParams) > 0) {
+                $upcomingEventListingData['appliedParams'] = $requestParams;
+            } else {
+                $upcomingEventListingData['appliedParams'] = [];
+            }
+
+            $returnHTML = view('list_pages.upcomings-list')->with('data', $upcomingEventListingData);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            $returnHTML = view('list_pages.upcomingeventlist')->with('data', $responseArr);
+            $returnHTML = view('list_pages.upcomings-list')->with('data', $responseArr);
             $html = $returnHTML->render();
 
             return response()->json(array('success' => true, 'html' => $html));
@@ -94,14 +100,14 @@ class EventController extends Controller
             if (empty($upcomingEventDetailsData)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+                return view('detail_pages.upcomingeventdetails')->with('data', $responseArr);
             }
 
-            return response(ResponseUtil::buildSuccessResponse($upcomingEventDetailsData), HttpStatusCodesConsts::HTTP_OK);
+            return view('detail_pages.upcomingeventdetails')->with('data', $upcomingEventDetailsData);
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            return view('detail_pages.upcomingeventdetails')->with('data', $responseArr);
         }
     }
 
@@ -162,6 +168,12 @@ class EventController extends Controller
                 $eventOrgainsersListData['filters'] = 'Filters not found';
             }
 
+            if (isset($requestParams) && count($requestParams) > 0) {
+                $eventOrgainsersListData['appliedParams'] = $requestParams;
+            } else {
+                $eventOrgainsersListData['appliedParams'] = [];
+            }
+
             $returnHTML = view('list_pages.eventorganiser-list')->with('data', $eventOrgainsersListData);
             $html = $returnHTML->render();
 
@@ -190,11 +202,11 @@ class EventController extends Controller
         try {
             $eventOrgainserData = EventHelper::getEventOrgainserDetails($id);
 
-            return response(ResponseUtil::buildSuccessResponse($eventOrgainserData), HttpStatusCodesConsts::HTTP_OK);
+            return view('detail_pages.eventorganiserdetails')->with('data', $eventOrgainserData);
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            return view('detail_pages.eventorganiserdetails')->with('data', $responseArr);
         }
     }
 
@@ -212,11 +224,11 @@ class EventController extends Controller
         try {
             $themeData = EventHelper::getPackageDetails($id);
 
-            return response(ResponseUtil::buildSuccessResponse($themeData), HttpStatusCodesConsts::HTTP_OK);
+            return view('detail_pages.packagedetails')->with('data', $themeData);
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            return view('detail_pages.packagedetails')->with('data', $responseArr);
         }
     }
 
@@ -277,6 +289,12 @@ class EventController extends Controller
                 $supplierList['filters'] = 'Filters not found';
             }
 
+            if (isset($requestParams) && count($requestParams) > 0) {
+                $supplierList['appliedParams'] = $requestParams;
+            } else {
+                $supplierList['appliedParams'] = [];
+            }
+
             $returnHTML = view('list_pages.supplier-list')->with('data', $supplierList);
             $html = $returnHTML->render();
 
@@ -304,14 +322,14 @@ class EventController extends Controller
             if (empty($supplierDetails)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+                return view('detail_pages.supplierdetails')->with('data', $responseArr);
             }
 
-            return response(ResponseUtil::buildSuccessResponse($supplierDetails), HttpStatusCodesConsts::HTTP_OK);
+            return view('detail_pages.supplierdetails')->with('data', $supplierDetails);
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            return view('detail_pages.supplierdetails')->with('data', $responseArr);
         }
     }
 
@@ -328,14 +346,14 @@ class EventController extends Controller
             if (empty($supplierPackageDetails)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+                return view('detail_pages.packagedetails')->with('data', $responseArr);
             }
 
-            return response(ResponseUtil::buildSuccessResponse($supplierPackageDetails), HttpStatusCodesConsts::HTTP_OK);
+            return view('detail_pages.packagedetails')->with('data', $supplierPackageDetails);
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            return view('detail_pages.packagedetails')->with('data', $responseArr);
         }
     }
 
@@ -366,6 +384,12 @@ class EventController extends Controller
                 $supplierList['filters'] = EventHelper::getSuppliersFilters();
             } catch (\Exception $e) {
                 $supplierList['filters'] = 'Filters not found';
+            }
+
+            if (isset($requestParams) && count($requestParams) > 0) {
+                $supplierList['appliedParams'] = $requestParams;
+            } else {
+                $supplierList['appliedParams'] = [];
             }
 
             $returnHTML = view('list_pages.package-supplier-list')->with('data', $supplierList);
@@ -409,6 +433,12 @@ class EventController extends Controller
                 $eventOrgsList['filters'] = EventHelper::getEventOrganinsersFilters();
             } catch (\Exception $e) {
                 $eventOrgsList['filters'] = 'Filters not found';
+            }
+
+            if (isset($requestParams) && count($requestParams) > 0) {
+                $eventOrgsList['appliedParams'] = $requestParams;
+            } else {
+                $eventOrgsList['appliedParams'] = [];
             }
 
             $returnHTML = view('list_pages.package-eventorgs-list')->with('data', $eventOrgsList);

@@ -1139,7 +1139,7 @@ class EventHelper
             }
 
             $suppliersDetails = $supplierSql->orderBy('suppliers.order_no', 'asc')
-                ->orderBy('suppliers.created_at', 'asc')
+                ->orderBy('suppliers.created_at', 'desc')
                 ->paginate(2);
 
             $suppliersArr = $suppliersDetails->toArray();

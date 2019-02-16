@@ -1,4 +1,4 @@
-<form method="GET">
+<form method="POST" id="{{ $pageType }}-form">
     <div class="list-heading">Filter</div>
     <div class="list-body">
 
@@ -92,6 +92,7 @@
 
         <a class="resetvenue" href id="Reset">Reset Filters</a>
         <div class="filterext"></div>
-        <input type="button" id="{{ $type }}-submitter" value="Submit" />
+        <input type="button" onclick="filterItNow('{{ $pageType }}-form', '{{ $pageType }}')" id="{{ $pageType }}-submitter"
+            value="Submit" />
     </div>
 </form>

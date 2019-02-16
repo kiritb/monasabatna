@@ -79,8 +79,11 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::get('cities', 'Api\HomeController@getCities');
 
-    
+    Route::get('wishlist', 'Api\HomeController@getWishList');
 
+    Route::post('wishlist', 'Api\HomeController@addWishList');
+
+    Route::get('terms', 'Api\HomeController@getGenericTerms');
 
 
 });
@@ -93,6 +96,19 @@ Route::group(['middleware' => ['jwt.verify'], 'prefix' => 'v1'], function () {
     Route::post('users/{id}', 'Auth\LoginController@updateUserDetails');
     Route::post('password/reset', 'Auth\LoginController@resetPassword');
     Route::post('reviews', 'Api\BlogController@postReviews');
+    Route::post('users/{id}/image', 'Auth\LoginController@addProfileImage');
 
 
 });
+Route::get('vendoramenities', 'Web\AmenitieController@getAmenitieType');
+Route::post('add_amenities', 'Web\AmenitieController@addAmenitieType');
+Route::post('vendordata', 'Web\VendorController@getVendorPolicy');
+Route::post('update_terms', 'Web\VendorController@updateVendorPolicy');
+
+
+Route::group(['middleware' => ['vendor.verify'], 'prefix' => 'v1'], function () {
+
+    Route::get('vendor/update/{id}', 'Api\VendorController@updateVendor');
+
+});
+

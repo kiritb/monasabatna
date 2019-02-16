@@ -1,9 +1,10 @@
 
 
+
 @include('shared/headercustom')
 <link rel="stylesheet" type="text/css" href="{{ url('css/vendor-panel/superadmin.css') }}">
       <!------- body start--------> 
-      <div id="greydivider"></div>
+      <div id="greydivider"> </div>
       <div class="container-fluid" id="globevendorpanel">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item">
@@ -19,7 +20,6 @@
 <div class="tab-content" id="pills-tabContent">
 <div class="tab-pane fade show active" id="pills-vendorpan" role="tabpanel" aria-labelledby="pills-vendorpan-tab">
 <div class="container-fluid" id="dashboardcontent">
-      
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
   <a class="nav-link active" id="v-pills-books-tab" data-toggle="pill" href="#v-pills-books" role="tab" aria-controls="v-pills-books" aria-selected="true">Bookings</a>
   <a class="nav-link" id="v-pills-venues-tab" data-toggle="pill" href="#v-pills-venues" role="tab" aria-controls="v-pills-venues" aria-selected="false">Venue </a>
@@ -43,7 +43,20 @@
     <a class="nav-link" id="pills-cancel-tab" data-toggle="pill" href="#pills-cancel" role="tab" aria-controls="pills-cancel" aria-selected="false">Cancel Bookings</a>
   </li>
   <li class="nav-item">
-    <a href="#" class="nav-link" id="filterdash">Search</a>
+  <div class="col-md-3">
+  <div class="search-container">
+  <form class="navbar-form" role="search">
+    <div class="input-group add-on">
+      <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+      <div class="input-group-btn">
+      <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </form>
+  </div>
+  
+  
+</div>
   </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
@@ -261,7 +274,7 @@
                      <div class="modal-header">
                         <h3 class="modal-title">Payment Details</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                 <span aria-hidden="true">×</span>
+                                 <span aria-hidden="true">Ã—</span>
                                  </button>
                      </div>
                      <!-- Modal body -->
@@ -346,152 +359,8 @@
   </div>
 </div>
 <!-----------------------------cancel Booking --------------------------------------------->
-<!-------------------------------------filter Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" id="filterdash" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Filters</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <form>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="fname">Booking ID : </label>
-                        </div>
-                        <div class="col-25">
-                            <input type="text" id="fname" name="firstname" placeholder="">
-                        </div>
-                    </div>
-                    <!---- row infolog------------>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="lname">Room ID : </label>
-                        </div>
-                        <div class="col-25">
-                            <select id="country" name="256">
-                                <option value="301">677</option>
-                                <option value="487">987</option>
-                                <option value="102">345</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!---- row infolog------------>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="fname">Customer Name : </label>
-                        </div>
-                        <div class="col-25">
-                            <input type="text" id="fname" name="firstname" placeholder="">
-                        </div>
-                    </div>
-                    <!---- row infolog------------>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="lname">Mobile : </label>
-                        </div>
-                        <div class="col-25">
-                            <input type="text" id="fname" name="firstname" placeholder="">
-                        </div>
-                    </div>
-                    <!---- row infolog------------>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="fname">Email : </label>
-                        </div>
-                        <div class="col-25">
-                            <input type="text" id="fname" name="firstname" placeholder="larasun@gmail.com">
-                        </div>
-                    </div>
-                    <!---- row infolog------------>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="lname">Arrival Date : </label>
-                        </div>
-                        <div class="col-25">
-                            <input type="text" id="lname" name="lastname" placeholder="">
-                        </div>
-                        
-                    </div>
-                    <!---- row infolog------------>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="lname">Departure Date : </label>
-                        </div>
-                        <div class="col-25">
-                            <input type="text" id="lname" name="lastname" placeholder="">
-                        </div>
-                    </div>
-                    <!---- row infolog------------>
-                   
-                    <div class="container-fluid" id="infodivider"> </div>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="fname">Venue Capacity : </label>
-                        </div>
-                        <div class="col-25">
-                            <input type="text" id="fname" name="firstname" placeholder="">
-                        </div>
-                    </div>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="fname">Expected Guest : </label>
-                        </div>
-                        <div class="col-25">
-                            <input type="text" id="fname" name="firstname" placeholder="">
-                        </div>
-                    </div>
-                    <!---- row infolog------------>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="lname">Services : </label>
-                        </div>
-                        <div class="col-25">
-                            <select id="country" name="country">
-                                <option value="australia">Catering</option>
-                                <option value="canada">Veg</option>
-                                <option value="usa">Non-veg</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!---- row infolog------------>
-
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="fname">Payment Status: </label>
-                        </div>
-                        <div class="col-25">
-                            <input type="text" id="fname" name="firstname" placeholder="">
-                        </div>
-                    </div>
-                    <!---- row infolog------------>
-                    <div class="row infolog">
-                        <div class="col-20">
-                            <label for="fname">Payment Type : </label>
-                        </div>
-                        <div class="col-25">
-                            <input type="text" id="fname" name="firstname" placeholder="">
-                        </div>
-                    </div>
-                    <!---- row infolog------------>
-                   
-
-  </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="okfilter" data-dismiss="modal">Ok</button>
-       
-      </div>
-</div>
-  </div>
-</div>
-<!-----------------------filter pop up --------------------------------------------------------><!-------------------------------------View Bookings Modal -------------------------------->
-<div class="modal fade" id="viewbookingsmodal" tabindex="-1" role="dialog" aria-
-
-labelledby="mybookingsviewmodalLabel" aria-hidden="true">
+<!-------------------------------------View Bookings Modal -------------------------------->
+<div class="modal fade" id="viewbookingsmodal" tabindex="-1" role="dialog" aria-labelledby="mybookingsviewmodalLabel" aria-hidden="true">
   <div id="viewvenuebk" class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
@@ -921,7 +790,7 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
 </div><!------------------end of container-fluid ------------------------------>
   <div class="tab-pane fade" id="v-pills-venues" role="tabpanel" aria-labelledby="v-pills-venues-tab">
       <div class="dashvendortop">
-          <a class="addvenuedash" href="http://18.218.133.17/dashboardvenueform"> Add </a>
+          <a class="addvenuedash" href="{{ url('dashboardvenueform') }}" target="_blank"> Add </a>
 </div><!----------------add button ---------------------->
   <div class="dashboardvenuepart">
             <table class="table table-xs-12 table-sm-12 table-md-12">
@@ -949,7 +818,7 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
                      <td>+616-783437843</td>
                      <td>5% </td>
                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="filterdash" data-toggle="modal" data-target="#bookingeditModal" href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#venudeleteModal" id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><label class="switch">
                         <input type="checkbox" id="togBtn" style="font-size:12px">
@@ -1134,6 +1003,315 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
                   </tr>
                </tbody>
             </table>
+            <!-------------------------------------Vendor Venue Edit Modal ---------------------------------------->
+<div class="modal fade" id="bookingeditModal" tabindex="-1" role="dialog" aria-labelledby="bookingeditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" id="venueeditdash" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Venue Registration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+                    <div class="modal-body"> 
+<form class="form-horizontal" method="post" id="vendor_sign_up_form">
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Company Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="company_name" class="vendorformreg" placeholder="Enter Company Name" value="Tata">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Logo : </label>
+        <div class="col-sm-2">
+
+            <div class="upload-btn-wrapper">
+                <button class="btn uploadbutton">Upload</button>
+                <input type="file" name="logo_upload_file" />
+            </div>
+
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Phone Number : </label>
+        <div class="col-sm-2">
+            <select class="vendorformsel" disabled>
+                <option selected>+678</option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" name="primary_phone_no" class="vendorformphone" placeholder="999999999" value="9819234765">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Alternate Contact Number 1 : </label>
+        <div class="col-sm-2">
+            <select class="vendorformsel" disabled>
+                <option selected>+678</option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" name="secondary_phone_no" class="vendorformphone" placeholder="999999999" value="9819234765">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Alternate Contact Number 2 : </label>
+        <div class="col-sm-2">
+            <select class="vendorformsel" disabled>
+                <option selected>+678</option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" name="alternate_phone_no" class="vendorformphone" value="9819234765">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Email : </label>
+        <div class="col-sm-5">
+            <input type="email" name="email" class="vendorformreg" placeholder="Enter Email" value="jackdeo@gmail.com">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Country : </label>
+        <div class="col-sm-5">
+            <select id="inputForCountry" class="vendorfullsel" name="country_id">
+                <option value="1" selected>Saudi</option>
+            </select>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">City : </label>
+        <div class="col-sm-5">
+            <select id="inputForCities" class="vendorfullsel" name="city_id">
+                <option value="" selected>--- Select city ---</option>
+                <option value="1" selected>Saudi</option>
+                <option value="1" selected>India</option>
+            </select>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Address Line 1 : </label>
+        <div class="col-sm-5">
+            <input type="text" name="address_line_1" class="vendorformreg" placeholder="Enter address Line" value="23 street carvin road Bangalore 560066">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Address Line 2 : </label>
+        <div class="col-sm-5">
+            <input type="text" name="address_line_2" class="vendorformreg" placeholder="Enter Address Line 2" value="23 street carvin road Bangalore 560066">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Add in Google Map : </label>
+        <div class="col-sm-5">
+            <input type="text" name="google_map_link" class="vendorformreg" placeholder="Enter Google map link here">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Note : </label>
+        <div class="col-sm-5">
+            <textarea class="form-control" name="note" id="vendorfromtxtarea" rows="3" placeholder="Enter here..." value="venues are booked by vendors"></textarea>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">License Number : </label>
+        <div class="col-sm-5">
+            <input type="text" name="license_no" class="vendorformreg" placeholder="Enter License Number" value="123499489">
+        </div>
+    </div>
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">ID Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="id_name" class="vendorformreg" placeholder="Enter ID Type" value="B012">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">License Photo : </label>
+
+        <div class="col-sm-2">
+
+            <div class="upload-btn-wrapper">
+                <button class="btn uploadbutton">Upload</button>
+                <input type="file" name="license_upload_file" name="myfile" />
+            </div>
+
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Photo of National ID / Passport : </label>
+
+        <div class="col-sm-2">
+
+            <div class="upload-btn-wrapper">
+                <button class="btn uploadbutton">Upload</button>
+                <input type="file" name="id_upload_file" name="myfile" />
+            </div>
+
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Password : </label>
+        <div class="col-sm-5">
+            <input type="text" name="password" id="vendorPassword" class="vendorformreg" placeholder="*************" value="****">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Confirm Password : </label>
+        <div class="col-sm-5">
+            <input type="text" name="password_confirmation" id="conf_vendorPassword" class="vendorformreg"
+                placeholder="**************" value="****">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Facebook Link : </label>
+        <div class="col-sm-5">
+            <input type="text" name="fb_link" class="vendorformreg" placeholder="Enter Facebook Link" value="www.facebook.com/">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Twitter Link : </label>
+        <div class="col-sm-5">
+            <input type="text" name="twitter_link" class="vendorformreg" placeholder="Enter Twitter Link" value="https://twitter.com/">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="linehr"></div>
+
+    <div class="form-group">
+
+        <label class="control-label col-sm-3 bankhead" for="head"><b>Bank info</b></label>
+
+    </div>
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Bank Account Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="account_name" class="vendorformreg" placeholder="Enter Bank Account Name" Value="John Shah">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Bank Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="bank_name" class="vendorformreg" placeholder="Enter Bank Name" value="HDFC">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">IBAN Number : </label>
+        <div class="col-sm-5">
+            <input type="text" name="iban_name" class="vendorformreg" placeholder="Enter IBAN Number" value="hdfv0008743">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Account Number : </label>
+        <div class="col-sm-5">
+            <input type="text" name="account_number" class="vendorformreg" placeholder="Enter Account Number" value="A123uq78343">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <!-- <div class="form-group">
+
+        <label class="control-label col-sm-6 textalign_vendor" for="pwd">Payment Option:</label>
+
+        <div class="col-sm-8 checkalign">
+
+            <div class="checkbox">
+
+                <label><input type="checkbox" name="payment_option" value="1"> <b style="font-size:15px">Online
+                        Payment</b></label>
+
+                <label> </label>
+
+                <label> </label>
+
+                <label> </label>
+
+                <label> </label>
+
+                <label><input type="checkbox" name="payment_option" value="2"> <b style="font-size:15px">
+                        Cash</b></label>
+
+                <div id="payment_option-error" class="error-class"></div>
+            </div>
+        </div>
+    </div> -->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Account Number : </label>
+        <div class="optcheckterms">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment_method" value="online" id="checkboxOnline">
+                <label class="form-check-label" id="vendorchkon" for="checkboxOnline">Online Payment</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment_method" value="cash" id="checkboxCash">
+                <label class="form-check-label" id="vendorchkcash" for="checkboxCash">Cash</label>
+            </div>
+            <!---------------optcheckbox------------------>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 checkterms">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="terms_conditions" id="checkboxTerms"
+                    value="option1">
+                <label class="form-check-label" for="checkboxTerms"><span class="vendorterms">I
+                        agreed to Monasabatna </b></span><a href="#">Term & Conditions </a><b><span
+                            class="vendorterms">and </span></b><a href="#">Privacy Policies</a></label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-10 textalign">
+            <button type="submit" id="myModal" name="submit" value="submit" class="btn btn-default signme-venuereg">Sign
+                Up</button>
+        </div>
+    </div>
+</form>
+</div>
+<!--------------------------vendor Venue Edit -------------------->
+</div>
+<!---------------------tab-pane-fade ----------------------------->
+
+  </div>
+</div>
+<!-----------------------venue Edit pop up -------------------------------------------------------->
             <!------------------------------ Delete Venues ----------------------------------->
             <!-- Modal with Text area -->
             <div class="modal fade" id="venudeleteModal" tabindex="-1" role="dialog" aria-labelledby="venudeleteModalLabel" aria-hidden="true">
@@ -1171,8 +1349,8 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
       <form>
   <div class="form-row">
   <div class="form-group col-md-2">
-  @include('venpanelslickslider')
-      
+      <label for="inputEmail4">Photo :</label>
+      <a class="venimgpic" href="#"><img src="svg/images/testi-about1.png" class="img-thumbnail" alt="Cinque Terre"> </a>
     </div>
     <div class="form-group col-md-2">
     <label for="inputAddress2">Video : </label>
@@ -1296,16 +1474,7 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
   </div>
 </div>
 </div>
-<div class="col-md-2">
-    
-    <h4>iOS7 Style</h4>
 
-    <div class="switch">
-    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
-    <label for="cmn-toggle-4"></label>
-    </div>
-
-</div>
 <!-----------------------View Venue pop up -------------------------------------------------------->
    <!------------------------------ venue Add to express Deals ----------------------------------->
    <div class="modal fade" id="venueaddexp" tabindex="-1" role="dialog" aria-labelledby="venueaddexpLabel" aria-hidden="true">
@@ -1315,7 +1484,7 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
                      <div class="modal-header">
                         <h3 class="modal-title">Add to Express Deals</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                 <span aria-hidden="true">×</span>
+                                 <span aria-hidden="true">Ã—</span>
                                  </button>
                      </div>
                      <!-- Modal body -->
@@ -1368,7 +1537,7 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
   <div class="tab-pane fade" id="v-pills-services" role="tabpanel" aria-labelledby="v-pills-services-tab">
   <div class="dashvendortop">
       <a class="servicetext" href="#"> Services </a>
-          <a class="addservicedash" href="http://18.218.133.17/dashboardserviceform"> Add Services</a>
+          <a class="addservicedash" href="{{ url('dashboardserviceform') }}"> Add Services</a>
 </div><!----------------add button ---------------------->
   <div class="dashboardvenuepart">
             <table class="table table-xs-12 table-sm-12 table-md-12">
@@ -1389,7 +1558,7 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
                      <td>Per Person</td>
                      <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewservicesmodal" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#serviceeditModal" href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#servicedeleteModal" id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><label class="switch">
                         <input type="checkbox" id="togBtn" style="font-size:12px">
@@ -1589,6 +1758,315 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
                   </tr>
                </tbody>
             </table>
+                        <!-------------------------------------Services Edit Modal ---------------------------------------->
+<div class="modal fade" id="serviceeditModal" tabindex="-1" role="dialog" aria-labelledby="serviceeditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" id="serviceeditdash" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Venue Registration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+                    <div class="modal-body"> 
+<form class="form-horizontal" method="post" id="vendor_sign_up_form">
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Company Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="company_name" class="vendorformreg" placeholder="Enter Company Name" value="Tata">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Logo : </label>
+        <div class="col-sm-2">
+
+            <div class="upload-btn-wrapper">
+                <button class="btn uploadbutton">Upload</button>
+                <input type="file" name="logo_upload_file" />
+            </div>
+
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Phone Number : </label>
+        <div class="col-sm-2">
+            <select class="vendorformsel" disabled>
+                <option selected>+678</option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" name="primary_phone_no" class="vendorformphone" placeholder="999999999" value="9819234765">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Alternate Contact Number 1 : </label>
+        <div class="col-sm-2">
+            <select class="vendorformsel" disabled>
+                <option selected>+678</option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" name="secondary_phone_no" class="vendorformphone" placeholder="999999999" value="9819234765">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Alternate Contact Number 2 : </label>
+        <div class="col-sm-2">
+            <select class="vendorformsel" disabled>
+                <option selected>+678</option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" name="alternate_phone_no" class="vendorformphone" value="9819234765">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Email : </label>
+        <div class="col-sm-5">
+            <input type="email" name="email" class="vendorformreg" placeholder="Enter Email" value="jackdeo@gmail.com">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Country : </label>
+        <div class="col-sm-5">
+            <select id="inputForCountry" class="vendorfullsel" name="country_id">
+                <option value="1" selected>Saudi</option>
+            </select>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">City : </label>
+        <div class="col-sm-5">
+            <select id="inputForCities" class="vendorfullsel" name="city_id">
+                <option value="" selected>--- Select city ---</option>
+                <option value="1" selected>Saudi</option>
+                <option value="1" selected>India</option>
+            </select>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Address Line 1 : </label>
+        <div class="col-sm-5">
+            <input type="text" name="address_line_1" class="vendorformreg" placeholder="Enter address Line" value="23 street carvin road Bangalore 560066">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Address Line 2 : </label>
+        <div class="col-sm-5">
+            <input type="text" name="address_line_2" class="vendorformreg" placeholder="Enter Address Line 2" value="23 street carvin road Bangalore 560066">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Add in Google Map : </label>
+        <div class="col-sm-5">
+            <input type="text" name="google_map_link" class="vendorformreg" placeholder="Enter Google map link here">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Note : </label>
+        <div class="col-sm-5">
+            <textarea class="form-control" name="note" id="vendorfromtxtarea" rows="3" placeholder="Enter here..." value="venues are booked by vendors"></textarea>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">License Number : </label>
+        <div class="col-sm-5">
+            <input type="text" name="license_no" class="vendorformreg" placeholder="Enter License Number" value="123499489">
+        </div>
+    </div>
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">ID Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="id_name" class="vendorformreg" placeholder="Enter ID Type" value="B012">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">License Photo : </label>
+
+        <div class="col-sm-2">
+
+            <div class="upload-btn-wrapper">
+                <button class="btn uploadbutton">Upload</button>
+                <input type="file" name="license_upload_file" name="myfile" />
+            </div>
+
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Photo of National ID / Passport : </label>
+
+        <div class="col-sm-2">
+
+            <div class="upload-btn-wrapper">
+                <button class="btn uploadbutton">Upload</button>
+                <input type="file" name="id_upload_file" name="myfile" />
+            </div>
+
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Password : </label>
+        <div class="col-sm-5">
+            <input type="text" name="password" id="vendorPassword" class="vendorformreg" placeholder="*************" value="****">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Confirm Password : </label>
+        <div class="col-sm-5">
+            <input type="text" name="password_confirmation" id="conf_vendorPassword" class="vendorformreg"
+                placeholder="**************" value="****">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Facebook Link : </label>
+        <div class="col-sm-5">
+            <input type="text" name="fb_link" class="vendorformreg" placeholder="Enter Facebook Link" value="www.facebook.com/">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Twitter Link : </label>
+        <div class="col-sm-5">
+            <input type="text" name="twitter_link" class="vendorformreg" placeholder="Enter Twitter Link" value="https://twitter.com/">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="linehr"></div>
+
+    <div class="form-group">
+
+        <label class="control-label col-sm-3 bankhead" for="head"><b>Bank info</b></label>
+
+    </div>
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Bank Account Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="account_name" class="vendorformreg" placeholder="Enter Bank Account Name" Value="John Shah">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Bank Name : </label>
+        <div class="col-sm-5">
+            <input type="text" name="bank_name" class="vendorformreg" placeholder="Enter Bank Name" value="HDFC">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">IBAN Number : </label>
+        <div class="col-sm-5">
+            <input type="text" name="iban_name" class="vendorformreg" placeholder="Enter IBAN Number" value="hdfv0008743">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Account Number : </label>
+        <div class="col-sm-5">
+            <input type="text" name="account_number" class="vendorformreg" placeholder="Enter Account Number" value="A123uq78343">
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <!-- <div class="form-group">
+
+        <label class="control-label col-sm-6 textalign_vendor" for="pwd">Payment Option:</label>
+
+        <div class="col-sm-8 checkalign">
+
+            <div class="checkbox">
+
+                <label><input type="checkbox" name="payment_option" value="1"> <b style="font-size:15px">Online
+                        Payment</b></label>
+
+                <label> </label>
+
+                <label> </label>
+
+                <label> </label>
+
+                <label> </label>
+
+                <label><input type="checkbox" name="payment_option" value="2"> <b style="font-size:15px">
+                        Cash</b></label>
+
+                <div id="payment_option-error" class="error-class"></div>
+            </div>
+        </div>
+    </div> -->
+    <div class="form-group row regfeild">
+        <label for="inputEmail3" class="vendorregco">Account Number : </label>
+        <div class="optcheckterms">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment_method" value="online" id="checkboxOnline">
+                <label class="form-check-label" id="vendorchkon" for="checkboxOnline">Online Payment</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment_method" value="cash" id="checkboxCash">
+                <label class="form-check-label" id="vendorchkcash" for="checkboxCash">Cash</label>
+            </div>
+            <!---------------optcheckbox------------------>
+        </div>
+    </div>
+    <!------------------form-group row ------------------------->
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 checkterms">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="terms_conditions" id="checkboxTerms"
+                    value="option1">
+                <label class="form-check-label" for="checkboxTerms"><span class="vendorterms">I
+                        agreed to Monasabatna </b></span><a href="#">Term & Conditions </a><b><span
+                            class="vendorterms">and </span></b><a href="#">Privacy Policies</a></label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-10 textalign">
+            <button type="submit" id="myModal" name="submit" value="submit" class="btn btn-default signme-venuereg">Sign
+                Up</button>
+        </div>
+    </div>
+</form>
+</div>
+<!--------------------------vendor Venue Edit -------------------->
+</div>
+<!---------------------tab-pane-fade ----------------------------->
+
+  </div>
+</div>
+<!-----------------------Services Edit pop up -------------------------------------------------------->
             <!-------------------------------------View Services Modal -------------------------------->
 <div class="modal fade xlservices" id="viewservicesmodal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
   <div id="viewvenuesm" class="modal-dialog modal-xl">
@@ -1678,7 +2156,8 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
                      <div class="form-group">
                         <label class="control-label col-sm-3" for="email"></label>
                         <ul>
-                          <button type="button" class="btn btn-default btn-lg-6" id="sign-text">Edit</button> 
+
+                          <button type="submit" class="btn btn-default btn-lg-6" id="sign-text">Save</button> 
                         </ul>
                      </div>
                   </form>
@@ -1990,129 +2469,65 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
                   <tr>
                      <th class="amenid" scope="col">Sr ID</th>
                      <th scope="col">Amenities </th>
-
-                 
                   </tr>
                </thead>
                <tbody class="table-hover">
+                 <!--  @isset($data) -->
+                 <?php $slno = 1;?>
+                  @foreach($data as $amenitie)
                   <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
+                     <th class="amenid" scope="row">{!! $slno++ !!}</th>
+                     <td>{!! $amenitie->name !!}</td>
                      
                      <td class="bg-white-booking"><a href="#"><i data-toggle="modal" data-target="#updateAmenities" class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i data-toggle="modal" data-target="#deleteAmenities" class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
                   </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Parking</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Parking</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Play Area</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Gym</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
+                  @endforeach
+                 <!--  @endisset -->
                </tbody>
             </table>
-            <!------------------------------ Add Amenities ----------------------------------->
-            <!-- Modal with Text area -->
-            <div class="modal fade" id="addAmenities" tabindex="-1" role="dialog" aria-labelledby="AddamenitiesLabel" aria-hidden="true">
-  <div id="canceldash" class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Amenities</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       <!------------------form-group row ------------------------->
+<!------------------------------ Add Amenities ----------------------------------->
+<!-- Modal with Text area -->
+<form method="post" id="addAmenitiesForm" enctype="multipart/form-data">
+  @csrf
+  <div class="modal fade" id="addAmenities" tabindex="-1" role="dialog" aria-labelledby="AddamenitiesLabel" aria-hidden="true">
+    <div id="canceldash" class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Amenities</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <!------------------form-group row ------------------------->
 
-<div class="form-group row regfeild">
-    <label for="inputEmail3" class="vendoramenco">Amenities : </label>
-    <div class="col-sm-8">
-        <input type="text" name="password" id="vendorPassword" class="vendorformamen" placeholder="Enter here">
-    </div>
-    
-</div>
-<!------------------form-group row ------------------------->
-
+  <div class="form-group row regfeild">
+      <label for="inputEmail3" class="vendoramenco">Amenities : </label>
+      <div class="col-sm-8">
+          <input type="text" name="name" id="name" class="vendorformamen" placeholder="name">
+          <div id="name-error" class="error-class"></div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="cancelmodalbtn" data-dismiss="modal">Add</button>
-        
+  </div>
+  <!------------------form-group row ------------------------->
+  <div class="form-group row regfeild">
+      <label for="inputEmail3" class="vendoramenco">Description : </label>
+      <div class="col-sm-8">
+          <input type="text" name="description" id="description" class="vendorformamen" placeholder="description">
+          <div id="description-error" class="error-class"></div>
+      </div>
+  </div>
+  <!------------------form-group row ------------------------->
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="cancelmodalbtn">Add</button>
+          <button type="button" name="cancel" value="cancel" class="cancelmodalbtn" data-dismiss="modal">close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-------------------Add Modal -------------------------------------->
+</form>
+<!-------------------End Add Modal -------------------------------------->
 <!------------------------------ Update Amenities ----------------------------------->
             <!-- Modal with Text area -->
             <div class="modal fade" id="updateAmenities" tabindex="-1" role="dialog" aria-labelledby="updateAmenitiesLabel" aria-hidden="true">
@@ -2128,12 +2543,20 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
        <!------------------form-group row ------------------------->
 
 <div class="form-group row regfeild">
+  <div class="form-group">
     <label for="inputEmail3" class="vendoramenco">Amenities : </label>
+    <div class="col-sm-8">
+        <input type="text" name="password" id="vendorPassword" class="vendorformamen" placeholder="Enter here">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="vendoramenco">Description : </label>
     <div class="col-sm-8">
         <input type="text" name="ammentie" id="ammentie" value= "Swimming Phool" class="vendorformamen" placeholder="Enter here">
     </div>
-    
+  </div>
 </div>
+
 <!------------------form-group row ------------------------->
 
       </div>
@@ -2191,18 +2614,8 @@ trigger
   
       <!------- body end-------->
 @include('shared/footer')
-        <script type="text/javascript">
-        $('MySlicker slicker').slick({
-        rtl: true,
-        slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,
-  fade: false,
-  infinite: true,
-  speed: 300,
-  adaptiveHeight:true
-});
-        </script>
+
+   
       <script><!------inner page-Tabs-------->
          $(document).ready(function(){
          
@@ -2217,6 +2630,20 @@ trigger
          });
          });
       </script>
-     
+
+        <script type="text/javascript">
+        $('MySlicker slicker').slick({
+        rtl: true,
+        slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  fade: false,
+  infinite: true,
+  speed: 300,
+  adaptiveHeight:true
+});
+</script>
+
+
      
   

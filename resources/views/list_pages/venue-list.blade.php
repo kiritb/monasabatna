@@ -4,13 +4,13 @@
 
 @php
 $venues= $data;
+$appliedParams= $data['appliedParams'];
 @endphp
 
-<div class="customerlinegreen"></div>
-<div class="container-fluid" id="venue-list-bg">
+<div id="venue-list-bg">
     <div class="col-sm-2 tab-filters">
         <div class="list">
-            @include('shared.filters', ['filters' => $venues["filters"], 'type' => 'venues', 'url' => '/venues'])
+            @include('shared.filters', ['filters' => $venues["filters"], 'pageType' => $appliedParams['pageType']])
         </div>
         <!------- panel end -------->
     </div>
@@ -32,15 +32,20 @@ $venues= $data;
             </div>
             @if (count($venues["vennueLists"]) > 0)
             @foreach ($venues["vennueLists"] as $vennueLists)
-            <div class="row color-bg-venuelist">
+            <div class="row item-bg-color">
                 <div class="col-sm-3 content-eve p-0">
-                    <img src={{ $vennueLists["filePath"] }} alt="Mountains">
+                    <a href="{{ url('/venues/'.$vennueLists['vennueId']) }}">
+                        <img src={{ $vennueLists["filePath"] }} alt="Mountains">
+                    </a>
                 </div>
 
                 <div class="col-sm-9" id="content-eve-right">
                     <div class="content-optionblog">
-                        <div class="wish-head"><b><a href="{{ url('/vennues/'.$vennueLists['vennueId']) }}">{{
-                                    $vennueLists["vennueName"] }}</a></b></div>
+                        <div class="wish-head">
+                            <a href="{{ url('/venues/'.$vennueLists['vennueId']) }}">
+                                {{ $vennueLists["vennueName"] }}
+                            </a>
+                        </div>
                         <div class="spacer_boxtwo"></div>
 
                         <div class="wish-text">
@@ -70,8 +75,10 @@ $venues= $data;
                         <div class="spacer_boxtwo"></div>
 
                         <p class="blogvenue">{{ $vennueLists["vennueShortDescription"] }}</p>
-                        <div class="wish-text"><b><span class="col-green">SAR:</span> {{
-                                $vennueLists["actualPrice"] }} {{ $vennueLists["pricingType"] }}</b>
+                        <div class="wish-text"><b><span class="col-green">SAR:</span>
+                                {{
+                                $vennueLists["actualPrice"] }}
+                                {{ $vennueLists["pricingType"] }}</b>
                             <b><i class="fas fa-users" id="fasvenue" style="font-size:20px;color:#6cc0b9"></i>
                                 100-200</b></div>
                         <button class="btn active" id="bn-venuelist" onclick="filterSelection('all')"><b>
@@ -89,7 +96,8 @@ $venues= $data;
         <!-- Venue list pagination -->
         <div class="venuespagin">
             @if (count($venues["paginate"]) > 0)
-            @include('ui_utils.paginate', ['paginate' => $venues['paginate'], 'type' => 'venues'])
+            @include('ui_utils.paginate', ['paginate' => $venues['paginate'], 'pageType' =>
+            $appliedParams['pageType']])
             @else
             <div>No pagination data!!</div>
             @endif

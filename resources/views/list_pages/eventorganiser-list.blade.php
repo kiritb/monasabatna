@@ -4,16 +4,15 @@
 
 @php
 $eventorgs= $data;
+$appliedParams= $data['appliedParams'];
 @endphp
 
-<div class="customerlinegreen"></div>
 <!--------------left ------------------>
-<div class="container-fluid" id="venue-list-bg">
+<div id="venue-list-bg">
     <div class="col-sm-2 tab-filters">
         <div class="list">
             <!---- filters rendered here ------->
-            @include('shared.filters', ['filters' => $eventorgs["filters"], 'type' => 'eventorgs', 'url' =>
-            '/events/organisers'])
+            @include('shared.filters', ['filters' => $eventorgs["filters"], 'pageType' => $appliedParams['pageType']])
         </div>
         <!------- panel end -------->
 
@@ -39,7 +38,7 @@ $eventorgs= $data;
 
             @if (isset($eventorgs["eventOrganiserslist"]) && count($eventorgs["eventOrganiserslist"]) > 0)
             @foreach ($eventorgs["eventOrganiserslist"] as $key=>$eventOrganiser)
-            <div class="row color-bg-eventlist">
+            <div class="row item-bg-color">
                 <div class="content-eve">
                     <img src={{ $eventOrganiser['filePath'] }} alt="Mountains" style="width:300px; height:273px">
                 </div>
@@ -74,8 +73,10 @@ $eventorgs= $data;
                         <p class="eventwish">
                             {{ $eventOrganiser['eventShortDescription'] }}
                         </p>
-                        <div class="wish-text"><b><span class="col-green">SAR:</span> {{
-                                $eventOrganiser['price']['actualPrice'] }} {{
+                        <div class="wish-text"><b><span class="col-green">SAR:</span>
+                                {{
+                                $eventOrganiser['price']['actualPrice'] }}
+                                {{
                                 $eventOrganiser['price']['pricingType'] }} </b>
                         </div>
 
@@ -87,17 +88,17 @@ $eventorgs= $data;
             @else
             <div>No data!!</div>
             @endif
-            <!-----------color-bg-eventlist ------------>
+        </div>
+        <div class="eventspagin">
+            @if (isset($eventorgs["paginate"]) && count($eventorgs["paginate"]) > 0)
+            @include('ui_utils.paginate', ['paginate' => $eventorgs['paginate'], 'pageType' =>
+            $appliedParams['pageType']])
+            @else
+            <div>No pagination data!!</div>
+            @endif
+
         </div>
     </div>
-</div>
-<div class="eventspagin">
-
-    @if (isset($eventorgs["paginate"]) && count($eventorgs["paginate"]) > 0)
-    @include('ui_utils.paginate', ['paginate' => $eventorgs['paginate'], 'type' => 'eventorganisers'])
-    @else
-    <div>No pagination data!!</div>
-    @endif
 
 </div>
 

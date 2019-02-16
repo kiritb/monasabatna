@@ -108,4 +108,6 @@ abstract class HttpStatusCodesConsts
     const HTTP_UNAUTHORIZED_STRING          = 'unauthorized';
 
     const HTTP_MANDATE_STRING               = 'Mandate request missing';
+
+    const HTTP_NOT_FOUND_STRING             = 'No Data Found';
 }

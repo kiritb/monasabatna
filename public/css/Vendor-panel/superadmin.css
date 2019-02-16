@@ -1,3 +1,6 @@
+
+
+
 /***************************globevendorpanel ***********************/
 #globevendorpanel{
     margin-top:2%;
@@ -24,6 +27,37 @@
     font-family: Myriad pro;
 }
 /****************************vendor panel****************************/
+/*****************************search bar ******************************/
+.add-on .input-group-btn > .btn {
+    border-left-width:0;left:-2px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  }
+  /* stop the glowing blue shadow */
+  .add-on .form-control:focus {
+   box-shadow:none;
+   -webkit-box-shadow:none; 
+   border-color:#cccccc; 
+  }
+  .form-control{width:20%}
+  .navbar-nav > li > a {
+    border-right: 1px solid #ddd;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+  .navbar-nav:last-child{ border-right:0}
+  .search-container form.navbar-form {
+    width: 200px;
+    margin-left: 153px;
+    margin-top: 7px;
+}
+.search-container button{
+    height:38px;
+    border:none;
+    border-radius:0px;
+    background-color:#6cc0b9;
+}
+/*******************************search bar ********************************/
 /******************Vendor Registration ****************************/
 #formvendor-signup, #formprofile-signup {
     background-color: #f4f4f5;
@@ -439,16 +473,14 @@ a#v-pills-amenities-tab.active
     vertical-align: top;
     border-top: 2px solid #fff;
 }
-a#filterdash {
+a#venueeditdash {
     width: 130px;
     font-weight: 600;
     text-align: center;
     margin-top: 4px;
-    margin-left: 235px;
     height: 40px;
     color: #fff;
     border-radius: 6px;
-    background-color: #6cc0b9;
 }
 
 div#dashboardtabs .mb-3 {
@@ -665,7 +697,46 @@ span.totalcom {
 span.totalcom {
     margin-left: 30px;
 }
-
+#venueeditdash .vendorformsel, #serviceeditdash .vendorformsel {
+    width: 42%!important;
+    width: 35%;
+    width: 35%;
+    padding: 4px;
+}
+#venueeditdash .form-group.row.regfeild, #serviceeditdash .form-group.row.regfeild {
+    margin-left: 10px;
+}
+#venueeditdash .modal-content, #serviceeditdash .modal-content{
+    display: inline-grid;
+    width: 917px;
+    margin-left: -171px;
+}
+#serviceeditdash .uploadbutton{
+    left: 81px;
+    margin-top: -17px;
+}
+#venueeditdash .modal-header .close, #serviceeditdash .modal-header .close {
+    margin-top: -15px;
+}
+#venueeditdash .modal-header, #serviceeditdash .modal-header{
+    width:73%;
+}
+#venueeditdash .uploadbutton, #sericeeditdash .uploadbutton{
+    left: 80px;
+    margin-top: -16px;
+}
+#venueeditdash .upload-btn-wrapper, #serviceeditdash .upload-btn-wrapper{
+    margin-left:0px;
+}
+#venueeditdash .signme-venuereg, #serviceeditdash .signme-venuereg{
+    margin-left:34.50%;
+}
+#venueeditdash .col-sm-6.checkterms, #serviceeditdash .col-sm-6.checkterms {
+    margin-left: 27.7%;
+}
+#venueeditdash .bankhead, #serviceeditdash .bankhead{
+    margin-left:-3px;
+}
 /************************* venue start ****************************************/
 .dashvendortop {
     height: 40px;
@@ -848,6 +919,9 @@ label.vendoraddexp{
 .content-payment .row{
     margin-left: 25px!important;
 }
+.profileleft ul{
+    padding-left:32%;
+}
 /****************venue pop up ***************/
 .venimgpic {
     border: none;
@@ -908,7 +982,7 @@ width:23%;
 #viewvenuefm .modal-title, #viewvenuebk .modal-title{
     margin-left:39%;
 }
-#viewvenuemodal .form-group.col-md-2.chargeven {
+#viewvenuemodal .form-group.col-md-3.chargeven {
     margin-top: -33px;
 }
 #servicedeleteModal .modal-title{
@@ -1131,6 +1205,7 @@ label.profileregco{
     font-family: Myriad Web Pro Regular;
 }
 .profileterms textarea.form-control {
+    width:88%;
     background-color: #f4f4f5;
     height: auto;
 }
@@ -1141,7 +1216,7 @@ button#sign-text {
     width: 200px;
     height: 40px;
     color: #fff;
-    margin-left: 40%;
+    margin-left: 3%;
     font-family: Myriad pro;
     font-weight: 800;
 }

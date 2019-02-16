@@ -1,115 +1,76 @@
-$(document).ready(function () {
-    var venuesDiv = "#nav-venues";
-    var suppliersDiv = "#nav-suppliers";
-    var eventOrgsDiv = "#nav-events";
-    var packagesDiv = "#nav-package-eveorgs";
-    var packageEventOrgsDiv = "#nav-package-eveorgs";
-    var expressEventOrgsDiv = "#express-eventorgs";
-    var expressSuppliersDiv = "#express-suppliers";
-    var upcomingEventsDiv = "#listingPage";
-
-    var isPage = findGetParameter("pageis");
-
-    if (isPage == 'upcoming') {
-        let pageData = {
-            element: upcomingEventsDiv
-        };
-
-        getLists(pageData, "/events/upcoming");
-    } else {
-        let pageData = {
-            element: venuesDiv
-        };
-
-        getLists(pageData, "/venues");
-    }
-
-
-    $("#nav-events-tab").on("click", function () {
-        let pageData = {
-            element: eventOrgsDiv
-        };
-        getLists(pageData, "/eventsorganisers");
-    });
-
-    $("#nav-suppliers-tab").on("click", function () {
-        let pageData = {
-            element: suppliersDiv
-        };
-        getLists(pageData, "/suppliers");
-    });
-
-    $("#nav-package-suppliers-tab").on("click", function () {
-        let pageData = {
-            element: suppliersDiv
-        };
-        getLists(pageData, "/packages/suppliers");
-    });
-
-    $("#nav-package-eveorgs-tab").on("click", function () {
-        let pageData = {
-            element: packagesDiv
-        };
-        getLists(pageData, "/packages/eventorganisers");
-    });
-
-    $("#nav-express-deals-tab").on("click", function () {
-        let pageData = {
-            element: expressEventOrgsDiv
-        };
-        getLists(pageData, "/packages/eventorganisers");
-    });
-
-    $("#express-suppliers-tab").on("click", function () {
-        let pageData = {
-            element: expressSuppliersDiv
-        };
-        getLists(pageData, "/packages/suppliers");
-    });
-
-    $("#nav-packages-tab").on("click", function () {
-        $("#nav-express-deals-tab").trigger("click");
-    });
-
-});
-
-function pagiNator(pageType, pageNumber) {
-
-    // Need to set different attributes depending on tag type
+function getAllParams(pageType) {
+    let listParams = {};
     switch (pageType) {
         case "venues":
-            pageUrl = "/venues";
-            isElement = "#nav-venues";
+            listParams.element = "#nav-venues";
+            listParams.url = "/venues";
+            listParams.is_express_deal = 0;
             break;
-        case "eventorgs":
-            pageUrl = "/eventorganisers";
-            isElement = "#nav-events";
+        case "events":
+            listParams.element = "#nav-events";
+            listParams.url = "/events/organisers";
+            listParams.is_express_deal = 0;
             break;
         case "suppliers":
-            pageUrl = "/suppliers";
-            isElement = "#nav-suppliers";
+            listParams.element = "#nav-suppliers";
+            listParams.url = "/suppliers";
+            listParams.is_express_deal = 0;
+            break;
+        case "package-ex-events":
+            listParams.element = "#express-eventorgs";
+            listParams.url = "/packages/eventorganisers";
+            listParams.is_express_deal = 1;
+            break;
+        case "package-ex-suppliers":
+            listParams.element = "#express-suppliers";
+            listParams.url = "/packages/suppliers";
+            listParams.is_express_deal = 1;
+            break;
+        case "package-events":
+            listParams.element = "#nav-package-eveorgs";
+            listParams.url = "/packages/eventorganisers";
+            listParams.is_express_deal = 0;
+            break;
+        case "package-suppliers":
+            listParams.element = "#nav-package-suppliers";
+            listParams.url = "/packages/suppliers";
+            listParams.is_express_deal = 0;
+            break;
+        case "upcoming-events":
+            listParams.element = "#upcomingListingPage";
+            listParams.url = "/events/upcoming";
+            listParams.is_express_deal = 0;
+            break;
+        case "express-venues":
+            listParams.element = "#express-venues";
+            listParams.url = "/venues";
+            listParams.is_express_deal = 1;
+            break;
+        case "express-events":
+            listParams.element = "#express-events";
+            listParams.url = "/events/organisers";
+            listParams.is_express_deal = 1;
+            break;
+        case "express-suppliers":
+            listParams.element = "#express-suppliers";
+            listParams.url = "/suppliers";
+            listParams.is_express_deal = 1;
             break;
         default:
-            pageUrl = "/venues";
-            isElement = "#nav-venues";
-            break;
+            listParams.element = "#nav-venues";
+            listParams.url = "/venues";
+            listParams.is_express_deal = 0;
     }
 
-    let pageData = {
-        page: pageNumber,
-        element: isElement
-    };
-
-    getLists(pageData, pageUrl);
+    return listParams;
 }
 
-function getLists(pageData, pageUrl) {
-    let URL = pageUrl;
-    let data = pageData;
+function getLists(filtersData, jsData) {
+    let data = filtersData;
     let params = {
         type: "ajaxRender",
-        url: pageUrl,
-        element: pageData.element,
+        url: jsData.url,
+        element: jsData.element,
         method: "GET",
         overlayMask: true,
         data: data
@@ -117,15 +78,54 @@ function getLists(pageData, pageUrl) {
     ajaxHtmlRender(params);
 }
 
-function findGetParameter(parameterName) {
-    var result = null,
-        tmp = [];
-    location.search
-        .substr(1)
-        .split("&")
-        .forEach(function (item) {
-            tmp = item.split("=");
-            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
-        });
-    return result;
+function getTypeListItems(pageType) {
+    let listParams = getAllParams(pageType);
+
+    let filtersData = {
+        pageType: pageType,
+        is_express_deal: listParams.is_express_deal
+    };
+
+    let jsData = {
+        url: listParams.url,
+        element: listParams.element
+    };
+
+    getLists(filtersData, jsData);
+}
+
+function pagiNator(pageType, pageNumber) {
+
+    let listParams = getAllParams(pageType);
+
+    let filtersData = {
+        page: pageNumber,
+        pageType: pageType,
+        is_express_deal: listParams.is_express_deal
+    };
+
+    let jsData = {
+        url: listParams.url,
+        element: listParams.element
+    };
+
+    getLists(filtersData, jsData);
+}
+
+function filterItNow(formId, pageType) {
+
+    let form = $("#" + formId);
+
+    let filtersData = form.serialize();
+
+    let listParams = getAllParams(pageType);
+
+    filtersData += "&pageType=" + pageType + "&is_express_deal=" + listParams.is_express_deal;
+
+    let jsData = {
+        url: listParams.url,
+        element: listParams.element
+    };
+
+    getLists(filtersData, jsData);
 }

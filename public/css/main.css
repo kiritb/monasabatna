@@ -1,11 +1,9 @@
-/* css for font ends*/
 body {
     overflow-x: hidden;
     font-family: Verdana, sans-serif;
-    margin: 0
+    margin: 0;
 }
 
-/* colors with names */
 .orange {
     color: orange;
 }
@@ -20,7 +18,7 @@ a.profilehead {
     background-color: #ccc;
     display: inline-block;
     width: 100%;
-    padding: 0 10px 0px 10px;
+    padding: 0 10px 0 10px;
 }
 
 span#headbadge {
@@ -34,7 +32,6 @@ span#headbadge {
     margin-left: 18px;
 }
 
-/***** css for Home page top navbar starts *********/
 navbar.twolinks {
     background-color: #cccccc;
     height: 50px;
@@ -42,8 +39,8 @@ navbar.twolinks {
 
 navbar.twolinks button {
     font-size: small;
-    margin: 10px 0px 0px 20px;
-    border: 2px white;
+    margin: 10px 0 0 20px;
+    border: white 2px;
     border-style: solid;
     border-radius: 15px;
     width: 90px;
@@ -55,8 +52,8 @@ navbar.twolinks button {
 
 #navone button {
     font-size: small;
-    margin: 10px 0px 0px 20px;
-    border: 2px white;
+    margin: 10px 0 0 20px;
+    border: white 2px;
     border-style: solid;
     border-radius: 15px;
 }
@@ -81,7 +78,6 @@ navbar.twolinks button {
     color: #ffffff;
 }
 
-/************** navbar two starts *****************/
 .navbar-dark .navbar-nav .nav-link {
     color: #4b485b;
     text-decoration: none;
@@ -106,7 +102,7 @@ a.btn.btn-outline-success,
 a.btn.btn-sm.btn-outline-secondary {
     min-width: 80px;
     padding-top: 4px;
-    border: 1px solid #fff;
+    border: #fff solid 1px;
     border-radius: 20px;
 }
 
@@ -133,7 +129,6 @@ a.btn.btn-sm.btn-outline-secondary {
     font-size: 12px;
 }
 
-/**************** header nav ****************/
 .browse {
     position: absolute;
     z-index: 99;
@@ -149,10 +144,10 @@ a.btn.btn-sm.btn-outline-secondary {
     background-color: #f9f9f9;
     min-width: 100px;
     min-height: 30px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 0.2);
     z-index: 2;
     margin-left: -67px;
-    text-align: center
+    text-align: center;
 }
 
 header nav.navbar ul {
@@ -230,7 +225,7 @@ a.booknow-header {
     color: #fff !important;
     background-color: #5cb9b1;
     border-radius: 22px;
-    margin-left: 0px;
+    margin-left: 0;
     line-height: 12px;
 }
 
@@ -241,7 +236,7 @@ a.booknow-header:hover {
     color: #fff !important;
     background-color: #5cb9b1;
     border-radius: 22px;
-    margin-left: 0px;
+    margin-left: 0;
     line-height: 12px;
 }
 
@@ -253,8 +248,6 @@ a.btn.btn-default.booknow-header {
 .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
-
-/************************************* Banner **********************************************/
 
 #home_page.container-fluid.banner-main-content {
     margin-top: 67px;
@@ -269,9 +262,9 @@ a.btn.btn-default.booknow-header {
     color: #ffffff !important;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ffffff;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    border: #ffffff solid 1px;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 h1.bannerfont {
@@ -283,32 +276,27 @@ h1.bannerfont {
     top: 35%;
 }
 
-/************** start of home page 4 box effects **************/
 .image {
     opacity: 1;
     display: block;
     width: 270px;
     height: 246px !important;
-    transition: .5s ease;
+    transition: 0.5s ease;
     backface-visibility: hidden;
     float: left;
     margin-left: -14px;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0 0;
     border-color: #ececec;
-    box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 16px 0 rgb(0 0 0 / 0.2);
 }
 
 .middle {
-    transition: .5s ease;
+    transition: 0.5s ease;
     opacity: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
     text-align: center;
 }
 
@@ -331,10 +319,9 @@ h1.bannerfont {
 }
 
 .pop_img {
-    margin: 0px 76px 0px 60px;
+    margin: 0 76px 0 60px;
 }
 
-/************** end of homepage 4 box effects **************/
 .head1 {
     color: #676868;
     font-family: Myriad Pro;
@@ -354,7 +341,6 @@ h1.bannerfont {
 }
 
 .head_twotwo {
-
     float: right;
     margin-top: 6px;
     margin-right: 20px;
@@ -421,7 +407,6 @@ span.spaceone {
     text-align: center;
 }
 
-/****************** home page 4 box completed *****************/
 .show_box,
 .show_boxhighlight {
     width: 95px;
@@ -429,7 +414,7 @@ span.spaceone {
     font-size: 10px;
     text-align: center;
     border-radius: 50px;
-    border: 2px #5cb9b1 solid;
+    border: #5cb9b1 solid 2px;
 }
 
 .show_box {
@@ -448,11 +433,9 @@ span.spaceone {
 
 .show_box_clear {
     width: 80px;
-    height: 30;
     font-size: 16px;
-    float: center;
     font-size: small;
-    border: 2px #5cb9b1;
+    border: #5cb9b1 2px;
     border-style: solid;
     border-radius: 50px;
     background-color: #fff;
@@ -462,7 +445,7 @@ span.spaceone {
 button#show_record_why {
     width: 150px;
     font-size: 14px;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
     border-radius: 50px;
     background-color: #fff;
     color: #6cc0b9;
@@ -471,10 +454,9 @@ button#show_record_why {
 #show_tag {
     width: 150px;
     font-size: 16px;
-    float: center;
     font-size: small;
-    margin: 10px 0px 0px 570px;
-    border: 2px white;
+    margin: 10px 0 0 570px;
+    border: white 2px;
     border-style: solid;
     border-radius: 50px;
     background-color: #5cb9b1;
@@ -489,7 +471,7 @@ button#show_record_why {
     width: 150px;
     font-size: 16px;
     font-size: small;
-    border: 2px #5cb9b1 solid;
+    border: #5cb9b1 solid 2px;
     border-radius: 50px;
     background-color: #fff;
     color: #5cb9b1;
@@ -505,7 +487,7 @@ button#show_record_why {
     font-size: 16px;
     font-weight: bold;
     font-size: small;
-    border: 2px #5cb9b1 solid;
+    border: #5cb9b1 solid 2px;
     border-radius: 50px;
     background-color: #fff;
     color: #5cb9b1;
@@ -519,10 +501,9 @@ button#show_record_why {
 #show_recordone {
     width: 150px;
     font-size: 16px;
-    float: center;
     color: #ffffff !important;
     font-size: small;
-    border: 2px #fff;
+    border: #fff 2px;
     border-style: solid;
     border-radius: 50px;
     background-color: #5cb9b1;
@@ -538,7 +519,6 @@ button#show_record_why {
     background-color: #f7f7f7;
 }
 
-/********************** home page sponsor page done *********************/
 .middlehead {
     height: auto;
     color: #ffffff;
@@ -561,19 +541,17 @@ button#show_record_why {
     width: 272px;
     height: 110px;
     float: left;
-    margin: 17px 0px 0px 65px;
+    margin: 17px 0 0 65px;
 }
 
 .advertisepic2 {
-    width: 272;
     height: 130px;
     float: left;
     margin-left: 60px;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .advertisepic3 {
-    width: 153;
     height: 108px;
     float: left;
     margin-left: 37px;
@@ -593,7 +571,7 @@ button#show_record_why {
     font-size: 30px;
     height: 50px;
     color: #4b485b;
-    margin-top: 0px;
+    margin-top: 0;
     font-style: italic;
 }
 
@@ -628,7 +606,6 @@ i#date-element-span {
     background-color: #5cb9b1;
 }
 
-/********** star of home page menubg ***********/
 #show_menubg {
     background-image: url("../svg/images/party-bg.jpg");
     background-repeat: no-repeat;
@@ -695,17 +672,10 @@ p.count-text {
     color: #8c8c8c;
 }
 
-/********** end of home page menubg ***********/
-
-/* css for second nav bar ends */
-/*********************************end of header *******************************************/
-
-/************* HOME PAGE FORM **********************************/
-
 #form-home .form-control.customhome,
 #form-home .form-control.customhomeone {
     font-size: 12px;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
 }
 
 #form-home .form_hometext {
@@ -724,7 +694,7 @@ h2.form_homehead {
 #form-home select.selectpicker.customhomeother {
     width: 240px;
     height: 40px;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
     color: #727272;
     font-size: 12px;
     padding-left: 15px;
@@ -740,37 +710,33 @@ h2.form_homehead {
 
 #form-home .form-control.customtext {
     display: block;
-    border: 2px solid #6cc0b9 !important;
+    border: #6cc0b9 solid 2px !important;
     padding: 18px;
     font-size: 12px;
     line-height: 1.5;
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/* Home page facilitate form date picker CSS starts*/
-
-.gj-datepicker [role=right-icon] {
+.gj-datepicker [role="right-icon"] {
     position: absolute;
     right: 3px;
-    border: 0px solid;
+    border: solid 0;
     top: 2px;
 }
 
-.gj-datepicker [role=right-icon] button {
+.gj-datepicker [role="right-icon"] button {
     border: none;
 }
 
-/* Home page facilitate form date picker CSS ends*/
-/*************************express deals page **************************/
 input.maxmin {
     display: inline-flex;
     width: 59px;
     border-radius: 4px;
-    border: 2px solid #aeaeae;
+    border: #aeaeae solid 2px;
 }
 
 label#maxexp {
@@ -789,13 +755,11 @@ h2.exphead {
 a.addvenuedash {
     padding: 15px 60px 15px 60px;
     color: #fff;
-    border-radiuS: 6px;
+    border-radius: 6px;
     background-color: #6cc0b9;
     height: 43px;
-    /* padding: 0px; */
 }
 
-/*****************************start  of newwishlist ***************************/
 .wishlist_tabs {
     margin-top: 27px;
 }
@@ -803,7 +767,6 @@ a.addvenuedash {
 .wish-text {
     color: #727272;
     font-size: 15px;
-
 }
 
 #btn-wish {
@@ -849,6 +812,17 @@ a.addvenuedash {
     margin-left: 10px;
 }
 
+.nav-tabs {
+    color: #9d9ca4;
+    font-family: Myraid pro;
+    border-bottom: 3px solid #dee2e6;
+    display: flex;
+}
+
+.nav-tabs .nav-item {
+    flex: 1;
+}
+
 .nav-tabs .nav-link.list-nav-tabs {
     color: #9d9ca4;
 }
@@ -862,9 +836,9 @@ a.addvenuedash {
 
 .nav-tabs .nav-link {
     color: #4b485b;
-    border: 1px solid #dbdadf;
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
+    border: #dbdadf solid 1px;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
     background-color: #dbdadf;
     width: 304px;
     height: 50px;
@@ -880,7 +854,7 @@ a.addvenuedash {
     color: #fff;
     cursor: default;
     background-color: #6cc0b9;
-    border: 1px solid #ddd;
+    border: #ddd solid 1px;
     border-bottom-color: #6cc0b9;
     width: 360px;
     text-align: center;
@@ -892,7 +866,7 @@ a.addvenuedash {
     color: #fff;
     cursor: default;
     background-color: #6cc0b9;
-    border: 1px solid #ddd;
+    border: #ddd solid 1px;
     border-bottom-color: #6cc0b9;
     width: 360px;
     text-align: center;
@@ -902,7 +876,7 @@ a.addvenuedash {
     background-color: #dbdadf;
     margin-right: 8px;
     line-height: 1.42857143;
-    border: 1px solid transparent;
+    border: transparent solid 1px;
     border-radius: 4px 4px 0 0;
     width: 360px;
     text-align: center;
@@ -914,7 +888,6 @@ a.addvenuedash {
     color: #fff;
 }
 
-/********************** end of wishlist *******************************/
 .tab-content.wishlist {
     width: 1132px;
     margin-top: 15px;
@@ -940,7 +913,7 @@ button.btn.btn-default.customer-review {
     color: #fff;
     background-color: #6cc0b9;
     cursor: default;
-    border: 1px solid #ddd;
+    border: #ddd solid 1px;
     border-bottom-color: #6cc0b9;
     width: 360px;
     text-align: center;
@@ -964,16 +937,12 @@ button.btn.btn-default.customer-review {
 }
 
 .tab-content.cust-detail {
-    margin-top: 0px;
+    margin-top: 0;
     height: auto;
     padding: 20px;
     text-align: left;
 }
 
-/*****************************end of newwishlist ***************************/
-/************ tabs for package details five ******************/
-
-/* testimonial tab */
 .slideshow-package {
     width: 100%;
     height: 333px;
@@ -991,14 +960,16 @@ button.btn.btn-default.customer-review {
 
 .sliderheadevent {
     margin-top: 30px;
-    margin-left: 0px;
+    margin-left: 0;
     margin-bottom: 8px;
     font-weight: bold;
     color: #4b485b;
     font-size: 18px;
+    background: aqua;
+    padding: 10px;
+    text-align: center;
 }
 
-/* Slides */
 .myReviews {
     display: none;
     text-align: center;
@@ -1022,7 +993,6 @@ button.btn.btn-default.customer-review {
     text-align: center;
 }
 
-/* Next & previous buttons */
 .prevpack {
     cursor: pointer;
     position: absolute;
@@ -1065,22 +1035,12 @@ button.btn.btn-default.customer-review {
     margin-left: 25%;
 }
 
-/* end testimonial tab */
 div#nav-packContent {
     margin-top: 1px;
 }
 
 .packagecontent {
     padding-top: 25px;
-}
-
-.packagegreyline {
-    border-bottom: 2px solid #dbdade;
-    width: 100%;
-    margin-top: -35px;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-bottom: 0px;
 }
 
 #packagedetails a#nav-about-tab {
@@ -1133,8 +1093,8 @@ div#nav-packContent {
 
 div#commonpack-bg {
     width: 100%;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 i#ban-inner-arrowleft {
@@ -1165,16 +1125,16 @@ i#ban-inner-arrowright {
     width: 219px !important;
     margin-left: 5px;
     background-color: #dbdade;
-    border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0 0;
     color: #4b485b;
     text-decoration: none;
 }
 
 .bg-given {
     background-color: #f4f4f5;
-    outline-color: rgb(201, 76, 76);
+    outline-color: rgb(201 76 76);
     padding: 29px;
-    margin: 0px 0px 0px 5px;
+    margin: 0 0 0 5px;
 }
 
 #quote-carousel .carousel-control {
@@ -1209,7 +1169,7 @@ div#themedetail-inner {
     color: #fff;
     cursor: default;
     background-color: #6cc0b9;
-    border: 1px solid #ddd;
+    border: #ddd solid 1px;
     border-bottom-color: #6cc0b9;
     width: 230px;
     text-align: center;
@@ -1221,7 +1181,7 @@ div#themedetail-inner {
     color: #fff;
     cursor: default;
     background-color: #6cc0b9;
-    border: 1px solid #ddd;
+    border: #ddd solid 1px;
     border-bottom-color: #6cc0b9;
     width: 225px;
     text-align: center;
@@ -1230,7 +1190,7 @@ div#themedetail-inner {
 .themedetails_tabs .nav-tabs>li>a {
     margin-right: 2px;
     line-height: 1.42857143;
-    border: 1px solid transparent;
+    border: transparent solid 1px;
     border-radius: 4px 4px 0 0;
     width: 225px;
     text-align: center;
@@ -1243,20 +1203,10 @@ div#themedetail-inner {
     color: #fff;
     background-color: #6cc0b9;
     cursor: default;
-    border: 1px solid #ddd;
+    border: #ddd solid 1px;
     border-bottom-color: #6cc0b9;
     width: 225px;
     text-align: center;
-}
-
-resize-theme-one {
-    float: right !important;
-    margin-top: -156px;
-}
-
-a.resize-theme {
-
-    margin-top: -156px !important;
 }
 
 .namechange {
@@ -1274,10 +1224,6 @@ a.resize-theme {
     margin-top: -21px;
 }
 
-.container.themedetail-bg {
-    width: 1260px;
-}
-
 span.namechange {
     font-size: 18px;
     color: #727272;
@@ -1289,12 +1235,6 @@ span.namechange {
     margin-top: -32px;
 }
 
-.tab-content {
-    padding: 20px;
-    background-color: #f4f4f5;
-    color: #727272;
-}
-
 .themedetails_tabs .nav>li>a {
     position: relative;
     display: block;
@@ -1303,24 +1243,16 @@ span.namechange {
     color: #9d9ca4;
     font-family: Myraid pro;
     font-size: 18px;
-    font-style: bold;
 }
 
 .btn-danger {
     color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 0.25);
     background-color: #da4f49;
-    background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
-    background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
-    background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
     background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
     background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
     border-color: #bd362f #bd362f #802420;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    *background-color: #bd362f;
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    border-color: rgb(0 0 0 / 0.1) rgb(0 0 0 / 0.1) rgb(0 0 0 / 0.25);
     margin-top: 5px;
 }
 
@@ -1425,7 +1357,6 @@ label.control-label.label-setone {
 
 .col-sar {
     color: #6cc0b9;
-
 }
 
 .thumbnail {
@@ -1436,16 +1367,12 @@ label.control-label.label-setone {
     background-color: #fff;
 }
 
-/*
-/************ Tabs ******************/
-
-/************ forms end ******************/
 #bg-requirement {
     background-color: #f4f4f5;
-    outline-color: rgb(201, 76, 76);
+    outline-color: rgb(201 76 76);
     height: 189px;
     padding: 26px;
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0 0 0;
     color: #676868;
 }
 
@@ -1455,24 +1382,16 @@ label.control-label.label-setone {
     background-color: #6cc0b9;
 }
 
-/* Create three equal columns that floats next to each other */
 .column {
     float: left;
     width: 33.33%;
     display: none;
 }
 
-/* Clear floats after rows */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 .bg-requirement {
     width: 1140px;
     background-color: #f4f4f5;
-    outline-color: rgb(201, 76, 76);
+    outline-color: rgb(201 76 76);
     height: 120px;
     padding: 30px;
     margin: auto;
@@ -1484,20 +1403,12 @@ label.control-label.label-setone {
     background-color: #6cc0b9;
 }
 
-
-/*****************************end for 003_3_5_theme_detail ***************************/
-
-/*********************************infoguestlogin ***************************************/
-/********************************** Payment Info ***************************************/
 div#greydivider {
-    /* padding: 0px; */
-    border: 2px solid #f4f4f5;
+    border: #f4f4f5 solid 2px;
 }
 
 .infopytxt {
     width: 815px;
-    padding: -7px 0px 0px 0px;
-    padding: 0px -23px 0px 0px;
 }
 
 a#btnpyt {
@@ -1505,61 +1416,56 @@ a#btnpyt {
     height: 50px;
     margin-left: -15px;
     background-color: #6cc0b9;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
     color: #fff;
     border-radius: 6px;
     line-height: 29px;
 }
 
 #pyttabs ::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #b6b6b7;
-    opacity: 3;
-    /* Firefox */
+    opacity: 1;
 }
 
 :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
     color: #b6b6b7;
 }
 
 ::-ms-input-placeholder {
-    /* Microsoft Edge */
     color: #b6b6b7;
 }
 
 .infopyt {
     margin-top: -22px;
-    padding: 0px 0px 0px 4px;
+    padding: 0 0 0 4px;
 }
 
 span.pytslash {
-    margin: 0px 0px 0px -22px;
+    margin: 0 0 0 -22px;
 }
 
-#pyttabs input[type=text],
-    {
+#pyttabs input[type="text"] {
     width: 70%;
     height: 70%;
     padding: 12px;
     color: #727272;
-    border: 2px solid #9e9e9e;
+    border: #9e9e9e solid 2px;
     border-radius: 8px;
     resize: vertical;
 }
 
 .row.pyttext {
-    padding: 5px 0px 0px 2px;
+    padding: 5px 0 0 2px;
 }
 
 .row.carddetails {
-    padding: 5px 0px 0px 20px;
+    padding: 5px 0 0 20px;
 }
 
 div#pytinfo {
     width: 100%;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .leftpyt {
@@ -1574,7 +1480,7 @@ div#pytinfo {
 .rightpyt {
     width: 49.5%;
     float: right;
-    padding: 10px 0px 0px 21px;
+    padding: 10px 0 0 21px;
     height: 126px;
     background-color: #f4f4f5;
 }
@@ -1583,30 +1489,29 @@ div#pyttabs {
     width: 100%;
     height: auto;
     margin-top: 138px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
     background-color: #f4f4f5;
 }
 
 #pyttabs .nav.nav-pills {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
     width: 100%;
 }
 
-
 #pyttabs #pills-tab {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
     position: relative;
     width: 100%;
 }
 
 #pyttabs .nav-item.nav-link {
     background-color: #f4f4f5;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
 }
 
 #pyttabs .nav-item.nav-link.active {
@@ -1634,15 +1539,14 @@ div#pyttabs {
 }
 
 #pyttabs .tab-content {
-    padding: 0px 0px 0px 0px;
+    padding: 0 0 0 0;
     background-color: #fff;
     margin-top: -5px;
     color: #727272;
 }
 
-/*********************Booking Info ***************************************/
 div#infologpane {
-    padding: 0px;
+    padding: 0;
     margin-top: 20px;
 }
 
@@ -1666,7 +1570,6 @@ div#contentbkinfo {
     font-family: Myriad pro;
     color: #727272;
     padding: 20px;
-    /* padding-right: 20px; */
     margin-top: 20px;
     text-align: justify;
     background-color: #f4f4f5;
@@ -1679,7 +1582,7 @@ div#contentbkinfo {
 }
 
 .row.infolist {
-    padding: 0px 10px 30px 15px;
+    padding: 0 10px 30px 15px;
 }
 
 div#servicebk {
@@ -1693,8 +1596,8 @@ div#servicebk {
     width: 100%;
     height: auto;
     background-color: #f4f4f5;
-    margin: -6px 0px 0px 0px;
-    padding: 0px;
+    margin: -6px 0 0 0;
+    padding: 0;
 }
 
 .bkinfo-head {
@@ -1710,14 +1613,14 @@ div#servicebk {
     float: right !important;
     text-align: left;
     font-size: 18px !important;
-    height: 0px;
+    height: 0;
     color: #4b485b;
     margin-left: 550px;
     margin-top: -39px;
     width: 100%;
 }
 
-.col-lg-8.col-md-8.col-sm-8.col-xs-8.infobookingonline {
+.infobookingonline {
     width: 100%;
     margin-left: 1%;
     margin-top: -1%;
@@ -1726,7 +1629,7 @@ div#servicebk {
 #bookinginfo-bg {
     width: 100%;
     background-color: #f4f4f5;
-    margin: 0px 0px 0px 0px;
+    margin: 0 0 0 0;
 }
 
 .rightinfotext {
@@ -1734,7 +1637,7 @@ div#servicebk {
 }
 
 .row.bookingcust {
-    padding: 0px;
+    padding: 0;
     width: 100%;
     height: auto;
 }
@@ -1748,17 +1651,13 @@ div#servicebk {
     position: relative;
 }
 
-/********************personal info **************************************/
 div#infodivider {
-    margin: 10px 0px 20px 0px;
-    border: 1px solid #d4d0d0;
+    margin: 10px 0 20px 0;
+    border: #d4d0d0 solid 1px;
 }
 
 .step {
     background: #6cc0b9;
-
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
     color: #ffffff;
     display: inline-block;
     font-weight: bold;
@@ -1775,9 +1674,9 @@ div#infologin {
 }
 
 #infologin #pills-tab {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
     position: relative;
     width: 100%;
 }
@@ -1785,55 +1684,50 @@ div#infologin {
 #infologin .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #4b485b;
-    margin-left: 0px;
+    margin-left: 0;
     background-color: #ffffff;
     text-decoration: none;
     text-align: center;
     width: 312.5px;
     height: 80px;
     border-bottom: 7px solid #6cc0b9;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 #infologin .nav-pills .nav-link {
-    /* border-radius: .25rem; */
     width: 312.5px;
     height: 80px;
     text-align: center;
     text-decoration: none;
     color: #4b485b;
     border-bottom: 7px solid #f4f4f5;
-
 }
 
 #infologin .tab-content {
-    padding: 0px 0px 0px 0px;
+    padding: 0 0 0 0;
     background-color: #fff;
     margin-top: -5px;
     color: #727272;
 }
 
-/*******************form for infoguestlogin *****************************/
-
-.row.infolog input[type=text],
+.row.infolog input[type="text"],
 .row.infolog select,
 .row.infolog textarea {
     width: 100%;
     height: 70%;
     padding: 12px;
     color: #727272;
-    border: 2px solid #9e9e9e;
+    border: #9e9e9e solid 2px;
     border-radius: 8px;
     resize: vertical;
 }
 
-.row.infolog select[type=text] {
+.row.infolog select[type="text"] {
     width: 35%;
     padding: 2px;
 }
 
-
-.col-15.btnnext input[type=submit] {
+.col-15.btnnext input[type="submit"] {
     background-color: #6cc0b9;
     color: white;
     padding: 12px 20px;
@@ -1843,33 +1737,31 @@ div#infologin {
     float: right;
 }
 
-.col-15.btnnext input[type=submit]:hover {
+.col-15.btnnext input[type="submit"]:hover {
     background-color: #6cc0b9;
 }
 
 .container.guestlog {
     border-radius: 5px;
     background-color: #f4f4f5;
-    padding: 0px 20px 0px 20px;
+    padding: 0 20px 0 20px;
 }
 
 .row.infolog {
-    padding: 0px;
+    padding: 0;
 }
 
 .row.infologtwo {
-    padding: 0px 0px 0px 19px;
+    padding: 0 0 0 19px;
 }
 
 .row.infologthree {
-    padding: 0px 0px 0px 19px;
+    padding: 0 0 0 19px;
 }
 
 .row.infolog input.uploadsub {
     height: 40px;
     line-height: 2px;
-    padding-left: -10px;
-    line-height: -7px;
     border-radius: 8px;
 }
 
@@ -1877,14 +1769,12 @@ div#infologin {
     width: 120px;
     height: 40px;
     line-height: 2px;
-    padding-left: -10px;
-    line-height: -7px;
     border-radius: 8px;
     float: right;
 }
 
 .row.nextbtn {
-    padding: 0px;
+    padding: 0;
 }
 
 .col-15.btnnext {
@@ -1935,18 +1825,6 @@ div#infologin {
     margin-top: 6px;
 }
 
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-
-/*********************************infoguestlogin ***************************************/
-/************************* start of Event organiser booking details ********************/
-
-/* written by riliwan balogun http://www.facebook.com/riliwan.rabo*/
 .board {
     width: 100%;
     margin: 60px auto;
@@ -1959,7 +1837,6 @@ div#infologin {
     margin-left: 8%;
     margin-bottom: 0;
     box-sizing: border-box;
-
 }
 
 a.showmap {
@@ -1969,8 +1846,8 @@ a.showmap {
 
 div#eventrows {
     margin-top: -2%;
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 span.travelline {
@@ -1989,8 +1866,8 @@ span.evenspanline {
 }
 
 div#eventinfo {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
     color: #676868;
     font-size: 14px;
     font-family: Myriad pro;
@@ -1999,14 +1876,8 @@ div#eventinfo {
 .eventgreyline {
     border-bottom: 2px solid #dbdade;
     width: 100%;
-    padding-left: 0px;
+    padding-left: 0;
     margin-top: 36px;
-}
-
-.nav-tabs {
-    font-family: Myraid pro;
-    border-bottom: none;
-    /* font-size: 12px; */
 }
 
 .sleek-labels {
@@ -2019,8 +1890,8 @@ div#eventinfo {
 
 div#eventdetails {
     width: 100%;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
     font-family: Myriad pro;
 }
 
@@ -2029,13 +1900,12 @@ div#nav-eventportfolioContent {
     width: 100%;
     background-color: #f4f4f5;
     margin-bottom: 20px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
 }
 
 div#starreview {
-    padding-left: 0px;
-    padding-right: 0px;
-    color: 4b485b;
+    padding-left: 0;
+    padding-right: 0;
     color: #4b495b;
 }
 
@@ -2055,7 +1925,6 @@ a.fb-button {
     color: #fff;
     text-align: center;
     padding: 12px;
-
     line-height: 14px;
 }
 
@@ -2098,12 +1967,12 @@ board.liner {
 }
 
 .customlinewish {
-    border: 1px solid #6cc0b9;
+    border: #6cc0b9 solid 1px;
     width: 1096px;
 }
 
 .row.eventcustom {
-    padding-top: 0px;
+    padding-top: 0;
 }
 
 board.nav-tabs>li.active>a,
@@ -2131,42 +2000,41 @@ span.round-tabs {
 }
 
 a#one-tab {
-    margin: 67px 0px 0px 0px;
+    margin: 67px 0 0 0;
 }
 
 span.round-tabs.one {
     color: #fff;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
 }
 
 board li.active span.round-tabs.one {
     background: #fff !important;
-    border: 2px solid #ddd;
-    color: rgb(34, 194, 34);
+    border: #ddd solid 2px;
+    color: rgb(34 194 34);
 }
-
 
 board li.active span.round-tabs.two {
     background: #fff !important;
-    border: 2px solid #ddd;
+    border: #ddd solid 2px;
     color: #febe29;
 }
 
 board>li.active span.round-tabs.three {
     background: #fff !important;
-    border: 2px solid #ddd;
+    border: #ddd solid 2px;
     color: #3e5e9a;
 }
 
 board>li.active span.round-tabs.four {
     background: #fff !important;
-    border: 2px solid #ddd;
+    border: #ddd solid 2px;
     color: #f1685e;
 }
 
 board>li.active span.round-tabs.five {
     background: #fff !important;
-    border: 2px solid #ddd;
+    border: #ddd solid 2px;
     color: #999;
 }
 
@@ -2180,11 +2048,10 @@ board.nav-tabs>li:after {
     left: 45%;
     opacity: 0;
     margin: 0 auto;
-    bottom: 0px;
-    border: 5px solid red;
+    bottom: 0;
+    border: red solid 5px;
     border-bottom-color: red;
     transition: 0.1s ease-in-out;
-
 }
 
 board.nav-tabs>li.active:after {
@@ -2193,10 +2060,9 @@ board.nav-tabs>li.active:after {
     left: 45%;
     opacity: 1;
     margin: 0 auto;
-    bottom: 0px;
-    border: 5px solid red;
+    bottom: 0;
+    border: red solid 5px;
     border-bottom-color: #ddd;
-
 }
 
 board.nav-tabs>li a {
@@ -2215,20 +2081,16 @@ board.nav-tabs>li a:hover {
 .btn-outline-rounded {
     padding: 10px 40px;
     margin: 20px 0;
-    border: 2px solid transparent;
+    border: transparent solid 2px;
     border-radius: 25px;
 }
 
 .btn.green {
     background-color: #5cb85c;
-    /*border: 2px solid #5cb85c;*/
     color: #ffffff;
 }
 
-
-
-@media(max-width : 585px) {
-
+@media (max-width:585px) {
     .board {
         width: 100%;
         height: auto !important;
@@ -2262,16 +2124,7 @@ board.nav-tabs>li a:hover {
     }
 }
 
-/************************* end of Event organiser booking details ********************/
-
-
-
-/*********************** Booking History tabs *******************/
-
 #bookinghistorysection .nav {
-    display: -ms-flexbox;
-    /* display: flex; */
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding-left: 0;
     margin-bottom: 0;
@@ -2298,19 +2151,14 @@ a#bookorg-tab {
 #booking-history-bg {
     width: 100%;
     background-color: #f4f4f5;
-    margin: -23px 0px 0px 0px;
+    margin: -23px 0 0 0;
 }
 
-/** event organiser tab **/
 .marginevent {
     margin-top: 5px;
     margin-left: 29px;
     font-size: 13px;
 }
-
-/*** event organiser tab close **/
-/*********************** Booking History tabs *******************/
-/****************** customer profile flex ***************/
 
 a.btnflex {
     font-size: 13px;
@@ -2320,24 +2168,21 @@ a.btnflex {
     float: right;
 }
 
-/************** customer profile flex *************/
-
-/** customer profile cancellation **/
 #customer-cancel-bg {
-    padding: 0px 0px 0px 0px;
+    padding: 0 0 0 0;
     width: 1250px;
     background-color: #ffffff;
-    margin: 0px 0px 0px 0px;
+    margin: 0 0 0 0;
 }
 
 .row.cancelone {
-    padding-top: 0px;
+    padding-top: 0;
     color: #457aff;
     font-size: 14px;
 }
 
 .row.canceltwo {
-    padding-top: 0px;
+    padding-top: 0;
     margin-top: -21px;
     color: #727272;
     font-size: 14px;
@@ -2347,13 +2192,13 @@ a.btnflex {
 textarea#exampleFormControlTextarea1 {
     width: 99% !important;
     height: 100px !important;
-    border: 2px solid #9e9e9e;
-    margin: -14px 10px 0px 10px;
+    border: #9e9e9e solid 2px;
+    margin: -14px 10px 0 10px;
     padding: 10px 10px 10px 10px !important;
     border-radius: 8px;
     color: #727272;
     font-size: 12px;
-    border: 2px solid #9e9e9e !important;
+    border: #9e9e9e solid 2px !important;
 }
 
 .btn.btn-lg.confcancel {
@@ -2372,9 +2217,6 @@ textarea#exampleFormControlTextarea1 {
     border-radius: 6px;
 }
 
-/*** customer profile cancellation **/
-
-/************** customer profile venue **********/
 button.btn.btn-default.btnvenueflex {
     color: #fff;
     margin-top: 45px;
@@ -2382,9 +2224,6 @@ button.btn.btn-default.btnvenueflex {
     width: 150px;
 }
 
-/*********** customer profile venue *************/
-
-/*********************** customer profile supplier *******************/
 .packoffer {
     color: #4b485b;
     font-size: 14px;
@@ -2397,8 +2236,8 @@ button.btn.btn-default.btnvenueflex {
     float: right !important;
     text-align: left;
     font-size: 18px !important;
-    margin: 16px 0px 0px 506px;
-    height: 0px;
+    margin: 16px 0 0 506px;
+    height: 0;
     color: #4b485b;
 }
 
@@ -2406,8 +2245,8 @@ button.btn.btn-default.btnvenueflex {
     float: right !important;
     text-align: left;
     font-size: 18px !important;
-    margin: 16px 0px 0px 317px;
-    height: 0px;
+    margin: 16px 0 0 317px;
+    height: 0;
     color: #4b485b;
 }
 
@@ -2418,8 +2257,6 @@ a.supp_cancelled {
     margin-top: 49px;
 }
 
-/****************** customer profile supplier ***********************/
-/****************** customer profile events ***********************/
 button.btn.btn-default.btnevents {
     color: #fff;
     margin-top: 78px;
@@ -2427,9 +2264,6 @@ button.btn.btn-default.btnevents {
     width: 150px;
 }
 
-/****************** customer profile events ***********************/
-
-/****************** customer profile eventorganisers ***********************/
 button.btn.btn-default.btnevents {
     color: #fff;
     margin-top: 78px;
@@ -2438,16 +2272,16 @@ button.btn.btn-default.btnevents {
 }
 
 .row.organisers {
-    margin: -26px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    margin: -26px 0 0 0;
+    padding: 0 0 0 0;
     color: #4b485b;
     font-size: 18px;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
 }
 
 span.org-head {
     height: 25px;
-    margin: 0px 0px 0px 14px;
+    margin: 0 0 0 14px;
     padding-top: 10px;
 }
 
@@ -2458,14 +2292,9 @@ button.btn.btn-default.btnbkevents {
     width: 150px;
 }
 
-/****************** customer profile eventorganisers***********************/
-
-/************ top nav end ******************/
 .color-change {
     color: #6cc0b9;
 }
-
-/********* start of top head for inner page *****************/
 
 .customerdetails_tabs {
     margin-top: -33px;
@@ -2475,26 +2304,13 @@ button.btn.btn-default.btnbkevents {
     font-size: 13px;
 }
 
-#customerdetails>li.active>a,
-.nav-tabs>li.active>a:focus,
-.nav-tabs>li.active>a:hover {
-    color: #fff;
-    cursor: default;
-    background-color: #6cc0b9;
-    border: 1px solid #ddd;
-    border-bottom-color: #6cc0b9;
-    width: 265px;
-    text-align: center;
-
-}
-
 .customerdetails_tabs .nav-tabs>li.active>a,
 .nav-tabs>li.active>a:focus,
 .nav-tabs>li.active>a:hover {
     color: #fff;
     cursor: default;
     background-color: #6cc0b9;
-    border: 1px solid #ddd;
+    border: #ddd solid 1px;
     border-bottom-color: #6cc0b9;
     width: 265px;
     text-align: center;
@@ -2502,7 +2318,6 @@ button.btn.btn-default.btnbkevents {
 
 address {
     margin-top: -15px;
-    padding-top: -9px;
     margin-bottom: 1rem;
     font-style: normal;
     line-height: inherit;
@@ -2512,7 +2327,7 @@ address {
     background-color: #dbdadf;
     margin-right: 12px;
     line-height: 1.42857143;
-    border: 1px solid transparent;
+    border: transparent solid 1px;
     border-radius: 4px 4px 0 0;
     width: 265px;
     text-align: center;
@@ -2530,77 +2345,14 @@ address {
     width: 100%;
 }
 
-div#customerdetails {
-    margin-top: 32px;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-#customerdetails .nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
-    color: #fff;
-    background-color: #6cc0b9;
-    text-decoration: none;
-    text-align: center;
-    width: 170px;
-    height: 50px;
-    border-radius: 8px;
-}
-
-#customerdetails .nav-pills .nav-link {
-    /* border-radius: .25rem; */
-    width: 170px;
-    height: 50px;
-    text-align: center;
-    text-decoration: none;
-    color: #6cc0b9;
-    border: 2px solid #6cc0b9;
-    border-radius: 8px;
-}
-
-#customerdetails #pills-profile-tab {
-    margin-left: 25px;
-}
-
-#customerdetails .tab-content {
-    padding: 0px;
-    background-color: #fff;
-}
-
-#customerdetails .nav {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-    font-size: 14px;
-}
-
-div#customerprofile {
-    margin-top: 7px;
-}
-
-.row.custprofhead {
-    width: 960px;
-}
-
-.cust-prof-onlinepy {
-    width: 100%;
-    margin-top: -6px;
-    margin-left: -7rem !important;
-}
-
 .img-thumbnail {
-    padding: 0px;
+    padding: 0;
 }
 
-.col-lg-4.col-md-4.col-sm-12.col-xs-12.picheight {
+.picheight {
     height: 261px;
 }
 
-/**************** customer_profile_events ****************/
 .custevents {
     font-size: 13px;
     margin-top: -19px;
@@ -2613,7 +2365,7 @@ div#customerprofile {
     text-align: left;
     font-family: Myriad pro;
     font-size: 19px !important;
-    height: 0px;
+    height: 0;
     color: #4b485b;
     margin-left: 632px;
     margin-top: -39px;
@@ -2621,23 +2373,17 @@ div#customerprofile {
 }
 
 .fullrow {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     width: 1000px !important;
     margin-left: 633px;
     width: 50%;
 }
 
 .go-rightevents {
-    margin: 18px 0px 0px 521px;
+    margin: 18px 0 0 521px;
 }
 
-/** .go-right {
-    margin: -30px 0px 0px 633px;
-} **/
-
-/***************** customer _profile_events **************/
-/***************** customer _profile_booking history **************/
 div#customerprofilehistory {
     margin-top: 7px;
 }
@@ -2649,13 +2395,9 @@ a.venuepy-cash {
     margin-top: 30px;
 }
 
-/***************** customer _profile_booking history **************/
-
-/* Medium devices (landscape tablets, 768px and up) */
-
 .row.custprofeven {
     width: 100%;
-    padding: 0px;
+    padding: 0;
 }
 
 a.btnreview {
@@ -2687,7 +2429,6 @@ a.btnonlinepy {
     overflow: hidden;
     padding: 20px;
     text-align: justify;
-
 }
 
 span.custonline-color {
@@ -2730,13 +2471,12 @@ button.cancel-confirm {
 }
 
 .tab-content.cust-detail {
-    margin-top: 0px;
+    margin-top: 0;
     height: auto;
     padding: 20px;
     text-align: left;
 }
 
-/* css for table starts */
 .table-hover {
     background-color: #e5e5e5;
 }
@@ -2749,10 +2489,6 @@ button.cancel-confirm {
     background-color: #ffffff;
 }
 
-/* css for table end */
-
-/* css for model 008_02 start */
-
 .modal-header .close {
     margin-top: -35px;
 }
@@ -2761,19 +2497,14 @@ button.cancel-confirm {
     width: 90%;
 }
 
-/* css for model 008_02 end */
-
-/* css for model 008_03 start */
 .custom-color {
     color: #10a336;
 }
 
-/* css for model 008_04 start */
 textarea#change-text {
     margin-left: 10%;
 }
 
-/* css for model 008_05 start */
 select#bg-orange {
     background-color: orange;
     color: #ffffff;
@@ -2783,15 +2514,6 @@ select#bg-orange {
     margin-left: 10%;
 }
 
-/********* end of 008_03_venue_dashboard_cancel_booking*****************/
-/*******************upcoming events user click ******************/
-.row.color-bg-upclist {
-    width: 80%;
-    margin-left: 20%;
-    padding: 15px;
-    background-color: #f8f8f8;
-}
-
 .eventwish {
     height: 111px;
     width: 94%;
@@ -2799,13 +2521,11 @@ select#bg-orange {
     font-size: 14px;
 }
 
-/********************upcoming events user click ******************/
-/*********************************EventOrganiserslist ***********************/
 .venueslist .form-group {
     float: right;
 }
 
-.row.color-bg-eventlist {
+.item-bg-color {
     background-color: #f8f8f8;
     margin-bottom: 20px;
 }
@@ -2823,14 +2543,12 @@ select#bg-orange {
     float: right;
 }
 
-/***********************************end of Eventorganiserslist *****************/
-/*************************************supplier details *************************/
 a.booksupp {
     position: relative;
     width: 200px;
     height: 40px;
     background-color: #6cc0b9;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
     border-radius: 8px;
     text-align: center;
     padding-top: 8px;
@@ -2843,7 +2561,7 @@ a.shtsupp {
     width: 200px;
     height: 40px;
     background-color: #ffffff;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
     border-radius: 8px;
     text-align: center;
     padding-top: 8px;
@@ -2854,8 +2572,8 @@ a.shtsupp {
     float: right;
     margin-right: -115px;
     padding-top: 30px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 a.shtsupp.active {
@@ -2867,7 +2585,7 @@ a.shtsupp.active {
     background-color: #f4f4f5;
     font-family: Myriad pro;
     padding-left: 10px;
-    padding-right: 0px;
+    padding-right: 0;
     margin-left: 49px;
     width: 92.70%;
     margin-right: 49px;
@@ -2876,8 +2594,8 @@ a.shtsupp.active {
 }
 
 .row.sartravel {
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
     margin-right: -5px;
     float: right;
 }
@@ -2892,8 +2610,8 @@ a.shtsupp.active {
 
 .row.supptravel {
     font-size: 14px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 div#supplierdetails {
@@ -2940,8 +2658,6 @@ div#supppackdet {
     font-size: 18px;
 }
 
-/*************************************supplier details ***************************/
-/******************forgot Password *****************************************/
 div#forgotcontent {
     padding-right: 300px;
     padding-left: 300px;
@@ -2963,20 +2679,18 @@ div#forgotcontent {
     font-weight: 600;
 }
 
-#forgotcontent input[type=text],
-    {
+#forgotcontent input[type="text"] {
     width: 70%;
     height: 70%;
     padding: 12px;
     color: #727272;
-    border: 2px solid #9e9e9e;
+    border: #9e9e9e solid 2px;
     border-radius: 8px;
     resize: vertical;
 }
 
 div#formforgot {
     margin-top: 24px;
-    /* margin-bottom: 30px; */
 }
 
 label#forgotlab,
@@ -3002,7 +2716,7 @@ label#retypelab {
 input#inputforgot {
     color: #727272;
     padding: 12px;
-    border: 2px solid #9e9e9e;
+    border: #9e9e9e solid 2px;
     border-radius: 8px;
     width: 92%;
     margin-left: 4%;
@@ -3019,41 +2733,30 @@ button.forgotsubmit {
 }
 
 .row.forgotbaselink {
-    margin: 90px 0px 0px 92px;
+    margin: 90px 0 0 92px;
     font-size: 14px;
     text-decoration: underline;
 }
-
-/********************** Venue List **********************************************/
 
 .content-eve img {
     width: 100%;
     height: 100%;
 }
 
-h3.venuehead {
-    margin-top: 30px;
+.venuehead {
+    margin: 15px;
     font-size: 24px;
-    color: #4b485b;
     font-family: Myraid pro;
     font-weight: bold;
 }
 
-a.showmapbtn {
-    width: 150px;
+.showmapbtn {
     float: right;
-    height: 40px;
-    font-size: 14px;
-    text-align: center;
-    margin-top: -41px;
-    margin-right: 52px;
     background-color: #6cc0b9;
+    border: 1px solid #6cc0b9;
     border-radius: 8px;
-    color: #fff;
-    padding: 7px 10px 10px 10px;
 }
 
-/*** panel **************/
 .list-heading {
     padding: 10px;
     color: #4b485b;
@@ -3071,18 +2774,15 @@ a.showmapbtn {
     background-color: #ebebed;
 }
 
-/** checkbox ******/
-input[type=checkbox],
-input[type=radio] {
+input[type="checkbox"],
+input[type="radio"] {
     line-height: normal;
     width: 16px;
     height: 16px;
     margin-top: 2px;
-    border: 1px solid #000;
+    border: #000 solid 1px;
 }
 
-/****** checkbox *********/
-/**** form *********/
 .venuelab {
     color: #fff;
     margin-left: 10px;
@@ -3106,15 +2806,12 @@ input[type=radio] {
     background-color: #ff5252;
     padding: 10px 35px 10px 35px;
     border-radius: 8px;
-
 }
 
 div#labpackone {
-    /* float: left; */
-    margin: 3% 0px 0px -5.5%;
+    margin: 3% 0 0 -5.5%;
 }
 
-/*************************** venue details **************************************/
 .col-lg-2.col-md-2.col-sm-6.col-xs-6.alicon {
     float: left;
 }
@@ -3135,13 +2832,9 @@ span.clockrow {
 }
 
 div#venuedetails {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
     margin-top: 30px;
-}
-
-.nav-tabs {
-    color: #9d9ca4;
 }
 
 #packagecontent .btn.btn-link.collapsed {
@@ -3161,28 +2854,16 @@ div#venuedetails {
 #packagecontent .card-header[data-toggle="collapse"]:after {
     font-family: 'fontawesome';
     content: "\f106";
-    /* "play" icon */
     position: absolute;
     color: #b0c5d8;
     font-size: 18px;
     line-height: 22px;
     right: 20px;
     top: calc(50% - 10px);
-
-    /* rotate "play" icon from > (right arrow) to down arrow */
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
     transform: rotate(-90deg);
 }
 
 #packagecontent .card-header[data-toggle="collapse"].collapsed:after {
-    /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
     transform: rotate(90deg);
 }
 
@@ -3233,15 +2914,10 @@ h5.venuetestiname {
     margin-left: 55%;
 }
 
-/****************************** venue details ***********************************/
-
-/****************************** Venue List **************************************/
-/********* start of 004_4_5_package_venues*****************/
 div#venuelist {
     margin-top: 32px;
     padding-left: 43px;
     padding-right: 43px;
-    /* padding-left: 47px; */
 }
 
 .blogvenue {
@@ -3268,14 +2944,13 @@ div#venuelist {
     background-color: #6cc0b9;
 }
 
-/* Content */
 button {
     background-color: #6cc0b9;
 }
 
 .content-whole-col {
     background-color: #ffffff;
-    margin: -27px 0px 0px -29px;
+    margin: -27px 0 0 -29px;
 }
 
 .row.color-bg-eve {
@@ -3283,7 +2958,7 @@ button {
     margin-top: 18px;
     background-color: #f8f8f8;
     height: auto;
-    padding: 0px 0px 0px 0px;
+    padding: 0 0 0 0;
 }
 
 .row.color-bg-eve-top {
@@ -3291,12 +2966,11 @@ button {
     margin-top: 25px;
     background-color: #f8f8f8;
     height: auto;
-    padding: 0px 0px 0px 0px;
+    padding: 0 0 0 0;
 }
 
 .content-eve-right {
     float: right;
-
 }
 
 .checked {
@@ -3324,28 +2998,22 @@ button {
     float: left;
 }
 
-
-/********* Venue Dashboard add venue *****************/
 .col-xs-1-5 {
     width: 12.49995%;
 }
 
 .box-venue-check {
-    border: 1px solid #000;
+    border: #000 solid 1px;
     text-align: center;
 }
 
-/********* Venue Dashboard Booking *****************/
 #change-color-popup {
     color: #4b485b;
 }
 
-/********* start of Blogs *****************/
-
 #btn-blogone {
     margin-left: 789px;
 }
-
 
 .blog-icon {
     margin-top: -14px;
@@ -3376,7 +3044,6 @@ span.blog-icon-text {
     color: #4b485b;
     font-size: 18px;
     margin-top: 14px;
-
 }
 
 button.btn.btn-default.btncutomer {
@@ -3388,7 +3055,7 @@ button.btn.btn-default.btncutomer {
 
 button.btn.btn-default.btncutomer:hover {
     background-color: #6cc0b9;
-    border: 1px solid #6cc0b9;
+    border: #6cc0b9 solid 1px;
     color: #fff;
     margin-top: -9px;
     margin-right: -172px;
@@ -3412,19 +3079,19 @@ button.btn.btn-default.btncutomer:hover {
 }
 
 .icons-cust {
-    height: 0px;
+    height: 0;
     margin-left: -3px;
 }
 
 .fullvenue {
     height: auto;
-    padding: 0px 0px 0px 0px;
+    padding: 0 0 0 0;
     width: 100%;
 }
 
 .fullcancel {
-    margin: -41px 0px 0px -25px;
-    padding: 0px 0px 0px 0px;
+    margin: -41px 0 0 -25px;
+    padding: 0 0 0 0;
     width: 100%;
 }
 
@@ -3433,11 +3100,11 @@ button.btn.btn-default.btncutomer:hover {
     color: #727272;
     font-size: 12px;
     text-align: justify;
-    margin: -20px 0px 0px 11px;
+    margin: -20px 0 0 11px;
 }
 
 .icons-custone {
-    height: 0px;
+    height: 0;
     margin-left: -2px;
 }
 
@@ -3542,7 +3209,7 @@ a#detail-banner-right {
 
 li#activehome {
     background-color: white;
-    border-radius: 8px 8px 0px 0px;
+    border-radius: 8px 8px 0 0;
     text-decoration: none;
 }
 
@@ -3555,7 +3222,7 @@ li#activehome {
 li.venuedetails {
     background-color: #ccccd2;
     margin-left: 3px;
-    border-radius: 8px 8px 0px 0px;
+    border-radius: 8px 8px 0 0;
     text-decoration: none;
     color: black;
 }
@@ -3574,18 +3241,10 @@ a.right.carousel-control.four-right {
     width: 38px;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 .slider {
     width: 50%;
     margin: 100px auto;
 }
-
-/***********startt of venue details_ 02  page**************/
-/***********startt of venue details tabs**************/
-/* change border radius for the tab , apply corners on top*/
 
 #exTab3 .nav-pills>li>a {
     border-radius: 4px 4px 0 0;
@@ -3611,7 +3270,7 @@ a.right.carousel-control.four-right {
     background-color: #f0f0f1;
     padding: 5px 15px;
     width: 97%;
-    margin-top: 0px;
+    margin-top: 0;
     overflow: hidden;
 }
 
@@ -3619,7 +3278,7 @@ a.right.carousel-control.four-right {
     color: #fff;
     cursor: default;
     background-color: #6cc0b9;
-    border: 1px solid #ddd;
+    border: #ddd solid 1px;
     border-bottom-color: #6cc0b9;
     text-align: center;
 }
@@ -3645,7 +3304,6 @@ a.right.carousel-control.four-right {
     margin-left: -1em;
 }
 
-/******************* venue registration start *************/
 .form-group.venuereg {
     margin-top: -21px;
 }
@@ -3659,65 +3317,55 @@ a.right.carousel-control.four-right {
     font-size: 18px;
 }
 
-/******************* venue registration end *************/
-/****************************** end of tabs venue details ****************************/
-/****************************** start of event organisers details ****************************/
-/* Medium devices (landscape tablets, 768px and up) */
-
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width:1200px) {
     #btn-port {
-
         width: 125px;
     }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width:1024px) {
     #btn-port {
-
         width: 114px;
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width:768px) {
     a.eventterms {
-
         margin-left: 81%;
     }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width:1024px) {
     a.eventterms {
-
         margin-left: 86%;
     }
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width:1280px) {
     a.eventterms {
-
         margin-left: 90%;
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width:768px) {
     #btn-port {
         margin-left: -2%;
     }
 }
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width:1280px) {
     #btn-port {
         margin-left: 8%;
     }
 }
 
-@media only screen and (min-width: 1366px) {
+@media only screen and (min-width:1366px) {
     #btn-port {
         margin-left: 12%;
     }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width:1200px) {
     .content-option {
         margin-top: -11%;
         width: 210px;
@@ -3733,9 +3381,7 @@ a.right.carousel-control.four-right {
     }
 }
 
-
 .bg-info {
-
     color: #fff !important;
 }
 
@@ -3745,7 +3391,6 @@ a.right.carousel-control.four-right {
     float: left;
     margin: initial;
     width: 53%;
-    ;
     font-size: 24px;
     margin-left: -1%;
     margin-top: 67px;
@@ -3760,7 +3405,7 @@ a.right.carousel-control.four-right {
 .event_h_four {
     color: #4b485b;
     text-align: left;
-    margin-left: 0px;
+    margin-left: 0;
     margin-top: 5px;
 }
 
@@ -3776,13 +3421,11 @@ div#eventmargin {
     background-color: #000000;
 }
 
-/*************** end of thumbail carousel *******************/
-
 #signone,
 #signtwo {
     width: 160px;
     height: 35px;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
 }
 
 #signtwo {
@@ -3791,8 +3434,6 @@ div#eventmargin {
     color: white;
 }
 
-/*** first two button start ***/
-/************ top nav end ******************/
 .color-change {
     color: #6cc0b9;
 }
@@ -3802,15 +3443,11 @@ div#eventmargin {
     margin-left: -110px;
 }
 
-/*********end of customer profile *****************/
-/************* start of  003_3_4_theme_detail **********************/
-/* carousel */
 #quote-carousel {
     padding: 0 10px 30px 10px;
     margin-top: -22px;
 }
 
-/* Control buttons  */
 #quote-carousel .carousel-control {
     background: none;
     color: #222;
@@ -3819,25 +3456,21 @@ div#eventmargin {
     margin-top: 30px;
 }
 
-/* Previous button  */
 #quote-carousel .carousel-control.left {
     left: -12px;
 }
 
-/* Next button  */
 #quote-carousel .carousel-control.right {
     right: -12px;
 }
 
-/* Changes the position of the indicators */
 #quote-carousel .carousel-indicators {
     right: 50%;
     top: auto;
-    bottom: 0px;
+    bottom: 0;
     margin-right: -19px;
 }
 
-/* Changes the color of the indicators */
 #quote-carousel .carousel-indicators li {
     background: #c0c0c0;
 }
@@ -3850,8 +3483,6 @@ div#eventmargin {
     width: 80%;
     height: auto;
 }
-
-/* End carousel */
 
 .item blockquote {
     border-left: none;
@@ -3869,20 +3500,14 @@ div#eventmargin {
     margin-right: 10px;
 }
 
-/** MEDIA QUERIES */
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (min-width:768px) {
     #quote-carousel {
         margin-bottom: 0;
         padding: 0 40px 30px 40px;
     }
 }
 
-/* Small devices (tablets, up to 768px) */
-@media (max-width: 768px) {}
-
-/* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+@media (max-width:768px) {}
 
 #quote-carousel .carousel-indicators {
     bottom: -20px !important;
@@ -3890,24 +3515,21 @@ div#eventmargin {
 
 #quote-carousel .carousel-indicators li {
     display: inline-block;
-    margin: 0px 5px;
+    margin: 0 5px;
     width: 15px;
     height: 15px;
 }
 
 #quote-carousel .carousel-indicators li.active {
-    margin: 0px 5px;
+    margin: 0 5px;
     width: 20px;
     height: 20px;
 }
 
-/************ supplier package details start ******************/
 .date-bg {
     width: 200px;
     height: 40px;
 }
-
-/************ supplier package start ******************/
 
 p.get-right {
     float: right;
@@ -3932,8 +3554,6 @@ p.get-right {
     background-color: #f4f4f5;
     height: auto;
 }
-
-/************ customer profile supplier start ******************/
 
 a:hover,
 a:focus {
@@ -3982,11 +3602,9 @@ a.btncancelbyuser {
     color: blue;
 }
 
-/************ upcoming events start ******************/
 #inner_thumb {
     width: 1200px;
     height: 150px;
-
 }
 
 .list-inline {
@@ -4020,10 +3638,10 @@ a.btncancelbyuser {
 
 .arabic-logosec {
     float: right;
-    margin-left: 0px;
+    margin-left: 0;
     margin-top: 2%;
     margin-bottom: 6px;
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 .row.eventrows {
@@ -4047,10 +3665,9 @@ div#slider-thumbs {
     margin-top: 15px;
 }
 
-/************ even organiser tab part start******************/
 h4 {
     font-weight: 700;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
 }
 
 label {
@@ -4060,7 +3677,7 @@ label {
 button {
     display: inline-block;
     vertical-align: top;
-    padding: .4em .8em;
+    padding: 0.4em 0.8em;
     margin: 0;
     background: #68b8c4;
     border: 0;
@@ -4079,10 +3696,6 @@ button:focus {
     outline: 0 none;
 }
 
-/*************** start 004_4_4-package event organiser *********/
-
-/*************** customer SignIn start *********/
-
 form#sign_up_form .form-group label,
 form#sign_in_form .form-group label {
     font-size: 13px;
@@ -4095,7 +3708,6 @@ form#sign_in_form .form-group label {
     margin: auto;
     transition: 0.5s ease;
     backface-visibility: hidden;
-
     border-color: #ececec;
     margin-top: 4rem;
     max-width: 73%;
@@ -4103,7 +3715,7 @@ form#sign_in_form .form-group label {
 
 input.form-control.csignin {
     border-radius: 8px;
-    border: 2px solid #9e9e9e;
+    border: #9e9e9e solid 2px;
 }
 
 .small-cust {
@@ -4126,7 +3738,7 @@ input.form-control.csignin {
     float: left;
     color: #676868;
     background-color: #ffffff;
-    box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 16px 0 rgb(0 0 0 / 0.2);
 }
 
 .phone-inputs input:first-child {
@@ -4158,7 +3770,7 @@ input.form-control.csignin {
     padding-left: 9px;
     letter-spacing: 42px;
     border: #fff;
-    background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+    background-image: linear-gradient(to left, black 70%, rgb(255 255 255 / 0) 0%);
     background-position: bottom;
     background-size: 50px 1px;
     background-repeat: repeat-x;
@@ -4189,7 +3801,6 @@ form#sign_in_form .form-group .formcust-head {
     padding-top: 2rem;
 }
 
-/*************** customer SignIn End*********/
 .bg-custsignup,
 .bg-custsignin {
     padding: 0;
@@ -4200,14 +3811,14 @@ form#sign_in_form .form-group .formcust-head {
 input.form-control.csignupcode {
     margin-left: 24px;
     border-radius: 8px;
-    border: 2px solid #9e9e9e;
+    border: #9e9e9e solid 2px;
     width: 75px;
 }
 
 input.form-control.csignup-phone {
     margin-left: 24px;
     border-radius: 8px;
-    border: 2px solid #9e9e9e;
+    border: #9e9e9e solid 2px;
     width: 148px;
     margin-left: 11px;
 }
@@ -4321,13 +3932,10 @@ span#tweeticon {
     color: #fff;
 }
 
-/*************** customer SignIn End*********/
-
-/**************package list bottom underline tab ***************/
 .row.packsortlist {
     width: 97%;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 select.form-control.sortpackagelist {
@@ -4339,8 +3947,8 @@ select.form-control.sortpackagelist {
     padding-top: 1px;
     margin-left: 50px;
     width: 97%;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 div#innertwotab {
@@ -4372,56 +3980,40 @@ div#innertwotab {
     margin-top: 10px;
 }
 
-#underlinetab #pills-tab {
+.underlinetab #pills-tab {
     position: relative;
-    border-top: 2px solid #dbdade;
-    border-bottom: 2px solid #dbdade;
+    border-bottom: 1px solid #dbdade;
 }
 
-#underlinetab .nav-pills .nav-link.active,
+.underlinetab .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #4b485b;
-    margin-left: 0px;
+    margin-left: 0;
     background-color: #ffffff;
     text-decoration: none;
     text-align: center;
     width: 170px;
     height: 50px;
     border-bottom: 7px solid #6cc0b9;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
-#underlinetab .nav-pills .nav-link {
-    /* border-radius: .25rem; */
+.underlinetab .nav-pills .nav-link {
     width: 170px;
     height: 50px;
     text-align: center;
     text-decoration: none;
     color: #4b485b;
     border: none;
-    border-radius: none;
 }
 
-#underlinetab.nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
-    background-color: none;
+.underlinetab.nav-pills .nav-link {
+    border-radius: 0;
 }
 
-#underlinetab.nav-pills .nav-link {
-    border-radius: 0rem;
-}
-
-/******************package list content start **************************/
 .content-optionpacklist {
     width: 665px;
-    margin-left: 0px;
-}
-
-div#packagelist-contentright {
-    width: 1239px;
-    margin-top: -15px;
-    padding-left: 0px;
-    padding-right: 0px;
+    margin-left: 0;
 }
 
 .content-expsort-top {
@@ -4431,7 +4023,7 @@ div#packagelist-contentright {
 }
 
 .leftfilter {
-    padding-left: 0px;
+    padding-left: 0;
     margin-top: -112px;
     margin-left: -108px;
 }
@@ -4455,9 +4047,8 @@ div#packageprofile {
 }
 
 .row.color-bg-packcontent {
-    /* padding-left: 15px; */
     margin-top: 2px;
-    margin-left: 0px;
+    margin-left: 0;
     width: 999px;
     background-color: #f8f8f8;
     height: auto;
@@ -4465,9 +4056,8 @@ div#packageprofile {
 }
 
 .row.color-bg-packcontentnxt {
-    /* padding-left: 15px; */
     margin-top: 10px;
-    margin-left: 0px;
+    margin-left: 0;
     width: 999px;
     background-color: #f8f8f8;
     height: auto;
@@ -4476,23 +4066,19 @@ div#packageprofile {
 
 div#packlist-contentright {
     margin-top: -15px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
     position: absolute;
 }
 
-/*************** event oorganiser tab start *********/
 #tab-work_organiser {
     width: 272px !important;
     margin-left: 5px;
     background-color: #dbdade;
-    border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0 0;
     color: #4b485b;
 }
 
-/*************** event oorganiser tab start*********/
-
-/**************** venue tab --home tab ***********************/
 .venues-tab {
     border-bottom: 2px solid #DDD;
 }
@@ -4521,9 +4107,9 @@ div#packlist-contentright {
     height: 2px;
     position: absolute;
     width: 100%;
-    left: 0px;
+    left: 0;
     bottom: -1px;
-    transition: all 250ms ease 0s;
+    transition: all 250ms 0s ease;
     transform: scale(0);
 }
 
@@ -4533,7 +4119,7 @@ div#packlist-contentright {
 }
 
 .venues-tab>li>a::after {
-    background: #21527d none repeat scroll 0% 0%;
+    background: none 0% 0% repeat scroll #21527d;
     color: #fff;
 }
 
@@ -4541,12 +4127,9 @@ div#packlist-contentright {
     background-color: #f8f8f8;
 }
 
-/********* end of 004_4_5_package_venues*****************/
-/* The "show" class is added to the filtered elements */
-/********* start of 004_4_5_package_venues*****************/
 .bg-star {
     background-color: #f4f4f5;
-    outline-color: rgb(201, 76, 76);
+    outline-color: rgb(201 76 76);
     margin: auto;
     color: #4b485b;
 }
@@ -4572,9 +4155,6 @@ span.star-head-one {
     margin-left: 15px;
 }
 
-
-/*****************************customer profile start head *************************/
-/************ top nav start ******************/
 .head-dropzone {
     margin-top: -7px;
     border-radius: 20px;
@@ -4582,7 +4162,6 @@ span.star-head-one {
     color: #ffffff;
 }
 
-/************ top nav end ******************/
 .color-change {
     color: #6cc0b9;
 }
@@ -4590,12 +4169,8 @@ span.star-head-one {
 #customer-profile-bg {
     width: 100%;
     background-color: #f4f4f5;
-    margin: 25px 0px 0px 0px;
+    margin: 25px 0 0 0;
 }
-
-/********* start of home page *****************/
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
 
 .container-fluid.slickslideevent {
     padding-left: 25px;
@@ -4630,7 +4205,7 @@ span.star-head-one {
 
 #radius-given {
     border-radius: 45px;
-    border: 1px solid #ffffff;
+    border: #ffffff solid 1px;
     background-color: #a8abad;
     color: #ffffff !important;
 }
@@ -4645,19 +4220,15 @@ span.star-head-one {
     margin-top: 12px;
     margin-left: -22px;
     z-index: 9;
-    position: absolute
+    position: absolute;
 }
 
-/* Hide the carousel text when the screen is less than 600 pixels wide */
-@media (max-width: 600px) {
+@media (max-width:600px) {
     .carousel-caption {
         display: none;
     }
 }
 
-/* CUSTOMIZE THE HOME PAGE CAROUSEL ENDS
--------------------------------------------------- */
-/******** four box **********/
 #middle_layer {
     height: auto;
 }
@@ -4675,43 +4246,43 @@ span.star-head-one {
     font-size: 25px;
     height: 50%;
     color: #4b485b;
-    margin: 40px 0px 0px 400px;
+    margin: 40px 0 0 400px;
 }
 
 #plus_one {
     position: relative;
     float: left;
-    margin-left: 0px
+    margin-left: 0;
 }
 
 #plus_two {
     position: relative;
     float: left;
-    margin-left: 0px
+    margin-left: 0;
 }
 
 #plus_three {
     position: relative;
     float: left;
-    margin-left: 0px
+    margin-left: 0;
 }
 
 #plus_four {
     position: relative;
     float: left;
-    margin-left: 0px
+    margin-left: 0;
 }
 
 #contentinside {
     position: relative;
     width: 271px;
     height: 210px;
-    margin-left: 0px;
+    margin-left: 0;
     float: left;
     border-color: #ececec;
     background-color: #ffffff;
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 8px 8px 16px 0 rgb(0 0 0 / 0.2);
 }
 
 #contentinside1 {
@@ -4719,11 +4290,11 @@ span.star-head-one {
     width: 271px;
     height: 210px;
     float: left;
-    margin-left: 0px;
+    margin-left: 0;
     border-color: #ececec;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0 0 10px 10px;
     background-color: #ffffff;
-    box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 16px 0 rgb(0 0 0 / 0.2);
 }
 
 #contentinside2 {
@@ -4731,11 +4302,11 @@ span.star-head-one {
     width: 271px;
     height: 210px;
     float: left;
-    margin-left: 0px;
+    margin-left: 0;
     border-color: #ececec;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0 0 10px 10px;
     background-color: #ffffff;
-    box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 16px 0 rgb(0 0 0 / 0.2);
 }
 
 #contentinside3 {
@@ -4743,16 +4314,13 @@ span.star-head-one {
     width: 271px;
     height: 210px;
     float: left;
-    margin-left: 0px;
+    margin-left: 0;
     border-color: #ececec;
-
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0 0 10px 10px;
     background-color: #ffffff;
-    box-shadow: 8px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 8px 16px 0 rgb(0 0 0 / 0.2);
 }
 
-
-/********** start meetingcontent ***********/
 #meeting_content {
     width: 100%;
     height: auto;
@@ -4781,21 +4349,13 @@ span.star-head-one {
     width: 150px;
     float: left;
     font-size: 16px;
-    float: center;
     font-size: small;
-    margin: 10px 0px 0px 570px;
-    border: 2px solid #5cb9b1 !important;
+    margin: 10px 0 0 570px;
+    border: #5cb9b1 solid 2px !important;
     border-style: solid;
     border-radius: 50px;
     background-color: #fff;
     color: #5cb9b1;
-}
-
-/********** end meetingcontent ***********/
-
-/********** Testimonial start ***********/
-* {
-    box-sizing: border-box
 }
 
 .carousel-inner.testipic {
@@ -4856,13 +4416,11 @@ span.star-head-one {
     margin: auto;
 }
 
-/* Slideshow container */
 .slideshow-container {
     position: relative;
     background: #5cb9b1;
 }
 
-/* Slides */
 .mySlides,
 .myslides1 {
     display: none;
@@ -4874,7 +4432,6 @@ span.star-head-one {
     text-align: center;
 }
 
-/* Next & previous buttons */
 .prev,
 .next {
     cursor: pointer;
@@ -4890,36 +4447,22 @@ span.star-head-one {
     user-select: none;
 }
 
-/* Position the "next button" to the right */
 .next {
     position: absolute;
     right: 0;
     border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(0 0 0 / 0.8);
     color: white;
 }
 
-/* Add an italic font style to all quotes */
-q {
-    font-style: italic;
-}
-
-/* Add a blue color to the author */
 .author {
     color: #ffffff;
 }
 
-/****************** Testimonial end ***************************/
-
-
-/********************************* end of home page *****************/
-/********************************* end of home page *****************/
-/* footer starts */
 footer {
     padding: 25px;
     margin: auto;
@@ -4931,7 +4474,7 @@ footer {
 footer h5 {
     font-size: 16px;
     line-height: 36px;
-    margin: 0px 0px 8px 40px;
+    margin: 0 0 8px 40px;
     float: left;
     width: 200px;
 }
@@ -4952,7 +4495,7 @@ footer li a {
     float: left;
     color: #ffffff;
     font-size: 12px;
-    margin: 0px 0px 0px 0px;
+    margin: 0 0 0 0;
     text-decoration: none;
 }
 
@@ -4966,10 +4509,9 @@ footer li a {
     text-transform: none;
     display: inline-block;
     white-space: nowrap;
-    word-wrap: normal;
+    overflow-wrap: normal;
     direction: ltr;
     vertical-align: -8px;
-    -webkit-font-smoothing: antialiased;
 }
 
 footer li a:hover {
@@ -5006,15 +4548,11 @@ h5.foot-decoration {
     text-decoration: underline;
 }
 
-/******************* footer ends **********************/
-/******************* footer ends **********************/
 #myCarousel .item {
     width: 100%;
     margin: 0;
     padding: 0;
 }
-
-/* CSS for Home Slider */
 
 #myCarouselIndicators .carousel-indicators {
     position: relative;
@@ -5031,7 +4569,7 @@ h5.foot-decoration {
 }
 
 .carousel-indicators li {
-    border: 2px solid #fff;
+    border: #fff solid 2px;
     background: transparent;
 }
 
@@ -5040,21 +4578,19 @@ h5.foot-decoration {
     border: none;
 }
 
-
-/* jQuery Validation CSS */
 input.form-control.is-valid {
-    border: 2px solid grey;
+    border: grey solid 2px;
 }
 
-input[type=checkbox].is-valid+span {
+input[type="checkbox"].is-valid+span {
     color: grey;
 }
 
 input.form-control.is-invalid {
-    border: 2px solid red;
+    border: red solid 2px;
 }
 
-input[type=checkbox].is-invalid+span {
+input[type="checkbox"].is-invalid+span {
     color: red;
 }
 
@@ -5063,13 +4599,12 @@ input[type=checkbox].is-invalid+span {
     font-size: 10px;
 }
 
-/************************ media queries for infoguestlogin ************************/
-@media screen and (max-width: 1024px) {
+@media screen and (max-width:1024px) {
     .col-18.addphone {
         margin-left: -72px;
     }
 
-    select[type=text],
+    select[type="text"],
     select {
         width: 43% !important;
     }
@@ -5087,7 +4622,7 @@ input[type=checkbox].is-invalid+span {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width:768px) {
     .col-18.addphone {
         margin-left: -50px;
     }
@@ -5105,7 +4640,7 @@ input[type=checkbox].is-invalid+span {
     }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width:425px) {
     .col-20 {
         width: 76%;
     }
@@ -5130,16 +4665,10 @@ input[type=checkbox].is-invalid+span {
     }
 }
 
-/**********************media Queries for evenorganiserslist *************************/
-@media screen and (max-width: 768px) {
+@media screen and (max-width:768px) {
     .row.evenorglist {
         margin-top: -17px;
         margin-left: -104px;
-    }
-
-    .row.color-bg-eventlist {
-        margin-left: 130px;
-        width: 76.5%;
     }
 
     .eventwish {
@@ -5155,14 +4684,9 @@ input[type=checkbox].is-invalid+span {
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width:1024px) {
     .row.evenorglist {
         margin-left: -8%;
-    }
-
-    .row.color-bg-eventlist {
-        margin-left: 14%;
-        width: 86%;
     }
 
     .wish-head {
@@ -5175,19 +4699,7 @@ input[type=checkbox].is-invalid+span {
     }
 }
 
-/********************media queries for evenorganiserlist ***********************/
-/************************media queries for package List ***********************/
-@media only screen and (max-width: 1200px) {
-    div#packagelist-contentright {
-        width: 1334px;
-    }
-
-    .row.evenorglist {
-        width: 97%;
-    }
-}
-
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width:1024px) {
     a#nav-express-tab {
         width: 32.60%;
     }
@@ -5200,7 +4712,7 @@ input[type=checkbox].is-invalid+span {
         width: 32.60%;
     }
 
-    #underlinetab #pills-tab {
+    .underlinetab #pills-tab {
         width: 54%;
     }
 
@@ -5228,10 +4740,9 @@ input[type=checkbox].is-invalid+span {
     select.form-control.sortvenues {
         margin-left: 640px;
     }
-
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width:768px) {
     a#nav-express-tab {
         width: 32.32%;
     }
@@ -5257,15 +4768,10 @@ input[type=checkbox].is-invalid+span {
         margin-left: -17%;
     }
 
-    #underlinetab #pills-tab,
+    .underlinetab #pills-tab,
     .row.color-bg-expcontent,
     .row.color-bg-expcontentnext {
         width: 36.50%;
-    }
-
-    .row.color-bg-eventlist {
-        margin-left: 24%;
-        width: 76%;
     }
 
     select.form-control.sortvenues {
@@ -5273,7 +4779,7 @@ input[type=checkbox].is-invalid+span {
     }
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width:1280px) {
     a#nav-express-tab {
         width: 32.75%;
     }
@@ -5290,7 +4796,7 @@ input[type=checkbox].is-invalid+span {
         width: 90.50%;
     }
 
-    #underlinetab #pills-tab {
+    .underlinetab #pills-tab {
         width: 80%;
     }
 
@@ -5303,63 +4809,33 @@ input[type=checkbox].is-invalid+span {
     .content-optionpacklist {
         width: 600px;
     }
-
-    .row.color-bg-eventlist {
-        margin-left: 81px;
-        width: 924px;
-    }
 }
 
-/***********************media queries for supplier details ********************/
-
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width:1024px) {
     #supplierpacksect {
         width: 90.30%;
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width:768px) {
     #supplierpacksect {
         width: 87.30%;
     }
 }
 
-/************************media queries for package List ***********************/
-@media only screen and (max-width: 1024px) {
-    .row.color-bg-venuelist {
-
-        margin-left: 108px;
-
-        width: 87%;
-
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .row.color-bg-venuelist {
-
-        margin-left: 77px;
-
-        width: 97%;
-
-    }
-}
-
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width:1024px) {
     select.form-control.sortvenues {
-
         margin-left: 151%;
     }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width:1200px) {
     select.form-control.sortvenues {
-
         margin-left: 882px;
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width:1024px) {
     a#nav-home-tab {
         width: 24.15%;
     }
@@ -5380,63 +4856,46 @@ input[type=checkbox].is-invalid+span {
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width:1200px) {
     .container {
         max-width: 1300px;
     }
 
     .maindivider {
-        border: 1px solid #dbdadf;
+        border: #dbdadf solid 1px;
     }
-
 }
 
-@media(max-width:1024px) and (max-height:768) {
+@media (max-width:1024px) {
     body {
         overflow-x: hidden;
     }
 }
 
-@media(max-width:768px) and (max-height:1024) {
+@media (max-width:768px) {
     body {
         overflow-x: hidden;
     }
 }
 
-@media only screen and (max-width: 1024px) {
-    .row.color-bg-upclist {
-        width: 73%;
-        margin-left: 27%;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .row.color-bg-upclist {
-        width: 80%;
-        margin-left: 20%;
-    }
-}
-
-@media (min-width: 1280px) {
-
+@media (min-width:1280px) {
     .col-lg-6.col-md-6.col-xs-6.star {
         margin-top: 19px;
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width:768px) {
     .cust-prof-onlinepy {
         margin-left: -4rem !important;
     }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width:1200px) {
     .cust-prof-onlinepy {
         margin-left: -7rem !important;
     }
 }
 
-/* CSS for more less links */
 .morecontent span {
     display: none;
 }
@@ -5445,8 +4904,7 @@ input[type=checkbox].is-invalid+span {
     display: block;
 }
 
-/* Search - City Datepicker css */
-#cityDateForm .gj-datepicker [role=right-icon] {
+#cityDateForm .gj-datepicker [role="right-icon"] {
     cursor: pointer;
     background: #fff;
 }
@@ -5462,7 +4920,7 @@ input[type=checkbox].is-invalid+span {
 
 .form-control.themehome {
     height: 40px;
-    border: 2px solid grey;
+    border: grey solid 2px;
     border-radius: 4px;
 }
 
@@ -5486,10 +4944,9 @@ span.date-element-theme {
     margin-top: 8px;
 }
 
-/**********************************headercustom *******************************************/
 .picimage {
     width: 3%;
-    display: inline;
+    display: inline-block;
     margin-left: 82%;
     position: absolute;
 }
@@ -5503,7 +4960,6 @@ img.circlepic {
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    /* position: relative; */
     float: right;
 }
 
@@ -5511,7 +4967,6 @@ span#vendorbadge {
     text-align: center;
     margin-top: -5px;
     margin-left: 26px;
-    padding-bottom: -4px;
     height: 16px;
     width: 16px;
     position: absolute;
@@ -5523,27 +4978,22 @@ span#vendorbadge {
 .customdropdown button#dropdownMenuButton:hover {
     background-color: #6cc0b9;
     color: #ffffff;
-    border: 2px solid #6cc0b9;
+    border: #6cc0b9 solid 2px;
     border-radius: 25px;
-    /* width: 99%; */
 }
 
 .customdropdown .dropdown-menu.show {
     display: inline-flex;
     text-align: center;
     width: 7px;
-    /* position: relative; */
     border-radius: 30px;
-    /* width: 10%; */
 }
 
 .customdropdown .dropdown-menu.show {
     display: inline-flex;
     text-align: center;
     width: 7px;
-    /* position: relative; */
     border-radius: 30px;
-    /* width: 10%; */
 }
 
 .customdropdown .dropdown-menu {
@@ -5555,9 +5005,7 @@ span#vendorbadge {
     float: left;
     min-width: 7.6rem;
     height: 2.5rem;
-    min-height: -9px;
-    padding: .3rems;
-    margin: .125rem 0 0;
+    margin: 0.125rem 0 0;
     font-size: 1rem;
     color: #212529;
     text-align: left;
@@ -5566,19 +5014,17 @@ span#vendorbadge {
     color: #fff;
     border-radius: 14px;
     background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, .15);
-    border-radius: .25rem;
+    border: rgb(0 0 0 / 0.15) solid 1px;
+    border-radius: 0.25rem;
     width: 10%;
 }
 
 .customdropdown .dropdown-item {
     width: 99%;
     color: #fff;
-    padding: 0px;
+    padding: 0;
     font-weight: 500;
 }
-
-/* CSS for phone number inputs, we can use these classes gobally, use col-2 for first child and use col-9 formsecond child */
 
 .phone-row input:first-child {
     width: 20%;
@@ -5589,14 +5035,10 @@ span#vendorbadge {
     margin-left: 3%;
 }
 
-/* CSS for city-date search form */
-
 #set-bg {
     background-color: #6cc0b9;
     min-height: 150px;
 }
-
-/* Home page related css */
 
 #facilitate-form {
     margin: auto;
@@ -5614,4 +5056,16 @@ span#vendorbadge {
 .why-collap {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+
+/* Recommended slick sliders */
+
+.recommended-slicks .slicker a img {
+    max-width: 250px;
+    max-height: 165px;
+}
+
+#express-deals-tabContent .tab-pane {
+    width: 100%;
 }

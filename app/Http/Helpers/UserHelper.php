@@ -482,5 +482,50 @@ class UserHelper
         }
        
     }
+
+    /**
+     * update User
+     * @param integer  $userId
+     *
+     * @param Array $data
+     *
+     * @return Boolean
+     *
+     * @throws Exception
+    */
+    public static function upsertUserImage($userId,$updateImageData)
+    { 
+        \DB::beginTransaction();
+
+        try
+        { 
+           $userDetails = Current( Users::select('email')->where('id', $userId)->where('status', 1)->get()->toArray() );
+            
+            if(empty($userDetails))
+            {
+              return false;
+            }
+
+            Files::where('linkable_id' , $userId)
+                   ->where('linkable_type','users')
+                   ->where('file_type','user_image')
+                   ->update( ['status' =>1 , 'updated_by' => $userDetails['email'] ] );
+
+            
+            $updateImageData['email']                 = $userDetails['email'];
+                
+            $res = Files::createFiles($updateImageData);
+
+            return $res;
+            
+        }
+        catch(\Exception $e)
+        {
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Updating User ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Exception while updating User ", 1);
+        }
+        
+    }
     
 }

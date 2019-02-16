@@ -4,16 +4,15 @@
 
 @php
 $suppliers= $data;
+$appliedParams= $data['appliedParams'];
 @endphp
 
-<div class="customerlinegreen"></div>
 <!--------------left ------------------>
-<div class="container-fluid" id="venue-list-bg">
+<div id="venue-list-bg">
     <div class="col-sm-2 tab-filters">
         <div class="list">
             <!-- Filters goes here -->
-            @include('shared.filters', ['filters' => $suppliers["filters"], 'type' => 'suppliers', 'url' =>
-            '/suppliers'])
+            @include('shared.filters', ['filters' => $suppliers["filters"], 'pageType' => $appliedParams['pageType']])
         </div>
         <!------- panel end -------->
 
@@ -41,7 +40,7 @@ $suppliers= $data;
             </div>
             @if (isset($suppliers["suppliersList"]) && count($suppliers["suppliersList"]) > 0)
             @foreach ($suppliers["suppliersList"] as $suppliersList)
-            <div class="row color-bg-eventlist">
+            <div class="row item-bg-color">
                 <div class="content-eve">
                     <img src={{ $suppliersList['filePath'] }} alt="Mountains" style="width:300px; height:273px">
                 </div>
@@ -55,23 +54,26 @@ $suppliers= $data;
                         </div>
                         <div class="spacer_boxtwo"></div>
 
-                        <div class="wish-text"><b><span class="go-green">Event Covered : </span>Birthday,
-                                Wedding, Business Meeting</b></div>
+                        <div class="wish-text"><span class="go-green"><b>Event Covered : </b></span>
+
+                            @foreach($suppliersList["event_covers"] as $event_cover)
+
+                            {{ $loop->first ? '' : ', ' }}
+                            <span class="nice">{{ $event_cover }}</span>
+
+                            @endforeach
+
+                        </div>
                         <div class="spacer_boxtwo"></div>
-                        <p class="eventwish">**Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-                            **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et
-
-
-
+                        <p class="eventwish">
+                            {{ $suppliersList['supplierDescription'] }}
                         </p>
                         <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / Day </b>
                         </div>
 
-                        <a href="http://18.218.133.17/supplierdetails" class="btn active" id="btn-eventlist" onclick="#"><b>
-                                Book Now </b></a>
+                        <a href="{{ url('supplierdetails/'. $suppliersList['supplierId']) }}" class="btn active" id="btn-eventlist">
+                            <b>Book Now</b>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -79,12 +81,12 @@ $suppliers= $data;
             @else
             <div>No data!!</div>
             @endif
-            <!-----------color-bg-eventlist ------------>
         </div>
         <div class="supppagin">
 
             @if (isset($suppliers["paginate"]) && count($suppliers["paginate"]) > 0)
-            @include('ui_utils.paginate', ['paginate' => $suppliers['paginate'], 'type' => 'suppliers'])
+            @include('ui_utils.paginate', ['paginate' => $suppliers['paginate'], 'pageType' =>
+            $appliedParams['pageType']])
             @else
             <div>No pagination data!!</div>
             @endif

@@ -3,9 +3,10 @@
 
     @foreach ($filters as $key=>$value)
     <div class="form-check venue_filters">
-        <input class="form-check-input" type="checkbox" name="{{ $name }}[]" value={{ $value }} id={{ $type_title . '-' . $key }} >
+        <input class="form-check-input" type="checkbox" name="{{ $name }}[]" value="{{ str_replace('_', ' ', $value) }}"
+            id={{ $type_title . '-' . $key }}>
         <label class="form-check-label" for={{ $type_title . '-' . $key }}>
-{{ isset($prefix)?$prefix:'' }} {{ $value }}
+            {{ isset($prefix)?$prefix:'' }} {{ $value }}
         </label>
     </div>
     @endforeach
