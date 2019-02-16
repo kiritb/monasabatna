@@ -547,13 +547,14 @@ class LoginController extends Controller
 
         try {
 
+
             $imageObject    = $request->file('image_upload_file');
 
             $fileName       = $imageObject->getClientOriginalName();
 
             $fileMimeType   = $imageObject->getClientMimeType();
 
-            $filePath = env('APP_URL') . '/storage/app/public/users/' . $fileName;
+            $filePath = env('APP_URL') . '/public/users/' . $fileName;
 
             \Storage::disk('public')->putFileAs('users/', $imageObject, $fileName);
 
