@@ -166,10 +166,13 @@ class WishListHelper
                                 ->where('suppliers.status', 1)
                                 ->where('pricings.status', 1)
                                 ->where('files.status', 1)
+                                ->whereIn('packages.id', $packageIdArr)
                                 ->where('event_types.status', 1)
                                 ->where('packages.status', 1)
                                 ->orderBy('suppliers.order_no', 'asc')
-                                ->orderBy('suppliers.created_at', 'desc');
+                                ->orderBy('suppliers.created_at', 'desc')
+                                ->get()
+                                ->toArray();
 
 
          return $suppliersPackageData;   

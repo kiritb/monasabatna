@@ -5328,14 +5328,14 @@ values(2, 'Heading 4', 'Journalism News Writing style Ethics Objectivity News va
 
 
 insert into generic_terms (type,terms_header,terms_text,created_by,updated_by)
-values ('terms_conditions','Please read the following carefully', 'You refers to a user or a paying customer. If you are a company or another person who gives access to company products, you agree to take responsibility in full in case of damages or indemnification that could properly lie against the customer.','a@a.com','a@a.com')
+values ('terms_conditions','Please read the following carefully', 'You refers to a user or a paying customer. If you are a company or another person who gives access to company products, you agree to take responsibility in full in case of damages or indemnification that could properly lie against the customer.','a@a.com','a@a.com');
 
 insert into generic_terms (type,terms_header,terms_text,created_by,updated_by)
-values ('terms_conditions','Website usage guidelines', 'Do not insult, abuse, harass, stalk, threaten, or otherwise infringe the rights of others.','a@a.com','a@a.com')
+values ('terms_conditions','Website usage guidelines', 'Do not insult, abuse, harass, stalk, threaten, or otherwise infringe the rights of others.','a@a.com','a@a.com');
 
 
 insert into generic_terms (type,terms_header,terms_text,created_by,updated_by)
-values ('privacy_policy','Notice to End Users', 'In some cases an administrator may create an account in Simplilearn on the behalf of a “End-User” and may provide his/her information, including Personal Information. In such cases the administrator who may be your Employer or a Simplilearn Authorised Training partner (ATP) is our “Customer.” We collect Information under the direction of our customers and have no direct relationship with the End-User whose personal data we process.','a@a.com','a@a.com')
+values ('privacy_policy','Notice to End Users', 'In some cases an administrator may create an account in Simplilearn on the behalf of a “End-User” and may provide his/her information, including Personal Information. In such cases the administrator who may be your Employer or a Simplilearn Authorised Training partner (ATP) is our “Customer.” We collect Information under the direction of our customers and have no direct relationship with the End-User whose personal data we process.','a@a.com','a@a.com');
 
 insert into generic_terms (type,terms_header,terms_text,created_by,updated_by)
-values ('privacy_policy','Notice to End Users', 'The data we hold may also be processed by employees operating in countries listed above, Such staff may be engaged in, among other things, product development and customer and technical support. The data protection and other laws of these countries might not be as comprehensive as those in your country. By submitting your data and/or using Our Services, You consent to the transfer, storing, and processing of Your data in these countries.','a@a.com','a@a.com')
+values ('privacy_policy','Notice to End Users', 'The data we hold may also be processed by employees operating in countries listed above, Such staff may be engaged in, among other things, product development and customer and technical support. The data protection and other laws of these countries might not be as comprehensive as those in your country. By submitting your data and/or using Our Services, You consent to the transfer, storing, and processing of Your data in these countries.','a@a.com','a@a.com');

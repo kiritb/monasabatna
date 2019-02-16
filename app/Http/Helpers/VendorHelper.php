@@ -162,18 +162,18 @@ class VendorHelper
 
             Address::where('linkable_id' , $id)
                      ->where('linkable_type','vendors')
-                     ->update( ['status' =>1 , 'updated_by' => $data['vendors']['email'] ] );
+                     ->update( ['status' =>0 , 'updated_by' => $data['vendors']['email'] ] );
 
             Phones::where('linkable_id' , $id)
                      ->where('linkable_type','vendors')
-                     ->update( ['status' =>1 , 'updated_by' => $data['vendors']['email'] ] );
+                     ->update( ['status' =>0 , 'updated_by' => $data['vendors']['email'] ] );
              
             Files::where('linkable_id' , $id)
                      ->where('linkable_type','vendors')
-                     ->update( ['status' =>1 , 'updated_by' => $data['vendors']['email'] ] );
+                     ->update( ['status' =>0 , 'updated_by' => $data['vendors']['email'] ] );
 
             BankAccounts::where('vendor_id' , $id)
-                        ->update( ['status' =>1 , 'updated_by' => $data['vendors']['email'] ] );
+                        ->update( ['status' =>0 , 'updated_by' => $data['vendors']['email'] ] );
 
          
             Address::createAddress($data['address']);

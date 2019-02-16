@@ -73,6 +73,15 @@ class LoginController extends Controller
         try {
             $phoneData = UserHelper::getUserByDefaultPhone($requestParams['phone']);
 
+            if(empty(current( $phoneData) ) )
+            {
+                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message Customer does not exists ');
+
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['user not found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'UserNotFoundException');
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+            }
+
             $userData = DB::table('users')
                 ->where('id', $phoneData[0]['linkable_id'])
                 ->get()
@@ -123,6 +132,7 @@ class LoginController extends Controller
                 return response(ResponseUtil::buildSuccessResponse(['authtoken' => $token]), HttpStatusCodesConsts::HTTP_OK);
             }
         } catch (\Exception $e) {
+
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
@@ -545,13 +555,20 @@ class LoginController extends Controller
 
             $filePath = env('APP_URL') . '/storage/app/public/users/' . $fileName;
 
-            Storage::disk('public')->putFileAs('users/', $imageObject, $fileName);
+            \Storage::disk('public')->putFileAs('users/', $imageObject, $fileName);
 
             $updateData = ['linkable_id' => $id, 'linkable_type' => 'users', 'file_path' => $filePath, 'file_type' => 'user_image', 'file_extension' => $fileMimeType];
             
             $res = UserHelper::upsertUserImage($id, $updateData);
 
-            return response(ResponseUtil::buildSuccessResponse( $res ), HttpStatusCodesConsts::HTTP_CREATED);
+            if(!$res)
+            {
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No User Details Found']], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_NOT_FOUND_STRING);
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);   
+            }
+
+            return response(ResponseUtil::buildSuccessResponse( ['successfully uploaded profile image'] ), HttpStatusCodesConsts::HTTP_CREATED);
 
         } catch (\Exception $e) {
 

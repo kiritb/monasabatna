@@ -509,18 +509,22 @@ class UserHelper
             Files::where('linkable_id' , $userId)
                    ->where('linkable_type','users')
                    ->where('file_type','user_image')
-                   ->update( ['status' =>1 , 'updated_by' => $userDetails['email'] ] );
+                   ->update( ['status' =>0 , 'updated_by' => $userDetails['email'] ] );
 
             
             $updateImageData['email']                 = $userDetails['email'];
                 
-            $res = Files::createFiles($updateImageData);
+            Files::createFiles($updateImageData);
 
-            return $res;
+            \DB::commit();
+
+            return true;
             
         }
         catch(\Exception $e)
-        {
+        { 
+            \DB::rollBack();
+
             \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Updating User ".print_r( $e->getMessage(), true) );
 
             throw new \Exception(" Exception while updating User ", 1);

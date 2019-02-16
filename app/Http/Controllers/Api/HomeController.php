@@ -358,7 +358,7 @@ class HomeController extends Controller
             {
                 if( ! WishListHelper::validateSuppliers($requestParams['linkable_id']) )
                 {
-                    \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message - Vennue Id Not Found' .' Response Code '.HttpStatusCodesConsts::HTTP_NOT_FOUND);
+                    \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message - Supplier Id Not Found' .' Response Code '.HttpStatusCodesConsts::HTTP_NOT_FOUND);
 
                     $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['Vennue Id Not Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, HttpStatusCodesConsts::HTTP_NOT_FOUND_STRING);
 
