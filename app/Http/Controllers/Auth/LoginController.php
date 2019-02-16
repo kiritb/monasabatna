@@ -554,7 +554,7 @@ class LoginController extends Controller
 
             $fileMimeType   = $imageObject->getClientMimeType();
 
-            $filePath = env('APP_URL') . '/storage/app/public/users/' . $fileName;
+            $filePath = env('APP_URL') . '/storage/users/' . $fileName;
 
             \Storage::disk('public')->putFileAs('users/', $imageObject, $fileName);
 
