@@ -26,7 +26,7 @@ class WishListHelper
         
         try
         {   
-             WishList::createWishList($requestParams);
+             WishList::createWishList($data);
 
         }
         catch( \Exception $e)
