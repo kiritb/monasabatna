@@ -384,7 +384,7 @@ class HomeController extends Controller
     {
         $requestParams = $request->all();
 
-        $rules = [ 'type'   => 'required' ];
+        $rules = [ 'type'   => 'required', 'email' => 'required|string|email|max:255', ];
 
         $validator = Validator::make($requestParams, $rules);
 
@@ -403,7 +403,7 @@ class HomeController extends Controller
 
         try {
 
-            $res = WishListHelper::getWishList($requestParams['type']);
+            $res = WishListHelper::getWishList($requestParams['type'], $requestParams['email'] );
 
             if (empty($res)) 
             {

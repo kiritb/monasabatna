@@ -77,7 +77,7 @@ class WishListHelper
     }
 
 
-    public static function getWishList($type)
+    public static function getWishList($type, $email)
     {   
 
         $resArr   = [];
@@ -85,6 +85,7 @@ class WishListHelper
 
         $wishListData = WishList::select('linkable_id', 'linkable_type', 'from_date', 'to_date', 'comment')
                                  ->where('linkable_type', $type )
+                                 ->where('email', $email)
                                  ->where('status',1)
                                  ->get()
                                  ->toArray();
