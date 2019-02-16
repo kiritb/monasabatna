@@ -69,15 +69,13 @@ class VendorController extends Controller
 
         try {
 
-            $filePath     = env('APP_URL') . '/public/vendors/';
-
             $fileObjectId = $request->file('id_upload_file');
 
             $fileNameId = $fileObjectId->getClientOriginalName();
 
             $mimeTypeIdFile = $fileObjectId->getClientMimeType();
 
-            $destinationPathId = $filePath . $fileNameId;
+            $destinationPathId = env('APP_URL') . '/storage/app/public/vendors/' . $fileNameId;
 
             $fileObjectLogo = $request->file('logo_upload_file');
 
@@ -85,7 +83,7 @@ class VendorController extends Controller
 
             $mimeTypeIdLogo = $fileObjectLogo->getClientMimeType();
 
-            $destinationPathLogo = $filePath. $fileNameLogo;
+            $destinationPathLogo = env('APP_URL') . '/storage/app/public/vendors/' . $fileNameLogo;
 
             $fileObjectLicense = $request->file('license_upload_file');
 
@@ -93,7 +91,7 @@ class VendorController extends Controller
 
             $mimeTypeIdLicense = $fileObjectLogo->getClientMimeType();
 
-            $destinationPathLicense =  $filePath. $fileNameLicense;
+            $destinationPathLicense = env('APP_URL') . '/public/vendors/' . $fileNameLicense;
 
             Storage::disk('public')->putFileAs('vendors/', $fileObjectId, $fileNameId);
 
@@ -255,15 +253,13 @@ class VendorController extends Controller
 
         try {
 
-            $filePath     = env('APP_URL') . '/public/vendors/';
-
             $fileObjectId = $request->file('id_upload_file');
 
             $fileNameId = $fileObjectId->getClientOriginalName();
 
             $mimeTypeIdFile = $fileObjectId->getClientMimeType();
 
-            $destinationPathId = $filePath . $fileNameId;
+            $destinationPathId = env('APP_URL') . '/storage/app/public/vendors/' . $fileNameId;
 
             $fileObjectLogo = $request->file('logo_upload_file');
 
@@ -271,7 +267,7 @@ class VendorController extends Controller
 
             $mimeTypeIdLogo = $fileObjectLogo->getClientMimeType();
 
-            $destinationPathLogo = $filePath . $fileNameLogo;
+            $destinationPathLogo = env('APP_URL') . '/storage/app/public/vendors/' . $fileNameLogo;
 
             $fileObjectLicense = $request->file('license_upload_file');
 
@@ -279,7 +275,7 @@ class VendorController extends Controller
 
             $mimeTypeIdLicense = $fileObjectLogo->getClientMimeType();
 
-            $destinationPathLicense = $filePath . $fileNameLicense;
+            $destinationPathLicense = env('APP_URL') . '/storage/app/public/vendors/' . $fileNameLicense;
 
             Storage::disk('public')->putFileAs('vendors/', $fileObjectId, $fileNameId);
 
