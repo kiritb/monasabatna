@@ -48,15 +48,11 @@ $appliedParams= $data['appliedParams'];
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                     <div class="content-optionpacklist">
                         <div class="wish-head"><b>{{ $suppliersList['pacakgeName'] }}</b></div>
-                        <div class="spacer_boxtwo"></div>
                         <div class="wish-text">
                             @include('ui_utils.stars', ['stars'=> $suppliersList["rating"]])
                         </div>
-                        <div class="spacer_boxtwo"></div>
-
-                        <div class="wish-text"><b><span class="go-green">Event Type :
+                        <div class="wish-text"><b><span class="bold-grey">Event Type :
                                 </span>{{ $suppliersList['eventType'] }}</b></div>
-                        <div class="spacer_boxtwo"></div>
                         <p class="eventwish">
                             {{ $suppliersList['packageDescription'] }}
                         </p>

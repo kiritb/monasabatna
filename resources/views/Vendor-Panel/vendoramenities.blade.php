@@ -33,20 +33,22 @@
                </thead>
                <tbody class="table-hover">
                 <?php $slno = 1;?>
-                  @foreach($data as $amenitie)
+                  @foreach($data['amenities'] as $amenitie)
+                 <?php  $encoded_data = base64_encode(json_encode($amenitie))?>
+                 <?php  $amentie_id = $amenitie->id?>
                   <tr>
                      <th class="amenid" scope="row">{!! $slno++ !!}</th>
                      <td>{!! $amenitie->name !!}</td>
                      
-                     <td class="bg-white-booking"><a href="#"><i data-toggle="modal" data-target="#updateAmenities" class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i data-toggle="modal" data-target="#deleteAmenities" class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i data-toggle="modal" data-target="#updateAmenities" class="fas fa-pencil-alt editamentieButton" style="font-size:20px;color:#6cc0b9" data-data="{!! $encoded_data !!}"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i data-toggle="modal" data-target="#deleteAmenities" class="fas fa-trash-alt deleteamenetie" style="font-size:20px;color:red" data-data="{!! $encoded_data !!}"></i></a></td>
                   </tr>
                  @endforeach
                </tbody>
             </table>
             <!------------------------------ Add Amenities ----------------------------------->
             <!-- Modal with Text area -->
-            <form method="post" id="addAmenitiesForm" enctype="multipart/form-data">
+            <form method="post" id="" action = "{{url('add_amenities')}}" enctype="multipart/form-data">
              @csrf
             <div class="modal fade" id="addAmenities" tabindex="-1" role="dialog" aria-labelledby="AddamenitiesLabel" aria-hidden="true">
   <div id="canceldash" class="modal-dialog" role="document">
@@ -89,6 +91,8 @@
 <!-------------------Add Modal -------------------------------------->
 <!------------------------------ Update Amenities ----------------------------------->
             <!-- Modal with Text area -->
+            <form method="post" id="" action = "{{url('edit_amenities')}}" enctype="multipart/form-data">
+             @csrf
             <div class="modal fade" id="updateAmenities" tabindex="-1" role="dialog" aria-labelledby="updateAmenitiesLabel" aria-hidden="true">
   <div id="canceldash" class="modal-dialog" role="document">
     <div class="modal-content">
@@ -100,27 +104,39 @@
       </div>
       <div class="modal-body">
        <!------------------form-group row ------------------------->
-
+<input type = "hidden" name="amentie_id" id="id">
 <div class="form-group row regfeild">
     <label for="inputEmail3" class="vendoramenco">Amenities : </label>
     <div class="col-sm-8">
-        <input type="text" name="ammentie" id="ammentie" value= "Swimming Phool" class="vendorformamen" placeholder="Enter here">
+        <input type="text" name="name" id="name" class="vendorformamen" placeholder="Enter here">
+         <div id="name-error" class="error-class"></div>
     </div>
     
 </div>
+<div class="form-group row regfeild">
+      <label for="inputEmail3" class="vendoramenco">Description : </label>
+      <div class="col-sm-8">
+          <input type="text" name="description" id="short_description" class="vendorformamen" placeholder="description">
+          <div id="description-error" class="error-class"></div>
+      </div>
+  </div>
 <!------------------form-group row ------------------------->
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="cancelmodalbtn" data-dismiss="modal">Update</button>
+        <button type="submit" class="cancelmodalbtn">Update</button>
+       
         
       </div>
     </div>
   </div>
 </div>
+</form>
 <!-------------------Update Modal -------------------------------------->
 <!------------------------------ Delete Amenities ----------------------------------->
             <!-- Modal with Text area -->
+            <form method="post" id="" action = "{{url('deleteamenities')}}" enctype="multipart/form-data">
+             @csrf
             <div class="modal fade" id="deleteAmenities" tabindex="-1" role="dialog" aria-labelledby="deleteAmenitiesLabel" aria-hidden="true">
             <div id="canceldash" class="modal-dialog" role="document">
     <div class="modal-content">
@@ -130,17 +146,19 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <input type = "hidden" name="amentie_id" id="id">
       <div class="modal-body">
         <p>Are you sure you want to Delete.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary yesamen" data-dismiss="modal">Yes</button>
+        <button type="submit" class="btn btn-secondary  yesamen">Yes</button>
         <button type="button" class="btn btn-primary noamen">No</button>
       </div>
     </div>
   </div>
     
 </div>
+</form>
 <!------------------form-group row ------------------------->
 
   
@@ -178,20 +196,44 @@ trigger
   adaptiveHeight:true
 });
         </script>
-      <script><!------inner page-Tabs-------->
-         $(document).ready(function(){
+<script><!------inner page-Tabs-------->
+$(document).ready(function(){
          
-         $("#Add-Express #Remove-Express-Deal").click(function(){
-         $("#Remove-Express-Modal").modal();
-         });
-         $("#myaddexpress").click(function(){
-         $("#Add-Express").modal();
-         });
-          $(".nav-tabs a").click(function(){
-           $(this).tab('show');
-         });
-         });
-      </script>
+   $("#Add-Express #Remove-Express-Deal").click(function(){
+      $("#Remove-Express-Modal").modal();
+   });
+   $("#myaddexpress").click(function(){
+      $("#Add-Express").modal();
+   });
+  $(".nav-tabs a").click(function(){
+     $(this).tab('show');
+   });
+
+  $('.table').on('click', '.editamentieButton', function(){
+
+       encoded_data = $(this).data('data');
+       decoded_data = atob(encoded_data);
+       $.each(JSON.parse(decoded_data), function(key, value){
+
+         $('#updateAmenities #'+key).val(value);
+       })
+
+       $('#updateAmenities .error-class').empty();
+       $('#updateAmenities').modal('show');
+   });
+  $('.table').on('click', '.deleteamenetie', function(){
+
+       encoded_data = $(this).data('data');
+       decoded_data = atob(encoded_data);
+       $.each(JSON.parse(decoded_data), function(key, value){
+
+         $('#deleteAmenities #'+key).val(value);
+       })
+
+       $('#deleteAmenities .error-class').empty();
+       $('#deleteAmenities').modal('show');
+   });
+});
+</script>
      
-     
-  
+    

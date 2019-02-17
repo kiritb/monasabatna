@@ -54,20 +54,15 @@
                                             class="spaceone"> 11:30 AM</span></b>&nbsp;<a href="#">Change </a></div>
                             </datetime>
                         </div>
-                        <div class="spacer_boxthree"></div>
                         <address>
                             <div class="icons-cust"><i class="fas fa-map-marker-alt" style="font-size:22px; color:#6cc0b9"></i></div>
                             <div class="margincst">Address:<b> 123 XYZRoad, Saudi Arabia </b><a href="#"> Show in map</a></div>
                         </address>
-                        <div class="spacer_boxthree"></div>
                         <div>
                             <div class="icons-custone"><i class="fas fa-users" style='font-size:18px; color:#6cc0b9'></i></div>
                             <div class="margincst"> Guest Capacity : <b>100 - 200</b></div>
                         </div>
-                        <div class="spacer_boxthree"></div>
-
-
-                        <div class="row sarinfo"><span class="go-green">SAR : </span><b> 100 / Day</b></div>
+                        <div class="row sarinfo"><span class="bold-grey">SAR : </span><b> 100 / Day</b></div>
 
                     </div>
                 </div>

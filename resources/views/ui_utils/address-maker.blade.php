@@ -15,4 +15,3 @@
         Show in map
     </a>
 </span>
-<div class="spacer_boxupc"></div>

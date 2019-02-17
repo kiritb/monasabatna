@@ -61,7 +61,7 @@
                                     <div class="row custprofhead">
                                         <h3 class="cust-head"><b>La Fontaine La Plage Resort</b></h3>
                                         <h4 class="go-right" style="float:right">Booking Number : MTNA0789456<br>
-                                            <div class="spacer_box"></div>
+
                                             Booking Date : July 8, 2018
                                         </h4>
                                     </div>
@@ -77,26 +77,26 @@
                                                 16,2018<span class="spaceone"> 11:30 AM</span></b>&nbsp;<a href="#">Change
                                             </a></div>
                                     </datetime>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div>
                                         <div class="icons-custone"><i class="far fa-clock" style='font-size:17px; color:#6cc0b9'></i></div>
                                         <div class="margincst"> 5 Days 4 Nights</div>
                                     </div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Services :</span> Catering,
                                         Lighting and Sound</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Total Price :</span> SAR.756</b></div>
 
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"><a href="#" class="remunderline"><b>Paid Amount : SAR 151.2</b></a></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"><a href="#" class="remunderline"><b>Pending Amount : SAR
                                                 604.8</b></a><span class="dynamic_red"> (To be paid at venue. 16
                                             May,2018 before 11.30 AM)</span></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="redbold"><b>2 days, 20 hours, 28 min, 18 sec remaining for payment </b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="blackbold"><b>Please give the code <span class="custonline-color">'MS1234'</span>
                                             at venue while making the remaining payment.</b></div>
                                     <a href="#" style="float:right" class="btnonlinepy" id="myalertcust">Cancel Booking</a>
@@ -134,7 +134,7 @@
                                     <div class="row custprofhead">
                                         <h3 class="cust-head"><b>Party Zone</b></h3>
                                         <h4 class="go-rightevents" style="float:right">Booking Number : MTNA0789456<br>
-                                            <div class="spacer_box"></div>
+
                                             Booking Date : July 8, 2018
                                         </h4>
                                     </div>
@@ -149,15 +149,15 @@
 
                                     <div class="custpack"> <span class="color-change"><b>Date and Time :</span> 20 May
                                         2018, 2:30 PM</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Event Type :</span> Food Event</b></div>
 
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Total People :</span> 100</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Total Price :</span> SAR.4500</b></div>
 
-                                    <div class="spacer_boxthree"></div>
+
 
                                     <a href="#" style="float:right" class="btnonlinepy" id="myalertcust">Cancel Booking</a>
 
@@ -205,7 +205,7 @@
                                     <div class="row custprofhead">
                                         <h3 class="cust-head"><b>La Fontaine La Plage Resort</b></h3>
                                         <h4 class="go-right" style="float:right">Booking Number : MTNA0789456<br>
-                                            <div class="spacer_box"></div>
+
                                             Booking Date : July 8, 2018
                                         </h4>
                                     </div>
@@ -221,17 +221,17 @@
                                                 16,2018<span class="spaceone"> 11:30 AM</span></b>&nbsp;<a href="#">Change
                                             </a></div>
                                     </datetime>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div>
                                         <div class="icons-custone"><i class="far fa-clock" style='font-size:17px; color:#6cc0b9'></i></div>
                                         <div class="margincst"> 5 Days 4 Nights</div>
                                     </div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Services :</span> Catering,
                                         Lighting and Sound</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Total Price :</span> SAR.756</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"><a href="#" class="remunderline"><b>Paid Amount : SAR 151.2</b></a></div>
 
 
@@ -253,7 +253,7 @@
                                     <div class="row custprofhead">
                                         <h3 class="cust-head"><b>Party Center</b></h3>
                                         <h4 class="go-supplier" style="float:right">Booking Number : MTNA0789456<br>
-                                            <div class="spacer_box"></div>
+
                                             Booking Date : July 8, 2018
                                         </h4>
                                     </div>
@@ -269,17 +269,17 @@
                                             &nbsp;&nbsp;&nbsp; &nbsp; To:<b>July 16,2018<span class="spaceone"> 11:30
                                                     AM</span></b></div>
                                     </datetime>
-                                    <div class="spacer_boxthree"></div>
+
 
                                     <div class="custpack"> <span class="color-change"><b>Item Supplied Date :</span>
                                         May 16,2018</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Attached Event Organiser :</span>Event
                                         Organiser Name</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Attached Venue :</span> Venue
                                         Name</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Total Price :</span> SAR.432</b></div>
 
 
@@ -299,7 +299,7 @@
                                     <div class="row custprofhead">
                                         <h3 class="cust-head"><b>Party Center (White Feather)</b></h3>
                                         <h4 class="go-supplierone" style="float:right">Booking Number : MTNA0789456<br>
-                                            <div class="spacer_box"></div>
+
                                             Booking Date : July 8, 2018
                                         </h4>
                                     </div>
@@ -315,13 +315,13 @@
                                             &nbsp;&nbsp;&nbsp; &nbsp; To:<b>July 16,2018<span class="spaceone"> 11:30
                                                     AM</span></b></div>
                                     </datetime>
-                                    <div class="spacer_boxthree"></div>
+
 
                                     <div class="custpack"> <span class="color-change"><b>Item Supplied Date :</span>
                                         May 16,2018</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Total Price :</span> SAR.432</b></div>
-                                    <div class="spacer_boxthree"></div>
+
 
                                     <b> <a style="float:right" class="supp_cancelled">Cancelled by you</a></b>
 
@@ -342,7 +342,7 @@
                                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 cust-prof-onlinepy">
                                         <div class="row custprofhead">
                                             <h3 class="cust-head"><b>Party Zone</b></h3>
-                                            <!---   <h4 class="go-supplier" style="float:right">Booking Number : MTNA0789456<br><div class="spacer_box"></div>
+                                            <!---   <h4 class="go-supplier" style="float:right">Booking Number : MTNA0789456<br>
                               Booking Date : July 8, 2018
                            </h4> --->
                                         </div>
@@ -358,7 +358,7 @@
                                                         AM</span></b>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; To:<b>July
                                                     16,2018<span class="spaceone"> 11:30 AM</span></b></div>
                                         </datetime>
-                                        <div class="spacer_boxthree"></div>
+
 
 
                                         <div class="custpack"> <span class="color-change"><b>Total Price :</span>
@@ -382,7 +382,7 @@
                                     <div class="row custprofhead">
                                         <h3 class="cust-head"><b>Party Zone</b></h3>
                                         <h4 class="go-supplier" style="float:right">Booking Number : MTNA0789456<br>
-                                            <div class="spacer_box"></div>
+
                                             Booking Date : July 8, 2018
                                         </h4>
                                     </div>
@@ -398,7 +398,7 @@
                                             &nbsp;&nbsp;&nbsp; &nbsp; To:<b>July 16,2018<span class="spaceone"> 11:30
                                                     AM</span></b></div>
                                     </datetime>
-                                    <div class="spacer_boxthree"></div>
+
 
 
                                     <div class="custpack"> <span class="color-change"><b>Total Price :</span> SAR.432</b></div>
@@ -425,7 +425,7 @@
                                     <div class="row custprofhead">
                                         <h3 class="cust-head"><b>Party Zone</b></h3>
                                         <h4 class="go-rightevents" style="float:right">Booking Number : MTNA0789456<br>
-                                            <div class="spacer_box"></div>
+
                                             Booking Date : July 8, 2018
                                         </h4>
                                     </div>
@@ -440,15 +440,15 @@
 
                                     <div class="custpack"> <span class="color-change"><b>Date and Time :</span> 20 May
                                         2018, 2:30 PM</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Event Type :</span> Food Event</b></div>
 
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Total People :</span> 100</b></div>
-                                    <div class="spacer_boxthree"></div>
+
                                     <div class="custpack"> <span class="color-change"><b>Total Price :</span> SAR.4500</b></div>
 
-                                    <div class="spacer_boxthree"></div>
+
 
                                     <button style="float:right" type="submit" class="btn btn-default btnbkevents">Write
                                         a Review</button>

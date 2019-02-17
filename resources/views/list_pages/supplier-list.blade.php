@@ -48,23 +48,31 @@ $appliedParams= $data['appliedParams'];
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                     <div class="content-optionpacklist">
                         <div class="wish-head"><b> {{ $suppliersList['supplierName'] }} </b></div>
-                        <div class="spacer_boxtwo"></div>
                         <div class="wish-text">
                             @include('ui_utils.stars', ['stars' => $suppliersList["rating"]])
                         </div>
-                        <div class="spacer_boxtwo"></div>
+                        <div class="wish-text">
+                            @foreach($suppliersList["items"] as $item)
 
-                        <div class="wish-text"><span class="go-green"><b>Event Covered : </b></span>
+                            {{ $loop->first ? '' : ', ' }}
+                            <span class="bold-grey">{{ $item }}</span>
+
+                            @endforeach
+                        </div>
+
+                        <div class="wish-text">
+                            <span class="bold-grey">
+                                Event Covered :
+                            </span>
 
                             @foreach($suppliersList["event_covers"] as $event_cover)
 
                             {{ $loop->first ? '' : ', ' }}
-                            <span class="nice">{{ $event_cover }}</span>
+                            <span>{{ $event_cover }}</span>
 
                             @endforeach
 
                         </div>
-                        <div class="spacer_boxtwo"></div>
                         <p class="eventwish">
                             {{ $suppliersList['supplierDescription'] }}
                         </p>

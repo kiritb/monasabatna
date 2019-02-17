@@ -1,4 +1,4 @@
-<div class="slickslideevent our-team">
+<div class="our-team">
 
     @if(isset($title))
     <div class="text-center">

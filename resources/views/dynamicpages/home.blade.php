@@ -23,8 +23,6 @@
                     </div>
                 </div>
                 <div class="container" id="contentinside1">
-                    <div class="spacer_box"></div>
-                    <div class="spacer_box"></div>
                     <div class="head1">
                         {{ $eDeals["vennueName"] }}
                     </div>
@@ -35,9 +33,6 @@
                     <div class="head_twotwo">
                         <span style="color: #5cb9b1">SAR</span> {{ number_format($eDeals->actualPrice, 0) }}
                     </div>
-
-                    <br>
-                    <div class="spacer_box"></div>
                     <div class="head3">
                         <div class="headhome-img">
                             <a href=""><img src="svg/images/markeradd.png" style="margin-left:-2px;"></a></i>
@@ -49,7 +44,6 @@
                             {{ $eDeals["vennueShortDescription"] }}
                         </div>
                     </div>
-                    <div class="spacer_boxone"></div>
                     <div class="learntab">
                         <a href="#">
                             <button type="button" class="btn btn-info btn-lg show_box"><b>LEARN MORE</b></button>
@@ -107,8 +101,6 @@
                     </div>
                 </div>
                 <div class="container" id="contentinside2">
-                    <div class="spacer_box"></div>
-                    <div class="spacer_box"></div>
                     <div class="head1">
                         {{ $upcomingEvents->eventName }}
                     </div>
@@ -119,8 +111,6 @@
                     <div class="head_twotwo">
                         <span style="color: #5cb9b1">SAR</span> {{number_format($upcomingEvents->actualPrice, 0)}}
                     </div>
-                    <br>
-                    <div class="spacer_box"></div>
                     <div class="head3">
                         <div class="headhome-img">
                             <a href=""><img src="svg/images/markeradd.png" style="margin-left:-2px;"></a></i>
@@ -132,7 +122,6 @@
                             {{ $upcomingEvents["eventShortDescription"] }}
                         </div>
                     </div>
-                    <div class="spacer_boxone"></div>
                     <div class="learntab">
                         <a href="#">
                             <button type="button" class="btn btn-info btn-lg show_box"><b>LEARN MORE</b></button>
@@ -193,8 +182,8 @@
                 <div class="why-us">
                     <!-- Data loads from ajax call -->
                 </div>
-                <button type="button" class="btn btn-info btn-lg" id="show_record_why"><a
-                        href="{{ url('/listing') }}"><b>BOOK NOW</b></a></button>
+                <button type="button" class="btn btn-info btn-lg" id="show_record_why"><a href="{{ url('/listing') }}"><b>BOOK
+                            NOW</b></a></button>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <a href="#">
@@ -230,7 +219,7 @@
         <a class="next" onclick="plusSlides(1)"><i class="fas fa-angle-right" style="font-size:45px"></i></a>
     </div>
 
-    <div class="container-fluid home-containers">
+    <div class="container-fluid home-containers" id="facilitate-form">
         <h2 class="form_homehead  text-center">
             <b>Facilitate Customer Service</b>
         </h2>

@@ -26,22 +26,21 @@ class AmenitieTypes extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'short_description'];
+    protected $fillable = ['name', 'short_description', 'status','created_by', 'updated_by' ];
 
 
     public static function createAmenitieTypes( $data)
     {
-        $result = self::create(
+        self::create(
             [
-                'name'                  => $data['name'],
-                'short_description'     => isset( $data['description'] ) ? $data['description'] : NULL,
+                'name'                  => $data['linkable_id'],
+                'short_description'     => isset( $data['short_description'] ) ? $data['short_description'] : NULL,
                 'status'                => 1,
-                'created_by'            => 'haritha@brillmi9ndz.com',
-                'updated_by'            => 'haritha@brillmi9ndz.com'
+                'created_by'            => $data['email'],
+                'updated_by'            => $data['email']
             ]
 
         );
-        return $result;
     }
 
 
@@ -56,5 +55,11 @@ class AmenitieTypes extends Model
     public static function getAmenitieTypes(){
         return self::where('status', 1)
                 ->get();
+    }
+     public static function getAmenitieTypesDetails($amentie_id){
+        return self::where('id', $amentie_id)
+                ->where('status', 1)
+                ->get();
+
     }
 }

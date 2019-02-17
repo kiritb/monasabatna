@@ -29,22 +29,18 @@
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                                     <div class="content-optionblog">
                                         <div class="wish-head"><b>Venue Name </b></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <div class="wish-text"><span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star"></span></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:25px;color:#6cc0b9'></i>&nbsp
                                             &nbsp123 XYZ Road, Saudi Arabia</div>
-                                        <div class="spacer_boxtwo"></div>
-                                        <div class="wish-text"><b><span class="go-green">Amenities:</span>Gym, Swimming
+                                        <div class="wish-text"><b><span class="bold-grey">Amenities:</span>Gym,
+                                                Swimming
                                                 Phool</b></div>
-                                        <div class="spacer_boxtwo"></div>
-                                        <div class="wish-text"><b><span class="go-green">Package:</span>Food and
+                                        <div class="wish-text"><b><span class="bold-grey">Package:</span>Food and
                                                 Welcome Drinks</b></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <p class="blogwish">**Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
@@ -73,30 +69,23 @@
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                                     <div class="content-optionblog">
                                         <div class="wish-head"><b>Venue Name </b></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <div class="wish-text"><span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star"></span></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:25px;color:#6cc0b9'></i>&nbsp
                                             &nbsp123 XYZ Road, Saudi Arabia</div>
-                                        <div class="spacer_boxtwo"></div>
-                                        <div class="wish-text"><b><span class="go-green">Amenities:</span>Gym, Swimming
+                                        <div class="wish-text"><b><span class="bold-grey">Amenities:</span>Gym,
+                                                Swimming
                                                 Phool</b></div>
-                                        <div class="spacer_boxtwo"></div>
-                                        <div class="wish-text"><b><span class="go-green">Package:</span>Food and
+                                        <div class="wish-text"><b><span class="bold-grey">Package:</span>Food and
                                                 Welcome Drinks</b></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <p class="blogwish">**Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
                                             **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                                             tempor incididunt ut labore et
-
-
-
                                         </p>
                                         <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / SetUp</b>
                                             <b><i class="fas fa-users" style="font-size:20px;color:#6cc0b9"></i>
@@ -117,30 +106,23 @@
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                                     <div class="content-optionblog">
                                         <div class="wish-head"><b>Venue Name </b></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <div class="wish-text"><span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star"></span></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:25px;color:#6cc0b9'></i>&nbsp
                                             &nbsp123 XYZ Road, Saudi Arabia</div>
-                                        <div class="spacer_boxtwo"></div>
-                                        <div class="wish-text"><b><span class="go-green">Amenities:</span>Gym, Swimming
+                                        <div class="wish-text"><b><span class="bold-grey">Amenities:</span>Gym,
+                                                Swimming
                                                 Phool</b></div>
-                                        <div class="spacer_boxtwo"></div>
-                                        <div class="wish-text"><b><span class="go-green">Package:</span>Food and
+                                        <div class="wish-text"><b><span class="bold-grey">Package:</span>Food and
                                                 Welcome Drinks</b></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <p class="blogwish">**Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
                                             **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                                             tempor incididunt ut labore et
-
-
-
                                         </p>
                                         <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / SetUp</b>
                                             <b><i class="fas fa-users" style="font-size:20px;color:#6cc0b9"></i>
@@ -161,30 +143,23 @@
                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                                     <div class="content-optionblog">
                                         <div class="wish-head"><b>Venue Name </b></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <div class="wish-text"><span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star"></span></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:25px;color:#6cc0b9'></i>&nbsp
                                             &nbsp123 XYZ Road, Saudi Arabia</div>
-                                        <div class="spacer_boxtwo"></div>
-                                        <div class="wish-text"><b><span class="go-green">Amenities:</span>Gym, Swimming
+                                        <div class="wish-text"><b><span class="bold-grey">Amenities:</span>Gym,
+                                                Swimming
                                                 Phool</b></div>
-                                        <div class="spacer_boxtwo"></div>
-                                        <div class="wish-text"><b><span class="go-green">Package:</span>Food and
+                                        <div class="wish-text"><b><span class="bold-grey">Package:</span>Food and
                                                 Welcome Drinks</b></div>
-                                        <div class="spacer_boxtwo"></div>
                                         <p class="blogwish">**Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
                                             **Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                                             tempor incididunt ut labore et
-
-
-
                                         </p>
                                         <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / SetUp</b>
                                             <b><i class="fas fa-users" style="font-size:20px;color:#6cc0b9"></i>

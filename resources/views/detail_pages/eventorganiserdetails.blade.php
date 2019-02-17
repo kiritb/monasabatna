@@ -30,10 +30,8 @@
                     <i class="fas fa-map-marker-alt" style="font-size:20px; color:#6cc0b9" aria-hidden="true"></i>
                     <span class="evenspanline"> Address : <b> {{ $data['AddressLine_1'] }},
                             {{ $data['AddressLine_2']
-                            }}, {{ $data['cityName'] }} </b><a
-                            class="showmap" href={{ $data['googleMapLink'] }}>
+                            }}, {{ $data['cityName'] }} </b><a class="showmap" href={{ $data['googleMapLink'] }}>
                             Show in map</a></span>
-                    <div class="spacer_boxtwo"></div>
                     <span class="travelline">{{ $data['travelNote'] }}</span>
                 </div>
                 <div class="row arrange-supplier">
@@ -54,8 +52,7 @@
     <div class="container-fluid" id="eventrows">
         <div class="fbrow">
             <a class="fb-button" href={{ $data['fbLink'] }}><i id="fbevent" class="fab fa-facebook-f"></i>Facebook</a>
-            <a class="twit-button" href={{ $data['twitterLink'] }}><i id="fbevent"
-                    class="fab fa-twitter"></i>Twitter</a>
+            <a class="twit-button" href={{ $data['twitterLink'] }}><i id="fbevent" class="fab fa-twitter"></i>Twitter</a>
             <a class="eventterms" href="#"> Terms & Policies</a>
         </div>
     </div>
@@ -67,9 +64,8 @@
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 @if (count($data["packages"]) > 0)
                 @foreach ($data["packages"] as $key=>$packages)
-                <a class="nav-item nav-link {{ ($key=='all')?'active':'' }}"
-                    id="nav-{{ strtolower(str_replace(' ', '-', $key)) }}-tab" data-toggle="tab"
-                    href="#nav-{{ strtolower(str_replace(' ', '-', $key)) }}" role="tab"
+                <a class="nav-item nav-link {{ ($key=='all')?'active':'' }}" id="nav-{{ strtolower(str_replace(' ', '-', $key)) }}-tab"
+                    data-toggle="tab" href="#nav-{{ strtolower(str_replace(' ', '-', $key)) }}" role="tab"
                     aria-controls="nav-{{ strtolower(str_replace(' ', '-', $key)) }}" aria-selected="true">
                     {{ ucfirst($key) }}
                 </a>
@@ -83,9 +79,8 @@
         <div class="tab-content" id="nav-eventportfolioContent">
             @if (count($data["packages"]) > 0)
             @foreach ($data["packages"] as $key=>$packages)
-            <div class="tab-pane fade show {{ ($key=='all')?'active':'' }}"
-                id="nav-{{ strtolower(str_replace(' ', '-', $key)) }}" role="tabpanel"
-                aria-labelledby="nav-{{ strtolower(str_replace(' ', '-', $key)) }}-tab">
+            <div class="tab-pane fade show {{ ($key=='all')?'active':'' }}" id="nav-{{ strtolower(str_replace(' ', '-', $key)) }}"
+                role="tabpanel" aria-labelledby="nav-{{ strtolower(str_replace(' ', '-', $key)) }}-tab">
 
                 <!-- <div class="eventgreyline"></div> -->
                 <div class="eventportcontent">
@@ -96,8 +91,7 @@
                         @foreach ($packages as $key=>$item)
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
                             <div class="event-content">
-                                <img src={{ $item['filePath'] }} class="img-responsive" alt="Mountains"
-                                    style="width:100%; height:100%">
+                                <img src={{ $item['filePath'] }} class="img-responsive" alt="Mountains" style="width:100%; height:100%">
                                 <div class="row portthemebtn">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="content-option">

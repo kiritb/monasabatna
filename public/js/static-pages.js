@@ -11,6 +11,7 @@ $(document).ready(function () {
     $("#whyus-align").overlayMask({
         do: "showLoader"
     });
+
     $.ajax({
         url: base_url + "/api/v1/whyus",
         type: "GET",

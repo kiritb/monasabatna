@@ -19,7 +19,7 @@
 <div class="container-fluid" id="supplierpacksect">
     <div class="row suppoffered">Theme : Desserts, Chocolates and Cakes </div>
     <div class="row supptravel">{{ $data['travelNote'] }}</div>
-    <div class="row sartravel"><span class="go-green">SAR :</span>40 / Person </div>
+    <div class="row sartravel"><span class="bold-grey">SAR :</span>40 / Person </div>
     <div class="row buttonsupp"><a class="shtsupp" href="#">Add to Wishlist</a><a class="booksupp active" href="#">Book
             Now</a></div>
 </div>
@@ -107,8 +107,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="svg/images/testi-themedetails.png" class="d-block w-100" id="testivenuethree"
-                                alt="...">
+                            <img src="svg/images/testi-themedetails.png" class="d-block w-100" id="testivenuethree" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <p class="venuepara">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -143,7 +142,8 @@
     </div>
 </div>
 
-@include('ui_utils.recommendations-slicker', ['slides' => $data['recommendations'], 'title' => 'Recommonded Suppliers'])
+@include('ui_utils.recommendations-slicker', ['slides' => $data['recommendations'], 'title' => 'Recommonded
+Suppliers'])
 
 <!---------------------------- Thumbnail carousel start --------------------------------->
 

@@ -47,8 +47,6 @@
                     <i class="far fa-address-card" id="license"></i><span class="evenspanline">License Number :
                         <b>{{ $data['licenseNo'] }}</b>
                     </span>
-                    <div class="spacer_boxupc"></div>
-
                 </div>
                 <div class="row arrange-supplier">
                     <i class="far fa-calendar-alt" id="license"></i><span class="evenspanlineone">Event Date :
@@ -56,8 +54,6 @@
                             {{ date('d M, Y', strtotime($data['startDate'])) }}
                         </b>
                     </span>
-                    <div class="spacer_boxupc"></div>
-
                 </div>
                 <div class="row arrange-supplier">
                     <i class="far fa-calendar-plus" id="license"></i><span class="evenspanlineone">Event Type :
@@ -65,7 +61,6 @@
                             {{ $data['eventType'] }}
                         </b>
                     </span>
-                    <div class="spacer_boxupc"></div>
                     <div class="eventstar">
                         <span class="col-sar"> <b>SAR:</b>
                         </span>
@@ -82,8 +77,6 @@
                     </span>
                     <button class="btn active" id="bn-upclist" onclick="filterSelection('all')"><b> Add to Short List</b></button>
                     <button class="btn active" id="bn-upclistone" onclick="filterSelection('all')"><b> Book Now</b></button>
-                    <div class="spacer_boxupc"></div>
-
                 </div>
             </div>
         </div>

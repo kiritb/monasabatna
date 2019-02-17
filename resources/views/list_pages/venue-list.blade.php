@@ -46,15 +46,11 @@ $appliedParams= $data['appliedParams'];
                                 {{ $vennueLists["vennueName"] }}
                             </a>
                         </div>
-                        <div class="spacer_boxtwo"></div>
-
                         <div class="wish-text">
 
                             @include('ui_utils.stars', ['stars' => $vennueLists["rating"]])
 
                         </div>
-
-                        <div class="spacer_boxtwo"></div>
                         <div class="wish-text">
                             <a href={{ $vennueLists["googleMapLink"] }} target="_blank">
                                 <i class='fas fa-map-marker-alt' style='font-size:25px;color:#6cc0b9'></i>
@@ -63,8 +59,7 @@ $appliedParams= $data['appliedParams'];
                                 {{ $vennueLists["cityName"] }}
                             </a>
                         </div>
-                        <div class="spacer_boxtwo"></div>
-                        <div class="wish-text"><b><span class="go-green">Amenities:</span>
+                        <div class="wish-text"><b><span class="bold-grey">Amenities:</span>
                                 @foreach($vennueLists["ammenties"] as $ammenties)
 
                                 {{ $loop->first ? '' : ', ' }}
@@ -72,8 +67,6 @@ $appliedParams= $data['appliedParams'];
 
                                 @endforeach
                             </b></div>
-                        <div class="spacer_boxtwo"></div>
-
                         <p class="blogvenue">{{ $vennueLists["vennueShortDescription"] }}</p>
                         <div class="wish-text"><b><span class="col-green">SAR:</span>
                                 {{

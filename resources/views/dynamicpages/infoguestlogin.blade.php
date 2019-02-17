@@ -53,21 +53,15 @@
                                             class="spaceone"> 11:30 AM</span></b>&nbsp;<a href="#">Change </a></div>
                             </datetime>
                         </div>
-                        <div class="spacer_boxthree"></div>
                         <address>
                             <div class="icons-cust"><i class="fas fa-map-marker-alt" style="font-size:22px; color:#6cc0b9"></i></div>
                             <div class="margincst">Address:<b> 123 XYZRoad, Saudi Arabia </b><a href="#"> Show in map</a></div>
                         </address>
-                        <div class="spacer_boxthree"></div>
                         <div>
                             <div class="icons-custone"><i class="fas fa-users" style='font-size:18px; color:#6cc0b9'></i></div>
                             <div class="margincst"> Guest Capacity : <b>100 - 200</b></div>
                         </div>
-                        <div class="spacer_boxthree"></div>
-
-
-                        <div class="row sarinfo"><span class="go-green">SAR : </span><b> 100 / Day</b></div>
-
+                        <div class="row sarinfo"><span class="bold-grey">SAR : </span><b> 100 / Day</b></div>
                     </div>
                 </div>
             </div>
@@ -282,7 +276,7 @@
                                 aria-controls="collapseOne">
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
                                     value="option2">
-                               <label class="form-check-label" for="inlineRadio2">Booking for Someone else</label>
+                                <label class="form-check-label" for="inlineRadio2">Booking for Someone else</label>
                         </div>
                     </div>
                     <!------------row infolog -------------------------->
@@ -347,193 +341,231 @@
                     </div>
                     <!------- row ----------------->
 
-  </form>
-</div>
-  
-  
-</div>
-<div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
-    
-<div class="container-fluid" id="pytinfo">
-      <div class="leftpyt">
-      <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1"><span class="">Full Payment</span><span class="go-color"> SAR : </span>324</label>
-                        </div>
-                        
-        </div><!----------------leftpyt------------------>
-<div class="rightpyt">
-<div class="form-check form-check-inline">
-                            <label data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                                aria-controls="collapseOne">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                               <label class="form-check-label" for="inlineRadio2">Advance Payment SAR : 151.2</label>
-                               <div class="">
-                                   Pay 20 % (SAR. 151.2) now and pay remaining 80 % (SAR. 200) at venue
-                                   on arrival.
-                                </div>
-                        </div>
-        </div><!-------------rightpyt ----------------->
-    </div><!-------------pytinfo---------------->
-    <div class="container-fluid" id="pyttabs">
-    <nav>
-                  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-debit-tab" data-toggle="tab" href="#nav-debit" role="tab" 
+                </form>
+            </div>
 
-aria-controls="nav-debit" aria-selected="true">Debit Card</a>
-                    <a class="nav-item nav-link" id="nav-netbank-tab" data-toggle="tab" href="#nav-netbank" role="tab" 
 
-aria-controls="nav-netbank" aria-selected="false">Net Banking</a>
-                    <a class="nav-item nav-link" id="nav-credit-tab" data-toggle="tab" href="#nav-credit" role="tab" aria-
+        </div>
+        <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
 
-controls="nav-credit" aria-selected="false">Credit Card</a>
-                    <a class="nav-item nav-link" id="nav-sadad-tab" data-toggle="tab" href="#nav-sadad" role="tab" aria-
+            <div class="container-fluid" id="pytinfo">
+                <div class="leftpyt">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1"><span class="">Full Payment</span><span
+                                class="go-color"> SAR : </span>324</label>
+                    </div>
 
-controls="nav-sadad" aria-selected="false">Sadad</a>
-                  </div>
+                </div>
+                <!----------------leftpyt------------------>
+                <div class="rightpyt">
+                    <div class="form-check form-check-inline">
+                        <label data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Advance Payment SAR : 151.2</label>
+                            <div class="">
+                                Pay 20 % (SAR. 151.2) now and pay remaining 80 % (SAR. 200) at venue
+                                on arrival.
+                            </div>
+                    </div>
+                </div>
+                <!-------------rightpyt ----------------->
+            </div>
+            <!-------------pytinfo---------------->
+            <div class="container-fluid" id="pyttabs">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-debit-tab" data-toggle="tab" href="#nav-debit" role="tab"
+                            aria-controls="nav-debit" aria-selected="true">Debit Card</a>
+                        <a class="nav-item nav-link" id="nav-netbank-tab" data-toggle="tab" href="#nav-netbank" role="tab"
+                            aria-controls="nav-netbank" aria-selected="false">Net Banking</a>
+                        <a class="nav-item nav-link" id="nav-credit-tab" data-toggle="tab" href="#nav-credit" role="tab"
+                            aria- controls="nav-credit" aria-selected="false">Credit Card</a>
+                        <a class="nav-item nav-link" id="nav-sadad-tab" data-toggle="tab" href="#nav-sadad" role="tab"
+                            aria- controls="nav-sadad" aria-selected="false">Sadad</a>
+                    </div>
                 </nav>
 
                 <div class="tab-content" id="nav-tabContent">
-                  <div class="tab-pane fade show active" id="nav-debit" role="tabpanel" aria-labelledby="nav-debit-tab">
-                    <div class="row crddetails">Please provide the card details</div>
-                    <div class="row infolog">
-      <div class="col-35">
-        <input type="text" id="lname" name="lastname" placeholder="Card Number">
-      </div>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-      <div class="col-35">
-        <input type="text" id="lname" name="lastname" placeholder="Name on Card">
-      </div>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-      <span class="col-10">
-        <input type="text" id="month" name="lastname" placeholder="MM">
-</span>
-      <span class="slashpyt"> /</span>
-      <span class="col-11">
-        <input type="text" id="monthn" name="lastname" placeholder="MM">
-</span>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-      
-      <span class="col-2">
-        <input type="text" id="monthn" name="lastname" placeholder="CVV">
-</span>
-<span class="ques"><i class="fas fa-question-circle"></i></span>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-                            
+                    <div class="tab-pane fade show active" id="nav-debit" role="tabpanel" aria-labelledby="nav-debit-tab">
+                        <div class="row crddetails">Please provide the card details</div>
+                        <div class="row infolog">
+                            <div class="col-35">
+                                <input type="text" id="lname" name="lastname" placeholder="Card Number">
+                            </div>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+                            <div class="col-35">
+                                <input type="text" id="lname" name="lastname" placeholder="Name on Card">
+                            </div>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+                            <span class="col-10">
+                                <input type="text" id="month" name="lastname" placeholder="MM">
+                            </span>
+                            <span class="slashpyt"> /</span>
+                            <span class="col-11">
+                                <input type="text" id="monthn" name="lastname" placeholder="MM">
+                            </span>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+
+                            <span class="col-2">
+                                <input type="text" id="monthn" name="lastname" placeholder="CVV">
+                            </span>
+                            <span class="ques"><i class="fas fa-question-circle"></i></span>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+
                             <div class="form-check form-check-inline" id="formchkpyt">
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                <label class="form-check-label" id="savecrd" for="inlineCheckbox1">Save this card for faster checkout</label>
+                                <label class="form-check-label" id="savecrd" for="inlineCheckbox1">Save this card for
+                                    faster checkout</label>
                             </div>
-</div> <!------------row infolog -------------------------->
+                        </div>
+                        <!------------row infolog -------------------------->
 
-<div class="row pytlink">
-    <a href="#" class="paynotbtn">Pay Now</a>
-</div>
-<div class="row notepyt">Note: After clicking on the "Pay Now" button, you will be redirected to a secure payment gateway</div>
-<div class="row termslink"><a href="#">Terms & Conditions</a> </div>
-</div><!--------------------------debit ------------------>
-<div class="tab-pane fade" id="nav-netbank" role="tabpanel" aria-labelledby="nav-netbank-tab">
-                    update
-                  </div><!---------------Net Banking --------------------------->
-                  <div class="tab-pane fade" id="nav-credit" role="tabpanel" aria-labelledby="nav-credit-tab">
-                      delete
-                  </div><!---------------- credit Card ---------------------->
-                  <div class="tab-pane fade" id="nav-sadad" role="tabpanel" aria-labelledby="nav-sadad-tab">
-                      calling func
-                  </div><!---------------- sadad ----------------------------->
-                </div><!-------------------------tabs closed ----------------------------->
-</div><!----------------pyttabs -------------------------------->
-</div>
-<div class="tab-pane fade" id="pills-booking" role="tabpanel" aria-labelledby="pills-booking-tab">
-  <div class="container-fluid" id="bkconfirm">
-  <div class="booking">
-    <div class="booking-header"><div class="row conghd">Congratulations!</div><div class="row bkhd"> Your booking is confirmed.</div></div>
-    <div class="booking-body">
-    <div class="row infolog">
-      <div class="col-20">
-        <label for="fname">Booking Number : </label>
-      </div>
-      <div class="col-25">
-        <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname" style="border:none" value="MTNA0789456123">
-      </div>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-      <div class="col-20">
-        <label for="fname">Booking Date : </label>
-      </div>
-      <div class="col-25">
-        <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname" style="border:none" value="8/July/2018">
-      </div>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-      <div class="col-20">
-        <label for="fname">Packages : </label>
-      </div>
-      <div class="col-25">
-        <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname" style="border:none" value="Deserts, Chocolates and Cakes">
-      </div>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-      <div class="col-20">
-        <label for="fname">Venue Name : </label>
-      </div>
-      <div class="col-25">
-        <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname" style="border:none" value="La Fountaine La Plage Resort">
-      </div>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-      <div class="col-20">
-        <label for="fname">Venue Address : </label>
-      </div>
-      <div class="col-25">
-        <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname" style="border:none" value="123 Avenue Road">
-      </div>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-      <div class="col-20">
-        <label for="fname">Date : </label>
-      </div>
-      <div class="col-25">
-        <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname" style="border:none" value="30/July/2018">
-      </div>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-      <div class="col-20">
-        <label for="fname">Attached Event Organiser : </label>
-      </div>
-      <div class="col-25">
-        <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname" style="border:none" value="Event Organiser Name">
-      </div>
-    </div><!---- row infolog------------>
-    <div class="row infolog">
-      <div class="col-20">
-        <label for="fname">Attached Venue : </label>
-      </div>
-      <div class="col-25">
-        <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname" style="border:none" value="Venue Name">
-      </div>
-    </div><!---- row infolog------------>
-    </div> 
-    <div class="booking-footer">Total Price: SAR.756</div>
-  </div><!---------------booking ------------------------------------>
-</div><!----------------------bkconfirm ----------------------------->
-    <div class="container-fluid" id="bkconftext">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    </div><!--------------bkconftext ------------------->
-    <div class="container-fluid" id="buttonlink">
- 
-  <a href="#" class="bookconfshr" role="button">Share</a>
-  <a href="#" class="bookconflink active" role="submit">Done</a>
-  
-</div><!----------------------buttonlink ---------------------->
-</div>
-</div><!----------end of tabs ----------------->
+                        <div class="row pytlink">
+                            <a href="#" class="paynotbtn">Pay Now</a>
+                        </div>
+                        <div class="row notepyt">Note: After clicking on the "Pay Now" button, you will be redirected
+                            to a secure payment gateway</div>
+                        <div class="row termslink"><a href="#">Terms & Conditions</a> </div>
+                    </div>
+                    <!--------------------------debit ------------------>
+                    <div class="tab-pane fade" id="nav-netbank" role="tabpanel" aria-labelledby="nav-netbank-tab">
+                        update
+                    </div>
+                    <!---------------Net Banking --------------------------->
+                    <div class="tab-pane fade" id="nav-credit" role="tabpanel" aria-labelledby="nav-credit-tab">
+                        delete
+                    </div>
+                    <!---------------- credit Card ---------------------->
+                    <div class="tab-pane fade" id="nav-sadad" role="tabpanel" aria-labelledby="nav-sadad-tab">
+                        calling func
+                    </div>
+                    <!---------------- sadad ----------------------------->
+                </div>
+                <!-------------------------tabs closed ----------------------------->
+            </div>
+            <!----------------pyttabs -------------------------------->
+        </div>
+        <div class="tab-pane fade" id="pills-booking" role="tabpanel" aria-labelledby="pills-booking-tab">
+            <div class="container-fluid" id="bkconfirm">
+                <div class="booking">
+                    <div class="booking-header">
+                        <div class="row conghd">Congratulations!</div>
+                        <div class="row bkhd"> Your booking is confirmed.</div>
+                    </div>
+                    <div class="booking-body">
+                        <div class="row infolog">
+                            <div class="col-20">
+                                <label for="fname">Booking Number : </label>
+                            </div>
+                            <div class="col-25">
+                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    style="border:none" value="MTNA0789456123">
+                            </div>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+                            <div class="col-20">
+                                <label for="fname">Booking Date : </label>
+                            </div>
+                            <div class="col-25">
+                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    style="border:none" value="8/July/2018">
+                            </div>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+                            <div class="col-20">
+                                <label for="fname">Packages : </label>
+                            </div>
+                            <div class="col-25">
+                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    style="border:none" value="Deserts, Chocolates and Cakes">
+                            </div>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+                            <div class="col-20">
+                                <label for="fname">Venue Name : </label>
+                            </div>
+                            <div class="col-25">
+                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    style="border:none" value="La Fountaine La Plage Resort">
+                            </div>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+                            <div class="col-20">
+                                <label for="fname">Venue Address : </label>
+                            </div>
+                            <div class="col-25">
+                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    style="border:none" value="123 Avenue Road">
+                            </div>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+                            <div class="col-20">
+                                <label for="fname">Date : </label>
+                            </div>
+                            <div class="col-25">
+                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    style="border:none" value="30/July/2018">
+                            </div>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+                            <div class="col-20">
+                                <label for="fname">Attached Event Organiser : </label>
+                            </div>
+                            <div class="col-25">
+                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    style="border:none" value="Event Organiser Name">
+                            </div>
+                        </div>
+                        <!---- row infolog------------>
+                        <div class="row infolog">
+                            <div class="col-20">
+                                <label for="fname">Attached Venue : </label>
+                            </div>
+                            <div class="col-25">
+                                <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
+                                    style="border:none" value="Venue Name">
+                            </div>
+                        </div>
+                        <!---- row infolog------------>
+                    </div>
+                    <div class="booking-footer">Total Price: SAR.756</div>
+                </div>
+                <!---------------booking ------------------------------------>
+            </div>
+            <!----------------------bkconfirm ----------------------------->
+            <div class="container-fluid" id="bkconftext">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam,
+            </div>
+            <!--------------bkconftext ------------------->
+            <div class="container-fluid" id="buttonlink">
+
+                <a href="#" class="bookconfshr" role="button">Share</a>
+                <a href="#" class="bookconflink active" role="submit">Done</a>
+
+            </div>
+            <!----------------------buttonlink ---------------------->
+        </div>
+    </div>
+    <!----------end of tabs ----------------->
 
 </div>
 </div>
@@ -547,11 +579,12 @@ controls="nav-sadad" aria-selected="false">Sadad</a>
 <div class="row"> </div>
 @include('shared/footer')
 <script>
-$('#r11').on('click', function(){
-  $(this).parent().find('a').trigger('click')
-});
+    $('#r11').on('click', function () {
+        $(this).parent().find('a').trigger('click')
+    });
 
-$('#r12').on('click', function(){
-  $(this).parent().find('a').trigger('click')
-});
+    $('#r12').on('click', function () {
+        $(this).parent().find('a').trigger('click')
+    });
+
 </script>

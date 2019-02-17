@@ -114,7 +114,7 @@
 
     <!------------------------------------ content end------------------------------------------>
     <!------------------------------------ Testimonial start------------------------------------------>
-    <div class="row" id="bg-about">
+    <div class="container-fluid" id="bg-about">
 
         @include('ui_utils/our-team', ['slides' => $data['ourTeam'], 'title' => 'Our Team'])
 

@@ -51,14 +51,12 @@ $appliedParams= $data['appliedParams'];
                                     {{ $eventOrganiser['eventOrgainsersName'] }}
                                 </a>
                             </b> </div>
-                        <div class="spacer_boxtwo"></div>
                         <div class="wish-text">
                             @include('ui_utils.stars', ['stars'=> $eventOrganiser["rating"]])
                         </div>
 
-                        <div class="wish-text"><b><span class="go-green">Theme : </span>8</b></div>
-                        <div class="spacer_boxtwo"></div>
-                        <div class="wish-text"><b><span class="go-green">Event Covered : </span>
+                        <div class="wish-text"><b><span class="bold-grey">Theme : </span>8</b></div>
+                        <div class="wish-text"><b><span class="bold-grey">Event Covered : </span>
                                 @if (isset($eventOrganiser["event_covers"]) && count($eventOrganiser["event_covers"]) >
                                 0)
                                 @foreach ($eventOrganiser["event_covers"] as $key=>$event_cover)
@@ -69,7 +67,6 @@ $appliedParams= $data['appliedParams'];
                                 <div>No data!!</div>
                                 @endif
                             </b></div>
-                        <div class="spacer_boxtwo"></div>
                         <p class="eventwish">
                             {{ $eventOrganiser['eventShortDescription'] }}
                         </p>

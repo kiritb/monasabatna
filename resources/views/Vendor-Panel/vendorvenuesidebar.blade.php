@@ -24,15 +24,16 @@
         else if(uri == 'vendorservices' || uri == 'dashboardserviceform'){
           $("#v-pills-services-tab").addClass('active');
         }
-
-        else if(uri == 'vendorterms'){
-          $("#v-pills-policies-tab").addClass('active');
-        }
         else if(uri == 'vendorprofile'){
           $("#v-pills-profiles-tab").addClass('active');
         }
 
-        else if(uri == 'vendoramenities'){
+        else if(uri == 'vendorterms'){
+          $("#v-pills-policies-tab").addClass('active');
+        }
+        
+
+        else if(uri == 'vendoramenities' || uri == 'add_amenities' || uri == 'edit_amenities' || uri == 'deleteamenities'){
           $("#v-pills-amenities-tab").addClass('active');
         }
 

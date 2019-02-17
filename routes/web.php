@@ -233,7 +233,11 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('vendorvenue', 'Web\VennueController@listVenue');
 Route::get('vendoramenities', 'Web\AmenitieController@getAmenitieType');
 Route::post('add_amenities', 'Web\AmenitieController@addAmenitieType');
+Route::post('edit_amenities', 'Web\AmenitieController@editAmenitieType');
+Route::get('vendoramenities/{id}', 'Web\AmenitieController@getAmenitieType')->name('vendoramenities');
+Route::post('deleteamenities', 'Web\AmenitieController@deleteAmenitieType');
 
 Route::get('vendorterms', 'Web\VendorController@getVendorPolicy');
 Route::post('update_terms', 'Web\VendorController@updateVendorPolicy');
-Route::resource('amenitie_types', 'Web\AmenitieController');
+
+// Route::resource('amenitie_types', 'Web\AmenitieController');

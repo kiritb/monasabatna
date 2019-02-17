@@ -29,11 +29,8 @@
                     <i class="fas fa-map-marker-alt" style="font-size:20px; color:#6cc0b9" aria-hidden="true"></i>
                     <span class="evenspanline"> Address : <b>{{ $data['AddressLine_1'] }},
                             {{ $data['AddressLine_2']
-                            }}, {{ $data['cityName'] }}</b><a
-                            class="showmap" href={{ $data['googleMapLink'] }}>
+                            }}, {{ $data['cityName'] }}</b><a class="showmap" href={{ $data['googleMapLink'] }}>
                             Show in map</a></span>
-                    <div class="spacer_boxupc"></div>
-
                 </div>
 
                 <div class="row arrange-supplier">
@@ -41,8 +38,6 @@
                     <span class="evenspanlineone">
                         Customer Service Number : <b>{{ $data['customerCareNo'] }}</b>
                     </span>
-                    <div class="spacer_boxupc"></div>
-
                 </div>
 
                 <div class="row arrange-supplier">
@@ -50,8 +45,6 @@
                     <span class="evenspanline">License Number :
                         <b>{{ $data['licenseNo'] }}</b>
                     </span>
-                    <div class="spacer_boxupc"></div>
-
                 </div>
 
                 <div class="row arrange-supplier">
@@ -59,7 +52,6 @@
                     <span class="evenspanlineone">Guest Capacity :
                         <b>{{ $data['MinGuestCap'] }} - {{ $data['MaxGuestCap'] }}</b>
                     </span>
-                    <div class="spacer_boxupc"></div>
                     <div class="venuestar">
                         <span class="col-sar">
                             <b>SAR:</b>
@@ -81,8 +73,6 @@
                             List</b></button>
                     <button class="btn active" id="bn-upclistone" onclick="filterSelection('all')"><b> Book
                             Now</b></button>
-                    <div class="spacer_boxupc"></div>
-
                 </div>
             </div>
         </div>
@@ -102,7 +92,7 @@
                 <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab"
                     aria-controls="nav-about" aria-selected="true">About</a>
                 <a class="nav-item nav-link" id="nav-provided-tab" data-toggle="tab" href="#nav-provided" role="tab"
-                    aria-controls="nav-provided" aria-selected="false">Services</a>
+                    aria-controls="nav-provided" aria-selected="false">Menu</a>
                 <a class="nav-item nav-link" id="nav-requisites-tab" data-toggle="tab" href="#nav-requisites" role="tab"
                     aria-controls="nav-requisites" aria-selected="false">Amenities</a>
                 <a class="nav-item nav-link" id="nav-testi-tab" data-toggle="tab" href="#nav-testi" role="tab"
@@ -119,7 +109,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="nav-provided" role="tabpanel" aria-labelledby="nav-provided-tab">
-                <div class="packagecontent">
+                <div class="container-fluid packagecontent">
                     <div class="accordion" id="accordionExample">
 
                         @if (count($data["services"]) > 0)
@@ -127,17 +117,22 @@
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse"
-                                        data-target="#collapse_{{ $key }}" aria-expanded="true"
-                                        aria-controls="collapse_{{ $key }}">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_{{ $key }}"
+                                        aria-expanded="true" aria-controls="collapse_{{ $key }}">
                                         Catering
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapse_{{ $key }}" class="collapse {{ ($key==0)?'show':'' }}"
-                                aria-labelledby="headingOne" data-parent="#accordionExample">
+
+                            <div id="collapse_{{ $key }}" class="collapse {{ ($key==0)?'show':'' }}" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+
                                 <div class="card-body">
+
+                                    <h3>{{ $services['serviceName'] }}</h3>
+                                    <div>{{ $services['actualPrice'] . ' ' . $services['pricingType'] }}</div>
+
                                     @if (count($services["serviceMenu"]) > 0)
                                     @foreach ($services["serviceMenu"] as $serviceMenu)
                                     <div>{{ $serviceMenu }}</div>
@@ -146,6 +141,7 @@
                                     <div>No data!!</div>
                                     @endif
                                 </div>
+
                             </div>
                         </div>
                         @endforeach
@@ -158,24 +154,25 @@
                 <!------------end of events content ---------------------->
             </div>
             <div class="tab-pane fade" id="nav-requisites" role="tabpanel" aria-labelledby="nav-requisites-tab">
-                <div class="packagecontent">
+                <div class="container-fluid packagecontent">
+                    <div class="row">
 
-                    @if (count($data["ammenties"]) > 0)
-                    @foreach ($data["ammenties"] as $ammenties)
-                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-                        <h1><i class="fa fa-street-view" style="font-size:50px"></i></h1>
-                        <label><b>{{ $ammenties['amenitieName'] }}</b></label>
+                        @if (count($data["ammenties"]) > 0)
+                        @foreach ($data["ammenties"] as $ammenties)
+                        <div class="col">
+                            <h1><i class="fa fa-street-view" style="font-size:50px"></i></h1>
+                            <label><b>{{ $ammenties['amenitieName'] }}</b></label>
+                        </div>
+                        @endforeach
+                        @else
+                        <div>No data!!</div>
+                        @endif
                     </div>
-                    @endforeach
-                    @else
-                    <div>No data!!</div>
-                    @endif
-
                 </div>
             </div>
             <div class="tab-pane fade" id="nav-testi" role="tabpanel" aria-labelledby="nav-testi-tab">
                 <!--------------Event Organisers ------------------>
-                <div class="packagecontent">
+                <div class="container-fluid packagecontent">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
                         <div class="carousel-inner">
@@ -200,13 +197,11 @@
                             @endif
 
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                            data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <i class="fas fa-angle-left" id="venuetestil"></i>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                            data-slide="next">
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                             <i class="fas fa-angle-right" id="venuetestir"></i>
                             <span class="sr-only">Next</span>
                         </a>
@@ -216,7 +211,7 @@
                 <!------------end of events content ---------------------->
             </div>
             <div class="tab-pane fade" id="nav-terms" role="tabpanel" aria-labelledby="nav-terms-tab">
-                <div class="packagecontent">
+                <div class="container-fluid packagecontent">
                     @include('ui_utils/policy-loader', ['policies'=> $data['policies']])
                 </div>
             </div>
@@ -225,8 +220,10 @@
 
     @include('ui_utils.recommendations-slicker', ['slides' => $data['recommendations']['vennues'], 'title' =>
     'Recommonded Venues'])
+    <div class="customerlinegreen"></div>
     @include('ui_utils.recommendations-slicker', ['slides' => $data['recommendations']['eventOrgainsers'], 'title' =>
     'Recommonded Event Organisers'])
+    <div class="customerlinegreen"></div>
     @include('ui_utils.recommendations-slicker', ['slides' => $data['recommendations']['suppliers'], 'title' =>
     'Recommonded Suppliers'])
 

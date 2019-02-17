@@ -26,11 +26,11 @@
         @endphp
         @endif
 
-        <div class="bg-success">
+        <div class="">
             <a href={{ url('/events/organisers/'.$id) }}>
                 <img src={{ $slide['filePath'] }} alt={{ $name }}>
                 @if(isset($name))
-                <div class="sleek-labels text-center p-2">{{ $name }}</div>
+                <div class="sleek-labels py-2">{{ $name }}</div>
                 @endif
             </a>
         </div>

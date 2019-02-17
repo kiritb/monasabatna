@@ -41,10 +41,6 @@ span.upcspanline {
     font-size: 15px;
 }
 
-.spacer_boxupc {
-    height: 40px;
-}
-
 #upcomingtabs {
     padding-left: 0px;
     padding-right: 0px;
@@ -144,11 +140,6 @@ div#upcuser-search {
 div#upcoming-contentright {
     padding-left: 0px;
     padding-right: 0px;
-}
-
-.go-greencap {
-    color: #6cc0b9;
-    font-weight: bold;
 }
 
 span.upctext {
@@ -466,10 +457,6 @@ button {
 .content-whole-col {
     background-color: #ffffff;
     margin: -27px 0px 0px -29px;
-}
-
-.content-eve {
-    float: left;
 }
 
 /********************upcoming events user click ******************/

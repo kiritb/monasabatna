@@ -26,7 +26,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('login', 'Auth\LoginController@login');
 
     Route::post('password/forgot', 'Auth\LoginController@forgotPassword');
-    
+
     Route::post('password/update', 'Auth\LoginController@updatePassword');
 
     Route::get('home', 'Api\HomeController@index');
@@ -84,12 +84,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('wishlist', 'Api\HomeController@addWishList');
 
     Route::get('terms', 'Api\HomeController@getGenericTerms');
-
-
 });
 
 Route::group(['middleware' => ['jwt.verify'], 'prefix' => 'v1'], function () {
-
     Route::get('logout', 'Auth\LoginController@logout');
     Route::post('blogs', 'Api\BlogController@postBlog');
     Route::get('users/{id}', 'Auth\LoginController@getUserDetails');
@@ -97,18 +94,14 @@ Route::group(['middleware' => ['jwt.verify'], 'prefix' => 'v1'], function () {
     Route::post('password/reset', 'Auth\LoginController@resetPassword');
     Route::post('reviews', 'Api\BlogController@postReviews');
     Route::post('users/{id}/image', 'Auth\LoginController@addProfileImage');
-
-
 });
+
+Route::post('edit_amenities', 'Web\AmenitieController@editAmenitieType');
 Route::get('vendoramenities', 'Web\AmenitieController@getAmenitieType');
 Route::post('add_amenities', 'Web\AmenitieController@addAmenitieType');
 Route::post('vendordata', 'Web\VendorController@getVendorPolicy');
 Route::post('update_terms', 'Web\VendorController@updateVendorPolicy');
 
-
 Route::group(['middleware' => ['vendor.verify'], 'prefix' => 'v1'], function () {
-
     Route::get('vendor/update/{id}', 'Api\VendorController@updateVendor');
-
 });
-

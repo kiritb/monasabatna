@@ -68,8 +68,8 @@
                             <li class="abovedrop"><a href="{{ url('/contactus') }}">Contact us</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a href="#">CUSTOMER SERVICE </a></li>
-                    <li class="nav-item"><a href="#"> WISHLIST</a></li>
+                    <li class="nav-item"><a href="{{ url('/#facilitate-form') }}">CUSTOMER SERVICE </a></li>
+                    <li class="nav-item"><a href="{{ url('/wishlist') }}"> WISHLIST</a></li>
                     <li class="nav-item">
                         <a class="btn btn-default booknow-header" href="#">Book Now</a>
                     </li>
