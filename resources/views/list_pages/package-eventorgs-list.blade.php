@@ -43,6 +43,9 @@ $appliedParams= $data['appliedParams'];
             @foreach ($packageEvents["eventOrganiserslist"] as $key=>$eventOrganiser)
             <div class="row item-bg-color">
                 <div class="content-eve">
+                    @if(isset($eventOrganiser['isExpressDeal']) && $eventOrganiser['isExpressDeal'] == 1)
+                    <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
+                    @endif
                     <img src={{ $eventOrganiser['filePath'] }} alt="Mountains" style="width:300px; height:273px">
                 </div>
 

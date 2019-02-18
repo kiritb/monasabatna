@@ -43,6 +43,9 @@ $appliedParams= $data['appliedParams'];
             <div class="row item-bg-color">
                 <div class="content-eve">
                     <a href={{ url('/suppliers/') . "/" . $suppliersList['supplierId'] }} alt="supplier">
+                        @if(isset($suppliersList['isExpressDeal']) && $suppliersList['isExpressDeal'] == 1)
+                        <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
+                        @endif
                         <img src={{ $suppliersList['filePath'] }} alt="Mountains">
                     </a>
                 </div>
@@ -85,7 +88,8 @@ $appliedParams= $data['appliedParams'];
                         <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / Day </b>
                         </div>
 
-                        <a href="{{ url('supplierdetails/'. $suppliersList['supplierId']) }}" class="btn active" id="btn-eventlist">
+                        <a href="{{ url('supplierdetails/'. $suppliersList['supplierId']) }}" class="btn active"
+                            id="btn-eventlist">
                             <b>Book Now</b>
                         </a>
                     </div>

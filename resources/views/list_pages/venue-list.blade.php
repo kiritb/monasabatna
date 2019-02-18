@@ -35,6 +35,9 @@ $appliedParams= $data['appliedParams'];
             <div class="row item-bg-color">
                 <div class="col-sm-3 content-eve p-0">
                     <a href="{{ url('/venues/'.$vennueLists['vennueId']) }}">
+                        @if(isset($vennueLists['isExpressDeal']) && $vennueLists['isExpressDeal'] == 1)
+                        <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
+                        @endif
                         <img src={{ $vennueLists["filePath"] }} alt="Mountains">
                     </a>
                 </div>

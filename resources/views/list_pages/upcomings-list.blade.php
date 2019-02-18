@@ -24,7 +24,9 @@ $appliedParams= $data['appliedParams'];
 
         <div class="row item-bg-color">
             <div class="content-eve">
-                <span class="dela-badge">{{ '% Deal' }}</span>
+                @if(isset($uEvents['isExpressDeal']) && $uEvents['isExpressDeal'] == 1)
+                <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
+                @endif
                 <img src="{{ $uEvents['filePath'] }}" alt="Mountains">
             </div>
 
@@ -32,10 +34,10 @@ $appliedParams= $data['appliedParams'];
                 <div class="content-optionblog">
                     <div class="upcbox-head"><b>Event Organiser Name </b></div>
                     <div class="upcbox-head"><b> {{ $uEvents['eventName'] }} </b></div>
-                    <div class="wish-text"> <i class='fas fa-map-marker-alt' style='font-size:23px;color:#6cc0b9'></i><span
-                            class="upctext">Address :
-                            {{ $uEvents['AddressLine_1'] }}, {{ $uEvents['AddressLine_2'] }}</span><a class="highlight_line"
-                            href="{{ $uEvents['googleMapLink'] }}" target="_blank">show in map
+                    <div class="wish-text"> <i class='fas fa-map-marker-alt'
+                            style='font-size:23px;color:#6cc0b9'></i><span class="upctext">Address :
+                            {{ $uEvents['AddressLine_1'] }}, {{ $uEvents['AddressLine_2'] }}</span><a
+                            class="highlight_line" href="{{ $uEvents['googleMapLink'] }}" target="_blank">show in map
                         </a></div>
                     <div class="wish-text"> <i class="far fa-clock" style='font-size:23px;color:#6cc0b9'></i><span
                             class="upctext">Start

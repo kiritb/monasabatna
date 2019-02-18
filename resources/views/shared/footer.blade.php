@@ -2,25 +2,29 @@
 
 <footer id="footer">
     <footer class="container-fluid text-center text-md-left" id="primary-footer">
+        <div class="row">
+            <div class="col-sm-3 text-center">
 
-        <div class="row col-sm-12">
+                <div>
+                    <i class="fas fa-map-marker-alt"></i>
+                    123, ABC Street, xyz,<span> XYZ</span>
+                </div>
 
-            <div class="col-sm-3">
+                <div>
+                    <i class="fas fa-phone"></i>
+                    johndeo@gmail.com
+                </div>
+
+                <div>
+                    <i class="far fa-envelope"></i>
+                    +966-9876543210
+                </div>
 
                 <h5>Blogs</h5>
 
                 <h5> About Us</h5>
 
                 <h5> Contact Us </h5>
-
-                <div><span class="iconspace"><i class="fas fa-map-marker-alt" style="font-size:20px;color:#5cb9b1;background-color:#373737!important; margin-top:3px"></i></span>
-                    123, ABC Street, xyz,<span class="textfootcustom"> XYZ</span></div>
-
-                <div><i class="fas fa-phone" style="font-size:20px;color:#5cb9b1;background-color:#373737!important"></i>
-                    johndeo@gmail.com</b></div>
-
-                <div><i class="far fa-envelope" style="font-size:20px;color:#5cb9b1;background-color:#373737!important"></i>
-                    +966-9876543210</b></div>
 
             </div>
 
@@ -37,23 +41,24 @@
 
                     <li>Conference
             </div>
-            </ul>
 
-            <h5> Our Partners </h5>
-            <ul>
-                <li>Venues</li>
+            <div class="col-sm-3">
+                <h5> Our Partners </h5>
+                <ul>
+                    <li>Venues</li>
 
-                <li>Suppliers </li>
+                    <li>Suppliers </li>
 
-                <li>Organizers </li>
-            </ul>
+                    <li>Organizers </li>
+                </ul>
 
-            <div>
-                <h5>Partner Registration</h5>
-            </div>
+                <div>
+                    <h5>Partner Registration</h5>
+                </div>
 
-            <div>
-                <h5>Partner LogIn</h5>
+                <div>
+                    <h5>Partner LogIn</h5>
+                </div>
             </div>
 
             <div class="col-sm-3">
@@ -70,15 +75,12 @@
 
                     <a href="#"><span id="faceicon"><i class="fab fa-facebook-f"></i></span> </a>
 
-                    &nbsp; &nbsp;
-
                     <a href="#"><span id="tweeticon"><i class="fab fa-twitter"></i></span></a>
 
                 </h5>
 
             </div>
         </div>
-
     </footer>
 
     <footer class="container-fluid text-center" id="secondary-footer">
@@ -87,8 +89,7 @@
 </footer>
 <!------- Footer end-------->
 <script type="text/javascript" charset="utf-8">
-    var base_url = "{{ url('/') }}";
-
+var base_url = "{{ url('/') }}";
 </script>
 <script src="{{ url('vendors/jquery/jquery3.3.1.min.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ url('vendors/loader/javascriptsloader.js') }}" type="text/javascript" charset="utf-8"></script>

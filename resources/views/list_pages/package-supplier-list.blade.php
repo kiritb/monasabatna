@@ -42,6 +42,9 @@ $appliedParams= $data['appliedParams'];
             @foreach ($packageSuppliers['suppliersList'] as $key=>$suppliersList)
             <div class="row item-bg-color">
                 <div class="content-eve">
+                    @if(isset($suppliersList['isExpressDeal']) && $suppliersList['isExpressDeal'] == 1)
+                    <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
+                    @endif
                     <img src={{ $suppliersList['filePath'] }} alt="Mountains" style="width:300px; height:273px">
                 </div>
 
@@ -60,7 +63,8 @@ $appliedParams= $data['appliedParams'];
                                 {{ $suppliersList['actualPrice'].' '.$suppliersList['pricingType'] }} </b>
                         </div>
 
-                        <a href="http://18.218.133.17/supplierdetails" class="btn active" id="btn-eventlist" onclick="#"><b>
+                        <a href="http://18.218.133.17/supplierdetails" class="btn active" id="btn-eventlist"
+                            onclick="#"><b>
                                 Book Now </b></a>
                     </div>
                 </div>

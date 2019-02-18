@@ -38,7 +38,7 @@ class EventHelper
         try
         {
 
-            $eventsSql = Events::select('events.id as eventId', 'events.name as eventName', 'events.short_description as eventShortDescription', 'events.start_date as vennueStartTime','events.is_express_deal as isExeressDeal',
+            $eventsSql = Events::select('events.id as eventId', 'events.name as eventName', 'events.short_description as eventShortDescription', 'events.start_date as vennueStartTime','events.is_express_deal as isExpressDeal',
                 'events.end_date as eventEndTime', 'events.order_no as displayOrder', 'event_types.name as eventType',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')
@@ -238,7 +238,7 @@ class EventHelper
                 'event_organisers.short_description as eventShortDescription',
                 'event_organisers.order_no as displayOrder',
                 'event_organisers.rating',
-                'event_organisers.is_express_deal as isExeressDeal',
+                'event_organisers.is_express_deal as isExpressDeal',
                 'event_organisers.twitter_link as twitterLink',
                 'event_organisers.fb_link as fbLink',
                 'address.address_line_1 as AddressLine_1',
@@ -726,7 +726,7 @@ class EventHelper
                 'suppliers.short_description as supplierDescription',
                 'suppliers.order_no as displayOrder',
                 'suppliers.rating',
-                'suppliers.is_express_deal as isExeressDeal',
+                'suppliers.is_express_deal as isExpressDeal',
                 'suppliers.twitter_link as twitterLink',
                 'suppliers.fb_link as fbLink',
                 'address.address_line_1 as AddressLine_1',
@@ -1077,6 +1077,7 @@ class EventHelper
 
             $supplierSql = Suppliers::select('suppliers.id as supplierId',
                 'suppliers.name as supplierName',
+                'suppliers.is_express_deal as isExpressDeal',
                 'packages.id as pacakgeId',
                 'packages.name as pacakgeName',
                 'packages.short_description as packageDescription',
@@ -1182,6 +1183,7 @@ class EventHelper
             $eventOrganinserSql = EventOrganisers::select(
                 'event_organisers.id as eventOrganisersId',
                 'event_organisers.name as eventOrgainsersName',
+                'event_organisers.is_express_deal as isExpressDeal',
                 'packages.id as pacakgeId',
                 'packages.name as pacakgeName',
                 'packages.short_description as packageDescription',

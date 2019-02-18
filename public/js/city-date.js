@@ -29,12 +29,16 @@ $(document).ready(function () {
 
                 $('#datapack .datepicker').datepicker({
                     uiLibrary: 'bootstrap4',
-                    format: 'yyyy-mm-dd'
+                    format: 'yyyy-mm-dd',
+                    showOtherMonths: true,
+                    calendarWeeks: true
                 });
 
                 $('#labpack .datepicker').datepicker({
                     uiLibrary: 'bootstrap4',
-                    format: 'yyyy-mm-dd'
+                    format: 'yyyy-mm-dd',
+                    showOtherMonths: true,
+                    calendarWeeks: true
                 });
 
             } else {
