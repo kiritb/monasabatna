@@ -52,14 +52,14 @@ $(document).ready(function () {
         complete: function () {
             $("#cityDateForm").validate({
                 rules: {
-                    cityName: {
+                    'city[]': {
                         required: true,
                         minlength: 1
                     },
-                    startDate: {
+                    'from_date': {
                         required: true
                     },
-                    endDate: {
+                    'to_date': {
                         required: true
                     }
                 },
@@ -78,15 +78,10 @@ $(document).ready(function () {
                 },
                 submitHandler: function (event) {
                     var formData = $('form').serialize();
-                    getResults(event, formData);
+                    let pageType = $('#cityDateForm input[name=pageType]').val();
+                    filterByCityDate(formData, pageType);
                 }
             });
         }
     });
 });
-
-
-function getResults(event, formData) {
-    alert("Getting Results");
-    console.log(formData);
-}

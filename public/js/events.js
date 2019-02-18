@@ -91,6 +91,8 @@ function getTypeListItems(pageType) {
         element: listParams.element
     };
 
+    $('#cityDateForm input[name=pageType]').val(pageType);
+
     getLists(filtersData, jsData);
 }
 
@@ -117,6 +119,21 @@ function filterItNow(formId, pageType) {
     let form = $("#" + formId);
 
     let filtersData = form.serialize();
+
+    let listParams = getAllParams(pageType);
+
+    filtersData += "&pageType=" + pageType + "&is_express_deal=" + listParams.is_express_deal;
+
+    let jsData = {
+        url: listParams.url,
+        element: listParams.element
+    };
+
+    getLists(filtersData, jsData);
+}
+
+function filterByCityDate(formData, pageType) {
+    let filtersData = formData;
 
     let listParams = getAllParams(pageType);
 
