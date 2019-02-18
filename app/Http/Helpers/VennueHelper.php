@@ -247,6 +247,10 @@ class VennueHelper
 
             $venneDataArr['reviews'] = empty($reviewData) ? [] : $reviewData;
 
+            $reviewsDetails = ReviewsHelper::getAverageReviewsByType($vennueId,'vennues');
+
+            $eventsDetails['averageReviews'] = empty( $reviewsDetails ) ? [] : $reviewsDetails;
+
             /* get policy temrs and conditions */
 
             $policyData = PoliciesHelper::getPolicies($vennueId, 'vennues');
