@@ -40,6 +40,7 @@ class VennueHelper
 
             $vennueSql = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName', 'vennues.short_description as vennueShortDescription',
                 'vennues.start_time as vennueStartTime', 'vennues.order_no as displayOrder', 'vennues.min_guest_cap as MinGuestCap', 'vennues.max_guest_cap as MaxGuestCap',
+                'vennues.fb_link as fbLink', 'vennues.twitter_link as twitterLink',
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')
@@ -102,17 +103,11 @@ class VennueHelper
 
             if (isset($filterArr['event_types']) && !empty($filterArr['event_types'])) {
                 $vennueSql->join('vennue_event_mapping', 'vennue_event_mapping.vennue_id', '=', 'vennues.id')
-                    ->join('event_types', 'event_types.id', '=', 'vennue_event_mapping.event_type_id')
-                    ->whereIn('event_types.name', $filterArr['event_types']);
+                          ->join('event_types', 'event_types.id', '=', 'vennue_event_mapping.event_type_id')
+                          ->whereIn('event_types.name', $filterArr['event_types']);
 
             }
 
-            if (isset($filterArr['event_types']) && !empty($filterArr['event_types'])) {
-                $vennueSql->join('vennue_event_mapping', 'vennue_event_mapping.vennue_id', '=', 'vennues.id')
-                    ->join('event_types', 'event_types.id', '=', 'vennue_event_mapping.event_type_id')
-                    ->whereIn('event_types.name', $filterArr['event_types']);
-
-            }
 
             if (isset($filterArr['room_types']) && !empty($filterArr['room_types'])) {
                 $vennueSql->join('vennue_room_mapping', 'vennue_room_mapping.vennue_id', '=', 'vennues.id')
@@ -204,6 +199,7 @@ class VennueHelper
 
             $vennueData = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName', 'vennues.short_description as vennueShortDescription',
                 'vennues.start_time as vennueStartTime', 'vennues.end_time as vennueEndTime', 'vennues.min_guest_cap as MinGuestCap', 'vennues.max_guest_cap as MaxGuestCap',
+                'vennues.fb_link as fbLink', 'vennues.twitter_link as twitterLink',
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType',
@@ -360,6 +356,7 @@ class VennueHelper
             $vennueData = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName', 'vennues.short_description as vennueShortDescription',
                 'vennues.start_time as vennueStartTime', 'vennues.order_no as displayOrder',
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
+                'vennues.fb_link as fbLink', 'vennues.twitter_link as twitterLink',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')
                 ->join('address', 'vennues.id', '=', 'address.linkable_id')
@@ -385,6 +382,7 @@ class VennueHelper
             $returnArr['vennues'] = empty($vennueData) ? [] : $vennueData;
 
             $eventsData = Events::select('events.name as eventName', 'events.short_description as eventShortDescription', 'events.start_date as vennueStartTime',
+                'events.fb_link as fbLink', 'events.twitter_link as twitterLink',
                 'events.end_date as eventEndTime', 'events.order_no as displayOrder', 'event_types.name as eventType',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')

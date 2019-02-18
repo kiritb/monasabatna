@@ -40,6 +40,8 @@ class EventHelper
 
             $eventsSql = Events::select('events.id as eventId', 'events.name as eventName', 'events.short_description as eventShortDescription', 'events.start_date as vennueStartTime','events.is_express_deal as isExpressDeal',
                 'events.end_date as eventEndTime', 'events.order_no as displayOrder', 'event_types.name as eventType',
+                'events.fb_link as fbLink',
+                'events.twitter_link as twitterLink',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')
                 ->join('address', 'events.id', '=', 'address.linkable_id')
@@ -53,7 +55,7 @@ class EventHelper
                 ->where('files.file_type', 'home_page_display')
                 ->where('pricings.linkable_type', 'events')
                 ->where('events.home_page_display', 1)
-                ->where('events.start_date', '>', date('Y-m-d'))
+                ->where('events.start_date', '>=', date('Y-m-d h:i:s' ))
                 ->where('address.status', 1)
                 ->where('events.status', 1)
                 ->where('files.status', 1)
@@ -205,6 +207,14 @@ class EventHelper
 
             $ammentiesData = AmmenitieHelper::getAmmenties([$eventId], 'events');
 
+            $reviewsDetails = ReviewsHelper::getAverageReviewsByType($eventId,'events');
+
+            $eventsDetails['averageReviews'] = empty( $reviewsDetails ) ? [] : $reviewsDetails;
+
+            $reviewData = ReviewsHelper::getReviews($eventId, 'events');
+
+            $eventsDetails['allReviews'] = empty($reviewData) ? [] : $reviewData;
+
             $eventsDetails['ammenties'] = empty($ammentiesData) ? [] : array_column($ammentiesData, 'amenitieName');
 
             $eventsDetails['customerCareNo'] = env('CUSTOMER_CARE_NO');
@@ -228,7 +238,16 @@ class EventHelper
     {
         $returnArr = [];
 
-        $todaysDate = date('Y-m-d h:i:s');
+        if (isset($filterArr['from_date']))
+        {
+            $todaysDate =   $filterArr['from_date'];
+              
+        }
+        else
+        {
+            $todaysDate = date('Y-m-d');    
+        }
+        
 
         try
         {
@@ -244,6 +263,7 @@ class EventHelper
                 'address.address_line_1 as AddressLine_1',
                 'address.address_line_2 as AddressLine_2',
                 'address.google_map_link as googleMapLink',
+                \DB::raw('CAST(DATE_SUB("'.$todaysDate.'", INTERVAL event_organisers.prior_intimation_days DAY ) AS DATE ) as bookingLastDate'  ) ,
                 'cities.name as cityName',
                 'files.file_path as filePath'
             )
@@ -254,12 +274,13 @@ class EventHelper
                 ->where('files.linkable_type', 'event_organisers')
                 ->where('files.file_type', 'home_page_display')
                 ->where('address.status', 1)
+                ->whereRaw("CAST(DATE_SUB('$todaysDate', INTERVAL event_organisers.prior_intimation_days DAY ) AS DATE )  <= '$todaysDate'")
                 ->where('event_organisers.status', 1)
                 ->where('files.status', 1)
                 ->where('cities.status', 1)
                 ->where('address.status', 1)
                 ->where('cities.status', 1);
-
+        
             if (isset($filterArr['city']) && !empty($filterArr['city'])) {
                 $eventOrganisersSql->whereIn('cities.name', $filterArr['city']);
 
@@ -277,8 +298,6 @@ class EventHelper
 
             if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
 
-                $todaysDate = $filterArr['from_date'];
-
                 $eventOrganisersSql->join('orders', 'orders.linkable_id', '=', 'event_organisers.id')
                     ->where('orders.linkable_type', 'event_organisers')
                     ->whereNotBetween('orders.booking_from_date', [$filterArr['from_date'], $filterArr['to_date']])
@@ -290,6 +309,8 @@ class EventHelper
 
                 $eventOrganisersSql->where('event_organisers.is_express_deal', 1);
             }
+
+            $eventOrganisersSql->where('event_organisers.is_express_deal', 1);
 
             if (isset($filterArr['rating']) && !empty($filterArr['rating'])) {
                 if (strtolower($filterArr['rating']) == MiscConst::RATING_HIGH_TO_LOW) {
@@ -535,6 +556,12 @@ class EventHelper
 
             $packageDetails['recommendations'] = empty($recommendations) ? [] : $recommendations;
 
+            $reviewsDetails = ReviewsHelper::getAverageReviewsByType($id,'packages');
+
+            $packageDetails['averageReviews'] = empty( $reviewsDetails ) ? [] : $reviewsDetails;
+
+            $packageDetails['rating']         = empty( $reviewsDetails ) ? 4 : number_format(( array_sum(array_values($reviewsDetails))/count($reviewsDetails) ),2); 
+
             $packageDetails['customerCareNo'] = env('CUSTOMER_CARE_NO');
 
             return $packageDetails;
@@ -716,7 +743,16 @@ class EventHelper
     {
         $returnArr = [];
 
-        $todaysDate = date('Y-m-d h:i:s');
+        if (isset($filterArr['from_date']))
+        {
+            $todaysDate =   $filterArr['from_date'];
+              
+        }
+        else
+        {
+            $todaysDate = date('Y-m-d');    
+        }
+ 
 
         try
         {
@@ -727,6 +763,7 @@ class EventHelper
                 'suppliers.order_no as displayOrder',
                 'suppliers.rating',
                 'suppliers.is_express_deal as isExpressDeal',
+                \DB::raw('CAST(DATE_SUB("'.$todaysDate.'", INTERVAL suppliers.prior_intimation_days DAY ) AS DATE ) as bookingLastDate'  ) ,
                 'suppliers.twitter_link as twitterLink',
                 'suppliers.fb_link as fbLink',
                 'address.address_line_1 as AddressLine_1',
@@ -741,7 +778,9 @@ class EventHelper
                 ->where('address.linkable_type', 'suppliers')
                 ->where('files.linkable_type', 'suppliers')
                 ->where('files.file_type', 'home_page_display')
+                ->whereRaw("CAST(DATE_SUB('$todaysDate', INTERVAL suppliers.prior_intimation_days DAY ) AS DATE )  <= '$todaysDate'")
                 ->where('address.status', 1)
+
                 ->where('suppliers.status', 1)
                 ->where('files.status', 1)
                 ->where('address.status', 1)
@@ -764,7 +803,6 @@ class EventHelper
 
             if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
 
-                $todaysDate = $filterArr['from_date'];
 
                 $supplierSql->join('orders', 'orders.linkable_id', '=', 'suppliers.id')
                     ->where('orders.linkable_type', 'suppliers')
@@ -980,7 +1018,10 @@ class EventHelper
 
             $supplierDetailsArr['recommendations'] = empty($recommendedSuppliers) ? [] : $recommendedSuppliers;
 
+            $reviewsDetails = ReviewsHelper::getAverageReviews($id,'suppliers');
 
+            $supplierDetailsArr['reviews'] = empty( $reviewsDetails ) ? [] : $reviewsDetails;
+            
             $supplierDetailsArr['customerCareNo'] = env('CUSTOMER_CARE_NO');
 
             return $supplierDetailsArr;
@@ -1053,6 +1094,12 @@ class EventHelper
 
             $packageDetails['recommendations'] = empty($recommendations) ? [] : $recommendations;
 
+            $reviewsDetails = ReviewsHelper::getAverageReviewsByType($id,'packages');
+
+            $packageDetails['averageReviews'] = empty( $reviewsDetails ) ? [] : $reviewsDetails;
+
+            $packageDetails['rating']         = empty( $reviewsDetails ) ? 4 : number_format(( array_sum(array_values($reviewsDetails))/count($reviewsDetails) ),2); 
+
             $packageDetails['customerCareNo'] = env('CUSTOMER_CARE_NO');
 
             return $packageDetails;
@@ -1080,6 +1127,8 @@ class EventHelper
                 'suppliers.is_express_deal as isExpressDeal',
                 'packages.id as pacakgeId',
                 'packages.name as pacakgeName',
+                'suppliers.fb_link as fbLink',
+                'suppliers.twitter_link as twitterLink',
                 'packages.short_description as packageDescription',
                 'suppliers.rating',
                 'files.file_path as filePath',
@@ -1184,6 +1233,7 @@ class EventHelper
                 'event_organisers.id as eventOrganisersId',
                 'event_organisers.name as eventOrgainsersName',
                 'event_organisers.is_express_deal as isExpressDeal',
+                'event_organisers.fb_link as fbLink', 'event_organisers.twitter_link as twitterLink',
                 'packages.id as pacakgeId',
                 'packages.name as pacakgeName',
                 'packages.short_description as packageDescription',

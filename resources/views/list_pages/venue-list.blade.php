@@ -10,7 +10,7 @@ $appliedParams= $data['appliedParams'];
 <div id="venue-list-bg">
     <div class="col-sm-2 tab-filters">
         <div class="list">
-            @include('shared.filters', ['filters' => $venues["filters"], 'pageType' => $appliedParams['pageType']])
+            @include('shared.filters', ['filters' => $venues["filters"], 'appliedParams' => $appliedParams])
         </div>
         <!------- panel end -------->
     </div>

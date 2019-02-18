@@ -89,6 +89,10 @@ Route::get('vendorretypepwd', function () {
     return view('dynamicpages/vendor_retypepwd');
 });
 
+Route::get('expressdeals', function () {
+    return view('dynamicpages/expressdeals');
+});
+
 Route::get('vendordashboard', function () {
     return view('vendor-panel/vendordashboard');
 });
@@ -229,6 +233,46 @@ Route::post('resendotp', 'Auth\RegisterController@resendotp');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('logout', 'Auth\LoginController@webLogout');
 });
+/************************vendor panel routes ********************* */
+Route::get('vendordashboard', function () {
+    return view('vendor-panel/vendordashboard');
+});
+Route::get('vendordashboardtrial', function () {
+    return view('vendor-panel/vendordashboardtrial');
+});
+Route::get('vendorbookings', function () {
+    return view('vendor-panel/vendorbookings');
+});
+Route::get('vendorvenue', function () {
+    return view('vendor-panel/vendorvenue');
+});
+Route::get('vendorservices', function () {
+    return view('vendor-panel/vendorservices');
+});
+Route::get('vendorterms', function () {
+    return view('vendor-panel/vendorterms');
+});
+Route::get('dashboardvenueform', function () {
+    return view('vendor-panel/dashboardvenueform');
+});
+Route::get('vendorprofile', function () {
+    return view('vendor-panel/vendorprofile');
+});
+Route::get('vendoramenities', function () {
+    return view('vendor-panel/vendoramenities');
+});
+Route::get('dashboardserviceform', function () {
+    return view('vendor-panel/dashboardserviceform');
+});
+/****************vendor panel route**************** */
+/****************vendor panel backup**************** */
+Route::get('vendorone', function () {
+    return view('vendor-panel/vendorone');
+});
+Route::get('monthfront', function () {
+    return view('vendor-panel/monthfront');
+});
+/****************vendor panel backup**************** */
 
 Route::get('vendorvenue', 'Web\VennueController@listVenue');
 Route::get('vendoramenities', 'Web\AmenitieController@getAmenitieType');

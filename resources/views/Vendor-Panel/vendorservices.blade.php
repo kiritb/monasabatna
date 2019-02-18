@@ -39,7 +39,7 @@
                      <td>Per Person</td>
                      <td>10-Feb-2019 12:30 PM</td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewservicesmodal" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#serviceeditModal" href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#servicedeleteModal" id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><label class="switch">
                         <input type="checkbox" id="togBtn" style="font-size:12px">
@@ -286,7 +286,75 @@
   </div>
 </div>
 </div>
+<!-----------------------Edit Services pop up -------------------------------------------------------->
+            <!-- Modal with Text area -->
+            <div class="modal fade" id="serviceeditModal" tabindex="-1" role="dialog" aria-labelledby="serviceeditModalLabel" aria-hidden="true">
+            <div id="canceldash" class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Services</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
+      <div class="serviceform">
+  <form class="form-horizontal" method="post" id="vendor_sign_up_form">
+  <div class="form-group row regfeild">
+    <label for="inputEmail3" class="vendorregco">Service Name : </label>
+    <div class="col-sm-5">
+        <input type="text" name="company_name" class="vendorformreg" placeholder=" ">
+    </div>
+</div>
+<!------------------form-group row ------------------------->
+<div class="form-group row regfeild">
+    <label for="inputEmail3" class="vendorregco">Cost : </label>
+    <div class="col-sm-5">
+        <input type="text" name="company_name" class="vendorformreg" placeholder="200">
+    </div>
+</div>
+<!------------------form-group row ------------------------->
+<div class="form-group row regfeild">
+    <label for="inputEmail3" class="vendorregco">Cost Type : </label>
+    <div class="col-sm-5">
+        <input type="text" name="company_name" class="vendorformreg" placeholder="200">
+    </div>
+</div>
+<!------------------form-group row ------------------------->
+<!------------------form-group row ------------------------->
+<div class="form-group row regfeild">
+    <label for="inputEmail3" class="vendorregco">What's Provided : </label>
+    <div class="col-sm-5">
+    <div class="table table-responsive">
+<table class="table table-responsive table-striped table-bordered">
+<tbody id="TextBoxContent">
+<tr>
+<td><input name="DynamicTextBox" type="text" value="" class="form-control"></td>
+<td><button type="button" class="btn btn-danger remove"><i class="far fa-times-circle"></i></i></button></td>
+</tr>
+</tbody>
+<tfoot>
+  <tr>
+    <th colspan="5">
+    <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="tooltip" data-original-title="Add more controls"><i class="far fa-plus-square"></i></button></th>
+  </tr>
+</tfoot>
+</table>
+</div>
+    </div>
+</div>
+<!------------------form-group row ------------------------->
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary noamen">No</button>
+        <button type="button" class="btn btn-secondary yesamen" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+    
+</div>
+<!------------------end of service edit ------------------------->
 <!-----------------------View Services pop up -------------------------------------------------------->
             <!-- Modal with Text area -->
             <div class="modal fade" id="servicedeleteModal" tabindex="-1" role="dialog" aria-labelledby="servicedeleteModalLabel" aria-hidden="true">

@@ -26,7 +26,18 @@
     <a class="nav-link" id="pills-cancel-tab" data-toggle="pill" href="#pills-cancel" role="tab" aria-controls="pills-cancel" aria-selected="false">Cancel Bookings</a>
   </li>
   <li class="nav-item">
-    <a href="#" class="nav-link" id="filterdash">Search</a>
+  <div class="col-md-8 searchaddon"><!--------------search addon ---------------------->
+  <div class="search-container">
+  <form class="navbar-form" role="search">
+    <div class="input-group add-on">
+      <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+      <div class="input-group-btn">
+      <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div><!--------------search addon ---------------------->
   </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
@@ -329,7 +340,7 @@
   </div>
 </div>
 <!-----------------------------cancel Booking --------------------------------------------->
-<!-------------------------------------filter Modal -->
+<!-------------------------------------filter Modal ------------------------>
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" id="filterdash" role="document">
     <div class="modal-content">

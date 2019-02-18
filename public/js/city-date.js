@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $("#cityDateForm").overlayMask({
         do: "showLoader",
         pPos: "relative"
@@ -8,77 +8,82 @@ $(document).ready(function () {
         type: "GET",
         dataType: "json",
         contentType: "application/x-www-form-urlencoded",
-        beforeSend: function () {
+        beforeSend: function() {
             console.log("inside beforeSend!!");
         },
-        success: function (response) {
-
+        success: function(response) {
             var params;
             if (response.data && response.data.length) {
                 $("#cityDateForm").overlayMask({
                     do: "hideLoader"
                 });
                 // cities from API
-                var lists = '';
-                $.each(response.data, function (k, v) {
-                    lists += '<option value="' + v.id + '">' + v.name + '</option>';
+                var lists = "";
+                $.each(response.data, function(k, v) {
+                    lists +=
+                        '<option value="' + v.id + '">' + v.name + "</option>";
                 });
                 $("#citiesList").append(lists);
 
                 //Initializing datepicker
 
-                $('#datapack .datepicker').datepicker({
-                    uiLibrary: 'bootstrap4',
-                    format: 'yyyy-mm-dd',
+                $("#datapack .datepicker").datepicker({
+                    uiLibrary: "bootstrap4",
+                    format: "yyyy-mm-dd",
                     showOtherMonths: true,
                     calendarWeeks: true
                 });
 
-                $('#labpack .datepicker').datepicker({
-                    uiLibrary: 'bootstrap4',
-                    format: 'yyyy-mm-dd',
+                $("#labpack .datepicker").datepicker({
+                    uiLibrary: "bootstrap4",
+                    format: "yyyy-mm-dd",
                     showOtherMonths: true,
                     calendarWeeks: true
                 });
-
             } else {
                 notifyError("No Cities, error fetching data!");
             }
         },
-        error: function (xhr) {
+        error: function(xhr) {
             // if error occured
             notifyError(xhr.statusText);
         },
-        complete: function () {
+        complete: function() {
             $("#cityDateForm").validate({
+                ignore: "",
                 rules: {
-                    'city[]': {
+                    pageType: {
+                        required: true
+                    },
+                    "city[]": {
                         required: true,
                         minlength: 1
                     },
-                    'from_date': {
+                    from_date: {
                         required: true
                     },
-                    'to_date': {
+                    to_date: {
                         required: true
                     }
                 },
-                errorPlacement: function (error, element) {
+                errorPlacement: function(error, element) {
                     return true;
                 },
-                highlight: function (element, errorClass, validClass) {
+                highlight: function(element, errorClass, validClass) {
                     $(element)
                         .addClass("is-invalid")
                         .removeClass("is-valid");
                 },
-                unhighlight: function (element, errorClass, validClass) {
+                unhighlight: function(element, errorClass, validClass) {
                     $(element)
                         .addClass("is-valid")
                         .removeClass("is-invalid");
                 },
-                submitHandler: function (event) {
-                    var formData = $('form').serialize();
-                    let pageType = $('#cityDateForm input[name=pageType]').val();
+                submitHandler: function(event) {
+                    var formData = $("form").serialize();
+                    let pageType = $(
+                        "#cityDateForm input[name=pageType]"
+                    ).val();
                     filterByCityDate(formData, pageType);
                 }
             });

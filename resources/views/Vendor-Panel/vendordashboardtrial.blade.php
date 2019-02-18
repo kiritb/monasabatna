@@ -2489,7 +2489,6 @@
 <!------------------------------ Add Amenities ----------------------------------->
 <!-- Modal with Text area -->
 <form method="post" id="addAmenitiesForm" enctype="multipart/form-data">
-  @csrf
   <div class="modal fade" id="addAmenities" tabindex="-1" role="dialog" aria-labelledby="AddamenitiesLabel" aria-hidden="true">
     <div id="canceldash" class="modal-dialog" role="document">
       <div class="modal-content">

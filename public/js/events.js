@@ -100,18 +100,22 @@ function pagiNator(pageType, pageNumber) {
 
     let listParams = getAllParams(pageType);
 
+    let formFilters = $("#" + pageType + "-form").serialize();
+
     let filtersData = {
         page: pageNumber,
         pageType: pageType,
         is_express_deal: listParams.is_express_deal
     };
 
+    formFilters += '&' + customSerialize(filtersData);
+
     let jsData = {
         url: listParams.url,
         element: listParams.element
     };
 
-    getLists(filtersData, jsData);
+    getLists(formFilters, jsData);
 }
 
 function filterItNow(formId, pageType) {

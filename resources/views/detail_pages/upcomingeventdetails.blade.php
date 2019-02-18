@@ -75,8 +75,10 @@
                             {{ date('d M, Y', strtotime($data['endDate'])) }}
                         </b>
                     </span>
-                    <button class="btn active" id="bn-upclist" onclick="filterSelection('all')"><b> Add to Short List</b></button>
-                    <button class="btn active" id="bn-upclistone" onclick="filterSelection('all')"><b> Book Now</b></button>
+                    <button class="btn active" id="bn-upclist" onclick="filterSelection('all')"><b> Add to Short
+                            List</b></button>
+                    <button class="btn active" id="bn-upclistone" onclick="filterSelection('all')"><b> Book
+                            Now</b></button>
                 </div>
             </div>
         </div>
@@ -84,7 +86,8 @@
     <div class="container-fluid" id="eventrows">
         <div class="fbrow">
             <a class="fb-button" href={{ $data['fbLink'] }}><i id="fbevent" class="fab fa-facebook-f"></i>Facebook</a>
-            <a class="twit-button" href={{ $data['twitterLink'] }}><i id="fbevent" class="fab fa-twitter"></i>Twitter</a>
+            <a class="twit-button" href={{ $data['twitterLink'] }}><i id="fbevent"
+                    class="fab fa-twitter"></i>Twitter</a>
         </div>
     </div>
     <!------- Address end-------->
@@ -105,37 +108,64 @@
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div id="venue-list-bg">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore
-                            et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem
-                            ipsum
-                            dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                            ad
-                            minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore
-                            et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.Lorem
-                            ipsum
-                            dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                            ad
-                            minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip</p>
+                        {{ $data['eventShortDescription'] }}
                     </div>
                     <!------- venue-list-bg --------->
                 </div>
                 <!------- tab close ------->
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    Updating ....
+                    <div class="container-fluid packagecontent">
+                        <div class="accordion" id="accordionExample">
+
+                            @if (count($data["services"]) > 0)
+                            @foreach ($data["services"] as $key=>$services)
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                                            data-target="#collapse_{{ $key }}" aria-expanded="true"
+                                            aria-controls="collapse_{{ $key }}">
+                                            {{ $services['serviceName'] }}
+                                        </button>
+                                    </h2>
+                                </div>
+
+
+                                <div id="collapse_{{ $key }}" class="collapse {{ ($key==0)?'show':'' }}"
+                                    aria-labelledby="headingOne" data-parent="#accordionExample">
+
+                                    <div class="card-body">
+
+                                        <h3>{{ $services['serviceName'] }}</h3>
+                                        <div>{{ $services['actualPrice'] . ' ' . $services['pricingType'] }}</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            @endforeach
+                            @else
+                            <div>No data!!</div>
+                            @endif
+
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <!--------------Event Organisers ------------------>
-                    Coding in process...
-                    <!------------end of events content ---------------------->
+                    <div class="container-fluid packagecontent">
+                        <div class="row">
+
+                            @if (count($data["ammenties"]) > 0)
+                            @foreach ($data["ammenties"] as $ammentie)
+                            <div class="col">
+                                <h1><i class="fa fa-street-view" style="font-size:50px"></i></h1>
+                                <label><b>{{ $ammentie }}</b></label>
+                            </div>
+                            @endforeach
+                            @else
+                            <div>No data!!</div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
                     <div class="customerlinegreen"></div>

@@ -24,16 +24,24 @@ $appliedParams= $data['appliedParams'];
 
         <div class="row item-bg-color">
             <div class="content-eve">
-                @if(isset($uEvents['isExpressDeal']) && $uEvents['isExpressDeal'] == 1)
-                <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
-                @endif
-                <img src="{{ $uEvents['filePath'] }}" alt="Mountains">
+                <a href="{{ url('/events/upcoming') . '/' . $uEvents['eventId'] }}" alt="upcoming events">
+                    @if(isset($uEvents['isExpressDeal']) && $uEvents['isExpressDeal']==1) <div
+                        class="
+                    ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span>
+                    </div>
+                    @endif
+                    <img src="{{ $uEvents['filePath'] }}" alt="Mountains">
+                </a>
             </div>
 
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                 <div class="content-optionblog">
-                    <div class="upcbox-head"><b>Event Organiser Name </b></div>
-                    <div class="upcbox-head"><b> {{ $uEvents['eventName'] }} </b></div>
+                    <a href="{{ url('/events/upcoming') . '/' . $uEvents['eventId'] }}" alt="upcoming events">
+                        <div class="upcbox-head">
+                            <h5>Event Organiser Name</h5>
+                            <h6>{{ $uEvents['eventName'] }} </h6>
+                        </div>
+                    </a>
                     <div class="wish-text"> <i class='fas fa-map-marker-alt'
                             style='font-size:23px;color:#6cc0b9'></i><span class="upctext">Address :
                             {{ $uEvents['AddressLine_1'] }}, {{ $uEvents['AddressLine_2'] }}</span><a

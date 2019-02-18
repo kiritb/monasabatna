@@ -18,7 +18,7 @@
       <div class="dashformtop">
           Services
 </div><!----------------add button ---------------------->
-  <div class="venueform">
+  <div class="serviceform">
   
   <form class="form-horizontal" method="post" id="vendor_sign_up_form">
   <div class="form-group row regfeild">
@@ -42,14 +42,12 @@
     </div>
 </div>
 <!------------------form-group row ------------------------->
-<section class="container serviceform">
-<div class="table table-responsive">
+<!------------------form-group row ------------------------->
+<div class="form-group row regfeild">
+    <label for="inputEmail3" class="vendorregco">What's Provided : </label>
+    <div class="col-sm-5">
+    <div class="table table-responsive">
 <table class="table table-responsive table-striped table-bordered">
-<thead>
-	<tr>
-    	<td>What's Provided</td>
-    </tr>
-</thead>
 <tbody id="TextBoxContent">
 <tr>
 <td><input name="DynamicTextBox" type="text" value="" class="form-control"></td>
@@ -64,10 +62,15 @@
 </tfoot>
 </table>
 </div>
-</section>
-</form>
-</div><!--------------end of booking ---------------------------------->   
-
+    </div>
+</div>
+<!------------------form-group row ------------------------->
+<div class="form-group">
+    <div class="row sub">
+        <button type="submit" value="submit" class="btn btn-default formsubmit">Add Services</button>
+        <button type="submit" value="cancel" class="btn btn-default formcancel">Cancel</button>
+    </div>
+</div>
   </div>
   <div class="tab-pane fade" id="v-pills-policies" role="tabpanel" aria-labelledby="v-pills-policies-tab">drupal</div>
   <div class="tab-pane fade" id="v-pills-profiles" role="tabpanel" aria-labelledby="v-pills-profiles-tab">java</div>

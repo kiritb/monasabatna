@@ -2,6 +2,8 @@
 
 @include('shared/headercustom')
 <link rel="stylesheet" type="text/css" href="{{ url('css/vendor-panel/superadmin.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url('css/vendor-panel/monthtable.css') }}">
+<link rel="stylesheet" type="text/javascript" href="{{ url('js/monthpicker.js') }}">
       <!------- body start--------> 
       <div id="greydivider"> </div>
       <div class="container-fluid" id="globevendorpanel">
@@ -53,8 +55,6 @@
     </div>
   </form>
   </div>
-  
-  
 </div>
   </li>
 </ul>
@@ -241,7 +241,7 @@
                                  <span aria-hidden="true">&times;</span>
                                  </button>
                             </div>
-                            <!-- Modal body -->
+                            <!-------------- Modal body --------------------->
                             <div class="modal-body">
                                 <h6 style="text-align:center">Please enter booking code provided by customer in order to close the booking.</h6>
 
@@ -479,18 +479,11 @@
 
 <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
 <div id="historydropdown" class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Month: August
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Month: July</a>
-    <a class="dropdown-item" href="#">Month: July</a>
-    <a class="dropdown-item" href="#">Month: July</a>
-  </div>
+<input id="myMonthPicker" type="text" placeholder="Pick a month"/>
+
 </div>
 <div class="dashboardright">
             <table class="table table-xs-12 table-sm-12 table-md-12">
-               <thead class="table-color-head">
                   <tr>
                      <th scope="col">Booking ID</th>
                      <th scope="col">Room ID </th>
@@ -789,7 +782,7 @@
 </div><!------------------end of container-fluid ------------------------------>
   <div class="tab-pane fade" id="v-pills-venues" role="tabpanel" aria-labelledby="v-pills-venues-tab">
       <div class="dashvendortop">
-          <a class="addvenuedash" href="http://18.218.133.17/dashboardvenueform"> Add </a>
+          <a class="addvenuedash" href="{{ url('dashboardvenueform') }}" target="_blank"> Add </a>
 </div><!----------------add button ---------------------->
   <div class="dashboardvenuepart">
             <table class="table table-xs-12 table-sm-12 table-md-12">
@@ -1397,17 +1390,12 @@
       <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="9008089765">
     </div>
-    <div class="form-group col-md-2">
-    <label for="inputAddress">Services : </label>
-    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                     value="Catering and Lighting">
-  </div>
   <div class="form-group col-md-2">
     <label for="inputAddress2">Country : </label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="India">
   </div>
-  <div class="form-group col-md-2">
+  <div class="form-group col-md-3">
     <label for="inputAddress2">Cancellation Charges: </label>
     <input type="text" readonly class="form-control-customcharges" id="fname" name="firstname" value="Before 24 Hours">
     <input type="text" readonly class="form-control-customcol" id="fname" name="firstname" value="5%">
@@ -1437,12 +1425,7 @@
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="Marriage">
   </div>
-  <div class="form-group col-md-2">
-    <label for="inputAddress2">Amenities : </label>
-    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                     value="Food">
-  </div>
-  <div class="form-group col-md-2">
+  <div class="form-group col-md-3">
     <label for="inputAddress2">          </label>
     <input type="text" readonly class="form-control-customcharges" id="fname" name="firstname" value="Before 24 Hours">
     <input type="text" readonly class="form-control-customcol" id="fname" name="firstname"
@@ -1450,7 +1433,7 @@
   </div>
   </div><!----------------------end of row --------------------------->
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label for="inputCity">Note : </label>
       <input type="text" class="form-control" id="Express deal discout is offered only for seasonal period"
       value="Express deal discount is offered only for seasonal period">
@@ -1460,7 +1443,7 @@
       <input type="text" class="form-control" id="Express deal discout is offered only for seasonal period"
       value="Check Maturity Date as per your credential">
     </div>
-    <div class="form-group col-md-2 chargeven">
+    <div class="form-group col-md-3 chargeven">
     <label for="inputAddress2">            </label>
     <input type="text" readonly class="form-control-customcharges" id="fname" name="firstname" value="Before 24 Hours">
     <input type="text" readonly class="form-control-customcol" id="fname" name="firstname"
@@ -1473,16 +1456,7 @@
   </div>
 </div>
 </div>
-<div class="col-md-2">
-    
-    <h4>iOS7 Style</h4>
 
-    <div class="switch">
-    <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
-    <label for="cmn-toggle-4"></label>
-    </div>
-
-</div>
 <!-----------------------View Venue pop up -------------------------------------------------------->
    <!------------------------------ venue Add to express Deals ----------------------------------->
    <div class="modal fade" id="venueaddexp" tabindex="-1" role="dialog" aria-labelledby="venueaddexpLabel" aria-hidden="true">
@@ -1545,7 +1519,7 @@
   <div class="tab-pane fade" id="v-pills-services" role="tabpanel" aria-labelledby="v-pills-services-tab">
   <div class="dashvendortop">
       <a class="servicetext" href="#"> Services </a>
-          <a class="addservicedash" href="http://18.218.133.17/dashboardserviceform"> Add Services</a>
+          <a class="addservicedash" href="{{ url('dashboardserviceform') }}"> Add Services</a>
 </div><!----------------add button ---------------------->
   <div class="dashboardvenuepart">
             <table class="table table-xs-12 table-sm-12 table-md-12">
@@ -2164,7 +2138,7 @@
                      <div class="form-group">
                         <label class="control-label col-sm-3" for="email"></label>
                         <ul>
-                          <button type="button" class="btn btn-default btn-lg-6" id="sign-text">Edit</button> 
+
                           <button type="submit" class="btn btn-default btn-lg-6" id="sign-text">Save</button> 
                         </ul>
                      </div>
@@ -2477,129 +2451,64 @@
                   <tr>
                      <th class="amenid" scope="col">Sr ID</th>
                      <th scope="col">Amenities </th>
-
-                 
                   </tr>
                </thead>
                <tbody class="table-hover">
+                 <!--  @isset($data) -->
+                 <?php $slno = 1;?>
+                  @foreach($data as $amenitie)
                   <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
+                     <th class="amenid" scope="row">{!! $slno++ !!}</th>
+                     <td>{!! $amenitie->name !!}</td>
                      
                      <td class="bg-white-booking"><a href="#"><i data-toggle="modal" data-target="#updateAmenities" class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i data-toggle="modal" data-target="#deleteAmenities" class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
                   </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Parking</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Parking</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Play Area</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Gym</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th class="amenid" scope="row">201</th>
-                     <td>Swimming Phool</td>
-                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-trash-alt" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
+                  @endforeach
+                 <!--  @endisset -->
                </tbody>
             </table>
-            <!------------------------------ Add Amenities ----------------------------------->
-            <!-- Modal with Text area -->
-            <div class="modal fade" id="addAmenities" tabindex="-1" role="dialog" aria-labelledby="AddamenitiesLabel" aria-hidden="true">
-  <div id="canceldash" class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Amenities</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       <!------------------form-group row ------------------------->
+<!------------------------------ Add Amenities ----------------------------------->
+<!-- Modal with Text area -->
+<form method="post" id="addAmenitiesForm" enctype="multipart/form-data">
+  <div class="modal fade" id="addAmenities" tabindex="-1" role="dialog" aria-labelledby="AddamenitiesLabel" aria-hidden="true">
+    <div id="canceldash" class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Amenities</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <!------------------form-group row ------------------------->
 
-<div class="form-group row regfeild">
-    <label for="inputEmail3" class="vendoramenco">Amenities : </label>
-    <div class="col-sm-8">
-        <input type="text" name="password" id="vendorPassword" class="vendorformamen" placeholder="Enter here">
-    </div>
-    
-</div>
-<!------------------form-group row ------------------------->
-
+  <div class="form-group row regfeild">
+      <label for="inputEmail3" class="vendoramenco">Amenities : </label>
+      <div class="col-sm-8">
+          <input type="text" name="name" id="name" class="vendorformamen" placeholder="name">
+          <div id="name-error" class="error-class"></div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="cancelmodalbtn" data-dismiss="modal">Add</button>
-        
+  </div>
+  <!------------------form-group row ------------------------->
+  <div class="form-group row regfeild">
+      <label for="inputEmail3" class="vendoramenco">Description : </label>
+      <div class="col-sm-8">
+          <input type="text" name="description" id="description" class="vendorformamen" placeholder="description">
+          <div id="description-error" class="error-class"></div>
+      </div>
+  </div>
+  <!------------------form-group row ------------------------->
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="cancelmodalbtn">Add</button>
+          <button type="button" name="cancel" value="cancel" class="cancelmodalbtn" data-dismiss="modal">close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-------------------Add Modal -------------------------------------->
+</form>
+<!-------------------End Add Modal -------------------------------------->
 <!------------------------------ Update Amenities ----------------------------------->
             <!-- Modal with Text area -->
             <div class="modal fade" id="updateAmenities" tabindex="-1" role="dialog" aria-labelledby="updateAmenitiesLabel" aria-hidden="true">
@@ -2615,12 +2524,20 @@
        <!------------------form-group row ------------------------->
 
 <div class="form-group row regfeild">
+  <div class="form-group">
     <label for="inputEmail3" class="vendoramenco">Amenities : </label>
     <div class="col-sm-8">
         <input type="text" name="password" id="vendorPassword" class="vendorformamen" placeholder="Enter here">
     </div>
-    
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="vendoramenco">Description : </label>
+    <div class="col-sm-8">
+        <input type="text" name="ammentie" id="ammentie" value= "Swimming Phool" class="vendorformamen" placeholder="Enter here">
+    </div>
+  </div>
 </div>
+
 <!------------------form-group row ------------------------->
 
       </div>
@@ -2633,7 +2550,7 @@
 </div>
 <!-------------------Update Modal -------------------------------------->
 <!------------------------------ Delete Amenities ----------------------------------->
-            <!-- Modal with Text area -->
+            <!---------- Modal with Text area ------------------>
             <div class="modal fade" id="deleteAmenities" tabindex="-1" role="dialog" aria-labelledby="deleteAmenitiesLabel" aria-hidden="true">
             <div id="canceldash" class="modal-dialog" role="document">
     <div class="modal-content">
@@ -2678,21 +2595,40 @@ trigger
   
       <!------- body end-------->
 @include('shared/footer')
+<script><!------Month Picker-------->
+
+$(document).ready(function()
+{   
+    $("#myMonthPicker").datepicker({
+        dateFormat: 'MM yy',
+        viewMode: "months",
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        
+        onClose: function(dateText, inst) {
+            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, month));
+            $(this).datepicker('refresh');
+           $(this).val($.datepicker.formatDate('MM yy', new Date(year, month)));
+        }
+    });
+    $("#bounddatepicker").datepicker({
+    maxValue: "14/02/2019"
+  });
+    // $("#myMonthPicker").focus(function () {
+    //     $(".ui-datepicker-calendar").hide();
+    //     $("#ui-datepicker-div").position({
+    //         my: "center top",
+    //         at: "center bottom",
+    //         of: $(this)
+    //     });
+    // });
+});
+</script>
    
-      <script><!------inner page-Tabs-------->
-         $(document).ready(function(){
-         
-         $("#Add-Express #Remove-Express-Deal").click(function(){
-         $("#Remove-Express-Modal").modal();
-         });
-         $("#myaddexpress").click(function(){
-         $("#Add-Express").modal();
-         });
-          $(".nav-tabs a").click(function(){
-           $(this).tab('show');
-         });
-         });
-      </script>
-     
+
+
      
   

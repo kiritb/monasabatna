@@ -23,14 +23,28 @@
   <div class="form-group row regfeild">
     <label for="inputEmail3" class="vendorregco">Venue Name : </label>
     <div class="col-sm-5">
-        <input type="text" name="company_name" class="vendorformreg" placeholder=" ">
+        <input type="text" name="company_name" class="vendorformreg" placeholder="Venue Name ">
     </div>
 </div>
 <!------------------form-group row ------------------------->
 <div class="form-group row regfeild">
     <label for="inputEmail3" class="vendorregco">Guest Capacity : </label>
     <div class="col-sm-5">
-        <input type="text" name="company_name" class="vendorformreg" placeholder="200">
+        <input type="text" name="company_name" class="vendorformreg" placeholder="Enter Guest Capacity">
+    </div>
+</div>
+<!------------------form-group row ------------------------->
+<div class="form-group row regfeild">
+    <label for="inputEmail3" class="vendorregco">Cost: </label>
+    <div class="col-sm-5">
+        <input type="text" name="company_name" class="vendorformreg" placeholder="Enter the cost">
+    </div>
+</div>
+<!------------------form-group row ------------------------->
+<div class="form-group row regfeild">
+    <label for="inputEmail3" class="vendorregco">Cost Type : </label>
+    <div class="col-sm-5">
+        <input type="text" name="company_name" class="vendorformreg" placeholder="Enter cost type">
     </div>
 </div>
 <!------------------form-group row ------------------------->
@@ -181,6 +195,8 @@
 </div> 
 ------->
 <!------------------form-group row -------------------------> 
+
+
 <div class="form-group row regfeild">
     <label for="inputEmail3" class="vendorregco">Amenities : </label>
     <div class="marginspacevenue">
@@ -215,9 +231,7 @@
 
 <div class="form-group row regfeild">
     <label for="inputEmail3" class="vendorregco">Photos : </label>
-    <div class="col-sm-5">
-        <input type="text" name="address_line_1" class="vendorformpho" placeholder="">
-    </div>
+    
     <div class="col-sm-2">
 
                             <div class="upload-btn-wrapper">
@@ -227,6 +241,7 @@
 </div>
 </div>
 <!------------------form-group row ------------------------->
+<!----
 <div class="form-group row regfeild">
     <label for="inputEmail3" class="vendorregco"> </label>
     <div class="col-sm-5">
@@ -239,7 +254,7 @@
                                 
                             </div>
 </div>
-</div>
+</div> ------->
 <!------------------form-group row ------------------------->
 <div class="form-group row regfeild">
     <label for="inputEmail3" class="vendorregco">Video : </label>
@@ -546,21 +561,18 @@
 <div class="row"></div>
       <!------- body end-------->
 @include('shared/footer')
-   
-      <script><!------inner page-Tabs-------->
-         $(document).ready(function(){
-         
-         $("#Add-Express #Remove-Express-Deal").click(function(){
-         $("#Remove-Express-Modal").modal();
-         });
-         $("#myaddexpress").click(function(){
-         $("#Add-Express").modal();
-         });
-          $(".nav-tabs a").click(function(){
-           $(this).tab('show');
-         });
-         });
-      </script>
+<script type="text/javascript">
+$('.label.ui.dropdown')
+  .dropdown();
+$('.no.label.ui.dropdown')
+  .dropdown({
+  useLabels: false
+});
+$('.ui.button').on('click', function () {
+  $('.ui.dropdown')
+    .dropdown('restore defaults')
+})
+</script>
      
      
   
