@@ -85,11 +85,9 @@
         <div class="fbrow">
             <a class="fb-button" href={{ $data['fbLink'] }}><i id="fbevent" class="fab fa-facebook-f"></i>Facebook</a>
             <a class="twit-button" href={{ $data['twitterLink'] }}><i id="fbevent" class="fab fa-twitter"></i>Twitter</a>
-
         </div>
     </div>
     <!------- Address end-------->
-
     <div class="container-fluid" id="upcomingtabs">
         <div id="customerprofile">
             <nav>
@@ -104,12 +102,9 @@
                         aria-controls="nav-events" aria-selected="false">Terms & Policies</a>
                 </div>
             </nav>
-
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
                     <div id="venue-list-bg">
-
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore
                             et dolore magna aliqua.
@@ -130,29 +125,17 @@
                             ad
                             minim veniam, quis nostrud
                             exercitation ullamco laboris nisi ut aliquip</p>
-
-
-
                     </div>
                     <!------- venue-list-bg --------->
-
-
                 </div>
                 <!------- tab close ------->
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
                     Updating ....
-
-
-
-
                 </div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <!--------------Event Organisers ------------------>
                     Coding in process...
                     <!------------end of events content ---------------------->
-
-
                 </div>
                 <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
                     <div class="customerlinegreen"></div>

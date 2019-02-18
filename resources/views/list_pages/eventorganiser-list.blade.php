@@ -40,7 +40,9 @@ $appliedParams= $data['appliedParams'];
             @foreach ($eventorgs["eventOrganiserslist"] as $key=>$eventOrganiser)
             <div class="row item-bg-color">
                 <div class="content-eve">
-                    <img src={{ $eventOrganiser['filePath'] }} alt="Mountains" style="width:300px; height:273px">
+                    <a href={{ url('/events/organisers/') . "/" . $eventOrganiser['eventOrganisersId'] }} alt="event organiser">
+                        <img src={{ $eventOrganiser['filePath'] }} alt="Mountains">
+                    </a>
                 </div>
 
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">

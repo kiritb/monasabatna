@@ -171,7 +171,7 @@
         </div>
     </div>
 
-    <div class="container-fluid home-containers">
+    <div class="container-fluid home-containers" id="whyus">
 
         <h1 id="middlehead" class="text-center">
             Why Munasabatna?

@@ -63,7 +63,7 @@
                         <a href="{{ url('/about') }}">ABOUT US</a>
                         <ul id="browse">
                             <li class="abovedrop"><a href="{{ url('/aboutus') }}">About us</a></li>
-                            <li class="abovedrop"><a href="{{ url('/whyus') }}">Why Munasabatna</a></li>
+                            <li class="abovedrop"><a href="{{ url('/#whyus') }}">Why Munasabatna</a></li>
                             <li class="abovedrop"><a href="{{ url('/blogs') }}">Blogs</a></li>
                             <li class="abovedrop"><a href="{{ url('/contactus') }}">Contact us</a></li>
                         </ul>

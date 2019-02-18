@@ -17,7 +17,7 @@
 <!------- Banner end-------->
 
 <div class="container-fluid" id="supplierpacksect">
-    <div class="row suppoffered">Theme : Desserts, Chocolates and Cakes </div>
+    <div class="row suppoffered">Packages : Desserts, Chocolates and Cakes </div>
     <div class="row supptravel">{{ $data['travelNote'] }}</div>
     <div class="row sartravel"><span class="bold-grey">SAR :</span>40 / Person </div>
     <div class="row buttonsupp"><a class="shtsupp" href="#">Add to Wishlist</a><a class="booksupp active" href="#">Book
@@ -78,56 +78,7 @@
         <div class="tab-pane fade" id="nav-testi" role="tabpanel" aria-labelledby="nav-testi-tab">
             <!--------------Event Organisers ------------------>
             <div class="packagecontent">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="svg/images/testi-about1.png" class="d-block w-100" id="testivenueone" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-
-                                <p class="venuepara">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam <a href="#">Read More</a></p>
-                                <h5 class="venuetestiname">Lara</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="svg/images/testi-about2.png" class="d-block w-100" id="testivenuetwo" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <p class="venuepara">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam <a href="#">Read More</a></p>
-                                <h5 class="venuetestiname">Kanes</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="svg/images/testi-themedetails.png" class="d-block w-100" id="testivenuethree" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <p class="venuepara">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam <a href="#">Read More</a></p>
-                                <h5 class="venuetestiname">John</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <i class="fas fa-angle-left" id="venuetestil"></i>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <i class="fas fa-angle-right" id="venuetestir"></i>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                include("shared/reviews", ['reviews' => $data['reviews']])
             </div>
             <!------------end of events content ---------------------->
         </div>

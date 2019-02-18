@@ -42,12 +42,18 @@ $appliedParams= $data['appliedParams'];
             @foreach ($suppliers["suppliersList"] as $suppliersList)
             <div class="row item-bg-color">
                 <div class="content-eve">
-                    <img src={{ $suppliersList['filePath'] }} alt="Mountains" style="width:300px; height:273px">
+                    <a href={{ url('/suppliers/') . "/" . $suppliersList['supplierId'] }} alt="supplier">
+                        <img src={{ $suppliersList['filePath'] }} alt="Mountains">
+                    </a>
                 </div>
 
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                     <div class="content-optionpacklist">
-                        <div class="wish-head"><b> {{ $suppliersList['supplierName'] }} </b></div>
+                        <div class="wish-head">
+                            <a href={{ url('/suppliers/') . "/" . $suppliersList['supplierId'] }} alt="supplier">
+                                {{ $suppliersList['supplierName'] }}
+                            </a>
+                        </div>
                         <div class="wish-text">
                             @include('ui_utils.stars', ['stars' => $suppliersList["rating"]])
                         </div>

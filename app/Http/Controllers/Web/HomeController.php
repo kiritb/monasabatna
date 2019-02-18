@@ -265,7 +265,7 @@ class HomeController extends Controller
     {
         try {
             $res = GenericTermsHelper::getTermsData();
-
+            
             if (empty($res)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 

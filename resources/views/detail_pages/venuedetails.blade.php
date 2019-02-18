@@ -173,40 +173,7 @@
             <div class="tab-pane fade" id="nav-testi" role="tabpanel" aria-labelledby="nav-testi-tab">
                 <!--------------Event Organisers ------------------>
                 <div class="container-fluid packagecontent">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
-                        <div class="carousel-inner">
-
-                            @if (count($data["reviews"]) > 0)
-                            @foreach ($data["reviews"] as $key=>$reviews)
-                            <div class="carousel-item {{ ($key==0)?'active':'' }}">
-                                <img src={{ $reviews['fileUrl'] }} class="d-block w-100" id="testivenueone" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-
-                                    <p class="venuepara">
-                                        {{ $reviews['review_comment'] }}
-                                        <a href="#">Read More</a>
-                                    </p>
-                                    <h5 class="venuetestiname">{{ $reviews['first_name'] }}
-                                        {{ $reviews['family_name'] }}</h5>
-                                </div>
-                            </div>
-                            @endforeach
-                            @else
-                            <div>No data!!</div>
-                            @endif
-
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <i class="fas fa-angle-left" id="venuetestil"></i>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <i class="fas fa-angle-right" id="venuetestir"></i>
-                            <span class="sr-only">Next</span>
-                        </a>
-
-                    </div>
+                    @include("shared/reviews", ['reviews' => $data['reviews']])
                 </div>
                 <!------------end of events content ---------------------->
             </div>

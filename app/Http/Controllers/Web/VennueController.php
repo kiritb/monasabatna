@@ -139,9 +139,9 @@ class VennueController extends Controller
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            $response = response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            $response =  response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
-
+        
         return view('vendor-panel/vendorvenue')->with('data', $response);
     }
 }
