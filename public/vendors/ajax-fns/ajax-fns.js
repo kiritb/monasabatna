@@ -6,20 +6,23 @@ function ajaxHtmlRender(params) {
             pPos: "relative"
         });
     }
-    let getParams = '?requestType=' + params.type;
+
+    let getParams = {
+        requestType: params.type
+    };
+
     if (params.data !== null && !jQuery.isEmptyObject(params.data)) {
         if (typeof params.data === 'object') {
-            getParams += '&' + customSerialize(params.data);
+            getParams = params.data;
         } else {
-            getParams += '&' + params.data;
+            getParams = querytoObject(params.data);
         }
     }
 
-    let methodParams = getParams;
-
     $.ajax({
-        url: base_url + params.url + methodParams,
+        url: base_url + params.url,
         type: params.method,
+        data: getParams,
         dataType: "json",
         contentType: "application/x-www-form-urlencoded",
         beforeSend: function () {
@@ -142,27 +145,3 @@ function ajaxMaskUI(settings) {
 //         alert('success ' + JSON.stringify(data));
 //     });
 // });
-
-// Globally usable functions
-
-function customSerialize(obj) {
-    return Object.keys(obj).reduce(function (a, k) { a.push(k + '=' + encodeURIComponent(obj[k])); return a; }, []).join('&');
-}
-
-function customDeSerialize(query) {
-    var pairs, i, keyValuePair, key, value, map = {};
-    // remove leading question mark if its there
-    if (query.slice(0, 1) === '?') {
-        query = query.slice(1);
-    }
-    if (query !== '') {
-        pairs = query.split('&');
-        for (i = 0; i < pairs.length; i += 1) {
-            keyValuePair = pairs[i].split('=');
-            key = decodeURIComponent(keyValuePair[0]);
-            value = (keyValuePair.length > 1) ? decodeURIComponent(keyValuePair[1]) : undefined;
-            map[key] = value;
-        }
-    }
-    return map;
-}

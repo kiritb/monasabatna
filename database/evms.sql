@@ -818,4 +818,22 @@ create table evms.generic_terms(
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+DROP TABLE IF EXISTS evms.language_messages;
+create table evms.language_messages(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  language_key varchar(256) NOT NULL,
+  english_text text NOT NULL,
+  arabic_text text NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY language_key (language_key)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ;
+
+
+
+
 

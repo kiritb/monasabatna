@@ -5222,3 +5222,19 @@ span#vendorbadge {
 .ribbon span.yellow {
     background: #ec0;
 }
+
+/* Form Reset css */
+
+.reset-form {
+    font-size: 12px;
+    margin: auto;
+    float: right;
+    background: aquamarine;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.reset-form:hover {
+    color: green;
+}

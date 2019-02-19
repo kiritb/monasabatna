@@ -38,7 +38,7 @@ class VennueHelper
         try
         {
 
-            $vennueSql = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName', 'vennues.short_description as vennueShortDescription',
+            $vennueSql = Vennues::select( 'vennues.id as vennueId', 'vennues.name as vennueName', 'vennues.short_description as vennueShortDescription','vennues.created_at',
                 'vennues.start_time as vennueStartTime', 'vennues.order_no as displayOrder', 'vennues.min_guest_cap as MinGuestCap', 'vennues.max_guest_cap as MaxGuestCap',
                 'vennues.fb_link as fbLink', 'vennues.twitter_link as twitterLink',
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
@@ -139,8 +139,10 @@ class VennueHelper
             }
 
             $vennueData = $vennueSql->orderBy('vennues.order_no', 'asc')
-                ->paginate(2);
-
+                                    ->orderBy('vennues.created_at', 'desc')
+                                    ->groupBy('vennues.id')
+                                    ->paginate(2);
+                                    
             $venneDataArr = $vennueData->toArray();
 
             if ($venneDataArr['data'] == 0) {
@@ -249,7 +251,7 @@ class VennueHelper
 
             $reviewsDetails = ReviewsHelper::getAverageReviewsByType($vennueId,'vennues');
 
-            $eventsDetails['averageReviews'] = empty( $reviewsDetails ) ? [] : $reviewsDetails;
+            $venneDataArr['averageReviews'] = empty( $reviewsDetails ) ? [] : $reviewsDetails;
 
             /* get policy temrs and conditions */
 

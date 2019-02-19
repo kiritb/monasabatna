@@ -84,6 +84,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('wishlist', 'Api\HomeController@addWishList');
 
     Route::get('terms', 'Api\HomeController@getGenericTerms');
+
+    Route::get('language/messages', 'Api\HomeController@getLanguageMessages');
 });
 
 Route::group(['middleware' => ['jwt.verify'], 'prefix' => 'v1'], function () {

@@ -1,4 +1,4 @@
-function getAllParams(pageType) {
+var getAllParams = function (pageType) {
     let listParams = {};
     switch (pageType) {
         case "venues":
@@ -63,9 +63,9 @@ function getAllParams(pageType) {
     }
 
     return listParams;
-}
+};
 
-function getLists(filtersData, jsData) {
+var getLists = function (filtersData, jsData) {
     let data = filtersData;
     let params = {
         type: "ajaxRender",
@@ -76,9 +76,10 @@ function getLists(filtersData, jsData) {
         data: data
     };
     ajaxHtmlRender(params);
-}
+};
 
-function getTypeListItems(pageType) {
+var getTypeListItems = function (pageType) {
+
     let listParams = getAllParams(pageType);
 
     let filtersData = {
@@ -94,39 +95,40 @@ function getTypeListItems(pageType) {
     $('#cityDateForm input[name=pageType]').val(pageType);
 
     getLists(filtersData, jsData);
-}
+};
 
-function pagiNator(pageType, pageNumber) {
+var pagiNator = function (pageType, pageNumber) {
 
     let listParams = getAllParams(pageType);
 
     let formFilters = $("#" + pageType + "-form").serialize();
 
-    let filtersData = {
-        page: pageNumber,
-        pageType: pageType,
-        is_express_deal: listParams.is_express_deal
-    };
+    let filtersData = querytoObject(formFilters);
 
-    formFilters += '&' + customSerialize(filtersData);
+    filtersData.page = pageNumber;
+    filtersData.pageType = pageType;
+    filtersData.is_express_deal = listParams.is_express_deal;
 
     let jsData = {
         url: listParams.url,
         element: listParams.element
     };
 
-    getLists(formFilters, jsData);
-}
+    getLists(filtersData, jsData);
+};
 
-function filterItNow(formId, pageType) {
+var filterItNow = function (formId, pageType) {
 
     let form = $("#" + formId);
 
-    let filtersData = form.serialize();
+    let formData = form.serialize();
+
+    let filtersData = querytoObject(formData);
 
     let listParams = getAllParams(pageType);
 
-    filtersData += "&pageType=" + pageType + "&is_express_deal=" + listParams.is_express_deal;
+    filtersData.pageType = pageType;
+    filtersData.is_express_deal = listParams.is_express_deal;
 
     let jsData = {
         url: listParams.url,
@@ -134,14 +136,16 @@ function filterItNow(formId, pageType) {
     };
 
     getLists(filtersData, jsData);
-}
+};
 
-function filterByCityDate(formData, pageType) {
-    let filtersData = formData;
+var filterByCityDate = function (formData, pageType) {
+
+    let filtersData = querytoObject(formData);
 
     let listParams = getAllParams(pageType);
 
-    filtersData += "&pageType=" + pageType + "&is_express_deal=" + listParams.is_express_deal;
+    filtersData.pageType = pageType;
+    filtersData.is_express_deal = listParams.is_express_deal;
 
     let jsData = {
         url: listParams.url,
@@ -149,4 +153,19 @@ function filterByCityDate(formData, pageType) {
     };
 
     getLists(filtersData, jsData);
-}
+};
+
+var resetForm = function (pageType) {
+    // this will get the results without any filters, with default parameters
+    let listParams = getAllParams(pageType);
+    let filtersData = {};
+    filtersData.pageType = pageType;
+    filtersData.is_express_deal = listParams.is_express_deal;
+
+    let jsData = {
+        url: listParams.url,
+        element: listParams.element
+    };
+
+    getLists(filtersData, jsData);
+};

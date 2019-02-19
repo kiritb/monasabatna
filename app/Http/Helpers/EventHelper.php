@@ -40,7 +40,7 @@ class EventHelper
 
             $eventsSql = Events::select('events.id as eventId', 'events.name as eventName', 'events.short_description as eventShortDescription', 'events.start_date as vennueStartTime','events.is_express_deal as isExpressDeal',
                 'events.end_date as eventEndTime', 'events.order_no as displayOrder', 'event_types.name as eventType',
-                'events.fb_link as fbLink',
+                'events.fb_link as fbLink','events.created_at',
                 'events.twitter_link as twitterLink',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')
@@ -108,7 +108,9 @@ class EventHelper
             }
 
             $eventsData = $eventsSql->orderBy('events.order_no', 'asc')
-                ->paginate(2);
+                                    ->orderBy('events.created_at', 'desc')
+                                    ->groupBy('events.id')
+                                    ->paginate(2);
 
             $eventsDataArr = $eventsData->toArray();
 
@@ -259,6 +261,7 @@ class EventHelper
                 'event_organisers.rating',
                 'event_organisers.is_express_deal as isExpressDeal',
                 'event_organisers.twitter_link as twitterLink',
+                'event_organisers.created_at',
                 'event_organisers.fb_link as fbLink',
                 'address.address_line_1 as AddressLine_1',
                 'address.address_line_2 as AddressLine_2',
@@ -322,8 +325,10 @@ class EventHelper
             }
 
             $eventOrganisersArr = $eventOrganisersSql->orderBy('event_organisers.order_no', 'asc')
-                ->paginate(2)
-                ->toArray();
+                                                     ->orderBy('event_organisers.created_at', 'desc')
+                                                     ->groupBy('event_organisers.id')
+                                                     ->paginate(2)
+                                                     ->toArray();
 
             if (empty($eventOrganisersArr['data'])) {
                 \Log::info(__CLASS__ . " " . __FUNCTION__ . " Event Organisers Data does not exists ");
@@ -763,6 +768,7 @@ class EventHelper
                 'suppliers.order_no as displayOrder',
                 'suppliers.rating',
                 'suppliers.is_express_deal as isExpressDeal',
+                'suppliers.created_at',
                 \DB::raw('CAST(DATE_SUB("'.$todaysDate.'", INTERVAL suppliers.prior_intimation_days DAY ) AS DATE ) as bookingLastDate'  ) ,
                 'suppliers.twitter_link as twitterLink',
                 'suppliers.fb_link as fbLink',
@@ -826,7 +832,9 @@ class EventHelper
             }
 
             $suppliersDetails = $supplierSql->orderBy('suppliers.order_no', 'asc')
-                ->paginate(2);
+                                            ->orderBy('suppliers.created_at', 'desc')
+                                            ->groupBy('suppliers.id')
+                                            ->paginate(2);
 
             $suppliersArr = $suppliersDetails->toArray();
 
@@ -1135,7 +1143,8 @@ class EventHelper
                 'pricings.actual_price as actualPrice',
                 'pricings.discount',
                 'pricing_type.name as pricingType',
-                'event_types.name as eventType'
+                'event_types.name as eventType',
+                'suppliers.created_at'
             )
                 ->join('packages', 'packages.linkable_id', '=', 'suppliers.id')
                 ->join('files', 'files.linkable_id', '=', 'packages.id')
@@ -1192,6 +1201,7 @@ class EventHelper
 
             $suppliersDetails = $supplierSql->orderBy('suppliers.order_no', 'asc')
                 ->orderBy('suppliers.created_at', 'desc')
+                ->groupBy('suppliers.id')
                 ->paginate(2);
 
             $suppliersArr = $suppliersDetails->toArray();
@@ -1242,7 +1252,8 @@ class EventHelper
                 'pricings.actual_price as actualPrice',
                 'pricings.discount',
                 'pricing_type.name as pricingType',
-                'event_types.name as eventType'
+                'event_types.name as eventType',
+                'event_organisers.created_at'
             )
                 ->join('packages', 'packages.linkable_id', '=', 'event_organisers.id')
                 ->join('files', 'files.linkable_id', '=', 'packages.id')
@@ -1299,6 +1310,7 @@ class EventHelper
 
             $eventOrganinsersDetails = $eventOrganinserSql->orderBy('event_organisers.order_no', 'asc')
                 ->orderBy('event_organisers.created_at', 'asc')
+                ->groupBy('event_organisers.id')
                 ->paginate(2);
 
             $eventOrganinsersArr = $eventOrganinsersDetails->toArray();

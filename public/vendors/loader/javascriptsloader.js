@@ -308,3 +308,65 @@ $(window).on("load", function () {
         fadeOut: true
     });
 });
+
+// All Globally usable functions should go here in this file
+// Globally usable functions
+
+var objecttoQuery = function (obj) {
+    return Object.keys(obj).reduce(function (a, k) { a.push(k + '=' + encodeURIComponent(obj[k])); return a; }, []).join('&');
+};
+
+var querytoObject = function (query) {
+
+    var params = {}, e;
+
+    query = query.substring(query.indexOf('?') + 1);
+
+    if (query !== '') {
+        var re = /([^&=]+)=?([^&]*)/g;
+        var decodeRE = /\+/g;
+
+        var decode = function (str) {
+            return decodeURIComponent(str.replace(decodeRE, " "));
+        };
+
+        var doE = function (query) {
+            e = re.exec(query);
+            return e;
+        };
+
+        while (doE(query)) {
+            var k = decode(e[1]), v = decode(e[2]);
+            if (k.substring(k.length - 2) === '[]') {
+                k = k.substring(0, k.length - 2);
+                (params[k] || (params[k] = [])).push(v);
+            }
+            else params[k] = v;
+        }
+
+        var assign = function (obj, keyPath, value) {
+            var lastKeyIndex = keyPath.length - 1;
+            for (var i = 0; i < lastKeyIndex; ++i) {
+                var key = keyPath[i];
+                if (!(key in obj))
+                    obj[key] = {};
+                obj = obj[key];
+            }
+            obj[keyPath[lastKeyIndex]] = value;
+        };
+
+        for (let prop in params) {
+            let structure = prop.split('[');
+            if (structure.length > 1) {
+                let levels = [];
+                structure.forEach(function (item, i) {
+                    let key = item.replace(/[?[\]\\ ]/g, '');
+                    levels.push(key);
+                });
+                assign(params, levels, params[prop]);
+                delete (params[prop]);
+            }
+        }
+    }
+    return params;
+};

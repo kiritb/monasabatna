@@ -12,8 +12,9 @@ use App\Http\Helpers\WishListHelper;
 use App\Http\Helpers\GenericTermsHelper;
 
 
-use App\Models\Cities;
 
+use App\Models\Cities;
+use App\Models\LanguageMessages;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -444,5 +445,32 @@ class HomeController extends Controller
             return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+     public function getLanguageMessages()
+    {
+        try {
+ 
+            $res = LanguageMessages::select('language_key', 'english_text','arabic_text')
+                                    ->where('status', 1)
+                                    ->get()
+                                    ->toArray();
+            
+            if (empty($res)) 
+            {
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+            }
+
+            return response(ResponseUtil::buildSuccessResponse( $res ), HttpStatusCodesConsts::HTTP_OK);
+        } catch (\Exception $e) {
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    
 }   
+
 
