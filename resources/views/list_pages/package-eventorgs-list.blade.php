@@ -52,10 +52,7 @@ $appliedParams= $data['appliedParams'];
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                     <div class="content-optionblog">
                         <div class="wish-head"><b>
-                                <a href={{ url('/events/organisers/') . "/" . $eventOrganiser['eventOrganisersId'] }}
-                                    alt="event organiser">
-                                    {{ $eventOrganiser['eventOrgainsersName'] }}
-                                </a>
+                                {{ $eventOrganiser['eventOrgainsersName'] }}
                             </b> </div>
                         <div class="wish-text">
                             @include('ui_utils.stars', ['stars'=> $eventOrganiser["rating"]])
@@ -87,7 +84,10 @@ $appliedParams= $data['appliedParams'];
                             </b>
                         </div>
 
-                        <button class="btn active" id="btn-eventlist" onclick="#"><b> Book Now </b></button>
+                        <a href={{ url('/events/organisers/packages/') . "/" . $eventOrganiser['eventOrganisersId'] }}
+                            class="btn active" id="btn-eventlist" alt="event organiser">
+                            <b>Book Now</b>
+                        </a>
                     </div>
                 </div>
             </div>

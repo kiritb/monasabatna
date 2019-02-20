@@ -24,24 +24,20 @@ $appliedParams= $data['appliedParams'];
 
         <div class="row item-bg-color">
             <div class="content-eve">
-                <a href="{{ url('/events/upcoming') . '/' . $uEvents['eventId'] }}" alt="upcoming events">
-                    @if(isset($uEvents['isExpressDeal']) && $uEvents['isExpressDeal']==1) <div
-                        class="
-                    ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span>
-                    </div>
-                    @endif
-                    <img src="{{ $uEvents['filePath'] }}" alt="Mountains">
-                </a>
+                @if(isset($uEvents['isExpressDeal']) && $uEvents['isExpressDeal']==1)
+                <div class="ribbon ribbon-top-left">
+                    <span class="orange">{{ '% Deal' }}</span>
+                </div>
+                @endif
+                <img src="{{ $uEvents['filePath'] }}" alt="Mountains">
             </div>
 
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                 <div class="content-optionblog">
-                    <a href="{{ url('/events/upcoming') . '/' . $uEvents['eventId'] }}" alt="upcoming events">
-                        <div class="upcbox-head">
-                            <h5>Event Organiser Name</h5>
-                            <h6>{{ $uEvents['eventName'] }} </h6>
-                        </div>
-                    </a>
+                    <div class="upcbox-head">
+                        <h5>Event Organiser Name</h5>
+                        <h6>{{ $uEvents['eventName'] }} </h6>
+                    </div>
                     <div class="wish-text"> <i class='fas fa-map-marker-alt'
                             style='font-size:23px;color:#6cc0b9'></i><span class="upctext">Address :
                             {{ $uEvents['AddressLine_1'] }}, {{ $uEvents['AddressLine_2'] }}</span><a
@@ -60,8 +56,10 @@ $appliedParams= $data['appliedParams'];
                             $uEvents['pricingType']
                             }}</b>
                     </div>
-                    <button class="btn active" id="bn-venuelist" onclick="filterSelection('all')"><b> Book
-                            Now</b></button>
+                    <a href="{{ url('/events/upcoming') . '/' . $uEvents['eventId'] }}" class="btn active"
+                        id="bn-venuelist" alt="upcoming events">
+                        <b>Book Now</b>
+                    </a>
                 </div>
             </div>
         </div>

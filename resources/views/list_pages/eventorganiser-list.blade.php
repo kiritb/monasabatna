@@ -40,23 +40,17 @@ $appliedParams= $data['appliedParams'];
             @foreach ($eventorgs["eventOrganiserslist"] as $key=>$eventOrganiser)
             <div class="row item-bg-color">
                 <div class="content-eve">
-                    <a href={{ url('/events/organisers/') . "/" . $eventOrganiser['eventOrganisersId'] }}
-                        alt="event organiser">
-                        @if(isset($eventOrganiser['isExpressDeal']) && $eventOrganiser['isExpressDeal'] == 1)
-                        <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
-                        @endif
-                        <img src={{ $eventOrganiser['filePath'] }} alt="Mountains">
-                    </a>
+                    @if(isset($eventOrganiser['isExpressDeal']) && $eventOrganiser['isExpressDeal'] == 1)
+                    <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
+                    @endif
+                    <img src={{ $eventOrganiser['filePath'] }} alt="Mountains">
                 </div>
 
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                     <div class="content-optionblog">
-                        <div class="wish-head"><b>
-                                <a href={{ url('/events/organisers/') . "/" . $eventOrganiser['eventOrganisersId'] }}
-                                    alt="event organiser">
-                                    {{ $eventOrganiser['eventOrgainsersName'] }}
-                                </a>
-                            </b> </div>
+                        <div class="wish-head">
+                            {{ $eventOrganiser['eventOrgainsersName'] }}
+                        </div>
                         <div class="wish-text">
                             @include('ui_utils.stars', ['stars'=> $eventOrganiser["rating"]])
                         </div>
@@ -83,7 +77,10 @@ $appliedParams= $data['appliedParams'];
                                 $eventOrganiser['price']['pricingType'] }} </b>
                         </div>
 
-                        <button class="btn active" id="btn-eventlist" onclick="#"><b> Book Now </b></button>
+                        <a href={{ url('/events/organisers/') . "/" . $eventOrganiser['eventOrganisersId'] }}
+                            alt="event organiser" class="btn active" id="btn-eventlist">
+                            Book Now
+                        </a>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
-@if(!isset($data) && empty($data))
-<div class="errorBox">No Data from API!!</div>
+@if($data['code'])
+<div class="errorBox">No Data from API!! {{ $data['code'] }}</div>
 @else
 
 @php
@@ -71,14 +71,16 @@ $appliedParams= $data['appliedParams'];
                                 @endforeach
                             </b></div>
                         <p class="blogvenue">{{ $vennueLists["vennueShortDescription"] }}</p>
-                        <div class="wish-text"><b><span class="col-green">SAR:</span>
-                                {{
-                                $vennueLists["actualPrice"] }}
-                                {{ $vennueLists["pricingType"] }}</b>
-                            <b><i class="fas fa-users" id="fasvenue" style="font-size:20px;color:#6cc0b9"></i>
-                                100-200</b></div>
-                        <button class="btn active" id="bn-venuelist" onclick="filterSelection('all')"><b>
-                                Book Now</b></button>
+                        <div class="wish-text">
+                            <span class="col-green">SAR:</span>
+                            {{ $vennueLists["actualPrice"] }}
+                            {{ $vennueLists["pricingType"] }}
+                            <i class="fas fa-users" id="fasvenue"></i>
+                            {{ $data['MinGuestCap']. '-' . $data['MaxGuestCap'] }}
+                        </div>
+                        <a href="{{ url('/venues/'.$vennueLists['vennueId']) }}" class="btn active" id="bn-venuelist">
+                            Book Now
+                        </a>
 
                     </div>
                 </div>

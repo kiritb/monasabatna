@@ -25,15 +25,17 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 pack-bg pt-3">
                 <div class="row arrange-supplier">
-
-                    <i class="fas fa-map-marker-alt" style="font-size:20px; color:#6cc0b9" aria-hidden="true"></i>
-                    <span class="evenspanline"> Address : <b>{{ $data['AddressLine_1'] }},
-                            {{ $data['AddressLine_2']
-                            }}, {{ $data['cityName'] }}</b><a
-                            class="showmap" href={{ $data['googleMapLink'] }}>
-                            Show in map</a></span>
+                    <!-- Address maker -->
+                    @php
+                    $addresses = array(
+                    "address1"=> $data['AddressLine_1'],
+                    "address2"=> $data['AddressLine_2'],
+                    "city"=> $data['cityName'],
+                    "gmaplink"=> $data['googleMapLink']
+                    );
+                    @endphp
+                    @include('ui_utils/address-maker', ['data' => $addresses])
                 </div>
-
                 <div class="row arrange-supplier">
                     <i class="fas fa-phone" id="license"></i>
                     <span class="evenspanlineone">
@@ -118,17 +120,16 @@
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse"
-                                        data-target="#collapse_{{ $key }}" aria-expanded="true"
-                                        aria-controls="collapse_{{ $key }}">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_{{ $key }}"
+                                        aria-expanded="true" aria-controls="collapse_{{ $key }}">
                                         {{ $services['serviceName'] }}
                                     </button>
                                 </h2>
                             </div>
 
 
-                            <div id="collapse_{{ $key }}" class="collapse {{ ($key==0)?'show':'' }}"
-                                aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div id="collapse_{{ $key }}" class="collapse {{ ($key==0)?'show':'' }}" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
 
                                 <div class="card-body">
 

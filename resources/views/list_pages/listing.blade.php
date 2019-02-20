@@ -20,15 +20,19 @@
 
         <nav>
             <div class="nav nav-tabs d-flex" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link list-nav-tabs active" id="nav-venues-tab" data-toggle="tab" href="#nav-venues"
-                    role="tab" aria-controls="nav-home" aria-selected="true" onclick="getTypeListItems('venues')">Venue</a>
-                <a class="nav-item nav-link list-nav-tabs" id="nav-suppliers-tab" data-toggle="tab" href="#nav-suppliers"
-                    role="tab" aria-controls="nav-profile" aria-selected="false" onclick="getTypeListItems('suppliers')">Suppliers</a>
+                <a class="nav-item nav-link list-nav-tabs active" id="nav-venues-tab" data-toggle="tab"
+                    href="#nav-venues" role="tab" aria-controls="nav-home" aria-selected="true"
+                    onclick="getTypeListItems('venues')">Venue</a>
+                <a class="nav-item nav-link list-nav-tabs" id="nav-suppliers-tab" data-toggle="tab"
+                    href="#nav-suppliers" role="tab" aria-controls="nav-profile" aria-selected="false"
+                    onclick="getTypeListItems('suppliers')">Suppliers</a>
                 <a class="nav-item nav-link list-nav-tabs" id="nav-events-tab" data-toggle="tab" href="#nav-events"
-                    role="tab" aria-controls="nav-contact" aria-selected="false" onclick="getTypeListItems('events')">Event
+                    role="tab" aria-controls="nav-contact" aria-selected="false"
+                    onclick="getTypeListItems('events')">Event
                     Organisers</a>
                 <a class="nav-item nav-link list-nav-tabs" id="nav-packages-tab" data-toggle="tab" href="#nav-packages"
-                    role="tab" aria-controls="nav-events" aria-selected="false" onclick="getTypeListItems('package-ex-events')">Packages</a>
+                    role="tab" aria-controls="nav-events" aria-selected="false"
+                    onclick="getTypeListItems('package-ex-events')">Packages</a>
             </div>
         </nav>
 
@@ -60,8 +64,20 @@
 <script src="{{ url('js/city-date.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="{{ url('js/events.js') }}" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        getTypeListItems("venues");
-    });
+$(document).ready(function() {
+    getTypeListItems("venues");
 
+    let pageIs = findGetParameter("pageis");
+    if (pageIs == 'suppliers') {
+        $("#nav-suppliers-tab").trigger("click");
+    } else if (pageIs == "events") {
+        $("#nav-events-tab").trigger("click");
+    } else if (pageIs == "venues") {
+        $("#nav-venues-tab").trigger("click");
+    } else if (pageIs == "packages") {
+        $("#nav-packages-tab").trigger("click");
+    }
+
+    window.history.replaceState(null, null, window.location.pathname);
+});
 </script>

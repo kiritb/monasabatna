@@ -42,20 +42,16 @@ $appliedParams= $data['appliedParams'];
             @foreach ($suppliers["suppliersList"] as $suppliersList)
             <div class="row item-bg-color">
                 <div class="content-eve">
-                    <a href={{ url('/suppliers/') . "/" . $suppliersList['supplierId'] }} alt="supplier">
-                        @if(isset($suppliersList['isExpressDeal']) && $suppliersList['isExpressDeal'] == 1)
-                        <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
-                        @endif
-                        <img src={{ $suppliersList['filePath'] }} alt="Mountains">
-                    </a>
+                    @if(isset($suppliersList['isExpressDeal']) && $suppliersList['isExpressDeal'] == 1)
+                    <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
+                    @endif
+                    <img src={{ $suppliersList['filePath'] }} alt="Mountains">
                 </div>
 
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="content-eve-right">
                     <div class="content-optionpacklist">
                         <div class="wish-head">
-                            <a href={{ url('/suppliers/') . "/" . $suppliersList['supplierId'] }} alt="supplier">
-                                {{ $suppliersList['supplierName'] }}
-                            </a>
+                            {{ $suppliersList['supplierName'] }}
                         </div>
                         <div class="wish-text">
                             @include('ui_utils.stars', ['stars' => $suppliersList["rating"]])
@@ -88,7 +84,7 @@ $appliedParams= $data['appliedParams'];
                         <div class="wish-text"><b><span class="col-green">SAR:</span> 100 / Day </b>
                         </div>
 
-                        <a href="{{ url('supplierdetails/'. $suppliersList['supplierId']) }}" class="btn active"
+                        <a href="{{ url('/suppliers/') . "/" . $suppliersList['supplierId'] }}" class="btn active"
                             id="btn-eventlist">
                             <b>Book Now</b>
                         </a>

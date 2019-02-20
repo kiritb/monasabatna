@@ -56,9 +56,9 @@
                     <li class="nav-item"><a href="{{ url('/') }}">HOME</a></li>
                     <li class="nav-item"><a href="{{ url('/expressdeals') }}">EXPRESS</a></li>
                     <li class="nav-item"><a href="{{ url('/upcoming-events') }}">UPCOMINGS</a></li>
-                    <li class="nav-item"><a href="{{ url('/listing') }}">VENUES</a></li>
+                    <li class="nav-item"><a href="{{ url('/listing?pageis=venues') }}">VENUES</a></li>
                     <li class="nav-item"><a href="{{ url('/listing?pageis=suppliers') }}">SUPPLIERS </a></li>
-                    <li class="nav-item"><a href="{{ url('/events/organisers') }}">EVENT ORGANISERS</a></li>
+                    <li class="nav-item"><a href="{{ url('/listing?pageis=events') }}">EVENT ORGANISERS</a></li>
                     <li class="nav-item submenu">
                         <a href="{{ url('/about') }}">ABOUT US</a>
                         <ul id="browse">

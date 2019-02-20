@@ -31,7 +31,7 @@ class HomeHelper
         try
         {  
 
-            $vennueData = Vennues::select('vennues.name as vennueName','vennues.short_description as vennueShortDescription','vennues.start_time as vennueStartTime','vennues.order_no as displayOrder',
+            $vennueData = Vennues::select('vennues.id','vennues.name as vennueName','vennues.short_description as vennueShortDescription','vennues.start_time as vennueStartTime','vennues.order_no as displayOrder',
                              'address.address_line_1 as AddressLine_1','address.address_line_2 as AddressLine_2','address.google_map_link as googleMapLink','cities.name as cityName',
                              'pricings.actual_price as actualPrice','pricings.discount','pricing_type.name as pricingType', 'files.file_path as filePath')
                             ->join('address', 'vennues.id', '=', 'address.linkable_id')
@@ -63,7 +63,7 @@ class HomeHelper
             
             $returnArr['expressDeals'] = $vennueData;
 
-            $eventsData = Events::select('events.name as eventName','events.short_description as eventShortDescription','events.start_date as vennueStartTime', 'events.order_no as displayOrder',
+            $eventsData = Events::select('events.id', 'events.name as eventName','events.short_description as eventShortDescription','events.start_date as vennueStartTime', 'events.order_no as displayOrder',
                              'address.address_line_1 as AddressLine_1','address.address_line_2 as AddressLine_2','address.google_map_link as googleMapLink','cities.name as cityName',
                              'pricings.actual_price as actualPrice','pricings.discount','pricing_type.name as pricingType','files.file_path as filePath')
                             ->join('address', 'events.id', '=', 'address.linkable_id')

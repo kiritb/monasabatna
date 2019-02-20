@@ -379,6 +379,7 @@ span.spaceone {
 .learntab {
     align-content: center;
     color: #727272;
+    margin-top: 1rem;
 }
 
 .learntab a {
@@ -640,18 +641,6 @@ p.count-text {
     font-size: 15px;
 }
 
-.headhome-img {
-    width: 20px;
-    height: 55px;
-    float: left;
-}
-
-.headhome-text {
-    width: 215px;
-    height: 55px;
-    text-align: justify;
-}
-
 .checkcolor {
     color: #8c8c8c;
 }
@@ -787,7 +776,6 @@ a.addvenuedash {
 }
 
 .nav-item.nav-link.list-nav-tabs {
-    font-size: 20px;
     font-weight: bold;
     flex: 1;
 }
@@ -1215,7 +1203,6 @@ span.namechange {
 #quote-carousel img {
     width: 250px;
     height: 100px;
-    margin-top: -32px;
 }
 
 .themedetails_tabs .nav>li>a {
@@ -1314,10 +1301,6 @@ label.control-label.label-setone {
     width: 18%;
     float: left;
     margin-left: 5px;
-}
-
-.row.gap {
-    margin-top: -32px;
 }
 
 .sec3 {
@@ -1890,6 +1873,7 @@ div#starreview {
     padding-left: 0;
     padding-right: 0;
     color: #4b495b;
+    margin-top: 2rem;
 }
 
 a.eventterms {
@@ -2568,13 +2552,8 @@ a.shtsupp.active {
 #supplierpacksect {
     background-color: #f4f4f5;
     font-family: Myriad pro;
-    padding-left: 10px;
-    padding-right: 0;
-    margin-left: 49px;
-    width: 92.70%;
-    margin-right: 49px;
-    height: 135px;
-    margin-top: 25px;
+    margin: 15px;
+    padding: 15px;
 }
 
 .row.sartravel {
@@ -2605,41 +2584,6 @@ div#supplierdetails {
 div#supppackdet {
     margin-left: -30px;
     float: left;
-}
-
-#supplierdetails a#nav-about-tab {
-    width: 24.55%;
-    font-weight: bold;
-    color: #9d9ca4;
-    font-family: Myraid pro;
-    font-size: 18px;
-}
-
-#supplierdetails a#nav-provided-tab {
-    width: 24.55%;
-    margin-left: 0.60%;
-    font-weight: bold;
-    color: #9d9ca4;
-    font-family: Myriad pro;
-    font-size: 18px;
-}
-
-#supplierdetails a#nav-testi-tab {
-    width: 24.55%;
-    margin-left: 0.60%;
-    font-weight: bold;
-    color: #9d9ca4;
-    font-family: Myriad pro;
-    font-size: 18px;
-}
-
-#supplierdetails a#nav-terms-tab {
-    width: 24.55%;
-    margin-left: 0.60%;
-    font-weight: bold;
-    color: #9d9ca4;
-    font-family: Myriad pro;
-    font-size: 18px;
 }
 
 div#forgotcontent {
@@ -3305,18 +3249,6 @@ a.right.carousel-control.four-right {
     font-size: 18px;
 }
 
-@media only screen and (min-width:1200px) {
-    #btn-port {
-        width: 125px;
-    }
-}
-
-@media only screen and (min-width:1024px) {
-    #btn-port {
-        width: 114px;
-    }
-}
-
 @media only screen and (min-width:768px) {
     a.eventterms {
         margin-left: 81%;
@@ -3332,40 +3264,6 @@ a.right.carousel-control.four-right {
 @media only screen and (min-width:1280px) {
     a.eventterms {
         margin-left: 90%;
-    }
-}
-
-@media only screen and (min-width:768px) {
-    #btn-port {
-        margin-left: -2%;
-    }
-}
-
-@media only screen and (min-width:1280px) {
-    #btn-port {
-        margin-left: 8%;
-    }
-}
-
-@media only screen and (min-width:1366px) {
-    #btn-port {
-        margin-left: 12%;
-    }
-}
-
-@media only screen and (min-width:1200px) {
-    .content-option {
-        margin-top: -11%;
-        width: 210px;
-        float: left;
-        font-size: 16px;
-        margin-left: -19px;
-    }
-
-    #btn-port {
-        width: 125px;
-        margin-left: 11%;
-        margin-top: -3%;
     }
 }
 
@@ -3385,7 +3283,6 @@ a.right.carousel-control.four-right {
 }
 
 .event-content {
-    margin-top: -7%;
     background-color: #f4f4f5;
     padding: 10px;
 }
@@ -3976,11 +3873,6 @@ div#innertwotab {
     border-radius: 0;
 }
 
-.content-optionpacklist {
-    width: 665px;
-    margin-left: 0;
-}
-
 .content-expsort-top {
     width: 74%;
     float: right;
@@ -4097,6 +3989,7 @@ div#packlist-contentright {
     outline-color: rgb(201 76 76);
     margin: auto;
     color: #4b485b;
+    padding: 2rem;
 }
 
 .checked {
@@ -4642,10 +4535,6 @@ input[type="checkbox"].is-invalid+span {
     .wish-head {
         margin-top: 3px;
     }
-
-    .content-optionblog {
-        margin-left: -12px;
-    }
 }
 
 @media screen and (max-width:1024px) {
@@ -4655,11 +4544,6 @@ input[type="checkbox"].is-invalid+span {
 
     .wish-head {
         margin-top: 2px;
-    }
-
-    .content-optionblog {
-        width: 647px;
-        margin-left: -15px;
     }
 }
 
@@ -4678,10 +4562,6 @@ input[type="checkbox"].is-invalid+span {
 
     .underlinetab #pills-tab {
         width: 54%;
-    }
-
-    .content-optionpacklist {
-        width: 649px;
     }
 
     select.form-control.sortvenues {
@@ -4717,10 +4597,6 @@ input[type="checkbox"].is-invalid+span {
 
     a#nav-supp-tab {
         width: 32.33%;
-    }
-
-    .content-optionpacklist {
-        width: 395px;
     }
 
     .content-expsort-top {
@@ -4768,10 +4644,6 @@ input[type="checkbox"].is-invalid+span {
     .row.color-bg-expcontentnext {
         margin-left: 143px;
         width: 924px;
-    }
-
-    .content-optionpacklist {
-        width: 600px;
     }
 }
 
@@ -5237,4 +5109,11 @@ span#vendorbadge {
 
 .reset-form:hover {
     color: green;
+}
+
+/* listing pages default height for loader */
+#upcomingListingPage,
+#expressListingPage,
+#listingPage {
+    min-height: 500px;
 }

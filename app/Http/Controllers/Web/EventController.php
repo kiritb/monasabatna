@@ -224,11 +224,11 @@ class EventController extends Controller
         try {
             $themeData = EventHelper::getPackageDetails($id);
 
-            return view('detail_pages.packagedetails')->with('data', $themeData);
+            return view('detail_pages.packageeventsdetails')->with('data', $themeData);
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return view('detail_pages.packagedetails')->with('data', $responseArr);
+            return view('detail_pages.packageeventsdetails')->with('data', $responseArr);
         }
     }
 
@@ -346,14 +346,14 @@ class EventController extends Controller
             if (empty($supplierPackageDetails)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                return view('detail_pages.packagedetails')->with('data', $responseArr);
+                return view('detail_pages.packagesupplierdetails')->with('data', $responseArr);
             }
 
-            return view('detail_pages.packagedetails')->with('data', $supplierPackageDetails);
+            return view('detail_pages.packagesupplierdetails')->with('data', $supplierPackageDetails);
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return view('detail_pages.packagedetails')->with('data', $responseArr);
+            return view('detail_pages.packagesupplierdetails')->with('data', $responseArr);
         }
     }
 

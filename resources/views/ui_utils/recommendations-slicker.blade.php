@@ -8,7 +8,6 @@
 
         @if (count($slides) > 0)
         @foreach ($slides as $key=>$slide)
-
         @if(isset($slide['vennueId']))
         @php
         $id = $slide['vennueId'];
@@ -18,6 +17,11 @@
         @php
         $id = $slide['eventOrganisersId'];
         $name = $slide['eventOrgainsersName'];
+        @endphp
+        @elseif(isset($slide['packageId']))
+        @php
+        $id = $slide['packageId'];
+        $name = $slide['packageName'];
         @endphp
         @else
         @php

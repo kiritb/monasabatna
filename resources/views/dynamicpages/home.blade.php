@@ -17,7 +17,7 @@
                 <div class="container" id="plus_two">
                     <img src={{ $eDeals["filePath"] }} alt="Avatar" class="image">
                     <div class="middle">
-                        <a href="#">
+                        <a href={{ url("/") . '/venues/' . $eDeals['id'] }}>
                             <div class="pop_img"><img src="svg/images/booknow.png"></div>
                         </a>
                     </div>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="head3">
                         <div class="headhome-img">
-                            <a href=""><img src="svg/images/markeradd.png" style="margin-left:-2px;"></a></i>
+                            <a href=""><img src="svg/images/markeradd.png"></a></i>
                         </div>
                         <div class="headhome-text">
                             {{ $eDeals["AddressLine_1"] }}
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="learntab">
-                        <a href="#">
+                        <a href={{ url("/") . '/venues/' . $eDeals['id'] }}>
                             <button type="button" class="btn btn-info btn-lg show_box"><b>LEARN MORE</b></button>
                         </a>
                     </div>
@@ -59,10 +59,9 @@
         </div>
         <!----- end of row col-sm-12 ----->
 
-        <p>
+        <p class="text-center mt-4">
             <a href="{{ url('/expressdeals') }}">
-                <center><button type="button" class="btn btn-info btn-lg" id="show_record"><b>SHOW MORE</b></button>
-                    <center>
+                <button type="button" class="btn btn-info btn-lg" id="show_record"><b>SHOW MORE</b></button>
             </a>
         </p>
     </div>
@@ -70,7 +69,7 @@
     <div class="container-fluid home-containers" id="sponsor">
         <div class="row">
             <div class="container">
-                <div class="middlehead_exp text-center"> <b>Our Partners </b></div>
+                <div class="middlehead_exp text-center">Our Partners</div>
             </div>
             @if (count($data["partners"]) > 0)
             @include('slickslider', ['slides' => $data["partners"]])
@@ -95,7 +94,7 @@
                 <div class="container" id="plus_one">
                     <img src={{ $upcomingEvents->filePath }} alt="Avatar" class="image">
                     <div class="middle">
-                        <a href="#">
+                        <a href={{ url("/") . '/events/organisers/' . $upcomingEvents['id'] }}>
                             <div class="pop_img"><img src="svg/images/booknow.png"></div>
                         </a>
                     </div>
@@ -123,7 +122,7 @@
                         </div>
                     </div>
                     <div class="learntab">
-                        <a href="#">
+                        <a href={{ url("/") . '/events/organisers/' . $upcomingEvents['id'] }}>
                             <button type="button" class="btn btn-info btn-lg show_box"><b>LEARN MORE</b></button>
                         </a>
                     </div>
@@ -138,10 +137,9 @@
         </div>
         <!----- end of row col-sm-12 ----->
 
-        <p>
+        <p class="text-center mt-4">
             <a href="{{ url('/upcoming-events') }}">
-                <center><button type="button" class="btn btn-info btn-lg" id="show_recordone"><b>SHOW MORE</b></button>
-                    <center>
+                <button type="button" class="btn btn-info btn-lg" id="show_recordone"><b>SHOW MORE</b></button>
             </a>
         </p>
     </div>
@@ -182,8 +180,10 @@
                 <div class="why-us">
                     <!-- Data loads from ajax call -->
                 </div>
-                <button type="button" class="btn btn-info btn-lg" id="show_record_why"><a href="{{ url('/listing') }}"><b>BOOK
-                            NOW</b></a></button>
+                <button type="button" class="btn btn-info btn-lg" id="show_record_why"><a href="{{ url('/listing') }}">
+                        BOOK NOW
+                    </a>
+                </button>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <a href="#">

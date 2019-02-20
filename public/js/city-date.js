@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $("#cityDateForm").overlayMask({
         do: "showLoader",
         pPos: "relative"
@@ -8,10 +8,10 @@ $(document).ready(function() {
         type: "GET",
         dataType: "json",
         contentType: "application/x-www-form-urlencoded",
-        beforeSend: function() {
+        beforeSend: function () {
             console.log("inside beforeSend!!");
         },
-        success: function(response) {
+        success: function (response) {
             var params;
             if (response.data && response.data.length) {
                 $("#cityDateForm").overlayMask({
@@ -19,7 +19,7 @@ $(document).ready(function() {
                 });
                 // cities from API
                 var lists = "";
-                $.each(response.data, function(k, v) {
+                $.each(response.data, function (k, v) {
                     lists +=
                         '<option value="' + v.id + '">' + v.name + "</option>";
                 });
@@ -44,20 +44,16 @@ $(document).ready(function() {
                 notifyError("No Cities, error fetching data!");
             }
         },
-        error: function(xhr) {
+        error: function (xhr) {
             // if error occured
             notifyError(xhr.statusText);
         },
-        complete: function() {
+        complete: function () {
             $("#cityDateForm").validate({
                 ignore: "",
                 rules: {
                     pageType: {
                         required: true
-                    },
-                    "city[]": {
-                        required: true,
-                        minlength: 1
                     },
                     from_date: {
                         required: true
@@ -66,20 +62,20 @@ $(document).ready(function() {
                         required: true
                     }
                 },
-                errorPlacement: function(error, element) {
+                errorPlacement: function (error, element) {
                     return true;
                 },
-                highlight: function(element, errorClass, validClass) {
+                highlight: function (element, errorClass, validClass) {
                     $(element)
                         .addClass("is-invalid")
                         .removeClass("is-valid");
                 },
-                unhighlight: function(element, errorClass, validClass) {
+                unhighlight: function (element, errorClass, validClass) {
                     $(element)
                         .addClass("is-valid")
                         .removeClass("is-invalid");
                 },
-                submitHandler: function(event) {
+                submitHandler: function (event) {
                     var formData = $("form").serialize();
                     let pageType = $(
                         "#cityDateForm input[name=pageType]"

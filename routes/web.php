@@ -286,5 +286,3 @@ Route::post('deleteamenities', 'Web\AmenitieController@deleteAmenitieType');
 
 Route::get('vendorterms', 'Web\VendorController@getVendorPolicy');
 Route::post('update_terms', 'Web\VendorController@updateVendorPolicy');
-
-// Route::resource('amenitie_types', 'Web\AmenitieController');

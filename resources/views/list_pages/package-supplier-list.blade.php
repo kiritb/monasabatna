@@ -63,9 +63,10 @@ $appliedParams= $data['appliedParams'];
                                 {{ $suppliersList['actualPrice'].' '.$suppliersList['pricingType'] }} </b>
                         </div>
 
-                        <a href="http://18.218.133.17/supplierdetails" class="btn active" id="btn-eventlist"
-                            onclick="#"><b>
-                                Book Now </b></a>
+                        <a href={{ url('/suppliers/packages/') . "/" . $suppliersList['supplierId'] }}
+                            class="btn active" id="btn-eventlist">
+                            <b>Book Now</b>
+                        </a>
                     </div>
                 </div>
             </div>
