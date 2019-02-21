@@ -1,5 +1,5 @@
-@if(!isset($data) && empty($data))
-<div class="errorBox">No Data from API!!</div>
+@if(isset($data['code']) && $data['code'])
+<div class="errorBox bg-danger text-white">No Data from API!! {{ $data['code'] }}</div>
 @else
 
 @php
@@ -77,8 +77,8 @@ $appliedParams= $data['appliedParams'];
                                 $eventOrganiser['price']['pricingType'] }} </b>
                         </div>
 
-                        <a href={{ url('/events/organisers/') . "/" . $eventOrganiser['eventOrganisersId'] }}
-                            alt="event organiser" class="btn active" id="btn-eventlist">
+                        <a href={{ url('/events/organisers/') . "/" . $eventOrganiser['eventOrganisersId'] }} alt="event organiser"
+                            class="btn active" id="btn-eventlist">
                             Book Now
                         </a>
                     </div>

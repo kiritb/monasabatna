@@ -14,9 +14,11 @@ use App\Models\AmenitieTypes;
 class FileHelper
 {   
     /**
-     * @param Array  $data
+     * @param Array  $linkableIdArr
      *
-     * @return Object
+     * @param string  $linkableType
+     *
+     * @return Array
     */
     public static function getFiles( $linkableIdArr, $linkableType )
     {   
@@ -30,6 +32,41 @@ class FileHelper
                                         ->orderBy('order_no', 'asc')
                                         ->get()
                                         ->toArray();
+
+            return $fileDetails;
+        }
+        catch( \Exception $e)
+        {   
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Fetching files ".print_r( $e->getMessage(), true) );
+
+            throw new \Exception(" Error while fetching files", 1);
+
+        }
+       
+    }
+
+    /**
+     * @param Array  $linkableId
+     *
+     * @param string  $linkableType
+     *
+     * @param string  $fileType
+     *
+     * @return Array
+    */
+    public static function getFilesByType( $linkableId, $linkableType, $fileType )
+    {   
+        
+        try
+        {   
+            $fileDetails = Current(Files::select('linkable_id','linkable_type','file_type as fileType', 'files.file_path as filePath', 'file_extension as fileExtenstion','order_no as fileDisplayOrder')
+                                        ->where('files.linkable_type', $linkableType)
+                                        ->where('linkable_id', $linkableId)
+                                        ->where('file_type', $fileType)
+                                        ->where('files.status', 1)
+                                        ->get()
+                                        ->toArray()
+                            );
 
             return $fileDetails;
         }

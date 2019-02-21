@@ -3800,11 +3800,6 @@ span#tweeticon {
     padding-right: 0;
 }
 
-select.form-control.sortpackagelist {
-    width: 207px;
-    float: right;
-}
-
 .row.expsortlist {
     padding-top: 1px;
     margin-left: 50px;
@@ -5116,4 +5111,13 @@ span#vendorbadge {
 #expressListingPage,
 #listingPage {
     min-height: 500px;
+}
+
+/* Error box css */
+.errorBox {
+    position: relative;
+    padding: 5rem;
+    margin: auto;
+    text-align: center;
+    background: #ddd;
 }

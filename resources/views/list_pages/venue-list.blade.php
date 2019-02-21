@@ -1,5 +1,5 @@
-@if($data['code'])
-<div class="errorBox">No Data from API!! {{ $data['code'] }}</div>
+@if(isset($data['code']) && $data['code'])
+<div class="errorBox bg-danger text-white">No Data from API!! {{ $data['code'] }}</div>
 @else
 
 @php
@@ -76,7 +76,7 @@ $appliedParams= $data['appliedParams'];
                             {{ $vennueLists["actualPrice"] }}
                             {{ $vennueLists["pricingType"] }}
                             <i class="fas fa-users" id="fasvenue"></i>
-                            {{ $data['MinGuestCap']. '-' . $data['MaxGuestCap'] }}
+                            {{ $vennueLists['MinGuestCap']. '-' . $vennueLists['MaxGuestCap'] }}
                         </div>
                         <a href="{{ url('/venues/'.$vennueLists['vennueId']) }}" class="btn active" id="bn-venuelist">
                             Book Now

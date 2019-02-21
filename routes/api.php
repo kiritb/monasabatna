@@ -51,6 +51,10 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('suppliers/{id}', 'Api\EventController@getSupplierDetails');
     Route::get('suppliers/packages/{id}', 'Api\EventController@getSupplierPackageDetails');
 
+    Route::get('packages/suppliers', 'Api\EventController@getPackageSupplierList');
+
+    Route::get('packages/eventorganisers', 'Api\EventController@getPackageEventOrganisersList');
+
     Route::get('order', 'Api\OrderController@createOrder');
 
     Route::get('cities', 'Api\CityController@getCities');
@@ -68,10 +72,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('facilitate', 'Api\HomeController@facilitateService');
 
     Route::get('blogs', 'Api\BlogController@getBlogs');
-
-    Route::get('packages/suppliers', 'Api\EventController@getPackageSupplierList');
-
-    Route::get('packages/eventorganisers', 'Api\EventController@getPackageEventOrganisersList');
 
     Route::post('vendor', 'Api\VendorController@createVendor');
 

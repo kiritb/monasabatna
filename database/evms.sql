@@ -834,6 +834,21 @@ create table evms.language_messages(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ;
 
 
+DROP TABLE IF EXISTS evms.service_fee;
+create table evms.service_fee(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  service_tax int(3) NOT NULL,
+  service_fee decimal(10,2) NOT NULL,
+  cancellation_fee decimal(10,2) NOT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 
 
 

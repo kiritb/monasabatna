@@ -1,5 +1,5 @@
-@if(!isset($data) && empty($data))
-<div class="errorBox">No Data from API!!</div>
+@if(isset($data['code']) && $data['code'])
+<div class="errorBox bg-danger text-white">No Data from API!! {{ $data['code'] }}</div>
 @else
 
 @php
@@ -63,8 +63,8 @@ $appliedParams= $data['appliedParams'];
                                 {{ $suppliersList['actualPrice'].' '.$suppliersList['pricingType'] }} </b>
                         </div>
 
-                        <a href={{ url('/suppliers/packages/') . "/" . $suppliersList['supplierId'] }}
-                            class="btn active" id="btn-eventlist">
+                        <a href={{ url('/suppliers/packages/') . "/" . $suppliersList['supplierId'] }} class="btn active"
+                            id="btn-eventlist">
                             <b>Book Now</b>
                         </a>
                     </div>

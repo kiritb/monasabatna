@@ -38,7 +38,8 @@ class PackageHelper
                                                         'pricing_type.name as pricingType',
                                                         'files.file_path as filePath',
                                                         'packages.set_up_time as setUpTime',
-                                                        'packages.note as travelNote'
+                                                        'packages.note as travelNote',
+                                                        'packages.created_at'
                                             )
                                             ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
                                             ->join('pricings', 'pricings.linkable_id', '=', 'packages.id')
@@ -53,6 +54,7 @@ class PackageHelper
                                             ->where('files.status',1)
                                             ->where('event_types.status', 1)
                                             ->orderBy('packages.order_no', 'asc')
+                                            ->orderBy('packages.created_at', 'desc')
                                             ->get()
                                             ->toArray();
                                             

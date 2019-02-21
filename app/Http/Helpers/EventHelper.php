@@ -18,6 +18,8 @@ use App\Http\Helpers\PrerequisitesHelper;
 use App\Http\Helpers\ProvidersHelper;
 use App\Http\Helpers\ReviewsHelper;
 use App\Http\Helpers\ServicesHelper;
+use App\Http\Helpers\ServiceFeeHelper;
+
 use App\Models\EventOrganisers;
 use App\Models\Events;
 use App\Models\EventTypes;
@@ -83,15 +85,6 @@ class EventHelper
 
             if (isset($filterArr['event_types']) && !empty($filterArr['event_types'])) {
                 $eventsSql->whereIn('event_types.name', $filterArr['event_types']);
-
-            }
-
-            if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
-
-                $eventsSql->join('orders', 'orders.linkable_id', '=', 'events.id')
-                    ->where('orders.linkable_type', 'events')
-                    ->whereNotBetween('orders.booking_from_date', [$filterArr['from_date'], $filterArr['to_date']])
-                    ->whereNotBetween('orders.booking_to_date', [$filterArr['to_date'], $filterArr['from_date']]);
 
             }
 
@@ -166,6 +159,7 @@ class EventHelper
                 'address.address_line_2 as AddressLine_2',
                 'address.google_map_link as googleMapLink',
                 'cities.name as cityName',
+                'vendors.id as vendor_id',
                 'vendors.company_name as vendorName',
                 'vendors.license_no as licenseNo',
                 'pricings.actual_price as actualPrice',
@@ -204,6 +198,15 @@ class EventHelper
             $eventsDetails['policies'] = empty($policyData) ? [] : $policyData;
 
             $serviceData = ServicesHelper::getServices($eventId, 'events');
+
+            $vendorLogoDetails = FileHelper::getFilesByType($eventsDetails['vendor_id'],  'vendors', 'vendor_logo');
+
+            $eventsDetails['vendorLogo'] = empty($vendorLogoDetails) ? [] : $vendorLogoDetails['filePath'];
+
+            $serviceCharges = ServiceFeeHelper::getServiceCharges();
+
+            $eventsDetails['serviceCharges'] = empty($serviceCharges) ? [] : $serviceCharges;
+
 
             $eventsDetails['services'] = empty($serviceData) ? [] : $serviceData;
 
@@ -299,15 +302,6 @@ class EventHelper
 
             }
 
-            if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
-
-                $eventOrganisersSql->join('orders', 'orders.linkable_id', '=', 'event_organisers.id')
-                    ->where('orders.linkable_type', 'event_organisers')
-                    ->whereNotBetween('orders.booking_from_date', [$filterArr['from_date'], $filterArr['to_date']])
-                    ->whereNotBetween('orders.booking_to_date', [$filterArr['to_date'], $filterArr['from_date']]);
-
-            }
-
             if (isset($filterArr['is_express_deal']) && ($filterArr['is_express_deal'])) {
 
                 $eventOrganisersSql->where('event_organisers.is_express_deal', 1);
@@ -352,8 +346,12 @@ class EventHelper
                 });
 
                 $eventCoversArr[$key] = array_values(array_unique($value['event_covers']));
-
-                $priceArr[$key] = $value['price'][0];
+                
+                $minPrice =  $value['price'][0];
+            
+                $maxPrice = end( $value['price']);
+            
+                $priceArr[$key] = ['minPrice' => $minPrice, 'maxPrice'=>$maxPrice ];
             }
 
             $eventArr = [];
@@ -408,6 +406,7 @@ class EventHelper
                 'address.address_line_2 as AddressLine_2',
                 'address.google_map_link as googleMapLink',
                 'cities.name as cityName',
+                'vendors.id as vendor_id',
                 'vendors.company_name as vendorName',
                 'vendors.license_no as licenseNo'
             )
@@ -441,6 +440,10 @@ class EventHelper
             $eventOrganisersArr['travelNote'] = $packgagesData[0]['travelNote'];
 
             $eventOrganisersArr['setUpTime'] = $packgagesData[0]['setUpTime'];
+
+            $vendorLogoDetails = FileHelper::getFilesByType($eventOrganisersArr['vendor_id'],  'vendors', 'vendor_logo');
+
+            $eventOrganisersArr['vendorLogo'] = empty($vendorLogoDetails) ? [] : $vendorLogoDetails['filePath'];
 
             $packagesArr = [];
 
@@ -544,6 +547,10 @@ class EventHelper
             $providers = ProvidersHelper::getPackageProviders($id, 'packages');
 
             $packageDetails['providers'] = empty($providers) ? [] : array_column($providers, 'provider_desc');
+
+            $serviceCharges = ServiceFeeHelper::getServiceCharges();
+
+            $packageDetails['serviceCharges'] = empty($serviceCharges) ? [] : $serviceCharges;
 
             /* get policy temrs and conditions */
 
@@ -807,16 +814,6 @@ class EventHelper
 
             }
 
-            if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
-
-
-                $supplierSql->join('orders', 'orders.linkable_id', '=', 'suppliers.id')
-                    ->where('orders.linkable_type', 'suppliers')
-                    ->whereNotBetween('orders.booking_from_date', [$filterArr['from_date'], $filterArr['to_date']])
-                    ->whereNotBetween('orders.booking_to_date', [$filterArr['to_date'], $filterArr['from_date']]);
-
-            }
-
             if (isset($filterArr['is_express_deal']) && ($filterArr['is_express_deal'])) {
 
                 $supplierSql->where('suppliers.is_express_deal', 1);
@@ -863,7 +860,11 @@ class EventHelper
 
                 $eventCoversArr[$key] = array_values(array_unique($value['event_covers']));
 
-                $priceArr[$key] = $value['price'][0];
+                $minPrice =  $value['price'][0];
+            
+                $maxPrice = end( $value['price']);
+            
+                $priceArr[$key] = ['minPrice' => $minPrice, 'maxPrice'=>$maxPrice ];
 
                 $packageId = $value['packages'][0]['eventOrganiserId'];
             }
@@ -934,12 +935,14 @@ class EventHelper
                 'suppliers.short_description as supplierDescription',
                 'suppliers.order_no as displayOrder',
                 'suppliers.rating',
+                'suppliers.created_at',
                 'suppliers.twitter_link as twitterLink',
                 'suppliers.fb_link as fbLink',
                 'address.address_line_1 as AddressLine_1',
                 'address.address_line_2 as AddressLine_2',
                 'address.google_map_link as googleMapLink',
                 'cities.name as cityName',
+                'vendors.id as vendor_id',
                 'vendors.company_name as vendorName',
                 'vendors.license_no as licenseNo'
             )
@@ -951,7 +954,6 @@ class EventHelper
                     ->where('suppliers.status', 1)
                     ->where('cities.status', 1)
                     ->where('suppliers.id', $id)
-                    ->orderBy('suppliers.order_no', 'asc')
                     ->get()
                     ->toArray()
             );
@@ -965,6 +967,11 @@ class EventHelper
             $supplierDetailsArr['travelNote'] = $packgagesData[0]['travelNote'];
 
             $supplierDetailsArr['setUpTime'] = $packgagesData[0]['setUpTime'];
+
+            $vendorLogoDetails = FileHelper::getFilesByType($supplierDetailsArr['vendor_id'],  'vendors', 'vendor_logo');
+
+            $supplierDetailsArr['vendorLogo'] = empty($vendorLogoDetails) ? [] : $vendorLogoDetails['filePath'];
+
 
             $packagesArr = [];
 
@@ -1075,6 +1082,10 @@ class EventHelper
 
             $packageDetails['items'] = array_column($supplierItems, 'name');
 
+            $serviceCharges = ServiceFeeHelper::getServiceCharges();
+
+            $packageDetails['serviceCharges'] = empty($serviceCharges) ? [] : $serviceCharges;
+
             /* get prerequisites */
 
             $prerequisites = PrerequisitesHelper::getPrerequisites($id, 'packages');
@@ -1125,7 +1136,15 @@ class EventHelper
     {
         $returnArr = [];
 
-        $todaysDate = date('Y-m-d h:i:s');
+        if (isset($filterArr['from_date']))
+        {
+            $todaysDate =   $filterArr['from_date'];
+              
+        }
+        else
+        {
+            $todaysDate = date('Y-m-d');    
+        }
 
         try
         {
@@ -1137,6 +1156,7 @@ class EventHelper
                 'packages.name as pacakgeName',
                 'suppliers.fb_link as fbLink',
                 'suppliers.twitter_link as twitterLink',
+                \DB::raw('CAST(DATE_SUB("'.$todaysDate.'", INTERVAL suppliers.prior_intimation_days DAY ) AS DATE ) as bookingLastDate'  ) ,
                 'packages.short_description as packageDescription',
                 'suppliers.rating',
                 'files.file_path as filePath',
@@ -1155,6 +1175,7 @@ class EventHelper
                 ->where('files.linkable_type', 'packages')
                 ->where('pricings.linkable_type', 'packages')
                 ->where('files.file_type', 'home_page_display')
+                ->whereRaw("CAST(DATE_SUB('$todaysDate', INTERVAL suppliers.prior_intimation_days DAY ) AS DATE )  <= '$todaysDate'")
                 ->where('suppliers.status', 1)
                 ->where('pricings.status', 1)
                 ->where('files.status', 1)
@@ -1174,16 +1195,6 @@ class EventHelper
                 $supplierSql->whereIn('event_types.name', $filterArr['event_types']);
             }
 
-            if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
-
-                $todaysDate = $filterArr['from_date'];
-
-                $supplierSql->join('orders', 'orders.linkable_id', '=', 'suppliers.id')
-                    ->where('orders.linkable_type', 'suppliers')
-                    ->whereNotBetween('orders.booking_from_date', [$filterArr['from_date'], $filterArr['to_date']])
-                    ->whereNotBetween('orders.booking_to_date', [$filterArr['to_date'], $filterArr['from_date']]);
-
-            }
 
             if (isset($filterArr['is_express_deal']) && ($filterArr['is_express_deal'])) {
 
@@ -1234,7 +1245,15 @@ class EventHelper
     {
         $returnArr = [];
 
-        $todaysDate = date('Y-m-d h:i:s');
+        if (isset($filterArr['from_date']))
+        {
+            $todaysDate =   $filterArr['from_date'];
+              
+        }
+        else
+        {
+            $todaysDate = date('Y-m-d');    
+        }
 
         try
         {
@@ -1244,6 +1263,7 @@ class EventHelper
                 'event_organisers.name as eventOrgainsersName',
                 'event_organisers.is_express_deal as isExpressDeal',
                 'event_organisers.fb_link as fbLink', 'event_organisers.twitter_link as twitterLink',
+                \DB::raw('CAST(DATE_SUB("'.$todaysDate.'", INTERVAL event_organisers.prior_intimation_days DAY ) AS DATE ) as bookingLastDate'  ) ,
                 'packages.id as pacakgeId',
                 'packages.name as pacakgeName',
                 'packages.short_description as packageDescription',
@@ -1260,6 +1280,7 @@ class EventHelper
                 ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
                 ->join('pricings', 'pricings.linkable_id', '=', 'packages.id')
                 ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
+                ->whereRaw("CAST(DATE_SUB('$todaysDate', INTERVAL event_organisers.prior_intimation_days DAY ) AS DATE )  <= '$todaysDate'")
                 ->where('packages.linkable_type', 'event_organisers')
                 ->where('files.linkable_type', 'packages')
                 ->where('pricings.linkable_type', 'packages')
@@ -1273,7 +1294,7 @@ class EventHelper
             if (isset($filterArr['city']) && !empty($filterArr['city'])) {
                 $eventOrganinserSql->join('address', 'event_organisers.id', '=', 'address.linkable_id')
                     ->join('cities', 'address.city_id', '=', 'cities.id')
-                    ->where('address.linkable_type', 'suppliers')
+                    ->where('address.linkable_type', 'event_organisers')
                     ->where('address.status', 1)
                     ->whereIn('cities.name', $filterArr['city']);
 
@@ -1283,16 +1304,6 @@ class EventHelper
                 $eventOrganinserSql->whereIn('event_types.name', $filterArr['event_types']);
             }
 
-            if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
-
-                $todaysDate = $filterArr['from_date'];
-
-                $eventOrganinserSql->join('orders', 'orders.linkable_id', '=', 'suppliers.id')
-                    ->where('orders.linkable_type', 'event_organisers')
-                    ->whereNotBetween('orders.booking_from_date', [$filterArr['from_date'], $filterArr['to_date']])
-                    ->whereNotBetween('orders.booking_to_date', [$filterArr['to_date'], $filterArr['from_date']]);
-
-            }
 
             if (isset($filterArr['is_express_deal']) && ($filterArr['is_express_deal'])) {
 

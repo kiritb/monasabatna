@@ -15,6 +15,7 @@ use App\Http\Helpers\MiscHelper;
 use App\Http\Helpers\PoliciesHelper;
 use App\Http\Helpers\ReviewsHelper;
 use App\Http\Helpers\ServicesHelper;
+use App\Http\Helpers\ServiceFeeHelper;
 use App\Models\AmenitieTypes;
 use App\Models\EventOrganisers;
 use App\Models\Events;
@@ -24,6 +25,7 @@ use App\Models\ServicesTypes;
 use App\Models\Suppliers;
 use App\Models\Vennues;
 use App\Models\VennueTypes;
+
 
 class VennueHelper
 {
@@ -118,10 +120,14 @@ class VennueHelper
 
             if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
 
-                $vennueSql->join('orders', 'orders.linkable_id', '=', 'vennues.id')
-                    ->where('orders.linkable_type', 'vennues')
-                    ->whereNotBetween('orders.booking_from_date', [$filterArr['from_date'], $filterArr['to_date']])
-                    ->whereNotBetween('orders.booking_to_date', [$filterArr['to_date'], $filterArr['from_date']]);
+                $vennueSql->whereRaw('vennues.id not in 
+                                            ( select orders.linkable_id 
+                                              from orders 
+                                              where orders.linkable_type = "vennues" 
+                                              and orders.booking_from_date between "'.$filterArr['from_date'].'" and "'.$filterArr['to_date'].
+                                              '" and orders.booking_to_date between "'.$filterArr['from_date'].'" and "'.$filterArr['to_date'].'"
+                                            )'
+                                 );
 
             }
 
@@ -205,6 +211,7 @@ class VennueHelper
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType',
+                'vendors.id as vendor_id',
                 'vendors.company_name as vendorName',
                 'vendors.license_no as licenseNo')
                 ->join('address', 'vennues.id', '=', 'address.linkable_id')
@@ -230,6 +237,15 @@ class VennueHelper
             }
 
             $venneDataArr = current($vennueData->toArray());
+
+
+            $vendorLogoDetails = FileHelper::getFilesByType($venneDataArr['vendor_id'],  'vendors', 'vendor_logo');
+
+            $venneDataArr['vendorLogo'] = empty($vendorLogoDetails) ? [] : $vendorLogoDetails['filePath'];
+
+            $serviceCharges = ServiceFeeHelper::getServiceCharges();
+
+            $venneDataArr['serviceCharges'] = empty($serviceCharges) ? [] : $serviceCharges;
 
             /* fetch Ameneties for Vennue Id */
 
@@ -360,7 +376,7 @@ class VennueHelper
         {
 
             $vennueData = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName', 'vennues.short_description as vennueShortDescription',
-                'vennues.start_time as vennueStartTime', 'vennues.order_no as displayOrder',
+                'vennues.start_time as vennueStartTime', 'vennues.order_no as displayOrder','vennues.created_at',
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
                 'vennues.fb_link as fbLink', 'vennues.twitter_link as twitterLink',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
@@ -382,13 +398,14 @@ class VennueHelper
                 ->where('pricing_type.status', 1)
                 ->where('cities.status', 1)
                 ->orderBy('vennues.order_no', 'asc')
+                ->orderBy('vennues.created_at', 'desc')
                 ->get()
                 ->toArray();
 
             $returnArr['vennues'] = empty($vennueData) ? [] : $vennueData;
 
             $eventsData = Events::select('events.name as eventName', 'events.short_description as eventShortDescription', 'events.start_date as vennueStartTime',
-                'events.fb_link as fbLink', 'events.twitter_link as twitterLink',
+                'events.fb_link as fbLink', 'events.twitter_link as twitterLink','events.created_at',
                 'events.end_date as eventEndTime', 'events.order_no as displayOrder', 'event_types.name as eventType',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')
@@ -412,6 +429,7 @@ class VennueHelper
                 ->where('pricing_type.status', 1)
                 ->where('cities.status', 1)
                 ->orderBy('events.order_no', 'asc')
+                ->orderBy('events.created_at', 'desc')
                 ->get()
                 ->toArray();
 

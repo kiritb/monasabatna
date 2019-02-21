@@ -1,5 +1,5 @@
-@if(!isset($data) && empty($data))
-<div class="errorBox">No Data from API!!</div>
+@if(isset($data['code']) && $data['code'])
+<div class="errorBox bg-danger text-white">No Data from API!! {{ $data['code'] }}</div>
 @else
 
 @php

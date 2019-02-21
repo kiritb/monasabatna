@@ -299,6 +299,15 @@ insert into vendors
 values
     ('XYZ', 'v2@v.com', 'AAAA', 'V1LLD2', 'v2@v.com', 'v2@v.com');
 
+    #vendor logo
+    insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+    values(1, 'vendors', 'http://18.218.133.17/svg/images/venue-detail-carousel-six.jpg', 'vendor_logo', 'png', 1, 'v1@v.com', 'v1@v.com');
+
+    insert into files
+    (linkable_id,linkable_type,file_path,file_type,file_extension,order_no,created_by,updated_by)
+    values(2, 'vendors', 'http://18.218.133.17/svg/images/venue-detail-carousel-ten.jpg', 'vendor_logo', 'png', 1, 'v1@v.com', 'v1@v.com');
+
 -- #Create Vennues
 insert into vennues
     (vendor_id,name,short_description,points,min_guest_cap,max_guest_cap,start_time,end_time,order_no,home_page_display,is_express_deal,rating,created_by,updated_by)
@@ -5339,3 +5348,7 @@ values ('privacy_policy','Notice to End Users', 'In some cases an administrator 
 
 insert into generic_terms (type,terms_header,terms_text,created_by,updated_by)
 values ('privacy_policy','Notice to End Users', 'The data we hold may also be processed by employees operating in countries listed above, Such staff may be engaged in, among other things, product development and customer and technical support. The data protection and other laws of these countries might not be as comprehensive as those in your country. By submitting your data and/or using Our Services, You consent to the transfer, storing, and processing of Your data in these countries.','a@a.com','a@a.com');
+
+
+insert into service_fee(service_tax,service_fee,cancellation_fee,created_by,updated_by)
+values (8, 100, 200, 'a@a.com', 'a@a.com');
