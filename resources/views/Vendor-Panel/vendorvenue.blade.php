@@ -1,7 +1,6 @@
 
 
 @include('shared/headercustom')
-
 <link rel="stylesheet" type="text/css" href="{{ url('css/vendor-panel/superadmin.css') }}">
       <!------- body start--------> 
       <div id="greydivider"></div>
@@ -15,6 +14,7 @@
 <div class="tab-content" id="pills-tabContent">
   <div >
       <div class="dashvendortop">
+      <a class="vendortext" href="#"> Venues </a>
           <a class="addvenuedash" href="{{ url('dashboardvenueform') }}"> Add </a>
 </div><!----------------add button ---------------------->
   <div class="dashboardvenuepart">
@@ -28,7 +28,6 @@
                      <th scope="col">AC / Non-AC</th>
                      <th scope="col">Services / Amenities</th>
                      <th scope="col">Phone</th>
-                     <th scope="col">Cancellation</th>
                  
                   </tr>
                </thead>
@@ -41,7 +40,7 @@
                      <td>Non-AC</td>
                      <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
                      <td>+616-783437843</td>
-                     <td>5% </td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#venueeditpopModal" href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#venudeleteModal" id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><label class="switch">
@@ -51,7 +50,7 @@
                             <span class="off"></span>
                         </div>
                         </label></td>
-                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#venueaddexp" id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
                   <tr>
@@ -61,13 +60,25 @@
                      <td>90 / Day</td>
                      <td>AC</td>
                      <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                   
+                     <td>+616-783437843</td>        
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>          
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
+                  </tr>
+                  <tr>
+                  <th scope="row">201</th>
+                     <td>300</td>
+                     <td>100 / Day</td>
+                     <td>90 / Day</td>
+                     <td>Non-AC</td>
+                     <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>+616-783437843</td>   
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>                  
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
                   <tr>
@@ -78,12 +89,10 @@
                      <td>Non-AC</td>
                      <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
                      <td>+616-783437843</td>
-                     <td>5% </td>
-                  
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
                   <tr>
@@ -94,28 +103,11 @@
                      <td>Non-AC</td>
                      <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
                      <td>+616-783437843</td>
-                     <td>5% </td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
                     
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
-                  </tr>
-                  <tr>
-                  <th scope="row">201</th>
-                     <td>300</td>
-                     <td>100 / Day</td>
-                     <td>90 / Day</td>
-                     <td>Non-AC</td>
-                     <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
-                    
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                      
                   </tr>
@@ -127,12 +119,11 @@
                      <td>Non-AC</td>
                      <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
                      <td>+616-783437843</td>
-                     <td>5% </td>
-          
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
                   <tr>
@@ -143,11 +134,11 @@
                      <td>Non-AC</td>
                      <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
                      <td>+616-783437843</td>
-                     <td>5% </td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
                   <tr>
@@ -158,11 +149,11 @@
                      <td>Non-AC</td>
                      <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
                      <td>+616-783437843</td>
-                     <td>5% </td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
                   <tr>
@@ -173,11 +164,11 @@
                      <td>Non-AC</td>
                      <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
                      <td>+616-783437843</td>
-                     <td>5% </td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
                   <tr>
@@ -188,11 +179,11 @@
                      <td>Non-AC</td>
                      <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
                      <td>+616-783437843</td>
-                     <td>5% </td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
                   <tr>
@@ -203,11 +194,11 @@
                      <td>Non-AC</td>
                      <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
                      <td>+616-783437843</td>
-                     <td>5% </td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:20px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
                   <tr>
@@ -216,18 +207,18 @@
                      <td>100 / Day</td>
                      <td>90 / Day</td>
                      <td>Non-AC</td>
-                     <td><a  data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
-                     <td>+616-783437843</td>
-                     <td>5% </td>
+                     <td><a   data-toggle="modal" data-target="#viewtableModal" class="vadd to eiewamensertable" href="#">View </a></td>
+                     <td>+616-783437843</td>     
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target=".bd-example-modal-xl" id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-pencil-alt" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class='fas fa-toggle-on' style='font-size:12px;color:#66b85d'></i></a></td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     
                      <td class="bg-white-booking"><a id="myaddexpress" href="#"><i class='fas fa-certificate' style='font-size:20px;color:#f09c18'></i></a></td>
                   </tr>
                </tbody>
             </table>
-           
+            
 <!------------------------------ view button Venues ----------------------------------->
             <div class="modal fade" id="viewtableModal" tabindex="-1" role="dialog" aria-labelledby="viewtableModalLabel" aria-hidden="true">
             <div id="canceldash" class="modal-dialog" role="document">
@@ -285,7 +276,7 @@
         </div>
 
 <!------------------view button Modal ------------------------->
-            <!------------------------------ Delete Venues ----------------------------------->
+<!------------------------------ Delete Venues ----------------------------------->
             <!-- Modal with Text area -->
             <div class="modal fade" id="venudeleteModal" tabindex="-1" role="dialog" aria-labelledby="venudeleteModalLabel" aria-hidden="true">
             <div id="canceldash" class="modal-dialog" role="document">
@@ -462,7 +453,7 @@
                                 <option value="usa">Per Person</option>
                             </select>
                         </div>                 
-</div>
+</div><!---------------------------form-group-row -------------------------->
 <!------------------form-group row ------------------------->
                      <div class="form-group row express">
     <label for="inputEmail3" class="vendoraddexp"> Express Price(SAR) :</label>
@@ -486,14 +477,33 @@
                      <div class="modal-footer">
                                
                      <!---<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--->
-                     <button data-toggle="modal" id="closeModal" data-target="#closeModallabel" type="submit" class="btn btn-primary">Add</button>
+                     <button data-toggle="modal" id="addexpressbtn" data-target="#updateexpress" type="submit" class="btn btn-primary">Add</button>
                            </div>
                   </div>
                </div>
             </div>
 <!-------------------------------Payment Details ------------------------------------>
+<div class="modal fade"  id="updateexpress" tabindex="-1" role="dialog" aria-labelledby="AddexpressLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Remove from Express Deal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to remove this venue from Express Deal?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="remexpbtn" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!------ add express ----------------------->
             <!------------------------------ Delete Venues ----------------------------------->
-            <!-- Modal with Text area -->
+            <!----------- Modal with Text area --------------->
             <div class="modal fade" id="venudeleteModal" tabindex="-1" role="dialog" aria-labelledby="venudeleteModalLabel" aria-hidden="true">
             <div id="canceldash" class="modal-dialog" role="document">
     <div class="modal-content">
@@ -520,7 +530,7 @@
   <div id="venuedit" class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title">View Venue Details</h5>
+      <h5 class="modal-title">Edit Venue Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -794,16 +804,18 @@
                         
 </div>
 <!------------------form-group row ------------------------->
-<div class="form-group row regfeild">
-    <label for="inputEmail3" class="vendorregco">Deadline for Payment Cash : </label>
-    <div class="col-sm-5">
-        <select id="inputForCities" class="vendorfullsel" name="city_id">
-            <option value="" selected>--- Time Taken ---</option>
-            <option value="">--- 2days---</option>
-            <option value="">--- 4days---</option>
-        </select>
+<div class="timeselector">
+<div class="form-group mb-2 timepicker">
+  <!---<div class="input-group mb-2">
+        <span class="input-group-addon">Deadline for cash payment</span>
+        <input class="form-control" type="date" value="" id="startDate" onchange="getStartDate();">
+    </div> ---->
+    <div class="input-group">
+        <span class="input-group-addon">Time</span>
+        <input class="form-control" type="time" value="" id="datetimepicker" onchange="getStartTime(); name:"time" />
     </div>
 </div>
+</div><!-----------------timeselector----------------->
 <!------------------form-group row ------------------------->
 <div class="form-group row regfeild">
     <label for="inputEmail3" class="vendorregco">Note : </label>
@@ -830,6 +842,5 @@
       <!------- body end-------->
 @include('shared/footer')
 <script src="{{ url('js/vendorpanel/main.js') }}" type="text/javascript" charset="utf-8"></script>
-     
-     
+
   

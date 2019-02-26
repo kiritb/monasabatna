@@ -21,21 +21,11 @@ $appliedParams= $data['appliedParams'];
 
     <!--- event right ---------------------->
     <div class="col-sm-10 tab-data" id="eventlist-contentright">
+
+        @include("shared.sorter", ['appliedParams' => $appliedParams, 'pageNumber' =>
+        $eventorgs["paginate"]["current_page"]])
+
         <div class="container rightevent">
-            <div class="row evenorglist">
-                <div class="form-group">
-
-                    <select class="form-control sortvenues">
-                        <option>Sort by: <b>Star Rating</option>
-                        <option>Price high to low</option>
-                        <option>Price low to high</option>
-                        <option>Ratio high to low</option>
-                        <option>Ratio low to high</option>
-                    </select>
-
-                </div>
-            </div>
-
             @if (isset($eventorgs["eventOrganiserslist"]) && count($eventorgs["eventOrganiserslist"]) > 0)
             @foreach ($eventorgs["eventOrganiserslist"] as $key=>$eventOrganiser)
             <div class="row item-bg-color">
@@ -72,9 +62,8 @@ $appliedParams= $data['appliedParams'];
                         </p>
                         <div class="wish-text"><b><span class="col-green">SAR:</span>
                                 {{
-                                $eventOrganiser['price']['actualPrice'] }}
-                                {{
-                                $eventOrganiser['price']['pricingType'] }} </b>
+                                $eventOrganiser['price']['minPrice']['actualPrice'] . "-" .
+                                $eventOrganiser['price']['maxPrice']['actualPrice'] }} </b>
                         </div>
 
                         <a href={{ url('/events/organisers/') . "/" . $eventOrganiser['eventOrganisersId'] }} alt="event organiser"

@@ -79,7 +79,7 @@ class EventHelper
             }
 
             if (isset($filterArr['city']) && !empty($filterArr['city'])) {
-                $eventsSql->whereIn('cities.name', $filterArr['city']);
+                $eventsSql->where('cities.name', $filterArr['city']);
 
             }
 
@@ -288,7 +288,7 @@ class EventHelper
                 ->where('cities.status', 1);
         
             if (isset($filterArr['city']) && !empty($filterArr['city'])) {
-                $eventOrganisersSql->whereIn('cities.name', $filterArr['city']);
+                $eventOrganisersSql->where('cities.name', $filterArr['city']);
 
             }
 
@@ -800,7 +800,7 @@ class EventHelper
                 ->where('cities.status', 1);
 
             if (isset($filterArr['city']) && !empty($filterArr['city'])) {
-                $supplierSql->whereIn('cities.name', $filterArr['city']);
+                $supplierSql->where('cities.name', $filterArr['city']);
 
             }
 
@@ -1187,7 +1187,7 @@ class EventHelper
                     ->join('cities', 'address.city_id', '=', 'cities.id')
                     ->where('address.linkable_type', 'suppliers')
                     ->where('address.status', 1)
-                    ->whereIn('cities.name', $filterArr['city']);
+                    ->where('cities.name', $filterArr['city']);
 
             }
 
@@ -1296,7 +1296,7 @@ class EventHelper
                     ->join('cities', 'address.city_id', '=', 'cities.id')
                     ->where('address.linkable_type', 'event_organisers')
                     ->where('address.status', 1)
-                    ->whereIn('cities.name', $filterArr['city']);
+                    ->where('cities.name', $filterArr['city']);
 
             }
 

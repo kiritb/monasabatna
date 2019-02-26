@@ -22,22 +22,10 @@ $appliedParams= $data['appliedParams'];
     <!--- event right ---------------------->
     <div class="col-sm-10 tab-data" id="eventlist-contentright">
         <div class="container rightevent">
-            <div class="row evenorglist">
-                <div class="venulistsortleft"> </div>
-                <div class="content-eve-top">
-                    <div class="form-group">
 
-                        <select class="form-control sortvenues">
-                            <option>Sort by: <b>Star Rating</option>
-                            <option>Price high to low</option>
-                            <option>Price low to high</option>
-                            <option>Ratio high to low</option>
-                            <option>Ratio low to high</option>
-                        </select>
+            @include("shared.sorter", ['appliedParams' => $appliedParams, 'pageNumber' =>
+            $packageSuppliers["paginate"]["current_page"]])
 
-                    </div>
-                </div>
-            </div>
             @if (isset($packageSuppliers['suppliersList']) && count($packageSuppliers['suppliersList']) > 0)
             @foreach ($packageSuppliers['suppliersList'] as $key=>$suppliersList)
             <div class="row item-bg-color">

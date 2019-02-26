@@ -19,7 +19,9 @@
             </h3>
         </div>
         <div class="arabic-logosec">
-            <img src="{{ url('svg/images/arabic-logo.jpg') }}" class="img-responsive">
+            @if(isset($data['vendorLogo']) && $data['vendorLogo'] !== "")
+            <img src={{ $data['vendorLogo'] }} class="img-responsive">
+            @endif
         </div>
     </div>
     @include('slickslider_thumbnail', ['slides' => $data['files']])
@@ -86,8 +88,7 @@
     <div class="container-fluid" id="eventrows">
         <div class="fbrow">
             <a class="fb-button" href={{ $data['fbLink'] }}><i id="fbevent" class="fab fa-facebook-f"></i>Facebook</a>
-            <a class="twit-button" href={{ $data['twitterLink'] }}><i id="fbevent"
-                    class="fab fa-twitter"></i>Twitter</a>
+            <a class="twit-button" href={{ $data['twitterLink'] }}><i id="fbevent" class="fab fa-twitter"></i>Twitter</a>
         </div>
     </div>
     <!------- Address end-------->
@@ -122,9 +123,8 @@
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#collapse_{{ $key }}" aria-expanded="true"
-                                            aria-controls="collapse_{{ $key }}">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_{{ $key }}"
+                                            aria-expanded="true" aria-controls="collapse_{{ $key }}">
                                             {{ $services['serviceName'] }}
                                         </button>
                                     </h2>
@@ -152,6 +152,7 @@
                 </div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div class="container-fluid packagecontent">
+
                         <div class="row">
 
                             @if (count($data["ammenties"]) > 0)

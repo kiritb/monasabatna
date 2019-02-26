@@ -19,35 +19,24 @@ $appliedParams= $data['appliedParams'];
     <div class="col-sm-10 tab-data">
         <!----------------------- tab container end -------------------->
         <div class="container">
-            <div class="row venueslist">
-                <div class="form-group">
-                    <select class="form-control sortvenues">
-                        <option>Sort by: <b>Star Rating</option>
-                        <option>Price high to low</option>
-                        <option>Price low to high</option>
-                        <option>Ratio high to low</option>
-                        <option>Ratio low to high</option>
-                    </select>
-                </div>
-            </div>
+
+            @include("shared.sorter", ['appliedParams' => $appliedParams, 'pageNumber' =>
+            $venues["paginate"]["current_page"]])
+
             @if (count($venues["vennueLists"]) > 0)
             @foreach ($venues["vennueLists"] as $vennueLists)
             <div class="row item-bg-color">
                 <div class="col-sm-3 content-eve p-0">
-                    <a href="{{ url('/venues/'.$vennueLists['vennueId']) }}">
-                        @if(isset($vennueLists['isExpressDeal']) && $vennueLists['isExpressDeal'] == 1)
-                        <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
-                        @endif
-                        <img src={{ $vennueLists["filePath"] }} alt="Mountains">
-                    </a>
+                    @if(isset($vennueLists['isExpressDeal']) && $vennueLists['isExpressDeal'] == 1)
+                    <div class="ribbon ribbon-top-left"><span class="orange">{{ '% Deal' }}</span></div>
+                    @endif
+                    <img src={{ $vennueLists["filePath"] }} alt="Mountains">
                 </div>
 
                 <div class="col-sm-9" id="content-eve-right">
                     <div class="content-optionblog">
                         <div class="wish-head">
-                            <a href="{{ url('/venues/'.$vennueLists['vennueId']) }}">
-                                {{ $vennueLists["vennueName"] }}
-                            </a>
+                            {{ $vennueLists["vennueName"] }}
                         </div>
                         <div class="wish-text">
 
@@ -81,7 +70,6 @@ $appliedParams= $data['appliedParams'];
                         <a href="{{ url('/venues/'.$vennueLists['vennueId']) }}" class="btn active" id="bn-venuelist">
                             Book Now
                         </a>
-
                     </div>
                 </div>
             </div>

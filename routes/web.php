@@ -264,6 +264,25 @@ Route::get('vendoramenities', function () {
 Route::get('dashboardserviceform', function () {
     return view('vendor-panel/dashboardserviceform');
 });
+Route::get('supplierbookings', function () {
+    return view('vendor-panel/supplierbookings');
+});
+Route::get('supplierprofile', function () {
+    return view('vendor-panel/supplierprofile');
+});
+Route::get('supplierevents', function () {
+    return view('vendor-panel/supplierevents');
+});
+Route::get('supplierproducts', function () {
+    return view('vendor-panel/supplierproducts');
+});
+Route::get('supplierservices', function () {
+    return view('vendor-panel/supplierservices');
+});
+Route::get('supplierterms', function () {
+    return view('vendor-panel/supplierterms');
+});
+
 /****************vendor panel route**************** */
 /****************vendor panel backup**************** */
 Route::get('vendorone', function () {

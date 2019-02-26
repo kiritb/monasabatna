@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     // Slick slider code
     $(".mySlicker").slick({
         dots: false,
@@ -45,6 +46,9 @@ $(document).ready(function () {
         "moreText": "More",
         "lessText": "Less",
     });
+
+    // Select2 related code
+    $(".select2").select2();
 
 });
 

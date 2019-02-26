@@ -314,16 +314,18 @@
 </div>
 <!------------------form-group row ------------------------->
 
-<div class="form-group row regfeild">
-    <label for="inputEmail3" class="vendorregco">Deadline for Payment Cash : </label>
-    <div class="col-sm-5">
-        <select id="inputForCities" class="vendorfullsel" name="city_id">
-            <option value="" selected>--- Time Taken ---</option>
-            <option value="">--- 2days---</option>
-            <option value="">--- 4days---</option>
-        </select>
+<div class="timeselector">
+<div class="form-group mb-2 timepicker">
+  <!---<div class="input-group mb-2">
+        <span class="input-group-addon">Deadline for cash payment</span>
+        <input class="form-control" type="date" value="" id="startDate" onchange="getStartDate();">
+    </div> ---->
+    <div class="input-group">
+        <span class="input-group-addon">Time</span>
+        <input class="form-control" type="time" value="" id="datetimepicker" onchange="getStartTime(); name:"time" />
     </div>
 </div>
+</div><!-----------------timeselector----------------->
 <!------------------form-group row ------------------------->
 <div class="form-group row regfeild">
     <label for="inputEmail3" class="vendorregco">Note : </label>

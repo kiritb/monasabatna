@@ -10,7 +10,7 @@
 <div class="tab-pane fade show active" id="pills-vendorpan" role="tabpanel" aria-labelledby="pills-vendorpan-tab">
 <div class="container-fluid" id="dashboardcontent">
       
-      @include('vendor-panel/vendorvenuesidebar')
+     <!-- @include('vendor-panel/vendorvenuesidebar') -->
 <div class="tab-content" id="v-pills-tabContent">
  
   <div>
@@ -271,7 +271,7 @@
         </div>
     </div> -->
     <div class="form-group row regfeild">
-        <label for="inputEmail3" class="profileregco">Account Number : </label>
+        <label for="inputEmail3" class="profileregco"> </label>
         <div class="optcheckterms">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="payment_method" value="online" id="checkboxOnline">
@@ -285,28 +285,31 @@
         </div>
     </div>
     <!------------------form-group row ------------------------->
-    <div class="form-group">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6 profileterms">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="terms_conditions" id="checkboxTerms"
-                    value="option1">
-                <label class="form-check-label" for="checkboxTerms"><span class="vendorterms">I
-                        agreed to Monasabatna </b></span><a href="#">Term & Conditions </a><b><span
-                            class="vendorterms">and </span></b><a href="#">Privacy Policies</a></label>
-            </div>
-        </div>
-    </div>
+
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-10 textalign">
-            <button type="submit" id="myModal" name="submit" value="submit" class="btn btn-default signme-profilereg">Sign
-                Up</button>
+            <button type="submit" id="profilesubmit" name="submit" value="submit" class="btn btn-default signme-profilereg">Submit</button>
         </div>
     </div>
 </form>
 </div>
-<!--------------------------container-fluid Profile registration -------------------->   
+<!--------------------------container-fluid Profile registration -------------------->
+ 
+    <div class="container-fluid" id="profile-commision">
 
+<form class="form-horizontal" method="post" id="vendor_sign_up_form">
+    <div class="form-group">
+
+        <label class="control-label col-sm-7 bankhead" for="head"><b>Munasabatna Commision</b></label>
+
+    </div>
+    <div class="commdesc">
+        <div>Booking: 12% </div>
+        <div>Cancellation: 6% </div>
+        <div>Express Deals: 15% </div>
+</div>
+</form>       
+</div>
 
   </div><!-----------------v-pills-profiles ------------------------------->
   

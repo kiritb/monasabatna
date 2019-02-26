@@ -151,9 +151,8 @@
 
         <!---- Reset Filters ------->
 
-        <a class="reset-form" onclick="resetForm('{{ $appliedParams['pageType'] }}')" id="Reset">Reset Filters</a>
-        <input type="button" class="btn btn-outline-success"
-            onclick="filterItNow('{{ $appliedParams['pageType'] }}-form', '{{ $appliedParams['pageType'] }}')"
+        <a href="#" class="reset-form" onclick="resetForm('{{ $appliedParams['pageType'] }}')" id="Reset">Reset Filters</a>
+        <input type="button" class="btn btn-outline-success" onclick="filterItNow('{{ $appliedParams['pageType'] }}-form', '{{ $appliedParams['pageType'] }}')"
             id="{{ $appliedParams['pageType'] }}-submitter" value="Submit" />
     </div>
 </form>

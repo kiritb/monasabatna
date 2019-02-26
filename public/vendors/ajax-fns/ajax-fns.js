@@ -3,7 +3,9 @@ function ajaxHtmlRender(params) {
     if (overlayMask) {
         $(params.element).overlayMask({
             do: "showLoader",
-            pPos: "relative"
+            pPos: "relative",
+            parentDivMinHeight: true,
+            customPadding: "3rem"
         });
     }
 
@@ -13,9 +15,9 @@ function ajaxHtmlRender(params) {
 
     if (params.data !== null && !jQuery.isEmptyObject(params.data)) {
         if (typeof params.data === 'object') {
-            getParams = params.data;
+            getParams = removeEmptyStrings(params.data);
         } else {
-            getParams = querytoObject(params.data);
+            getParams = removeEmptyStrings(querytoObject(params.data));
         }
     }
 
@@ -90,10 +92,10 @@ function ajaxMaskUI(settings) {
     function hourglassOn() {
         if ($('style:contains("html.hourGlass")').length < 1)
             $("<style>")
-                .text(
-                    "html.hourGlass, html.hourGlass * { cursor: wait !important; }"
-                )
-                .appendTo("head");
+            .text(
+                "html.hourGlass, html.hourGlass * { cursor: wait !important; }"
+            )
+            .appendTo("head");
         $("html").addClass("hourGlass");
     }
 

@@ -1,12 +1,11 @@
-<h4 class="event_h_four">15 Event packages offered</h4>
+<h4 class="event_h_four"> {{ $noOfPackages . " " . $type }} packages offered</h4>
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         @if (count($packageList) > 0)
         @foreach ($packageList as $key=>$packages)
-        <a class="nav-item nav-link list-nav-tabs {{ ($key=='all')?'active':'' }}"
-            id="nav-{{ strtolower(str_replace(' ', '-', $key)) }}-tab" data-toggle="tab"
-            href="#nav-{{ strtolower(str_replace(' ', '-', $key)) }}" role="tab"
-            aria-controls="nav-{{ strtolower(str_replace(' ', '-', $key)) }}" aria-selected="true">
+        <a class="nav-item nav-link list-nav-tabs {{ ($key=='all')?'active':'' }}" id="nav-{{ strtolower(str_replace(' ', '-', $key)) }}-tab"
+            data-toggle="tab" href="#nav-{{ strtolower(str_replace(' ', '-', $key)) }}" role="tab" aria-controls="nav-{{ strtolower(str_replace(' ', '-', $key)) }}"
+            aria-selected="true">
             {{ ucfirst($key) }}
         </a>
         @endforeach
@@ -19,9 +18,8 @@
 <div class="tab-content" id="nav-eventportfolioContent">
     @if (count($packageList) > 0)
     @foreach ($packageList as $key=>$packages)
-    <div class="tab-pane fade show {{ ($key=='all')?'active':'' }}"
-        id="nav-{{ strtolower(str_replace(' ', '-', $key)) }}" role="tabpanel"
-        aria-labelledby="nav-{{ strtolower(str_replace(' ', '-', $key)) }}-tab">
+    <div class="tab-pane fade show {{ ($key=='all')?'active':'' }}" id="nav-{{ strtolower(str_replace(' ', '-', $key)) }}"
+        role="tabpanel" aria-labelledby="nav-{{ strtolower(str_replace(' ', '-', $key)) }}-tab">
         <div class="eventportcontent">
             <!---------- start of content --------------->
             <div class="row">

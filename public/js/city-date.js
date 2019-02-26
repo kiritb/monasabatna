@@ -49,40 +49,44 @@ $(document).ready(function () {
             notifyError(xhr.statusText);
         },
         complete: function () {
-            $("#cityDateForm").validate({
-                ignore: "",
-                rules: {
-                    pageType: {
-                        required: true
-                    },
-                    from_date: {
-                        required: true
-                    },
-                    to_date: {
-                        required: true
-                    }
-                },
-                errorPlacement: function (error, element) {
-                    return true;
-                },
-                highlight: function (element, errorClass, validClass) {
-                    $(element)
-                        .addClass("is-invalid")
-                        .removeClass("is-valid");
-                },
-                unhighlight: function (element, errorClass, validClass) {
-                    $(element)
-                        .addClass("is-valid")
-                        .removeClass("is-invalid");
-                },
-                submitHandler: function (event) {
-                    var formData = $("form").serialize();
-                    let pageType = $(
-                        "#cityDateForm input[name=pageType]"
-                    ).val();
-                    filterByCityDate(formData, pageType);
-                }
-            });
+            console.log("inside complete!!");
         }
     });
 });
+
+var validateForm = function (formId) {
+    $("#" + formId).validate({
+        ignore: "",
+        rules: {
+            pageType: {
+                required: true
+            },
+            from_date: {
+                required: true
+            },
+            to_date: {
+                required: true
+            }
+        },
+        errorPlacement: function (error, element) {
+            return true;
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element)
+                .addClass("is-invalid")
+                .removeClass("is-valid");
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element)
+                .addClass("is-valid")
+                .removeClass("is-invalid");
+        }
+    });
+
+    if ($("#" + formId).valid()) {
+        let formOfDate = "#" + formId;
+        var formData = $(formOfDate).serialize();
+        let pageType = $(formOfDate + " " + "input[name=pageType]").val();
+        filterByCityDate(formData, pageType);
+    }
+};

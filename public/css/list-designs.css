@@ -1,0 +1,36 @@
+/*********** panel ************/
+#venue-list-bg {
+    width: 100%;
+    background-color: #fff;
+    margin: 25px 0px 0px 0px;
+    display: inline-block;
+}
+
+.filtersidevenue {
+    width: 10%;
+    height: auto;
+    float: left;
+    margin-left: 50px;
+}
+
+.filterext {
+    height: 48px;
+}
+
+.venulistsortleft {
+    width: 90%;
+}
+
+h4.venuecliphead {
+    font-family: Myriad pro;
+    color: #4b485b;
+    font-size: 20px;
+}
+
+.venuespagin {
+    float: right;
+}
+
+.venue_filters {
+    padding-bottom: 10px;
+}

@@ -11,8 +11,7 @@ $appliedParams= $data['appliedParams'];
     <div class="col-sm-12">
         <div class="venuehead text-center">
             <span id="totalResults"></span>
-            {{ $upcominevents["paginate"]['total'] }} Search Results
-            <a href="#" class="btn btn-secondary showmapbtn">Show in Maps</a>
+            Upcoming Events
         </div>
 
         <div class="col-sm-2 tab-filters">
@@ -24,6 +23,9 @@ $appliedParams= $data['appliedParams'];
         </div>
 
         <div class="col-sm-10 tab-data" id="upcoming-contentright">
+
+            @include("shared.sorter", ['appliedParams' => $appliedParams, 'pageNumber' =>
+            $upcominevents["paginate"]["current_page"]])
 
             <div class="container-fluid">
                 @if (count($upcominevents["upcomingEvents"]) > 0)

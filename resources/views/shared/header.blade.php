@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/bootstrap/bootstrap.min.css') }}" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/fontawesome/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('vendors/select2/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/datepicker/datepicker.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/slick/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('vendors/slick/slick-theme.css') }}">

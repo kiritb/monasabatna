@@ -4,17 +4,14 @@ var getAllParams = function (pageType) {
         case "venues":
             listParams.element = "#nav-venues";
             listParams.url = "/venues";
-            listParams.is_express_deal = 0;
             break;
         case "events":
             listParams.element = "#nav-events";
             listParams.url = "/events/organisers";
-            listParams.is_express_deal = 0;
             break;
         case "suppliers":
             listParams.element = "#nav-suppliers";
             listParams.url = "/suppliers";
-            listParams.is_express_deal = 0;
             break;
         case "package-ex-events":
             listParams.element = "#express-eventorgs";
@@ -29,17 +26,14 @@ var getAllParams = function (pageType) {
         case "package-events":
             listParams.element = "#nav-package-eveorgs";
             listParams.url = "/packages/eventorganisers";
-            listParams.is_express_deal = 0;
             break;
         case "package-suppliers":
             listParams.element = "#nav-package-suppliers";
             listParams.url = "/packages/suppliers";
-            listParams.is_express_deal = 0;
             break;
         case "upcoming-events":
             listParams.element = "#upcomingListingPage";
             listParams.url = "/events/upcoming";
-            listParams.is_express_deal = 0;
             break;
         case "express-venues":
             listParams.element = "#express-venues";
@@ -59,7 +53,6 @@ var getAllParams = function (pageType) {
         default:
             listParams.element = "#nav-venues";
             listParams.url = "/venues";
-            listParams.is_express_deal = 0;
     }
 
     return listParams;
@@ -79,35 +72,46 @@ var getLists = function (filtersData, jsData) {
 };
 
 var getTypeListItems = function (pageType) {
-
     let listParams = getAllParams(pageType);
 
     let filtersData = {
-        pageType: pageType,
-        is_express_deal: listParams.is_express_deal
+        pageType: pageType
     };
+
+    if (listParams.is_express_deal) {
+        filtersData.is_express_deal = listParams.is_express_deal;
+    }
 
     let jsData = {
         url: listParams.url,
         element: listParams.element
     };
 
-    $('#cityDateForm input[name=pageType]').val(pageType);
+    $("#cityDateForm input[name=pageType]").val(pageType);
 
     getLists(filtersData, jsData);
 };
 
 var pagiNator = function (pageType, pageNumber) {
-
     let listParams = getAllParams(pageType);
 
     let formFilters = $("#" + pageType + "-form").serialize();
 
     let filtersData = querytoObject(formFilters);
 
+    let optVal = $("#sortedResults option:selected").val();
+
+    let sortFilters = getSortValueParams(optVal);
+
+    // Merge sortFilters into filtersData
+    $.extend(filtersData, sortFilters);
+
     filtersData.page = pageNumber;
     filtersData.pageType = pageType;
-    filtersData.is_express_deal = listParams.is_express_deal;
+
+    if (listParams.is_express_deal) {
+        filtersData.is_express_deal = listParams.is_express_deal;
+    }
 
     let jsData = {
         url: listParams.url,
@@ -118,7 +122,6 @@ var pagiNator = function (pageType, pageNumber) {
 };
 
 var filterItNow = function (formId, pageType) {
-
     let form = $("#" + formId);
 
     let formData = form.serialize();
@@ -128,7 +131,10 @@ var filterItNow = function (formId, pageType) {
     let listParams = getAllParams(pageType);
 
     filtersData.pageType = pageType;
-    filtersData.is_express_deal = listParams.is_express_deal;
+
+    if (listParams.is_express_deal) {
+        filtersData.is_express_deal = listParams.is_express_deal;
+    }
 
     let jsData = {
         url: listParams.url,
@@ -139,13 +145,15 @@ var filterItNow = function (formId, pageType) {
 };
 
 var filterByCityDate = function (formData, pageType) {
-
     let filtersData = querytoObject(formData);
 
     let listParams = getAllParams(pageType);
 
     filtersData.pageType = pageType;
-    filtersData.is_express_deal = listParams.is_express_deal;
+
+    if (listParams.is_express_deal) {
+        filtersData.is_express_deal = listParams.is_express_deal;
+    }
 
     let jsData = {
         url: listParams.url,
@@ -155,12 +163,72 @@ var filterByCityDate = function (formData, pageType) {
     getLists(filtersData, jsData);
 };
 
+var getSorted = function (pageType, pageNumber) {
+
+    let optVal = $("#sortedResults option:selected").val();
+
+    let sortFilters = getSortValueParams(optVal);
+
+    let listParams = getAllParams(pageType);
+
+    let formFilters = $("#" + pageType + "-form").serialize();
+
+    let filtersData = querytoObject(formFilters);
+
+    let cityDateFilters = $("#cityDateForm").serialize();
+
+    let cityDatesData = querytoObject(cityDateFilters);
+
+    // Merge cityDatesData into filtersData
+    $.extend(filtersData, cityDatesData);
+    $.extend(filtersData, sortFilters);
+
+    filtersData.page = pageNumber;
+    filtersData.pageType = pageType;
+
+    if (listParams.is_express_deal) {
+        filtersData.is_express_deal = listParams.is_express_deal;
+    }
+
+    let jsData = {
+        url: listParams.url,
+        element: listParams.element
+    };
+
+    getLists(filtersData, jsData);
+};
+
+var getSortValueParams = function (optVal) {
+    let listParams = {};
+    switch (optVal) {
+        case "asc":
+            listParams.sort = optVal;
+            break;
+        case "desc":
+            listParams.sort = optVal;
+            break;
+        case "high-low":
+            listParams.rating = optVal;
+            break;
+        case "low-high":
+            listParams.rating = optVal;
+            break;
+        default:
+            listParams.rating = "high-low";
+    }
+
+    return listParams;
+};
+
 var resetForm = function (pageType) {
     // this will get the results without any filters, with default parameters
     let listParams = getAllParams(pageType);
     let filtersData = {};
     filtersData.pageType = pageType;
-    filtersData.is_express_deal = listParams.is_express_deal;
+
+    if (listParams.is_express_deal) {
+        filtersData.is_express_deal = listParams.is_express_deal;
+    }
 
     let jsData = {
         url: listParams.url,

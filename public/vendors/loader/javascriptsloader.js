@@ -39,10 +39,13 @@ $.fn.overlayMask = function (action) {
     let displayParent = "visible";
     let hideparent = false;
     let pHeight = $(window).height();
+    let parentDivMinHeight = false;
+    let customPadding = 0;
 
     if (mask.length && action.do === "hideLoader") {
         if (action.fadeOut) {
             mask.fadeOut(action.fadeOut);
+            mask.remove();
         } else {
             // Act based on params, if hide then remove loader div
             mask.remove();
@@ -87,13 +90,21 @@ $.fn.overlayMask = function (action) {
             displayParent = "hidden";
         }
 
+        if (action.parentDivMinHeight) {
+            parentDivMinHeight = action.parentDivMinHeight;
+        }
+
+        if (action.customPadding) {
+            customPadding = action.customPadding;
+        }
+
         var parentCss = {
             position: pPos,
             overflow: pOverflow,
             visibility: displayParent
         };
 
-        if (pPos !== "relative") {
+        if (pPos !== "relative" || parentDivMinHeight) {
             parentCss.height = pHeight;
         }
 
@@ -107,7 +118,8 @@ $.fn.overlayMask = function (action) {
             left: "0px",
             zIndex: zIndex,
             backgroundColor: bgc,
-            minHeight: minSizePx
+            minHeight: minSizePx,
+            padding: customPadding
         };
 
         let childCss = {
@@ -226,7 +238,7 @@ $.fn.overlayMask = function (action) {
 /*
  * Code for scripts Loader goes here - starts
  */
-var load = (function () {
+const load = (function () {
     // Function which returns a function: https://davidwalsh.name/javascript-functions
     function _load(tag) {
         return function (url) {
@@ -282,12 +294,14 @@ var loaderParams = {
     txtRadius: "3px",
     txtPadding: "10px",
     bgc: "rgba(0, 0, 0, 0.7)",
-    msgBgColor: "lightgreen"
+    msgBgColor: "lightgreen",
+    parentDivMinHeight: true
 };
 
 $("#bodyContainer").overlayMask(loaderParams);
 
 $(window).on("load", function () {
+
     // makes sure the whole site is loaded
     $("#bodyContainer").overlayMask({
         do: "hideLoader",
@@ -299,13 +313,16 @@ $(window).on("load", function () {
 // All Globally usable functions should go here in this file
 // Globally usable functions
 
-var objecttoQuery = function (obj) {
-    return Object.keys(obj).reduce(function (a, k) { a.push(k + '=' + encodeURIComponent(obj[k])); return a; }, []).join('&');
+const objecttoQuery = function (obj) {
+    return Object.keys(obj).reduce(function (a, k) {
+        a.push(k + '=' + encodeURIComponent(obj[k]));
+        return a;
+    }, []).join('&');
 };
 
-var querytoObject = function (query) {
-
-    var params = {}, e;
+const querytoObject = function (query) {
+    var params = {},
+        e;
 
     query = query.substring(query.indexOf('?') + 1);
 
@@ -323,12 +340,12 @@ var querytoObject = function (query) {
         };
 
         while (doE(query)) {
-            var k = decode(e[1]), v = decode(e[2]);
+            var k = decode(e[1]),
+                v = decode(e[2]);
             if (k.substring(k.length - 2) === '[]') {
                 k = k.substring(0, k.length - 2);
                 (params[k] || (params[k] = [])).push(v);
-            }
-            else params[k] = v;
+            } else params[k] = v;
         }
 
         var assign = function (obj, keyPath, value) {
@@ -342,29 +359,31 @@ var querytoObject = function (query) {
             obj[keyPath[lastKeyIndex]] = value;
         };
 
+        var loopItHere = function (item, i, levels) {
+            let key = item.replace(/[?[\]\\ ]/g, '');
+            levels.push(key);
+        };
+
         for (let prop in params) {
             let structure = prop.split('[');
             if (structure.length > 1) {
                 let levels = [];
-                structure.forEach(function (item, i) {
-                    let key = item.replace(/[?[\]\\ ]/g, '');
-                    levels.push(key);
-                });
+                structure.forEach(loopItHere(item, i, levels));
                 assign(params, levels, params[prop]);
-                delete (params[prop]);
+                delete(params[prop]);
             }
         }
     }
     return params;
 };
 
-var changeUrl = function (url) {
+const changeUrl = function (url) {
     var new_url = base_url + url;
     window.history.pushState("data", "Title", new_url);
     // document.title = url;
 };
 
-var findGetParameter = function (parameterName) {
+const findGetParameter = function (parameterName) {
     var result = null,
         tmp = [];
     location.search
@@ -375,4 +394,18 @@ var findGetParameter = function (parameterName) {
             if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
         });
     return result;
+};
+
+/*
+ * This function removes empty sting keys
+ * it won't remove nested keys
+ */
+const removeEmptyStrings = (obj) => {
+    let newObj = {};
+    Object.keys(obj).forEach((prop) => {
+        if (obj[prop] !== '') {
+            newObj[prop] = obj[prop];
+        }
+    });
+    return newObj;
 };

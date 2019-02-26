@@ -30,16 +30,18 @@
                     <div class="picimage"> <img class="circlepic" src="svg/images/passportimg.jpg">
                     <span id="vendorbadge" class="badge badge-light">2</span>
                     </div>
-                    <div class="customdropdown">
+                    <div class="vendorpanelheader">
                     <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     John Deo
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Logout</a>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="{{ url('vendorprofile') }}">Profile</a>
+    <a class="dropdown-item" href="#">Log Out</a>
   </div>
-</div><!---------------dropdown------------------------------>
-</div><!-----------------customdropdown---------------------->
+</div>
+</div>
         </nav>
 
     </header>

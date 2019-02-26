@@ -9,7 +9,8 @@
 namespace App\Http\Helpers;
 
 use App\Models\Orders;
-use App\Http\Helpers\VennueHelper;
+use App\Models\Pricings;
+use App\Models\Services;
 
 
 class orderHelper
@@ -19,11 +20,11 @@ class orderHelper
      *
      * @return Object
     */
-    public static function createOrder( $userId, $linkableId, $linkableType, $bookingFromDate, $bookingToDate )
+    public static function createOrder( $orderData, $guestDataArr = [] )
     {   
         $returnArr = [];
 
-        if( ! self::checkAvailability( $linkableId, $linkableType, $bookingFromDate, $bookingToDate ) )
+        if( ! self::checkAvailability( $orderData['linkable_id'], $orderData['linkable_type'], $orderData['booking_from_date'], $orderData['booking_to_date'] ) )
         {
 
             $returnArr['success'] = false;
@@ -38,30 +39,15 @@ class orderHelper
             switch ($linkableType) 
             {
                 case 'vennues':
-                    
+                    self::createOrderVennue($orderData, $guestDataArr);
                     break;
-                case 'upcoming_events':
-                    'code to be executed if n=label2';
+                case 'events':
+                    self::createOrderEvents($orderData, $guestDataArr);
                     break;
-                case 'label3':
-                    'code to be executed if n=label3';
+                case 'packages':
+                    self::createOrderPackages($orderData, $guestDataArr);
                     break;
-                default:
-                    'code to be executed if n is different from all labels';
             }
-
-            // $reviewsDetails = Reviews::select('review_comment', 'rating','users.first_name', 'users.family_name','files.file_path as fileUrl')
-            //                         ->join('users', 'users.id', '=', 'reviews.user_id')
-            //                         ->leftJoin('files', 'files.linkable_id', '=', 'users.id')
-            //                         ->where('files.linkable_type', 'users')
-            //                         ->where('users.status', 1)
-            //                         ->where('files.status', 1)
-            //                         ->where('reviews.status', 1)
-            //                         ->where('reviews.is_approved', 1)
-            //                         ->where('reviews.linkable_id', $linkableId)
-            //                         ->where('reviews.linkable_type', $linkableType)
-            //                         ->get()
-            //                         ->toArray();
 
             return [];
         }
@@ -85,6 +71,93 @@ class orderHelper
      *
      * @throws Exception
     */
+    public static function createOrderVennue($orderData, $guestDataArr )
+    {   
+
+        $serviceIdArr = Services::select('id')
+                                ->where('linkable_id', $orderData['linkable_id'])
+                                ->where('linkable_type', $orderData['linkable_type'])
+                                ->where('status', 1)
+                                ->get()
+                                ->toArray();
+        
+        $linkableIdArr  = $orderData['linkable_id'];
+
+        $noOfDays = self::getNoOfDays($orderData['booking_from_date'], $orderData['booking_to_date']);
+
+        if(!empty($serviceIdArr))
+        {
+            array_push($linkableIdArr, array_column($serviceIdArr, 'id'));
+        }
+
+        $pricingArr = Pricings::select('pricing_type.name', 'pricings.actual_price')
+                        ->join('pricing_type', 'pricings.pricing_type_id', '=', 'pricing_type.id')
+                        ->whereIn('linkable_type', ['vennues', 'services'])
+                        ->whereIn('linkable_id', $linkableIdArr)
+                        ->get()
+                        ->toArray();
+
+        if(empty($pricingArr)) 
+        {
+            throw new Exception("No pricing Data Found", 1);
+            
+        }
+
+        try
+        {   
+            $amount = 0.00;
+
+            foreach ($pricingArr as $key => $value) 
+            {
+                if($value['person'])
+                {
+                    $amount = $amount + ($value['actual_price'] * $orderData['no_of_guests']);
+                }
+                else if($value['day'])
+                {
+                    $amount = $amount + ($value['actual_price'] * $noOfDays);
+                }
+            }
+
+            if(empty($amount))
+            {
+                throw new Exception("Amount to Pay cannot be zero", 1);
+                
+            }
+        }
+        catch(\Exception $e)
+        {
+            \Log::info(__CLASS__." ".__FUNCTION__." Exception Occured while Checking Date availability ".print_r( $e->getMessage(), true) );  
+            
+            throw new \Exception(" Exception Occured while Checking Date availability ", 1); 
+        }
+        
+    }
+
+    public static function getNoOfDays($fromDate, $toDate)
+    {
+        $fromDate  = strtotime($fromDate);
+        
+        $toDate    = strtotime($toDate);
+        
+        $datediff  = $toDate - $fromDate;
+
+        $noOfDays  = round($datediff / (60 * 60 * 24) ) ) ;
+        
+        return empty( $noOfDays ) 1 : $noOfDays; 
+    }
+
+
+    /**
+     * @param integer $linkableId
+     * @param string $linkableType
+     * @param date $bookingFromDate
+     * @param date $bookingToDate
+     *
+     * @return boolean
+     *
+     * @throws Exception
+    */
     public static function checkAvailability($linkableId, $linkableType, $bookingFromDate, $bookingToDate )
     {   
         try
@@ -92,6 +165,7 @@ class orderHelper
             $res = current(Orders::select('id')
                             ->where('linkable_id', $linkableId)
                             ->where('linkable_id', $linkableId)
+                            ->where('is_cancelled', 1)
                             ->where('booking_from_date','>=', $bookingFromDate )
                             ->where('booking_to_date','<=', $bookingToDate )
                             ->limt(1)

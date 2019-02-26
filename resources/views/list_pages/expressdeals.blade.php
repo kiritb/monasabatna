@@ -1,5 +1,5 @@
 @include('shared/header')
-
+<link rel="stylesheet" type="text/css" href="{{ url('css/list-designs.css') }}">
 <!------- form start-------->
 
 @include('shared/city-date')
@@ -10,16 +10,6 @@
     <h2 class="exphead"> Express Deals </h2>
     <div class="row rightevent" id="expressListingPage">
         <div class="col-sm-12">
-            <div class="form-group">
-                <select class="form-control sortpackagelist">
-                    <option>Sort by: <b>Star Rating</option>
-                    <option>Price high to low</option>
-                    <option>Price low to high</option>
-                    <option>Ratio high to low</option>
-                    <option>Ratio low to high</option>
-                </select>
-            </div>
-            <!-------------------- underline menu ------------------------------->
             <div class="underlinetab">
                 <ul class="nav nav-pills col-sm-10 tab-data mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item">

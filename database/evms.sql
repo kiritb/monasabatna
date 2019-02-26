@@ -557,10 +557,11 @@ create table evms.pricings(
 DROP TABLE IF EXISTS evms.orders;
 create table evms.orders(
   id int(11) NOT NULL AUTO_INCREMENT,
-  user_id int(11) NOT NULL,
+  user_email varchar(256) NOT NULL,
   order_no varchar(6) NOT NULL,
   linkable_id int(11) NOT NULL,
   linkable_type varchar(30) NOT NULL,
+  no_of_guests int(11) DEFAULT NULL,
   voucher_id int(11) DEFAULT NULL,
   pricing_type_id int(11) NOT NULL,
   payment_type_id int(11) DEFAULT NULL,
@@ -575,13 +576,14 @@ create table evms.orders(
   booking_from_date datetime NOT NULL,
   booking_to_date datetime NOT NULL,
   is_payment_done tinyint NOT NULL DEFAULT 0,
+  is_partial_payment tinyint NOT NULL DEFAULT 0,
+  is_cancelled tinyint NOT NULL DEFAULT 0,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (user_id) REFERENCES users(id),
   FOREIGN KEY (pricing_type_id) REFERENCES pricing_type(id),
   FOREIGN KEY (payment_type_id) REFERENCES payment_type(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -840,6 +842,7 @@ create table evms.service_fee(
   service_tax int(3) NOT NULL,
   service_fee decimal(10,2) NOT NULL,
   cancellation_fee decimal(10,2) NOT NULL,
+  partial_payment_fee int(3) NOT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,

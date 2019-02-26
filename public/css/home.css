@@ -4,14 +4,12 @@
 }
 
 #myCarousel-home .carousel-indicators {
-    position: relative;
-    bottom: auto;
-    padding: 25px;
+    position: absolute;
     margin: auto;
+    bottom: 2rem;
 }
 
 #myCarousel-home .carousel-indicators li {
-    margin-top: -75px;
     width: 10px;
     height: 10px;
     border-radius: 10px;
@@ -25,4 +23,110 @@
 #myCarousel-home .carousel-indicators .active {
     background: #6cc0b9;
     border: none;
+}
+
+#facilitate-form p {
+    color: #727272;
+    font-size: 15px;
+}
+
+#facilitate-form {
+    margin: auto;
+}
+
+.home-containers {
+    padding: 2rem 0;
+}
+
+#form-home {
+    padding-top: 2rem;
+    font-size: 12px;
+}
+
+#form-home .form-control {
+    border: #6cc0b9 solid 2px;
+    color: #727272;
+    font-size: 12px;
+}
+
+.quotes_home {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}
+
+#sponsor {
+    background-color: #f7f7f7;
+}
+
+.home-header-title {
+    font-family: KittenBold;
+    color: #4b485b;
+    font-style: italic;
+    text-align: center;
+}
+
+.home-testimonials {
+    padding: 2rem 0;
+}
+
+.home-testimonials .prev i,
+.home-testimonials .next i {
+    font-size: 45px;
+}
+
+.why-collap {
+    padding: 2rem;
+}
+
+#upcomingeves {
+    background-color: #5cb9b1;
+}
+
+p.why_text {
+    font-size: 14px;
+    color: #727272;
+    text-align: justify;
+}
+
+h3.why_head {
+    color: #4b485b;
+    font-weight: bold;
+}
+
+.testi-img {
+    height: 100%;
+    width: 100%;
+}
+
+.counter {
+    margin: auto;
+}
+
+.count {
+    color: #044e48;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.counter p {
+    color: white;
+    font-size: 20px;
+}
+
+button#why-us-book-button {
+    min-width: 150px;
+    font-size: 14px;
+    border: #6cc0b9 solid 2px;
+    border-radius: 50px;
+    background-color: #fff;
+    color: #6cc0b9;
+    font-weight: bold;
+}
+
+.why-us-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

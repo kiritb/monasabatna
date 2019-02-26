@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $service_tax
  * @property float $service_fee
  * @property float $cancellation_fee
+ * @property integer $partial_payment_fee
  * @property integer $status
  * @property datetime $created_at
  * @property datetime $updated_at
@@ -31,7 +32,7 @@ class ServiceFee extends Model
     /**
      * @var array
      */
-    protected $fillable = [ 'service_tax', 'service_fee', 'cancellation_fee', 'status','created_by', 'updated_by' ];
+    protected $fillable = [ 'service_tax', 'service_fee', 'cancellation_fee', 'partial_payment_fee' ,'status','created_by', 'updated_by' ];
 
 
 
@@ -43,6 +44,7 @@ class ServiceFee extends Model
                 'service_tax'               => $data['service_tax'],
                 'service_fee'               => $data['service_fee'],
                 'cancellation_fee'          => $data['cancellation_fee'],
+                'partial_payment_fee'       => $data['partial_payment_fee']
                 'status'                    => 1,
                 'created_by'                => $data['email'],
                 'updated_by'                => $data['email']

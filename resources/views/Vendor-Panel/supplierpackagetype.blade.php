@@ -1,5 +1,4 @@
 
-
 @include('shared/headercustom')
 <link rel="stylesheet" type="text/css" href="{{ url('css/vendor-panel/superadmin.css') }}">
       <!------- body start--------> 

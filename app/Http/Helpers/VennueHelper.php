@@ -118,6 +118,11 @@ class VennueHelper
 
             }
 
+             if (isset($filterArr['city']) && !empty($filterArr['city'])) {
+                $vennueSql->where('cities.name', $filterArr['city']);
+
+            }
+
             if (isset($filterArr['from_date']) && isset($filterArr['to_date'])) {
 
                 $vennueSql->whereRaw('vennues.id not in 
@@ -128,6 +133,15 @@ class VennueHelper
                                               '" and orders.booking_to_date between "'.$filterArr['from_date'].'" and "'.$filterArr['to_date'].'"
                                             )'
                                  );
+
+            }
+
+            if (isset($filterArr['rating']) && !empty($filterArr['rating'])) {
+                if (strtolower($filterArr['rating']) == MiscConst::RATING_HIGH_TO_LOW) {
+                    $vennueSql->orderBy('vennues.rating', 'desc');
+                } else if (strtolower($filterArr['rating']) == MiscConst::RATING_LOW_TO_HIGH) {
+                    $vennueSql->orderBy('vennues.rating', 'asc');
+                }
 
             }
 

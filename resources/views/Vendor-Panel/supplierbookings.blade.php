@@ -9,8 +9,7 @@
 <div class="tab-content" id="pills-tabContent">
 <div class="tab-pane fade show active" id="pills-vendorpan" role="tabpanel" aria-labelledby="pills-vendorpan-tab">
 <div class="container-fluid" id="dashboardcontent">
-      
-    @include('vendor-panel/vendorvenuesidebar')
+    @include('vendor-panel/vendorsuppliersidebar')
 <div class="tab-content" id="v-pills-tabContent">
   <div class="tab-pane fade show active" id="v-pills-books" role="tabpanel" aria-labelledby="v-pills-books-tab">
       <!------------------------tabs start for bookings ----------------------------------->
@@ -23,7 +22,7 @@
     <a class="nav-link" id="pills-history-tab" data-toggle="pill" href="#pills-history" role="tab" aria-controls="pills-history" aria-selected="false">Booking History</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-cancel-tab" data-toggle="pill" href="#pills-cancel" role="tab" aria-controls="pills-cancel" aria-selected="false">Cancelled Bookings</a>
+    <a class="nav-link" id="pills-cancel-tab" data-toggle="pill" href="#pills-cancel" role="tab" aria-controls="pills-cancel" aria-selected="false">Cancel Bookings</a>
   </li>
   <li class="nav-item">
   <div class="col-md-8 searchaddon"><!--------------search addon ---------------------->
@@ -47,177 +46,212 @@
                <thead class="table-color-head">
                   <tr>
                      <th scope="col">Booking ID</th>
-                     <th scope="col">Room ID </th>
-                     <th scope="col">Venue Name</th>
-                     <th scope="col">Customer Name</th>
+                     <th scope="col">Name </th>
                      <th scope="col">Email</th>
-                     <th scope="col">Arrive</th>
-                     <th scope="col">Depart</th>
-                     
-                 
+                     <th scope="col">Date From</th>
+                     <th scope="col">Date To</th>
+                     <th scope="col">Services & Event Type</th>
+                     <th scope="col">Package</th>
                   </tr>
                </thead>
                <tbody class="table-hover">
                   <tr>
                      <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
-                    <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewbookingsmodal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>food</td>
                      <td class="bg-white-booking"><a  data-toggle="modal" data-target="#myBookingOTP" href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#cancelBooking" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     
-                  </tr>
-                  <tr>
-                     <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
-                     <td>John Deo</td>
-                     <td>johndeo@gmail.com</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewbookingsmodal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>                  
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
- 
-                  </tr>
-                  <tr>
-                     <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
-                     <td>John Deo</td>
-                     <td>johndeo@gmail.com</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewbookingsmodal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>                
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
-                     <td>John Deo</td>
-                     <td>johndeo@gmail.com</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                    
-                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewbookingsmodal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>                
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                  </tr>
-                  <tr>
-                     <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
-                     <td>John Deo</td>
-                     <td>johndeo@gmail.com</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewbookingsmodal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>  
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                   
-                     
-                  </tr>
-                  <tr>
-                     <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
-                     <td>John Deo</td>
-                     <td>johndeo@gmail.com</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewbookingsmodal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>          
-                     <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
-                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     
-                  </tr>
-                  <tr>
-                     <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
-                     <td>John Deo</td>
-                     <td>johndeo@gmail.com</td>
-                     <td>28/July/2018, 12:00 PM</td>
-                     <td>28/July/2018, 12:00 PM</td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewbookingsmodal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                  </tr>
+                  <tr>
+                     <th scope="row">MTNA04879564</th>
+                     <td>John Deo</td>
+                     <td>johndeo@gmail.com</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>Decorations</td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                  </tr>
+                  <tr>
+                     <th scope="row">MTNA04879564</th>
+                     <td>John Deo</td>
+                     <td>johndeo@gmail.com</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>Magic shows</td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                  </tr>
+                  <tr>
+                     <th scope="row">MTNA04879564</th>
+                     <td>John Deo</td>
+                     <td>johndeo@gmail.com</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>DJ Dance</td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                  </tr>
+                  <tr>
+                     <th scope="row">MTNA04879564</th>
+                     <td>John Deo</td>
+                     <td>johndeo@gmail.com</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>food</td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     
+                  </tr>
+                  <tr>
+                     <th scope="row">MTNA04879564</th>
+                     <td>John Deo</td>
+                     <td>johndeo@gmail.com</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>food</td>
+                     <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
+                     <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                  </tr>
+                  <tr>
+                     <th scope="row">MTNA04879564</th>
+                     <td>John Deo</td>
+                     <td>johndeo@gmail.com</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>food</td>
                       <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
-                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewbookingsmodal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>food</td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>food</td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-              
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>food</td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>food</td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                     
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
-                     <td>201</td>
-                     <td>choco ven</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
-                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td><a data-toggle="modal" data-target="#viewtableModal" class="viewamensertable" href="#">View </a></td>
+                     <td>food</td>
                      <td class="bg-white-booking"><a href="#"><i class="fas fa-check-circle" style="font-size:20px;color:#6cc0b9"></i></a></td>
                      <td class="bg-white-booking"><a data-toggle="modal" data-target="#exampleModal" id="myCancel" href="#"><i class="fas fa-times-circle" style="font-size:20px;color:red"></i></a></td>
-                
+                     <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                </tbody>
             </table>
 </div><!--------------end of booking ---------------------------------->
-  </div><!-------------------- tab-pane fade ------------------------->     
+  </div><!-------------------- tab-pane fade ------------------------->  
+  <!------------------------------ view button Venues ----------------------------------->
+  <div class="modal fade" id="viewtableModal" tabindex="-1" role="dialog" aria-labelledby="viewtableModalLabel" aria-hidden="true">
+            <div id="canceldash" class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">View Services & Event Types</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+<div class="servtabhead">Services</div>
+      <table class="tabsuppmodal">
+  <tr>
+  </tr>
+  <tr>
+    <th>Services </th>
+   <th>Event Type</th>
+
+  </tr>
+  <tr>
+    <td>Camera Man</td>
+      <td>Wedding</td>
+  </tr>
+  <tr>
+    <td>Make up artist</td>
+      <td>Baby Shower</td>
+  </tr>
+  <tr>
+    <td>Music Artist</td>
+      <td>Birthday Party</td>
+  </tr>
+  <tr>
+    <td>Decorations</td>
+      <td>Festival Ceremony</td>
+  </tr>
+</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary yesamen" data-dismiss="modal">ok</button>
+      </div>
+
+        </div>
+        </div>
+        </div>
+
+<!------------------view button Modal ------------------------->   
   <div class="modal fade" id="myBookingOTP" tabindex="-1" role="dialog" aria-labelledby="myBookingOTPLabel" aria-hidden="true">
                 <div id="codedash"class="modal-dialog">
                     <div class="modal-content">
@@ -277,8 +311,7 @@
 
     </select>
                             </div>
-</div><!------ add express ----------------------->
-<!------------form-group row --------------------->
+</div><!------------form-group row --------------------->
   <div class="form-group row">
   <div class="col-30">
                                 <label for="fname">Payment Type : </label>
@@ -347,15 +380,156 @@
   </div>
 </div>
 <!-----------------------------cancel Booking --------------------------------------------->
+<!-------------------------------------filter Modal ------------------------>
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" id="filterdash" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Filters</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="fname">Booking ID : </label>
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="fname" name="firstname" placeholder="">
+                        </div>
+                    </div>
+                    <!---- row infolog------------>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="lname">Room ID : </label>
+                        </div>
+                        <div class="col-25">
+                            <select id="country" name="256">
+                                <option value="301">677</option>
+                                <option value="487">987</option>
+                                <option value="102">345</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!---- row infolog------------>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="fname">Customer Name : </label>
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="fname" name="firstname" placeholder="">
+                        </div>
+                    </div>
+                    <!---- row infolog------------>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="lname">Mobile : </label>
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="fname" name="firstname" placeholder="">
+                        </div>
+                    </div>
+                    <!---- row infolog------------>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="fname">Email : </label>
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="fname" name="firstname" placeholder="larasun@gmail.com">
+                        </div>
+                    </div>
+                    <!---- row infolog------------>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="lname">Arrival Date : </label>
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="lname" name="lastname" placeholder="">
+                        </div>
+                        
+                    </div>
+                    <!---- row infolog------------>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="lname">Departure Date : </label>
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="lname" name="lastname" placeholder="">
+                        </div>
+                    </div>
+                    <!---- row infolog------------>
+                   
+                    <div class="container-fluid" id="infodivider"> </div>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="fname">Venue Capacity : </label>
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="fname" name="firstname" placeholder="">
+                        </div>
+                    </div>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="fname">Expected Guest : </label>
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="fname" name="firstname" placeholder="">
+                        </div>
+                    </div>
+                    <!---- row infolog------------>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="lname">Services : </label>
+                        </div>
+                        <div class="col-25">
+                            <select id="country" name="country">
+                                <option value="australia">Catering</option>
+                                <option value="canada">Veg</option>
+                                <option value="usa">Non-veg</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!---- row infolog------------>
 
-<!-------------------------- view pop up --------------------------------><!-------------------------------------View Bookings Modal -------------------------------->
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="fname">Payment Status: </label>
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="fname" name="firstname" placeholder="">
+                        </div>
+                    </div>
+                    <!---- row infolog------------>
+                    <div class="row infolog">
+                        <div class="col-20">
+                            <label for="fname">Payment Type : </label>
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="fname" name="firstname" placeholder="">
+                        </div>
+                    </div>
+                    <!---- row infolog------------>
+                   
+
+  </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="okfilter" data-dismiss="modal">Ok</button>
+       
+      </div>
+</div>
+  </div>
+</div>
+<!-----------------------view current bookings pop up --------------------------------------------------------><!-------------------------------------View Bookings Modal -------------------------------->
 <div class="modal fade" id="viewbookingsmodal" tabindex="-1" role="dialog" aria-
 
 labelledby="mybookingsviewmodalLabel" aria-hidden="true">
   <div id="viewvenuebk" class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title">View Current Bookings Details</h5>
+      <h5 class="modal-title">View Supplier Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -363,38 +537,32 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
       <div class="modal-body">
       <form>
   <div class="form-row">
-  <div class="form-group col-md-1">
-      <label for="inputEmail4">Room ID :</label>
-      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                     value="B502">
-    </div><!-------------form-group -------------------->
     <div class="form-group col-md-2">
       <label for="inputEmail4">Booking ID :</label>
       <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="B502">
     </div><!-------------form-group -------------------->
-    
     <div class="form-group col-md-2">
-      <label for="inputPassword4">Venue Name :</label>
+      <label for="inputPassword4">Package Name :</label>
       <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                     value="Party">
-    </div>
+    </div><!-------------form-group -------------------->
     <div class="form-group col-md-2">
     <label for="inputAddress">Customer Name :</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="Shirish Sharma">
-  </div>
+  </div><!-------------form-group -------------------->
   <div class="form-group col-md-2">
     <label for="inputAddress2">Mobile:</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                     value="9008065432">
-  </div>
+  </div><!-------------form-group -------------------->
   
   <div class="form-group col-md-2">
     <label for="inputAddress2">Email :</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                     value="sundarma@gmail.com">
-  </div>
+  </div><!-------------form-group -------------------->
   
   </div><!--------------end of row ---------------------------------->
   <div class="form-row">
@@ -402,63 +570,58 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
     <label for="inputAddress2">Date From :</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                     value="22/10/2019 12:15 am">
-  </div>
+  </div><!-------------form-group -------------------->
     <div class="form-group col-md-2">
       <label for="inputPassword4">Date To :</label>
       <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="24/10/2019 12:15 am">
-    </div>
+    </div><!-------------form-group -------------------->
     <div class="form-group col-md-2">
     <label for="inputAddress">Total Days : </label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="2 Days">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputAddress2">Service Chosen : </label>
-    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                     value="Birthday Party">
-  </div>
+  </div><!-------------form-group -------------------->
   <div class="form-group col-md-2">
     <label for="inputAddress2">Delivery Address : </label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="India">
-  </div>
-  
-  
+  </div><!-------------form-group -------------------->
   </div><!----------------------end of row --------------------------->
   <div class="form-row">
   <div class="form-group sttimeven">
     <label for="inputAddress2">Revenue (SAR) :</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="SAR 100 per day">
-  </div>
+  </div><!-------------form-group -------------------->
   <div class="form-group sttimeven">
     <label for="inputAddress2">Payment Status (Paid/Unpaid) :</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                     value="20% paid online balance pending with auto debit permission">
-  </div>
+  </div><!-------------form-group -------------------->
     <div class="form-group col-md-2">
       <label for="inputPassword4">Payment Type :</label>
       <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="Auto Debit">
-    </div>
+    </div><!-------------form-group -------------------->
        <div class="form-group col-md-3">
     <label for="inputAddress2">Attached Iqama / Passport : </label>
-    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                     value="150 person">
-  </div>
+    <a href="svg/images/passport.png" download="download Passport">
+  <img src="svg/images/passport.png" alt="W3Schools" width="104" height="142">
+  <a id="link" target="_blank" download="file.txt"> <i id="downloadicon" class="fas fa-file-download"></i></a>
+</a>
+  </div><!-------------form-group -------------------->
   </div><!----------------------end of row --------------------------->
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Note(if customer has written while Booking) : </label>
       <input type="text" class="form-control" id="Express deal discout is offered only for seasonal period"
       value="Auto Transaction">
-    </div>
+    </div><!-------------form-group -------------------->
     <div class="form-group col-md-4">
       <label for="inputState">Expected guests (Customer given) : </label>
       <input type="text" class="form-control" id="Express deal discout is offered only for seasonal period"
       value="thousand guest">
-    </div>
+    </div><!-------------form-group -------------------->
     
   </div>
 </form> 
@@ -467,24 +630,24 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
   </div>
 </div>
 </div>
-<!-----------------------View Bookings pop up -------------------------------------------------------->
+<!-----------------------View current Bookings pop up -------------------------------------------------------->
 
 <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
 <div id="historydropdown" class="dropdown">
 <input id="myMonthPicker" type="text" placeholder="Pick a month"/>
 
 </div>
-<div class="bkhistory">
+<div class="dashboardright">
             <table class="table table-xs-12 table-sm-12 table-md-12">
                <thead class="table-color-head">
                   <tr>
                      <th scope="col">Booking ID</th>
                      <th scope="col">Room ID </th>
-                     <th scope="col">Venue Name</th>
-                     <th scope="col">Customer Name</th>
+                     <th scope="col">Name</th>
                      <th scope="col">Email</th>
                      <th scope="col">Arrive</th>
                      <th scope="col">Depart</th>
+                     <th scope="col">Venue</th>
                  
                   </tr>
                </thead>
@@ -492,55 +655,55 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
                    
-                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewhistoryModal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
+                     <td class="bg-white-booking"><a data-toggle="modal" data-target="#viewsuppbkhistorymodal" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
-                     <td>28/July/2018, 12:00 PM</td> 
+                     <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
                    
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
                   
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
                     
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
                     
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                      
@@ -548,90 +711,89 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
           
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
                       
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
                      
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
                      
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
                      
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
                      
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                   <tr>
                      <th scope="row">MTNA04879564</th>
                      <td>201</td>
-                     <td> Choco treat</td>
                      <td>John Deo</td>
                      <td>johndeo@gmail.com</td>
                      <td>28/July/2018, 12:00 PM</td>
                      <td>28/July/2018, 12:00 PM</td>
+                     <td>200</td>
           
                      <td class="bg-white-booking"><a id="mypercent" href="#"><i class="fas fa-eye" style='font-size:20px;color:#66b85d'></i></a></td>
                   </tr>
                </tbody>
             </table>
 </div><!--------------end of booking ---------------------------------->
-
-<!-------------------------- view pop up --------------------------------><!-------------------------------------View Bookings Modal -------------------------------->
-<div class="modal fade" id="viewhistoryModal" tabindex="-1" role="dialog" aria-labelledby="viewhistoryModalLabel" aria-hidden="true">
-  <div id="viewvenuebk" class="modal-dialog modal-xl">
+<!-----------------------view bookings History pop up -------------------------------------------------------->
+<div class="modal fade" id="viewsuppbkhistorymodal" tabindex="-1" role="dialog" aria-labelledby="mybookingsviewmodalLabel" aria-hidden="true">
+  <div id="viewsuppcurbk" class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title">View Booking History Details</h5>
+      <h5 class="modal-title">View Supplier Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -639,38 +801,32 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
       <div class="modal-body">
       <form>
   <div class="form-row">
-  <div class="form-group col-md-1">
-      <label for="inputEmail4">Room ID :</label>
-      <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                     value="B502">
-    </div><!-------------form-group -------------------->
     <div class="form-group col-md-2">
       <label for="inputEmail4">Booking ID :</label>
       <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="B502">
     </div><!-------------form-group -------------------->
-    
     <div class="form-group col-md-2">
-      <label for="inputPassword4">Venue Name :</label>
+      <label for="inputPassword4">Package Name :</label>
       <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                     value="Party">
-    </div>
+    </div><!-------------form-group -------------------->
     <div class="form-group col-md-2">
     <label for="inputAddress">Customer Name :</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="Shirish Sharma">
-  </div>
+  </div><!-------------form-group -------------------->
   <div class="form-group col-md-2">
     <label for="inputAddress2">Mobile:</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                     value="9008065432">
-  </div>
+  </div><!-------------form-group -------------------->
   
   <div class="form-group col-md-2">
     <label for="inputAddress2">Email :</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                     value="sundarma@gmail.com">
-  </div>
+  </div><!-------------form-group -------------------->
   
   </div><!--------------end of row ---------------------------------->
   <div class="form-row">
@@ -678,63 +834,58 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
     <label for="inputAddress2">Date From :</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                     value="22/10/2019 12:15 am">
-  </div>
+  </div><!-------------form-group -------------------->
     <div class="form-group col-md-2">
       <label for="inputPassword4">Date To :</label>
       <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="24/10/2019 12:15 am">
-    </div>
+    </div><!-------------form-group -------------------->
     <div class="form-group col-md-2">
     <label for="inputAddress">Total Days : </label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="2 Days">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputAddress2">Service Chosen : </label>
-    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                     value="Birthday Party">
-  </div>
+  </div><!-------------form-group -------------------->
   <div class="form-group col-md-2">
     <label for="inputAddress2">Delivery Address : </label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="India">
-  </div>
-  
-  
+  </div><!-------------form-group -------------------->
   </div><!----------------------end of row --------------------------->
   <div class="form-row">
   <div class="form-group sttimeven">
     <label for="inputAddress2">Revenue (SAR) :</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="SAR 100 per day">
-  </div>
+  </div><!-------------form-group -------------------->
   <div class="form-group sttimeven">
     <label for="inputAddress2">Payment Status (Paid/Unpaid) :</label>
     <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                     value="20% paid online balance pending with auto debit permission">
-  </div>
+  </div><!-------------form-group -------------------->
     <div class="form-group col-md-2">
       <label for="inputPassword4">Payment Type :</label>
       <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
                                      value="Auto Debit">
-    </div>
+    </div><!-------------form-group -------------------->
        <div class="form-group col-md-3">
     <label for="inputAddress2">Attached Iqama / Passport : </label>
-    <input type="text" readonly class="form-control-plaintext" id="fname" name="firstname"
-                                     value="150 person">
-  </div>
+    <a href="svg/images/passport.png" download="download Passport">
+  <img src="svg/images/passport.png" alt="W3Schools" width="104" height="142">
+  <a id="link" target="_blank" download="file.txt"> <i id="downloadicon" class="fas fa-file-download"></i></a>
+</a>
+  </div><!-------------form-group -------------------->
   </div><!----------------------end of row --------------------------->
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Note(if customer has written while Booking) : </label>
       <input type="text" class="form-control" id="Express deal discout is offered only for seasonal period"
       value="Auto Transaction">
-    </div>
+    </div><!-------------form-group -------------------->
     <div class="form-group col-md-4">
       <label for="inputState">Expected guests (Customer given) : </label>
       <input type="text" class="form-control" id="Express deal discout is offered only for seasonal period"
       value="thousand guest">
-    </div>
+    </div><!-------------form-group -------------------->
     
   </div>
 </form> 
@@ -743,15 +894,14 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
   </div>
 </div>
 </div>
-<!-----------------------View Bookings pop up -------------------------------------------------------->
+<!-----------------------View Bookings History pop up -------------------------------------------------------->
 <div class="row markdashboard">
   <span class="totalrev">Total Revenue : 12100</span>
   <span class="totalcom">Total Commision : 1552 </span>
 </div>
 </div>
-<!--------------------------------row markdashboard ----------------------------->
 <div class="tab-pane fade" id="pills-cancel" role="tabpanel" aria-labelledby="pills-cancel-tab">
-<div class="bkcancel">
+<div class="dashboardright">
             <table class="table table-xs-12 table-sm-12 table-md-12">
                <thead class="table-color-head">
                   <tr>
@@ -910,6 +1060,7 @@ labelledby="mybookingsviewmodalLabel" aria-hidden="true">
         </script>
       <script><!------inner page-Tabs-------->
          $(document).ready(function(){
+         
          $("#Add-Express #Remove-Express-Deal").click(function(){
          $("#Remove-Express-Modal").modal();
          });
@@ -953,4 +1104,19 @@ $(document).ready(function()
     //     });
     // });
 });
+var file;
+var data = [];
+data.push("This is a test\n");
+data.push("Of creating a file\n");
+data.push("In a browser\n");
+var properties = {type: 'text/plain'}; // Specify the file's mime-type.
+try {
+  // Specify the filename using the File constructor, but ...
+  file = new File(data, "file.txt", properties);
+} catch (e) {
+  // ... fall back to the Blob constructor if that isn't supported.
+  file = new Blob(data, properties);
+}
+var url = URL.createObjectURL(file);
+document.getElementById('link').href = url;
 </script> 

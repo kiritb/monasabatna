@@ -1,4 +1,4 @@
-<form class="form-vertical" id="cityDateForm">
+<form class="form-vertical" id="cityDateForm" method="POST">
     <div class="container-fluid" id="commonpack-bg">
         <div class="row" id="set-bg">
             <div class="col-md-12 col-sm-12 themeform-top">
@@ -8,25 +8,23 @@
 
                     <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="citypack">
                         <label class="themelab" for="citiesList">City</label>
-                        <select class="form-control themehome" name="city[]" id="citiesList">
+                        <select class="form-control themehome" name="city" id="citiesList">
                             <option value="" selected>Select City...</option>
                         </select>
                     </div>
 
                     <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="datapack">
                         <label class="themelab">Date From</label>
-                        <input type="text" class="form-control themehome datepicker" placeholder="16 May, 2018"
-                            name="from_date">
+                        <input type="text" class="form-control themehome datepicker" placeholder="16 May, 2018" name="from_date">
                     </div>
 
                     <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="labpack">
                         <label class="themelab">Date To</label>
-                        <input type="text" class="form-control themehome datepicker" placeholder="20 May,2018"
-                            name="to_date">
+                        <input type="text" class="form-control themehome datepicker" placeholder="20 May,2018" name="to_date">
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-3 form-group packform" id="subpack">
                         <label class="themelab"></label>
-                        <button type="submit" class="btn btn-danger sub_theme">Submit</button>
+                        <button type="button" onclick="validateForm('cityDateForm');" class="btn btn-danger sub_theme">Submit</button>
                     </div>
                 </div>
             </div>

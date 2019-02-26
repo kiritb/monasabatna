@@ -10,6 +10,12 @@
 
     <h3 class="detail-party"><b>{{ $data['eventName'] }}</b></h3>
 
+    <div class="arabic-logosec">
+        @if(isset($data['vendorLogo']) && $data['vendorLogo'] !== "")
+        <img src={{ $data['vendorLogo'] }} class="img-responsive">
+        @endif
+    </div>
+
     @include('sliderinner', ['slides' => $data['files']])
 
     <div class="row" id="bg-requirement">

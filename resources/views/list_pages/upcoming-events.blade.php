@@ -1,5 +1,5 @@
 @include('shared/header')
-<link rel="stylesheet" type="text/css" href="{{ url('css/venues.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url('css/list-designs.css') }}">
 <!------- form start-------->
 
 @include('shared/city-date')

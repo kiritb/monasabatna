@@ -16,7 +16,9 @@
             </h3>
         </div>
         <div class="arabic-logosec">
-            <img src={{ url('svg/images/arabic-logo.jpg') }} class="img-responsive">
+            @if(isset($data['vendorLogo']) && $data['vendorLogo'] !== "")
+            <img src={{ $data['vendorLogo'] }} class="img-responsive">
+            @endif
         </div>
     </div>
     @include('slickslider_thumbnail', ['slides' => $data['files']])
@@ -95,7 +97,7 @@
                 <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab"
                     aria-controls="nav-about" aria-selected="true">About</a>
                 <a class="nav-item nav-link" id="nav-provided-tab" data-toggle="tab" href="#nav-provided" role="tab"
-                    aria-controls="nav-provided" aria-selected="false">Menu</a>
+                    aria-controls="nav-provided" aria-selected="false">Servieces</a>
                 <a class="nav-item nav-link" id="nav-requisites-tab" data-toggle="tab" href="#nav-requisites" role="tab"
                     aria-controls="nav-requisites" aria-selected="false">Amenities</a>
                 <a class="nav-item nav-link" id="nav-testi-tab" data-toggle="tab" href="#nav-testi" role="tab"
@@ -122,7 +124,8 @@
                                 <h2 class="mb-0">
                                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_{{ $key }}"
                                         aria-expanded="true" aria-controls="collapse_{{ $key }}">
-                                        {{ $services['serviceName'] }}
+                                        {{ number_format($services['actualPrice']) . " SAR " . $services['pricingType']
+                                        }}
                                     </button>
                                 </h2>
                             </div>
@@ -158,19 +161,9 @@
             </div>
             <div class="tab-pane fade" id="nav-requisites" role="tabpanel" aria-labelledby="nav-requisites-tab">
                 <div class="container-fluid packagecontent">
-                    <div class="row">
 
-                        @if (count($data["ammenties"]) > 0)
-                        @foreach ($data["ammenties"] as $ammenties)
-                        <div class="col">
-                            <h1><i class="fa fa-street-view" style="font-size:50px"></i></h1>
-                            <label><b>{{ $ammenties['amenitieName'] }}</b></label>
-                        </div>
-                        @endforeach
-                        @else
-                        <div>No data!!</div>
-                        @endif
-                    </div>
+                    @include("shared.amenities-holder", ['amenities' => $data["ammenties"]])
+
                 </div>
             </div>
             <div class="tab-pane fade" id="nav-testi" role="tabpanel" aria-labelledby="nav-testi-tab">
@@ -188,14 +181,14 @@
         </div>
     </div>
 
-    @include('ui_utils.recommendations-slicker', ['slides' => $data['recommendations']['vennues'], 'title' =>
-    'Recommonded Venues'])
+    @include('ui_utils.recommendations-slicker', ['slides' => $data['recommendations']['suppliers'], 'title' =>
+    'Recommonded Suppliers in Jeddah'])
     <div class="customerlinegreen"></div>
     @include('ui_utils.recommendations-slicker', ['slides' => $data['recommendations']['eventOrgainsers'], 'title' =>
-    'Recommonded Event Organisers'])
+    'Featured Event Organisers in Jeddah'])
     <div class="customerlinegreen"></div>
-    @include('ui_utils.recommendations-slicker', ['slides' => $data['recommendations']['suppliers'], 'title' =>
-    'Recommonded Suppliers'])
+    @include('ui_utils.recommendations-slicker', ['slides' => $data['recommendations']['vennues'], 'title' =>
+    'Other trending Venues in Jeddah'])
 
     <div class="row"></div>
 </div>

@@ -4,11 +4,10 @@
 
 @include('shared/city-date')
 
-<!------- form start-------->
-<!------- Banner start-------->
-
 <div class="container-fluid">
-
+    @if(!count($data))
+    <div class="errorBox bg-danger text-white">No Data from API!!</div>
+    @else
     <div class="bg clearfix">
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-6">
             <h3 class="event-two-head">
@@ -17,7 +16,9 @@
             </h3>
         </div>
         <div class="arabic-logosec">
-            <img src={{ url('svg/images/arabic-logo.jpg') }} class="img-responsive">
+            @if(isset($data['vendorLogo']) && $data['vendorLogo'] !== "")
+            <img src={{ $data['vendorLogo'] }} class="img-responsive">
+            @endif
         </div>
     </div>
     @include('sliderinner', ['slides' => $data['files']])
@@ -60,31 +61,22 @@
     <div class="container-fluid" id="eventrows">
         <div class="fbrow">
             <a class="fb-button" href={{ $data['fbLink'] }}><i id="fbevent" class="fab fa-facebook-f"></i>Facebook</a>
-            <a class="twit-button" href={{ $data['twitterLink'] }}><i id="fbevent"
-                    class="fab fa-twitter"></i>Twitter</a>
+            <a class="twit-button" href={{ $data['twitterLink'] }}><i id="fbevent" class="fab fa-twitter"></i>Twitter</a>
             <a class="eventterms" href="#"> Terms & Policies</a>
         </div>
     </div>
     <!------- Address end-------->
 
     <div class="container-fluid" id="eventdetails">
-        @include('shared/packageLists', ['packageList' => $data['packages']])
+        @include('shared/packageLists', ['packageList' => $data['packages'], 'type' => 'Events', 'noOfPackages' =>
+        $data['noOfPackages']])
     </div>
-
-    <!-- Portfolio Gallery Grid -->
-
-    <!------- Information start-------->
 
     @include("shared/reviewratings", ['reviews' => $data['reviews']])
 
-    <!------- Information end-------->
-
-    <div class="eventgreyline"></div>
-
-    <!---------------------------- Thumbnail carousel start --------------------------------->
-
     @include('slickslider', ['slides' => $data['files']])
-    <div class="row"></div>
+    @endif
 </div>
+
 @include('shared/footer')
 <script src="{{ url('js/city-date.js') }}" type="text/javascript" charset="utf-8"></script>
