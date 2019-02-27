@@ -419,7 +419,7 @@ class HomeController extends Controller
 
         try {
 
-            $res = WishListHelper::getWishList($requestParams['type'], $requestParams['email'] );
+            $res = WishListHelper::getWishList($requestParams['type'], $requestParams['user_id'] );
 
             if (empty($res)) 
             {
