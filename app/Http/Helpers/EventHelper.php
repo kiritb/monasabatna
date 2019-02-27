@@ -165,6 +165,10 @@ class EventHelper
                 'pricings.actual_price as actualPrice',
                 'pricings.discount',
                 'pricing_type.name as pricingType',
+                'pricings.cancellation_fee_before_12_hours as cancellationFeeBefore12Hours',
+                'pricings.cancellation_fee_before_24_hours as cancellationFeeBefore24Hours',
+                'pricings.cancellation_fee_before_48_hours as cancellationFeeBefore48Hours',
+                'pricings.partial_payment_fee as partialPaymentFee',
                 'event_types.name as eventType'
 
             )
@@ -1270,6 +1274,10 @@ class EventHelper
                 'event_organisers.rating',
                 'files.file_path as filePath',
                 'pricings.actual_price as actualPrice',
+                'pricings.cancellation_fee_before_12_hours as cancellationFeeBefore12Hours',
+                'pricings.cancellation_fee_before_24_hours as cancellationFeeBefore24Hours',
+                'pricings.cancellation_fee_before_48_hours as cancellationFeeBefore48Hours',
+                'pricings.partial_payment_fee as partialPaymentFee',
                 'pricings.discount',
                 'pricing_type.name as pricingType',
                 'event_types.name as eventType',

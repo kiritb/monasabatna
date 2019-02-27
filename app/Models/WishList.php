@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property string $email
+ * @property string $user_id
  * @property integer $linkable_id
  * @property string $linkable_type
  * @property date $from_date
@@ -31,7 +31,7 @@ class WishList extends Model
     /**
      * @var array
      */
-    protected $fillable = [ 'email', 'linkable_id', 'linkable_type','from_date', 'to_date', 'comment','status', 'created_by', 'updated_by' ];
+    protected $fillable = [ 'user_id', 'linkable_id', 'linkable_type','from_date', 'to_date', 'comment','status', 'created_by', 'updated_by' ];
 
 
 
@@ -40,7 +40,7 @@ class WishList extends Model
 
         self::create ( 
             [
-                'email'                 => $data['email'],
+                'user_id'               => $data['user_id'],
                 'linkable_id'           => $data['linkable_id'],
                 'linkable_type'         => $data['linkable_type'],
                 'from_date'             => $data['from_date'] ,

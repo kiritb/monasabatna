@@ -10,6 +10,7 @@ use App\Http\Helpers\CustomerQueryHelper;
 use App\Http\Helpers\FacilitateCustomerHelper;
 use App\Http\Helpers\WishListHelper;
 use App\Http\Helpers\GenericTermsHelper;
+use App\Http\Helpers\UserHelper;
 
 
 
@@ -307,7 +308,7 @@ class HomeController extends Controller
         $requestParams = $request->all();
 
         $rules = [  
-                        'email'             => 'required|string|email|max:255',
+                        'user_id'           => 'required|exists:users,id',
                         'linkable_id'       => 'required',
                         'linkable_type'     => 'required',
                         'from_date'         => 'required',
@@ -367,6 +368,20 @@ class HomeController extends Controller
                 }
             }
 
+            $userDetails = UserHelper::emailByUserId($requestParams['user_id']);
+
+            if(empty($userDetails))
+            {
+
+                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message - user details not found' .' Response Code '.HttpStatusCodesConsts::HTTP_NOT_FOUND);
+
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['user details not found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, HttpStatusCodesConsts::HTTP_NOT_FOUND_STRING);
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+            }
+            
+            $requestParams['email'] = $userDetails['email'];
+
             WishListHelper::addWishList($requestParams);
 
             return response(ResponseUtil::buildSuccessResponse(['message' =>'Successfully added in the wish list']), HttpStatusCodesConsts::HTTP_CREATED);
@@ -385,7 +400,7 @@ class HomeController extends Controller
     {
         $requestParams = $request->all();
 
-        $rules = [ 'type'   => 'required', 'email' => 'required|string|email|max:255', ];
+        $rules = [ 'type'   => 'required', 'user_id' => 'required|exists:users,id' ];
 
         $validator = Validator::make($requestParams, $rules);
 

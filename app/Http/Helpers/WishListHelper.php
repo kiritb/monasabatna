@@ -77,7 +77,7 @@ class WishListHelper
     }
 
 
-    public static function getWishList($type, $email)
+    public static function getWishList($type, $userId)
     {   
 
         $resArr   = [];
@@ -85,7 +85,7 @@ class WishListHelper
 
         $wishListData = WishList::select('linkable_id', 'linkable_type', 'from_date', 'to_date', 'comment')
                                  ->where('linkable_type', $type )
-                                 ->where('email', $email)
+                                 ->where('user_id', $userId)
                                  ->where('status',1)
                                  ->get()
                                  ->toArray();
@@ -115,7 +115,11 @@ class WishListHelper
                 'vennues.start_time as vennueStartTime', 'vennues.order_no as displayOrder', 'vennues.min_guest_cap as MinGuestCap', 'vennues.max_guest_cap as MaxGuestCap',
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
-                'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType', 'files.file_path as filePath')
+                'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType',
+                'pricings.cancellation_fee_before_12_hours as cancellationFeeBefore12Hours',
+                'pricings.cancellation_fee_before_24_hours as cancellationFeeBefore24Hours',
+                'pricings.cancellation_fee_before_48_hours as cancellationFeeBefore48Hours',
+                'pricings.partial_payment_fee as partialPaymentFee', 'files.file_path as filePath')
                 ->join('address', 'vennues.id', '=', 'address.linkable_id')
                 ->join('files', 'vennues.id', '=', 'files.linkable_id')
                 ->join('pricings', 'vennues.id', '=', 'pricings.linkable_id')
@@ -152,6 +156,10 @@ class WishListHelper
                                                 'files.file_path as filePath',
                                                 'pricings.actual_price as actualPrice',
                                                 'pricings.discount',
+                                                'pricings.cancellation_fee_before_12_hours as cancellationFeeBefore12Hours',
+                                                'pricings.cancellation_fee_before_24_hours as cancellationFeeBefore24Hours',
+                                                'pricings.cancellation_fee_before_48_hours as cancellationFeeBefore48Hours',
+                                                'pricings.partial_payment_fee as partialPaymentFee',
                                                 'pricing_type.name as pricingType',
                                                 'event_types.name as eventType'
                                                 )

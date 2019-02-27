@@ -225,6 +225,10 @@ class VennueHelper
                 'vennues.is_express_deal as isExpressDeal', 'vennues.rating',
                 'address.address_line_1 as AddressLine_1', 'address.address_line_2 as AddressLine_2', 'address.google_map_link as googleMapLink', 'cities.name as cityName',
                 'pricings.actual_price as actualPrice', 'pricings.discount', 'pricing_type.name as pricingType',
+                'pricings.cancellation_fee_before_12_hours as cancellationFeeBefore12Hours',
+                'pricings.cancellation_fee_before_24_hours as cancellationFeeBefore24Hours',
+                'pricings.cancellation_fee_before_48_hours as cancellationFeeBefore48Hours',
+                'pricings.partial_payment_fee as partialPaymentFee',
                 'vendors.id as vendor_id',
                 'vendors.company_name as vendorName',
                 'vendors.license_no as licenseNo')

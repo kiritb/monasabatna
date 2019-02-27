@@ -544,6 +544,10 @@ create table evms.pricings(
   price decimal(10,2) NOT NULL,
   discount decimal(10,2) DEFAULT NULL,
   actual_price decimal(10,2) NOT NULL,
+  cancellation_fee_before_12_hours int(11) DEFAULT NULL,
+  cancellation_fee_before_24_hours int(11) DEFAULT NULL,
+  cancellation_fee_before_48_hours int(11) DEFAULT NULL,
+  partial_payment_fee int(11) NOT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
@@ -790,7 +794,7 @@ create table evms.facilitate_customer_service(
 DROP TABLE IF EXISTS evms.wish_list;
 create table evms.wish_list(
   id int(11) NOT NULL AUTO_INCREMENT,
-  email varchar(256) NOT NULL,
+  user_id varchar(256) NOT NULL,
   linkable_id int(11) NOT NULL,
   linkable_type varchar(256)  NOT NULL,
   from_date date NOT NULL,
@@ -840,9 +844,9 @@ DROP TABLE IF EXISTS evms.service_fee;
 create table evms.service_fee(
   id int(11) NOT NULL AUTO_INCREMENT,
   service_tax int(3) NOT NULL,
-  service_fee decimal(10,2) NOT NULL,
-  cancellation_fee decimal(10,2) NOT NULL,
-  partial_payment_fee int(3) NOT NULL,
+  booking_commisssion int(3) NOT NULL,
+  express_deals_commisssion int(3) NOT NULL,
+  cancellation_commisssion int(3) NOT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
