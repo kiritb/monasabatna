@@ -387,7 +387,7 @@ class LoginController extends Controller
 
         try
         {  
-            if (UserHelper::validateOtp($requestParams['otp'], $requestParams['user_id'], $requestParams['otp_type'] ) ) 
+            if (UserHelper::validateOtp($requestParams['otp'], $requestParams['user_id'], $requestParams['type'] ) ) 
             {
                 UserHelper::updateUser($requestParams['user_id'],['password' => \Hash::make($requestParams['password']) ] );
 
