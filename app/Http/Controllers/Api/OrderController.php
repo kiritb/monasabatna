@@ -33,14 +33,15 @@ class OrderController extends Controller
                           'family_name'         => 'required|string',
                           'country_code'        => 'required|string',
                           'phone_no'            => 'required|integer',
-                          'email'               => 'required|string|email|max:255',
-                          'id_proof'            => 'required|mimes:jpeg,jpg,png,pjpeg,pdf|max:' . $maxSize,
+                          'user_email'          => 'required|string|email|max:255',
+                          //'id_proof'            => 'required|mimes:jpeg,jpg,png,pjpeg,pdf|max:' . $maxSize,
                           'booking_from_date'   => 'required|string',
                           'booking_to_date'     => 'required|string',
                           'is_partial_payment'  => 'required',
                           'no_of_guests'        => 'required|integer',
                           'self_booking'        => 'required',
                           'linkable_id'         => 'required|integer',
+                          'is_guest_user'       => 'required',
                           'linkable_type'       => 'required|string'
                        ];
 
@@ -59,9 +60,9 @@ class OrderController extends Controller
             }
         }
 
-        $guestsArr    = [];
+        
 
-        if($requestParams['self_booking'])
+        if(!$requestParams['self_booking'])
         {
           $rules       = [  
                           'guest_first_name'          => 'required|string', 
@@ -69,11 +70,7 @@ class OrderController extends Controller
                           'guest_family_name'         => 'required|string',
                        ];
 
-          $guestsArr   = [ 'guest_first_name'   => $requestParams['guest_first_name'], 
-                           'guest_fathers_name' => $requestParams['guest_fathers_name'], 
-                           'guest_first_name'   => $requestParams['guest_first_name']
-                         ];
-
+          
           $validator   = Validator::make( $requestParams, $rules );
 
           if ($validator->fails())
@@ -89,19 +86,13 @@ class OrderController extends Controller
               }
           }
 
-          $guestsArr['guest_country_code']        = isset($requestParams['guest_country_code']) ? $requestParams['guest_country_code'] : NULL;
-          
-          $guestsArr['guest_phone_no']            = isset($requestParams['guest_phone_no']) ? $requestParams['guest_phone_no'] : NULL;
-          
-          $guestsArr['guest_email']               = isset($requestParams['guest_email']) ? $requestParams['guest_email'] : NULL;
-
         }
 
         try
         {
-            $orderData = orderHelper::createOrder( $requestParams, $guestsArr );
+            $orderData = orderHelper::createOrder( $requestParams );
 
-            return response( ResponseUtil::buildSuccessResponse($orderData), HttpStatusCodesConsts::HTTP_CREATED );
+            //return response( ResponseUtil::buildSuccessResponse($orderData), HttpStatusCodesConsts::HTTP_CREATED );
         }
         catch( \Exception $e)
         {

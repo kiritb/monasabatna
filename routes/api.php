@@ -55,7 +55,9 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::get('packages/eventorganisers', 'Api\EventController@getPackageEventOrganisersList');
 
-    Route::get('order', 'Api\OrderController@createOrder');
+    Route::post('order', 'Api\OrderController@createOrder');
+
+    Route::post('payment/response', 'Api\OrderController@paymentResponse');
 
     Route::get('cities', 'Api\CityController@getCities');
 

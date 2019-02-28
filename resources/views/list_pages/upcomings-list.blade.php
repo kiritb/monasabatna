@@ -9,7 +9,7 @@ $appliedParams= $data['appliedParams'];
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="venuehead text-center">
+        <div class="listhead">
             <span id="totalResults"></span>
             Upcoming Events
         </div>

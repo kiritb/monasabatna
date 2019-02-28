@@ -11,6 +11,7 @@
  use App\Models\Suppliers;
  use App\Models\Vennues;
  use App\Models\WishList;
+ use App\Http\Helpers\ServiceFeeHelper;
 
 class WishListHelper
 {   
@@ -104,7 +105,11 @@ class WishListHelper
             }
          }  
 
-         return $resArr;                     
+        $serviceCharges = ServiceFeeHelper::getServiceCharges();
+
+        $resArr['serviceCharges'] = empty($serviceCharges) ? [] : $serviceCharges;
+
+        return $resArr;                     
     }
 
 

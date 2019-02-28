@@ -7,7 +7,7 @@
 <!------- form start-------->
 <!------maps button and headding --------------->
 <div class="venueheadbtn">
-    <div class="venuehead text-center">
+    <div class="listhead">
         <span id="totalResults"></span>
         Search Results
         <a href="#" class="btn btn-secondary showmapbtn">Show in Maps</a>
@@ -15,9 +15,9 @@
 </div>
 <!---- maps button and heading ------------>
 <!------- Tabs start-------->
-<div class="container-fluid" id="customerdetails">
+<div class="container" id="customerdetails">
     <div id="listingPage">
-        <nav>
+        <nav class="mb-3">
             <div class="nav nav-tabs d-flex" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link list-nav-tabs active" id="nav-venues-tab" data-toggle="tab" href="#nav-venues"
                     role="tab" aria-controls="nav-home" aria-selected="true" onclick="getTypeListItems('venues')">Venue</a>
@@ -32,16 +32,16 @@
         </nav>
 
         <div class="tab-content" id="nav-tabContent">
-            <div class="container-fluid tab-pane fade show active" id="nav-venues" role="tabpanel" aria-labelledby="nav-venues-tab">
+            <div class="tab-pane fade show active" id="nav-venues" role="tabpanel" aria-labelledby="nav-venues-tab">
                 <!-- Venues list with filters sidebar here -->
             </div>
-            <div class="container-fluid tab-pane fade" id="nav-suppliers" role="tabpanel" aria-labelledby="nav-suppliers-tab">
+            <div class="tab-pane fade" id="nav-suppliers" role="tabpanel" aria-labelledby="nav-suppliers-tab">
                 <!-- Suppliers list with filters sidebar here -->
             </div>
-            <div class="container-fluid tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
+            <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
                 <!-- Event org list with filters sidebar here -->
             </div>
-            <div class="container-fluid tab-pane fade" id="nav-packages" role="tabpanel" aria-labelledby="nav-packages-tab">
+            <div class="tab-pane fade" id="nav-packages" role="tabpanel" aria-labelledby="nav-packages-tab">
                 <!-- Package list with filters sidebar here -->
                 <div id="packages-holder">
                     @include('list_pages.packages-holder')

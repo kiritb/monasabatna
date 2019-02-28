@@ -4,8 +4,8 @@
 
 @include('shared/city-date')
 
-<div id="customerdetails">
-    <div class="container-fluid" id="upcomingListingPage">
+<div class="container" id="customerdetails">
+    <div id="upcomingListingPage">
 
         <!-- upcoming events will be listed here -->
 

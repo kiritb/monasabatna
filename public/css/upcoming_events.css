@@ -51,7 +51,7 @@ span.upcspanline {
     margin-top: 1px;
 }
 
-#upcomingtabs #venue-list-bg {
+#upcomingtabs .items-list-bg {
     width: 100%;
     background-color: #f4f4f5;
     margin: 25px 0px 0px 0px;
@@ -262,7 +262,7 @@ div#labpackone {
     padding-right: 0px;
 }
 
-#venue-list-bg {
+.items-list-bg {
     width: 100%;
     background-color: #fff;
     margin: 25px 0px 0px 0px;

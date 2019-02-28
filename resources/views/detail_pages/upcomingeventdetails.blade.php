@@ -108,12 +108,10 @@
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <div id="venue-list-bg">
+                    <div class="venue-list-bg">
                         {{ $data['eventShortDescription'] }}
                     </div>
-                    <!------- venue-list-bg --------->
                 </div>
-                <!------- tab close ------->
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="container-fluid packagecontent">
                         <div class="accordion" id="accordionExample">

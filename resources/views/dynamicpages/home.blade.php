@@ -14,9 +14,9 @@
             @foreach ($data["expressDeals"] as $eDeals)
             <!---- start of col-sm-3---->
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                <div class="container">
-                    <div class="cardimg">
-                        <img src={{ $eDeals["filePath"] }} alt="Avatar" class="image">
+                <div class="boxShadow dataCards">
+                    <div class="imagecards">
+                        <img src={{ $eDeals["filePath"] }} alt="Avatar">
                         <div class="middle">
                             <a href={{ url("/") . '/venues/' . $eDeals['id'] }}>
                                 <div class="book-now-sm-h">
@@ -73,12 +73,10 @@
     </div>
 
     <div class="container-fluid home-containers" id="sponsor">
+        <div class="home-header-title">
+            <h2>Our Partners</h2>
+        </div>
         <div class="row">
-            <div class="container">
-                <div class="home-header-title">
-                    <h2>Our Partners</h2>
-                </div>
-            </div>
             @if (count($data["partners"]) > 0)
             @include('slickslider', ['slides' => $data["partners"]])
             @else
@@ -89,8 +87,7 @@
     </div>
 
     <div class="container-fluid home-containers padd-lr-2" id="upcomingeves">
-
-        <div class="container home-header-title text-white">
+        <div class="home-header-title text-white">
             <h2>Upcoming Events</h2>
         </div>
         <div class="row four_box">
@@ -98,9 +95,9 @@
             @foreach ($data["upcomingEvents"] as $upcomingEvents)
             <!---- start of col-sm-3---->
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                <div class="container">
-                    <div class="cardimg">
-                        <img src={{ $upcomingEvents->filePath }} alt="Avatar" class="image">
+                <div class="boxShadow dataCards">
+                    <div class="imagecards">
+                        <img src={{ $upcomingEvents->filePath }} alt="Avatar">
                         <div class="middle">
                             <a href={{ url("/") . '/events/organisers/' . $upcomingEvents['id'] }}>
                                 <div class="book-now-sm-h">
@@ -186,7 +183,7 @@
     </div>
 
     <div class="container-fluid home-containers" id="whyus">
-        <div class="container home-header-title">
+        <div class="home-header-title">
             <h2>Why Munasabatna?</h2>
         </div>
         <div class="why-collap">
@@ -209,9 +206,8 @@
         </div>
     </div>
 
-    <div class="slideshow-container home-containers">
-
-        <div class="container home-header-title text-white">
+    <div class="container-fluid slideshow-container home-containers">
+        <div class="home-header-title text-white">
             <h2>See what our Customers are Saying</h2>
         </div>
 
@@ -246,7 +242,7 @@
     </div>
 
     <div class="container-fluid home-containers" id="facilitate-form">
-        <div class="container home-header-title">
+        <div class="home-header-title">
             <h2>Facilitate Customer Service</h2>
         </div>
         <p class="text-center">

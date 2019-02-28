@@ -129,7 +129,7 @@ class LoginController extends Controller
                     return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
                 }
 
-                return response(ResponseUtil::buildSuccessResponse(['authtoken' => $token]), HttpStatusCodesConsts::HTTP_OK);
+                return response(ResponseUtil::buildSuccessResponse(['authtoken' => $token, 'user_id' =>$userData[0]->id ]), HttpStatusCodesConsts::HTTP_OK);
             }
         } catch (\Exception $e) {
 

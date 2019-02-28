@@ -8,7 +8,7 @@ $appliedParams= $data['appliedParams'];
 @endphp
 
 <!--------------left ------------------>
-<div id="venue-list-bg">
+<div class="venue-list-bg">
     <div class="col-sm-2 tab-filters">
         <div class="list">
             @include('shared.filters', ['filters' => $packageSuppliers["filters"], 'pageType' =>
@@ -20,11 +20,12 @@ $appliedParams= $data['appliedParams'];
     <!-------filtersidvenue ---------->
 
     <!--- event right ---------------------->
-    <div class="col-sm-10 tab-data" id="eventlist-contentright">
-        <div class="container rightevent">
+    <div class="col-sm-10 tab-data">
 
-            @include("shared.sorter", ['appliedParams' => $appliedParams, 'pageNumber' =>
-            $packageSuppliers["paginate"]["current_page"]])
+        @include("shared.sorter", ['appliedParams' => $appliedParams, 'pageNumber' =>
+        $packageSuppliers["paginate"]["current_page"]])
+
+        <div class="container-fluid">
 
             @if (isset($packageSuppliers['suppliersList']) && count($packageSuppliers['suppliersList']) > 0)
             @foreach ($packageSuppliers['suppliersList'] as $key=>$suppliersList)

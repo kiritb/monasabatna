@@ -49,34 +49,53 @@
         </div>
     </nav>
     <header>
-        <nav class="navbar bg-white">
+        <nav class="navbar navbar-expand justify-content-between bg-white">
             <a class="navbar-brand" href="{{ url('/') }}"> <img src={{ url('svg/images/monasabatna_final_logo.png') }}
                     height="50"></a>
-            <navbar>
-                <ul id="mainNav">
-                    <li class="nav-item"><a href="{{ url('/') }}">HOME</a></li>
-                    <li class="nav-item"><a href="{{ url('/expressdeals') }}">EXPRESS</a></li>
-                    <li class="nav-item"><a href="{{ url('/upcoming-events') }}">UPCOMINGS</a></li>
-                    <li class="nav-item"><a href="{{ url('/listing?pageis=venues') }}">VENUES</a></li>
-                    <li class="nav-item"><a href="{{ url('/listing?pageis=suppliers') }}">SUPPLIERS </a></li>
-                    <li class="nav-item"><a href="{{ url('/listing?pageis=events') }}">EVENT ORGANISERS</a></li>
-                    <li class="nav-item submenu">
-                        <a href="{{ url('/about') }}">ABOUT US</a>
-                        <ul id="browse">
-                            <li class="abovedrop"><a href="{{ url('/aboutus') }}">About us</a></li>
-                            <li class="abovedrop"><a href="{{ url('/#whyus') }}">Why Munasabatna</a></li>
-                            <li class="abovedrop"><a href="{{ url('/blogs') }}">Blogs</a></li>
-                            <li class="abovedrop"><a href="{{ url('/contactus') }}">Contact us</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a href="{{ url('/#facilitate-form') }}">CUSTOMER SERVICE </a></li>
-                    <li class="nav-item"><a href="{{ url('/wishlist') }}"> WISHLIST</a></li>
-                    <li class="nav-item">
-                        <a class="btn btn-default booknow-header" href="#">Book Now</a>
-                    </li>
-                </ul>
-                <!-- <div class="menu-toggle"><i class="fa fa-bars" arial-hidden="true"></i></div> -->
-            </navbar>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/expressdeals') }}">EXPRESS</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/upcoming-events') }}">UPCOMINGS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/listing?pageis=venues') }}">VENUES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/listing?pageis=suppliers') }}">SUPPLIERS </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/listing?pageis=events') }}">EVENT ORGANISERS</a>
+                </li>
+                <li class="nav-item submenu">
+                    <a class="nav-link" href="{{ url('/about') }}">ABOUT US</a>
+                    <ul>
+                        <li class="submenu-item">
+                            <a class="nav-link" href="{{ url('/aboutus') }}">About us</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a class="nav-link" href="{{ url('/#whyus') }}">Why Munasabatna</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a class="nav-link" href="{{ url('/blogs') }}">Blogs</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a class="nav-link" href="{{ url('/contactus') }}">Contact us</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/#facilitate-form') }}">CUSTOMER SERVICE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/wishlist') }}"> WISHLIST</a>
+                </li>
+            </ul>
+            <a class="btn btn-default booknow-header" href="#">Book Now</a>
+            <!-- <div class="menu-toggle"><i class="fa fa-bars" arial-hidden="true"></i></div> -->
         </nav>
     </header>
     <!------- Header end-------->

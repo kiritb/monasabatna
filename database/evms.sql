@@ -562,34 +562,74 @@ DROP TABLE IF EXISTS evms.orders;
 create table evms.orders(
   id int(11) NOT NULL AUTO_INCREMENT,
   user_email varchar(256) NOT NULL,
+  is_guest_user tinyint(1) NOT NULL,
   order_no varchar(6) NOT NULL,
   linkable_id int(11) NOT NULL,
   linkable_type varchar(30) NOT NULL,
   no_of_guests int(11) DEFAULT NULL,
   voucher_id int(11) DEFAULT NULL,
-  pricing_type_id int(11) NOT NULL,
   payment_type_id int(11) DEFAULT NULL,
   voucher_amount decimal(10,2) DEFAULT NULL,
-  totalAmount decimal(10,2) NOT NULL,
-  discountedAmount decimal(10,2) NOT NULL,
-  netTotal decimal(10,2) NOT NULL,
-  taxAmount decimal(10,2) NOT NULL,
-  taxPercent decimal(10,2) NOT NULL,
-  serviceFee decimal(10,2) NOT NULL,
-  servicePercent decimal(10,2) NOT NULL,
+  total_amount decimal(10,2) NOT NULL,
+  discounted_amount decimal(10,2) NOT NULL,
+  net_total decimal(10,2) NOT NULL,
+  tax_amount decimal(10,2) NOT NULL,
+  tax_percent decimal(10,2) NOT NULL,
+  service_fee decimal(10,2) NOT NULL,
+  service_percent decimal(10,2) NOT NULL,
   booking_from_date datetime NOT NULL,
   booking_to_date datetime NOT NULL,
   is_payment_done tinyint NOT NULL DEFAULT 0,
   is_partial_payment tinyint NOT NULL DEFAULT 0,
+  partial_amount decimal(10,2) NOT NULL,
   is_cancelled tinyint NOT NULL DEFAULT 0,
+  self_booking tinyint NOT NULL DEFAULT 1,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,
   created_by varchar(256) NOT NULL,
   updated_by varchar(256) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (pricing_type_id) REFERENCES pricing_type(id),
+  UNIQUE KEY order_no (order_no),
   FOREIGN KEY (payment_type_id) REFERENCES payment_type(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS evms.guest_users;
+create table evms.guest_users(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user_email varchar(256) NOT NULL,
+  first_name varchar(256) NOT NULL,
+  fathers_name varchar(256) NOT NULL,
+  family_name varchar(256) NOT NULL,
+  country_code varchar(5) NOT NULL,
+  phone_no varchar(10) NOT NULL,
+  customer_address text DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY user_email (user_email)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS evms.guest_behalf_bookings;
+create table evms.guest_behalf_bookings(
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user_email varchar(256) NOT NULL,
+  guest_first_name varchar(256) NOT NULL,
+  guest_fathers_name varchar(256) NOT NULL,
+  guest_family_name  varchar(256) NOT NULL,
+  guest_email varchar(256) DEFAULT NULL,
+  guest_country_code varchar(5) DEFAULT NULL,
+  guest_phone_no varchar(10) DEFAULT NULL,
+  status int(1) NOT NULL DEFAULT 1,
+  created_at datetime DEFAULT NULL,
+  updated_at datetime DEFAULT NULL,
+  created_by varchar(256) NOT NULL,
+  updated_by varchar(256) NOT NULL,
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -847,6 +887,7 @@ create table evms.service_fee(
   booking_commisssion int(3) NOT NULL,
   express_deals_commisssion int(3) NOT NULL,
   cancellation_commisssion int(3) NOT NULL,
+  customer_commisssion int(3) NOT NULL,
   status int(1) NOT NULL DEFAULT 1,
   created_at datetime DEFAULT NULL,
   updated_at datetime DEFAULT NULL,

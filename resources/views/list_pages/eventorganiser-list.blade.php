@@ -8,7 +8,7 @@ $appliedParams= $data['appliedParams'];
 @endphp
 
 <!--------------left ------------------>
-<div id="venue-list-bg">
+<div class="venue-list-bg">
     <div class="col-sm-2 tab-filters">
         <div class="list">
             <!---- filters rendered here ------->
@@ -20,12 +20,12 @@ $appliedParams= $data['appliedParams'];
     <!-------filtersidvenue ---------->
 
     <!--- event right ---------------------->
-    <div class="col-sm-10 tab-data" id="eventlist-contentright">
+    <div class="col-sm-10 tab-data">
 
         @include("shared.sorter", ['appliedParams' => $appliedParams, 'pageNumber' =>
         $eventorgs["paginate"]["current_page"]])
 
-        <div class="container rightevent">
+        <div class="container-fluid">
             @if (isset($eventorgs["eventOrganiserslist"]) && count($eventorgs["eventOrganiserslist"]) > 0)
             @foreach ($eventorgs["eventOrganiserslist"] as $key=>$eventOrganiser)
             <div class="row item-bg-color">

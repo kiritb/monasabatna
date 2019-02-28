@@ -6,8 +6,8 @@
 
 <!---- maps button and heading ------------>
 <!------- Tabs start-------->
-<div class="container-fluid" id="customerdetails">
-    <h2 class="exphead"> Express Deals </h2>
+<div class="container" id="customerdetails">
+    <h2 class="listhead">Express Deals</h2>
     <div class="row rightevent" id="expressListingPage">
         <div class="col-sm-12">
             <div class="underlinetab">

@@ -22,7 +22,7 @@ class ServiceFeeHelper
         
         try
         {   
-            $serviceFeeDetails = current(ServiceFee::select('service_tax', 'booking_commisssion', 'express_deals_commisssion', 'cancellation_commisssion')
+            $serviceFeeDetails = current(ServiceFee::select('service_tax', 'booking_commisssion', 'express_deals_commisssion', 'cancellation_commisssion', 'customer_commisssion')
                                         ->where('status', 1)
                                         ->get()
                                         ->toArray()

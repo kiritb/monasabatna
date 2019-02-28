@@ -7,7 +7,7 @@ $venues= $data;
 $appliedParams= $data['appliedParams'];
 @endphp
 
-<div id="venue-list-bg">
+<div class="venue-list-bg">
     <div class="col-sm-2 tab-filters">
         <div class="list">
             @include('shared.filters', ['filters' => $venues["filters"], 'appliedParams' => $appliedParams])
@@ -18,11 +18,10 @@ $appliedParams= $data['appliedParams'];
     <!---------- wishlist -------------------------------->
     <div class="col-sm-10 tab-data">
         <!----------------------- tab container end -------------------->
-        <div class="container">
+        @include("shared.sorter", ['appliedParams' => $appliedParams, 'pageNumber' =>
+        $venues["paginate"]["current_page"]])
 
-            @include("shared.sorter", ['appliedParams' => $appliedParams, 'pageNumber' =>
-            $venues["paginate"]["current_page"]])
-
+        <div class="container-fluid">
             @if (count($venues["vennueLists"]) > 0)
             @foreach ($venues["vennueLists"] as $vennueLists)
             <div class="row item-bg-color">
@@ -91,4 +90,3 @@ $appliedParams= $data['appliedParams'];
     </div>
 </div>
 @endif
-<!------- venue-list-bg --------->

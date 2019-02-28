@@ -68,10 +68,10 @@
                     <li class="submenu">
                         <a href="#">ABOUT US</a></b>
                         <ul id="browse">
-                            <li class="abovedrop"><a href="#">About us</a></li>
-                            <li class="abovedrop"><a href="#">Why Munasabatna</a></li>
-                            <li class="abovedrop"><a href="#">Blogs</a></li>
-                            <li class="abovedrop"><a href="#">Contact us</a></li>
+                            <li class="submenu-item"><a href="#">About us</a></li>
+                            <li class="submenu-item"><a href="#">Why Munasabatna</a></li>
+                            <li class="submenu-item"><a href="#">Blogs</a></li>
+                            <li class="submenu-item"><a href="#">Contact us</a></li>
                         </ul>
                     </li>
                     <li><a href="#">CUSTOMER SERVICE </a></li>

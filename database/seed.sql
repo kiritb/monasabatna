@@ -5350,5 +5350,5 @@ insert into generic_terms (type,terms_header,terms_text,created_by,updated_by)
 values ('privacy_policy','Notice to End Users', 'The data we hold may also be processed by employees operating in countries listed above, Such staff may be engaged in, among other things, product development and customer and technical support. The data protection and other laws of these countries might not be as comprehensive as those in your country. By submitting your data and/or using Our Services, You consent to the transfer, storing, and processing of Your data in these countries.','a@a.com','a@a.com');
 
 
-insert into service_fee(service_tax,booking_commisssion,express_deals_commisssion, cancellation_commisssion,created_by,updated_by)
-values (8, 5, 5, 5, 'a@a.com', 'a@a.com');
+insert into service_fee(service_tax,booking_commisssion,express_deals_commisssion, cancellation_commisssion,customer_commisssion,created_by,updated_by)
+values (8, 5, 5, 5, 0,'a@a.com', 'a@a.com');

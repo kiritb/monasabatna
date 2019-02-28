@@ -17,7 +17,7 @@ class Curl
      * @param $url - optional
      * @return Array
     */
-    public static function makeCurlCall( $httpMethod, $params, $url )
+    public static function makeCurlCall( $httpMethod, $params, $url , $returnTransfer = 1)
     {
         $ch = curl_init();
 
@@ -50,10 +50,18 @@ class Curl
 
         curl_setopt($ch,CURLOPT_URL,$url);
         
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        if($returnTransfer)
+        {
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
+        }
+        else
+        {
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
+        }
+        
 
         // Connection Time Out KEPT 2 seconds
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 
         $output = curl_exec($ch);
         
