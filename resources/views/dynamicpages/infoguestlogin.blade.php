@@ -1,6 +1,6 @@
 @include('shared/header')
 <link rel="stylesheet" type="text/css" href="{{ url('css/infoguestlogin.css') }}">
-<div class="container-fluid" id="greydivider"> </div>
+<div class="greydivider"> </div>
 <div class="container-fluid" id="infologin">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">

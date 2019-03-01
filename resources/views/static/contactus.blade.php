@@ -1,6 +1,6 @@
 @include('shared/header')
 <link rel="stylesheet" type="text/css" href="{{ url('css/contactus.css') }}">
-<div class="container-fluid" id="greydivider"> </div>
+<div class="greydivider"> </div>
 
 <div class="container-fluid" id="contactworld">
     <div class="leftcontact">
@@ -108,3 +108,4 @@
 
 @include('shared/footer')
 <script src="{{ url('js/contact-us.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ url('js/static-pages.js') }}" type="text/javascript" charset="utf-8"></script>

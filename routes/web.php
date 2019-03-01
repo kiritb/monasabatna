@@ -9,9 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('blogs', function () {
-    return view('blogs');
-});
 
 Route::get('customer_signup', function () {
     return view('auth/customer_signup');
@@ -206,6 +203,8 @@ Route::get('events/organisers/packages/{id}', 'Web\EventController@getPackageDet
 Route::get('suppliers/packages/{id}', 'Web\EventController@getSupplierPackageDetails');
 
 Route::get('aboutus', 'Web\HomeController@aboutUs')->name('aboutus');
+
+Route::get('blogs', 'Web\BlogController@getBlogs');
 
 Route::get('contactus', function () {
     return view('static/contactus');

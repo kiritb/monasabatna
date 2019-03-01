@@ -1,10 +1,8 @@
 <div class="our-team">
 
     @if(isset($title))
-    <div class="text-center">
-        <h1>
-            {{ $title }}
-        </h1>
+    <div class="title-text kitten-bold">
+        <h1>{{ $title }}</h1>
     </div>
     @endif
 

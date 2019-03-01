@@ -82,7 +82,7 @@
                 </div>
                 @endforeach
                 @else
-                <div>No data!!</div>
+                <div class="noData">No data!!</div>
                 @endif
             </div>
             <!------------end of events content ---------------------->
@@ -96,7 +96,7 @@
                 </div>
                 @endforeach
                 @else
-                <div>No data!!</div>
+                <div class="noData">No data!!</div>
                 @endif
 
             </div>

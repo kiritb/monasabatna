@@ -20,14 +20,14 @@ class BlogController extends Controller
             if (empty($blogsData)) {
                 $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['No Data Found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, 'No Data Found');
 
-                return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+                return view('static/blogs')->with('data', $responseArr);
             }
 
-            return response(ResponseUtil::buildSuccessResponse($blogsData), HttpStatusCodesConsts::HTTP_OK);
+            return view('static/blogs')->with('data', $blogsData);
         } catch (\Exception $e) {
             $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
 
-            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+            return view('static/blogs')->with('data', $responseArr);
         }
     }
 

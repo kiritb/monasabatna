@@ -18,7 +18,7 @@
         $filters["price_range"],
         'type_title' => 'Price', 'name' => 'price_range', 'prefix' => 'SAR', 'appliedParams' => $appliedFilters])
         @else
-        <div>No data!!</div>
+        <div class="noData">No data!!</div>
         @endif
         @endif
 
@@ -40,7 +40,7 @@
         'type_title'
         => 'Seating Capacity', 'name' => 'seating_capacity', 'appliedParams' => $appliedFilters])
         @else
-        <div>No data!!</div>
+        <div class="noData">No data!!</div>
         @endif
         @endif
 
@@ -61,7 +61,7 @@
         'type_title'
         => 'Venue Type', 'name' => 'vennue_types', 'appliedParams' => $appliedFilters])
         @else
-        <div>No data!!</div>
+        <div class="noData">No data!!</div>
         @endif
         @endif
 
@@ -82,7 +82,7 @@
         'type_title'
         => 'Event Type', 'name' => 'event_types', 'appliedParams' => $appliedFilters])
         @else
-        <div>No data!!</div>
+        <div class="noData">No data!!</div>
         @endif
         @endif
 
@@ -103,7 +103,7 @@
         'type_title'
         => 'Service Types', 'name' => 'services_types', 'appliedParams' => $appliedFilters])
         @else
-        <div>No data!!</div>
+        <div class="noData">No data!!</div>
         @endif
         @endif
 
@@ -124,7 +124,7 @@
         'type_title'
         => 'Facility / Amenities', 'name' => 'ammenties_types', 'appliedParams' => $appliedFilters])
         @else
-        <div>No data!!</div>
+        <div class="noData">No data!!</div>
         @endif
         @endif
 
@@ -145,7 +145,7 @@
         'type_title'
         => 'Room Type', 'name' => 'room_types', 'appliedParams' => $appliedFilters])
         @else
-        <div>No data!!</div>
+        <div class="noData">No data!!</div>
         @endif
         @endif
 

@@ -5,6 +5,8 @@
     <!-- Home Carousal for Banners -->
     @include("shared/home_slider")
 
+    @if(count($data))
+
     <div class="container-fluid home-containers padd-lr-2" id="middlelayer">
         <div class="home-header-title">
             <h2>Express Deals</h2>
@@ -60,7 +62,7 @@
             <!---- end of col-sm-3---->
             @endforeach
             @else
-            <div>No data!!</div>
+            <div class="noData">No data!!</div>
             @endif
         </div>
         <!----- end of row col-sm-12 ----->
@@ -80,7 +82,7 @@
             @if (count($data["partners"]) > 0)
             @include('slickslider', ['slides' => $data["partners"]])
             @else
-            <div>No data!!</div>
+            <div class="noData">No data!!</div>
             @endif
         </div>
         <!------------ end of col ------------->
@@ -144,7 +146,7 @@
             <!---- end of col-sm-3---->
             @endforeach
             @else
-            <div>No data!!</div>
+            <div class="noData">No data!!</div>
             @endif
 
         </div>
@@ -229,7 +231,7 @@
             @endforeach
 
             @else
-            <div>No data!!</div>
+            <div class="noData">No data!!</div>
             @endif
 
             <a class="prev" onclick="plusSlides(-1)">
@@ -253,6 +255,11 @@
             @include("shared/facilitate-customer-service")
         </div>
     </div>
+
+    @else
+    <div class="noData">No data!!</div>
+    @endif
+
 </div>
 <!------- body end-------->
 

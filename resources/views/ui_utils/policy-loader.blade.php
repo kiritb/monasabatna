@@ -5,5 +5,5 @@
 <hr />
 @endforeach
 @else
-<div>No data!!</div>
+<div class="noData">No data!!</div>
 @endif

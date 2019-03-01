@@ -358,4 +358,4 @@
 <div class="row"> </div>
 @include('shared/footer')
 <!------- body end-------->
-<script type="text/javascript" src={{ url('js/signup.js') }} charset="utf-8"></script>
+<script type="text/javascript" src={{ url('js/vendorpanel/signup.js') }} charset="utf-8"></script>

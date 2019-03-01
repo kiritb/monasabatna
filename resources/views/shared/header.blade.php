@@ -71,7 +71,7 @@
                     <a class="nav-link" href="{{ url('/listing?pageis=events') }}">EVENT ORGANISERS</a>
                 </li>
                 <li class="nav-item submenu">
-                    <a class="nav-link" href="{{ url('/about') }}">ABOUT US</a>
+                    <a class="nav-link" href="{{ url('/aboutus') }}">ABOUT US</a>
                     <ul>
                         <li class="submenu-item">
                             <a class="nav-link" href="{{ url('/aboutus') }}">About us</a>

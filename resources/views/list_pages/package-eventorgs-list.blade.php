@@ -55,7 +55,7 @@ $appliedParams= $data['appliedParams'];
                                 {{ $event_cover }}
                                 @endforeach
                                 @else
-                                <div>No data!!</div>
+                                <div class="noData">No data!!</div>
                                 @endif
                             </b></div>
                         <p class="eventwish">
@@ -81,7 +81,7 @@ $appliedParams= $data['appliedParams'];
             </div>
             @endforeach
             @else
-            <div>No data!!</div>
+            <div class="noData">No data!!</div>
             @endif
         </div>
 

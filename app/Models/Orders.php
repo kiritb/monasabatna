@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $pricing_type_id
  * @property integer $payment_type_id
  * @property double $voucher_amount
+ * @property int $no_of_guests
  * @property double $total_amount
  * @property double $discounted_amount
  * @property double $net_total
@@ -45,6 +46,6 @@ class Orders extends Model
     /**
      * @var array
     */
-    protected $fillable = ['user_email', 'is_guest_user', 'order_no','linkable_id','linkable_type','voucher_id','pricing_type_id','payment_type_id','voucher_amount','total_amount','discounted_amount','net_total','tax_amount','tax_percent','service_fee','service_percent','booking_from_date','booking_to_date','is_payment_done', 'is_partial_payment', 'partial_amount', 'status', 'created_by', 'updated_by' ];
+    protected $fillable = ['user_email', 'is_guest_user', 'order_no','linkable_id','linkable_type','voucher_id','pricing_type_id','payment_type_id','voucher_amount', 'no_of_guests', 'total_amount','discounted_amount','net_total','tax_amount','tax_percent','service_fee','service_percent','booking_from_date','booking_to_date','is_payment_done', 'is_partial_payment', 'partial_amount', 'status', 'created_by', 'updated_by' ];
 
 }

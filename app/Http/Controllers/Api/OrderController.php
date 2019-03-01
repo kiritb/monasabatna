@@ -92,7 +92,6 @@ class OrderController extends Controller
         {
             $orderData = orderHelper::createOrder( $requestParams );
 
-            //return response( ResponseUtil::buildSuccessResponse($orderData), HttpStatusCodesConsts::HTTP_CREATED );
         }
         catch( \Exception $e)
         {
@@ -103,7 +102,14 @@ class OrderController extends Controller
         
    }
 
-  
+  public function paymentResponse (Request $request)
+  { 
+
+    $requestParams = $request->all();
+
+    dd($requestParams);
+    \Log::info(__CLASS__." ".__FUNCTION__.' Request Params =>'. print_r($requestParams , true ) );
+  }
 
    
 }
