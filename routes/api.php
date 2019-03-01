@@ -84,7 +84,10 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('terms', 'Api\HomeController@getGenericTerms');
 
     Route::get('language/messages', 'Api\HomeController@getLanguageMessages');
+
 });
+
+
 
 Route::group(['middleware' => ['jwt.verify'], 'prefix' => 'v1'], function () {
     Route::get('logout', 'Auth\LoginController@logout');
@@ -93,8 +96,10 @@ Route::group(['middleware' => ['jwt.verify'], 'prefix' => 'v1'], function () {
     Route::post('users/{id}', 'Auth\LoginController@updateUserDetails');
     Route::post('password/reset', 'Auth\LoginController@resetPassword');
     Route::post('reviews', 'Api\BlogController@postReviews');
-    Route::get('wishlist', 'Api\HomeController@getWishList');
     Route::post('wishlist', 'Api\HomeController@addWishList');
+    Route::put('wishlist/{id}', 'Api\HomeController@deleteWishList');
+    Route::get('wishlist', 'Api\HomeController@getWishList');
+    
 });
 
     Route::get('vendoramenities', 'Web\AmenitieController@getAmenitieType');

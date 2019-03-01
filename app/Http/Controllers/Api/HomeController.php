@@ -440,6 +440,73 @@ class HomeController extends Controller
         }
     }
 
+
+    public function deleteWishList(Request $request, $id)
+    {
+        $requestParams = $request->all();
+
+        $rules = ['user_id' => 'required|exists:users,id' ];
+
+        $validator = Validator::make($requestParams, $rules);
+
+        if ($validator->fails()) {
+            $errorMessages = current($validator->messages());
+            
+            foreach ($errorMessages as $key => $value) {
+                \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message '.current($value).' Response Code '.HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+
+                $responseArr = ResponseUtil::buildErrorResponse(['errors' => [current($value)]], HttpStatusCodesConsts::HTTP_BAD_REQUEST, HttpStatusCodesConsts::HTTP_MANDATE_STRING);
+
+                return response($responseArr, HttpStatusCodesConsts::HTTP_BAD_REQUEST);
+            }
+        }
+
+
+        $wishListDetails = WishListHelper::getWishListById($id, $requestParams['user_id']);
+
+        if(empty($wishListDetails))
+        {
+
+            \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message - wish list not found ' .' Response Code '.HttpStatusCodesConsts::HTTP_NOT_FOUND);
+
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['wish list not found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, HttpStatusCodesConsts::HTTP_NOT_FOUND_STRING);
+
+            return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+        }
+        
+
+        $userDetails = UserHelper::emailByUserId($requestParams['user_id']);
+
+        if(empty($userDetails))
+        {
+
+            \Log::info(__CLASS__.' '.__FUNCTION__.' Error Message - user details not found' .' Response Code '.HttpStatusCodesConsts::HTTP_NOT_FOUND);
+
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => ['user details not found']], HttpStatusCodesConsts::HTTP_NOT_FOUND, HttpStatusCodesConsts::HTTP_NOT_FOUND_STRING);
+
+            return response($responseArr, HttpStatusCodesConsts::HTTP_NOT_FOUND);
+        }
+        
+        $updateData['updated_by']           = $userDetails['email'];
+
+        $updateData['status']               = 0;
+
+        try {
+
+            $res = WishListHelper::deleteWishList($id,$updateData );
+
+            return response(ResponseUtil::buildSuccessResponse(['message' =>'Successfully deleted wish list']), HttpStatusCodesConsts::HTTP_OK);
+
+        } catch (\Exception $e) {
+
+            \Log::info(__CLASS__.' '.__FUNCTION__.' Exception Occured =>'.print_r($e->getMessage(), true));
+
+            $responseArr = ResponseUtil::buildErrorResponse(['errors' => [HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING]], HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR_STRING);
+
+            return response($responseArr, HttpStatusCodesConsts::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
     public function getGenericTerms()
     {
         try {

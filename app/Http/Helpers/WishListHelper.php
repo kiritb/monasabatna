@@ -83,37 +83,31 @@ class WishListHelper
 
         $resArr   = [];
 
+        if($type == 'vennues')
+        {
+            $wishListDetails =  self::getWishListVenueData($userId);
+        }
+        else
+        {
+            $wishListDetails = self::getWishListSuppliersData($userId);
+        }
 
-        $wishListData = WishList::select('linkable_id', 'linkable_type', 'from_date', 'to_date', 'comment')
-                                 ->where('linkable_type', $type )
-                                 ->where('user_id', $userId)
-                                 ->where('status',1)
-                                 ->get()
-                                 ->toArray();
+        if(empty($wishListDetails))
+        {
+            return [];
+        }
 
-         if( !empty($wishListData) ) 
-         {  
-            $idArr  = array_column($wishListData, 'linkable_id');
-
-            if($type == 'vennues')
-            {
-                $resArr =  self::getWishListVenueData($idArr);
-            }
-            else
-            {
-                $resArr = self::getWishListSuppliersData($idArr);
-            }
-         }  
 
         $serviceCharges = ServiceFeeHelper::getServiceCharges();
 
-        $resArr['serviceCharges'] = empty($serviceCharges) ? [] : $serviceCharges;
+        $resArr['wishListDetails']      = $wishListDetails;
+        $resArr['serviceCharges']       = empty($serviceCharges) ? [] : $serviceCharges;
 
         return $resArr;                     
     }
 
 
-    public static function getWishListVenueData($vennueIdArr)
+    public static function getWishListVenueData($userId)
     {
 
         $vennueData = Vennues::select('vennues.id as vennueId', 'vennues.name as vennueName', 'vennues.short_description as vennueShortDescription',
@@ -124,7 +118,9 @@ class WishListHelper
                 'pricings.cancellation_fee_before_12_hours as cancellationFeeBefore12Hours',
                 'pricings.cancellation_fee_before_24_hours as cancellationFeeBefore24Hours',
                 'pricings.cancellation_fee_before_48_hours as cancellationFeeBefore48Hours',
-                'pricings.partial_payment_fee as partialPaymentFee', 'files.file_path as filePath')
+                'pricings.partial_payment_fee as partialPaymentFee', 'files.file_path as filePath',
+                'wish_list.id as wishListId','wish_list.from_date as fromDate', 'wish_list.to_date as toDate', 'wish_list.comment')
+                ->join('wish_list', 'wish_list.linkable_id', '=', 'vennues.id')
                 ->join('address', 'vennues.id', '=', 'address.linkable_id')
                 ->join('files', 'vennues.id', '=', 'files.linkable_id')
                 ->join('pricings', 'vennues.id', '=', 'pricings.linkable_id')
@@ -137,10 +133,11 @@ class WishListHelper
                 ->where('address.status', 1)
                 ->where('vennues.status', 1)
                 ->where('files.status', 1)
+                ->where('wish_list.status',1)
+                ->where('wish_list.user_id',$userId)
                 ->where('pricings.status', 1)
                 ->where('pricing_type.status', 1)
                 ->where('cities.status', 1)
-                ->whereIn('vennues.id', $vennueIdArr)
                 ->orderBy('vennues.order_no', 'asc')
                 ->orderBy('vennues.created_at', 'desc')
                 ->get()
@@ -149,7 +146,7 @@ class WishListHelper
          return $vennueData;   
     }
 
-    public static function getWishListSuppliersData($packageIdArr)
+    public static function getWishListSuppliersData($userId)
     {
 
        $suppliersPackageData = Suppliers::select('suppliers.id as supplierId',
@@ -166,8 +163,13 @@ class WishListHelper
                                                 'pricings.cancellation_fee_before_48_hours as cancellationFeeBefore48Hours',
                                                 'pricings.partial_payment_fee as partialPaymentFee',
                                                 'pricing_type.name as pricingType',
-                                                'event_types.name as eventType'
+                                                'event_types.name as eventType',
+                                                'wish_list.id as wishListId',
+                                                'wish_list.from_date as fromDate', 
+                                                'wish_list.to_date as toDate',
+                                                'wish_list.comment'
                                                 )
+                                ->join('wish_list', 'wish_list.linkable_id', '=', 'packages.id')
                                 ->join('packages', 'packages.linkable_id', '=', 'suppliers.id')
                                 ->join('files', 'files.linkable_id', '=', 'packages.id')
                                 ->join('event_types', 'event_types.id', '=', 'packages.event_type_id')
@@ -180,9 +182,10 @@ class WishListHelper
                                 ->where('suppliers.status', 1)
                                 ->where('pricings.status', 1)
                                 ->where('files.status', 1)
-                                ->whereIn('packages.id', $packageIdArr)
                                 ->where('event_types.status', 1)
                                 ->where('packages.status', 1)
+                                ->where('wish_list.status',1)
+                                ->where('wish_list.user_id',$userId)
                                 ->orderBy('suppliers.order_no', 'asc')
                                 ->orderBy('suppliers.created_at', 'desc')
                                 ->get()
@@ -190,5 +193,35 @@ class WishListHelper
 
 
          return $suppliersPackageData;   
+    }
+
+    /**
+     * @param Array  $data
+     *
+     * @return boolean
+     *
+     * @throws Exception
+    */
+    public static function deleteWishList($id, $data )
+    {   
+           
+        WishList::updateWishList($id, $data);
+       
+    }
+
+    public static function getWishListById($id, $userId)
+    {   
+
+
+        $wishListData = Current(WishList::select('linkable_id', 'linkable_type', 'from_date', 'to_date', 'comment')
+                                 ->where('id', $id )
+                                 ->where('user_id', $userId)
+                                 ->where('status',1)
+                                 ->get()
+                                 ->toArray()
+                        );
+
+         return $wishListData;
+
     }
 }
